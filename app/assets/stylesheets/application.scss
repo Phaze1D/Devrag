@@ -11,6 +11,24 @@
  * file per style scope.
  *
  */
+@import "bourbon";
+@import "neat";
+@import "neat_grid";
+// Remember to add lobster font
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC);
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two);
 
-  @import "bourbon";
-  @import "neat";
+.dbutton {
+  box-shadow: none;
+  border: 1px solid deepskyblue;
+  background-color: rgba(234, 232, 229, 0.42);
+  border-radius: 0.3em;
+  font-family: 'Lobster Two', cursive;
+}
+
+.dbutton:active {
+  box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 0.6);
+  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 0.6);
+  -moz-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 0.6);
+  -o-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 0.6);
+}
