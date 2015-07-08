@@ -1,37 +1,31 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- */
+
 @import "bourbon";
-@import "neat";
-@import "neat_grid";
-// Remember to add lobster font
-//@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC);
-@import url(http://fonts.googleapis.com/css?family=Lobster+Two);
-//@import url(http://fonts.googleapis.com/css?family=Lobster);
-//@import url(http://fonts.googleapis.com/css?family=Yantramanav);
-//@import url(http://fonts.googleapis.com/css?family=Belgrano);
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Belgrano);
+
+@font-face {
+  src: url('Menlo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .dbutton {
   box-shadow: none;
   border: 2px solid deepskyblue;
-  background-color: rgba(234, 232, 229, 0.42);
+  background-color: transparent;
   border-radius: 0.3em;
-  //font-family: 'Yantramanav', sans-serif;
   //font-family: 'Belgrano', serif;
-  //font-family: 'Lobster Two', cursive;
-  font-family: 'Lobster', cursive;
-  //font-family: 'Playfair Display SC', serif;
+  font-family: 'Menlo', serif;
+  color: #13615a;
 }
+
+.header{
+  //font-family: 'Belgrano',serif;
+  font-family: 'Menlo', serif;
+  color: darkslategray;
+}
+
+
 
 .fill-width{
   width: 100%;
