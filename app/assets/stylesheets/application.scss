@@ -2,6 +2,7 @@
 @import "bourbon";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Belgrano);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 
 @font-face {
   src: url('Menlo-Regular.ttf') format('truetype');
@@ -14,18 +15,35 @@
   border: 2px solid deepskyblue;
   background-color: transparent;
   border-radius: 0.3em;
-  //font-family: 'Belgrano', serif;
-  font-family: 'Menlo', serif;
+  font-family: 'Belgrano', serif;
+  //font-family: 'Menlo', serif;
   color: #13615a;
 }
 
+.dbutton:active {
+  box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+  -moz-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+  -o-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+}
+
 .header{
-  //font-family: 'Belgrano',serif;
-  font-family: 'Menlo', serif;
+  //font-family: 'Lobster', cursive;
+  font-family: 'Belgrano',serif;
+  //font-family: 'Menlo', serif;
   color: darkslategray;
 }
 
-
+.area{
+  //box-shadow:  0px 0px 2px 1px rgba(158, 144, 144, 1);
+  //-webkit-box-shadow:  0px 0px 2px 1px rgba(158, 144, 144, 1);
+  //-moz-box-shadow: 0px 0px 2px 1px rgba(158, 144, 144, 1);
+  //-o-box-shadow: 0px 0px 2px 1px rgba(158, 144, 144, 1);
+  background-color: rgb(0, 170, 226);
+  //background-color: rgb(255, 255, 255);
+  border-radius: 0.3em;
+  color: white;
+}
 
 .fill-width{
   width: 100%;
@@ -40,9 +58,7 @@
   height: 100%;
 }
 
-.dbutton:active {
-  box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
-  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
-  -moz-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
-  -o-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+body{
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
