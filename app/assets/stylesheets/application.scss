@@ -1,6 +1,6 @@
-
 @import "bourbon";
 @import "bootstrap";
+@import "home";
 @import url(http://fonts.googleapis.com/css?family=Belgrano);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 
@@ -26,63 +26,77 @@
   -o-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
 }
 
-.title{
-  font-family: 'Belgrano',serif;
+.title {
+  font-family: 'Belgrano', serif;
   color: darkslategray;
 }
 
-.title-2-alive{
-  font-family: 'Belgrano',serif;
+.title-2-alive {
+  font-family: 'Belgrano', serif;
   color: darkslategray;
   font-size: 17pt;
 }
 
-.title-2-dead{
-  font-family: 'Belgrano',serif;
+.title-2-dead {
+  font-family: 'Belgrano', serif;
   color: #a4a4a4;
 }
 
-
-.underline-alive{
+.underline-alive {
   border: 0px solid deepskyblue;
   border-bottom-width: 2px;
 }
 
-.underline-dead{
+.underline-dead {
   border: 0px solid #bababa;
   border-bottom-width: 2px;
 }
 
-.area{
+.area {
 
   box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
   -webkit-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
   -moz-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
-  -o-box-shadow:  0px 0px 2px 1px rgb(220, 214, 215);
+  -o-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
 
   background-color: #E9E9E9;
   border-radius: 0.3em;
   color: black;
 }
 
-.fill-width{
+.fill-width {
   width: 100%;
 }
 
-.fill-height{
+.fill-height {
   height: 100%;
 }
 
-.fill{
+.fill {
   width: 100%;
   height: 100%;
 }
 
-.main-font{
-  font-family: 'Belgrano',serif;
+.main-font {
+  font-family: 'Belgrano', serif;
 }
 
-body{
+.form-input {
+  @extend .form-control;
+  border-radius: .3em;
+  border: 1px solid lightgray;
+
+  box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
+  -webkit-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
+  -moz-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
+  -o-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
+
+  @media (max-width: 946px) {
+    margin-bottom: 20px;
+  }
+}
+
+body {
   padding-top: 100px;
   padding-bottom: 100px;
 }
