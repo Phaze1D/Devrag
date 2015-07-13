@@ -4,7 +4,7 @@
 
 #down-arror {
   width: 100%;
-  max-width: 30px;
+  max-width: 20px;
   height:auto;
 }
 
@@ -12,15 +12,10 @@
   cursor: pointer;
 }
 
-.hidden-dead{
-  border: 0px solid #bababa;
-  border-top-width: 2px;
-  background-color: white;
-}
 
 #name-title{
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
 }

@@ -39,7 +39,7 @@
 
 .title-2-dead {
   font-family: 'Belgrano', serif;
-  color: #a4a4a4;
+  color: rgba(182, 182, 182, 0.83);
 }
 
 .underline-alive {
@@ -48,8 +48,9 @@
 }
 
 .underline-dead {
-  border: 0px solid #bababa;
-  border-bottom-width: 2px;
+  border: 0px solid rgba(182, 182, 182, 0.55);
+  border-top-width: 2px;
+  background-color: white;
 }
 
 .area {
