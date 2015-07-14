@@ -2,9 +2,10 @@
 /**
  * Handles the down arror click animation
  */
-$(document).on('click','#down-arror', function(){
+$(document).on('click','#name-down-arror', function(){
     $(this).fadeOut('fast');
     openName();
+    closeLPU();
 });
 
 
@@ -17,8 +18,8 @@ $(document).on('click','#down-arror', function(){
 function openName(){
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
     $('#name-hidden-box').animate({
-        'margin-top': '100px'
-    },400,'linear', function () {
+        'top': '15px'
+    },300,'linear', function () {
         $('#name-hidden-box').fadeOut('fast');
     });
 }
@@ -32,5 +33,19 @@ function openLPU(){
 }
 
 function closeLPU(){
+    var lpuhb = $('#lpu-hidden-box');
+    lpuhb.animate({
+        'opacity': '1'
+    },100,'linear', function () {
 
+    });
+    $('#lang-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
+    $('#plat-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
+    $('#use-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
+
+    lpuhb.animate({
+        'top': '-40px'
+    },300,'linear', function () {
+
+    });
 }

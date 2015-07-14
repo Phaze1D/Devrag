@@ -11,11 +11,11 @@
 }
 
 .dbutton {
+  @extend .main-font;
   box-shadow: none;
   border: 2px solid deepskyblue;
   background-color: white;
   border-radius: 0.3em;
-  font-family: 'Belgrano', serif;
   color: darkslategrey;
 }
 
@@ -27,18 +27,18 @@
 }
 
 .title {
-  font-family: 'Belgrano', serif;
+  @extend .main-font;
   color: darkslategray;
 }
 
 .title-2-alive {
-  font-family: 'Belgrano', serif;
+  @extend .main-font;
   color: darkslategray;
   font-size: 17pt;
 }
 
 .title-2-dead {
-  font-family: 'Belgrano', serif;
+  @extend .main-font;
   color: rgba(182, 182, 182, 0.83);
 }
 
