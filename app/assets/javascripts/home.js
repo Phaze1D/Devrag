@@ -3,7 +3,6 @@
  * Handles the down arror click animation
  */
 $(document).on('click','#name-down-arror', function(){
-    $(this).fadeOut('fast');
     openName();
     closeLPU();
 });
@@ -20,7 +19,7 @@ function openName(){
     $('#name-hidden-box').animate({
         'top': '15px'
     },300,'linear', function () {
-        $('#name-hidden-box').fadeOut('fast');
+        $('#name-hidden-box').css('display', 'none');
     });
 }
 
@@ -34,11 +33,7 @@ function openLPU(){
 
 function closeLPU(){
     var lpuhb = $('#lpu-hidden-box');
-    lpuhb.animate({
-        'opacity': '1'
-    },100,'linear', function () {
-
-    });
+    lpuhb.css('opacity', '1');
     $('#lang-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
     $('#plat-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
     $('#use-title').removeClass('title-2-alive underline-alive').addClass('title-2-dead');
