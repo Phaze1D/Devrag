@@ -7,7 +7,10 @@ $(document).on('click','#name-down-arror', function(){
     closeLPU();
 });
 
-
+$(document).on('click','#lpu-down-arror', function(){
+    closeName();
+    openLPU();
+});
 
 /*
     Make function for name animation show and remove, and other function for
@@ -19,16 +22,31 @@ function openName(){
     $('#name-hidden-box').animate({
         'top': '15px'
     },300,'linear', function () {
-        $('#name-hidden-box').css('display', 'none');
+        $('#name-hidden-box').css('opacity', '0');
     });
 }
 
 function closeName(){
+    var nameHB = $('#name-hidden-box');
+    nameHB.css('opacity', '1');
+    $("#name-title").removeClass('title-2-alive underline-alive').addClass('title-2-dead');
+    nameHB.animate({
+        'top': '-40px'
+    },300,'linear', function () {
 
+    });
 }
 
 function openLPU(){
+    $('#use-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
+    $('#lang-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
+    $('#plat-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
 
+    $('#lpu-hidden-box').animate({
+        'top': '15px'
+    },300,'linear', function () {
+        $('#lpu-hidden-box').css('opacity', '0');
+    });
 }
 
 function closeLPU(){
