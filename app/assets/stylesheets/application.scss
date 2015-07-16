@@ -101,3 +101,14 @@ body {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
+html{
+  min-width: 500px;
+}
+
+.mediadiv{
+  display: none;
+  @media (max-width: 946px) {
+    display: block;
+  }
+}
