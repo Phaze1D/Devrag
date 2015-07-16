@@ -88,7 +88,9 @@ var sm_ajusted = false;
 var lg_ajusted = false;
 function ajust() {
 
-    if ($(".mediadiv").css('display') == 'block' && !sm_ajusted) {
+    var mediadiv = $(".mediadiv");
+
+    if (mediadiv.css('display') == 'block' && !sm_ajusted) {
 
         if ($('#name-title').hasClass('title-2-dead')) {
             $('#name-hidden-box').css('top', '-60px');
@@ -107,7 +109,7 @@ function ajust() {
         }
 
 
-    } else if ($(".mediadiv").css('display') == 'none' && !lg_ajusted) {
+    } else if (mediadiv.css('display') == 'none' && !lg_ajusted) {
 
         if ($('#name-title').hasClass('title-2-dead')) {
             $('#name-hidden-box').css('top', '-40px');
