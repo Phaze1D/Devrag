@@ -1,0 +1,21 @@
+
+
+.header-button{
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  height: 35px;
+  z-index: 1000;
+
+  background-size:   cover;                      /* <------ */
+  //background: white url("power.png") no-repeat center;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-box-shadow: 0px 1px 3px 0px $base01;
+  -moz-box-shadow: 0px 1px 3px 0px $base01;
+  box-shadow: 0px 1px 3px 0px $base01;
+}
