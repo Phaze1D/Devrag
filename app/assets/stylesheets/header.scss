@@ -91,7 +91,7 @@
   color: #009cd0;
 }
 
-#login-button{
+.login-button{
   @extend .main-font;
   box-shadow: none;
   border: 2px solid transparent;
@@ -104,7 +104,9 @@
   width: 75%;
 }
 
-#login-button:active{
+.login-button:active{
   background-color: #bfbfbf;
 }
+
+
 
