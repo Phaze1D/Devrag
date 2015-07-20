@@ -33,7 +33,7 @@
 #menu-div{
   z-index: 1000;
   position: fixed;
-  width: 250px;
+  width: 290px;
   height: 250px;
   top: 40px;
   left: 20px;
@@ -74,6 +74,7 @@
   background-color: $base00;
   border-color: $base00;
   color: white;
+  font-size: 10pt;
 }
 
 .login-form:focus{
@@ -83,7 +84,7 @@
 .login-link{
   position: absolute;
   top: 40%;
-  left: 47%;
+  left: 53%;
   font-size: 9pt;
 }
 
@@ -106,6 +107,13 @@
 
 .login-button:active{
   background-color: #bfbfbf;
+}
+
+.login-button:focus{
+  border-color: deepskyblue;
+  outline: 0;
+  -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.65);
+  box-shadow:  0 0 8px rgba(102, 175, 233, 0.65);
 }
 
 
