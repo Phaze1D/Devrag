@@ -146,3 +146,10 @@ html{
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
+
+.break-line{
+  position: absolute;
+  width: 90%;
+  border: 1px solid $base00;
+  color: white;
+}

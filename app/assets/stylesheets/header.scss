@@ -34,7 +34,7 @@
   z-index: 1000;
   position: fixed;
   width: 250px;
-  height: 200px;
+  height: 250px;
   top: 40px;
   left: 20px;
   background-color: $base03;
@@ -60,9 +60,9 @@
   -o-transition: all 0.1s;
   transition: all 0.1s;
 
-  -webkit-box-shadow: 2px 2px 2px 0px #292728;
-  -moz-box-shadow: 2px 2px 2px 0px #292728;
-  box-shadow: 2px 2px 2px 0px #292728;
+  -webkit-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  -moz-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  box-shadow: 0px 0px 5px 0px #8b8b8b;
 
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -70,7 +70,7 @@
 }
 
 .login-form{
-  width: 80%;
+  width: 75%;
   background-color: $base00;
   border-color: $base00;
   color: white;
@@ -78,5 +78,33 @@
 
 .login-form:focus{
   border-color: $base1;
+}
+
+.login-link{
+  position: absolute;
+  top: 40%;
+  left: 47%;
+  font-size: 9pt;
+}
+
+.login-link:hover{
+  color: #009cd0;
+}
+
+#login-button{
+  @extend .main-font;
+  box-shadow: none;
+  border: 2px solid transparent;
+  background-color: whitesmoke;
+  border-radius: 0.3em;
+  color: darkslategrey;
+  position: absolute;
+  top: 57%;
+  padding: 3px;
+  width: 75%;
+}
+
+#login-button:active{
+  background-color: #bfbfbf;
 }
 
