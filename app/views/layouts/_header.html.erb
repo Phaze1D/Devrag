@@ -4,14 +4,17 @@
 
 
 <div id="menu-div">
-    <input class="form-control main-font center login-form "
-           placeholder="Email" style="top: 17%">
-    <input class="form-control main-font center login-form"
-           placeholder="Password" style="top: 33%", type="password">
-    <%= link_to 'Forgot password','#', class: 'text-right main-font login-link'%>
-    <button  class="login-button center">Login</button>
+    <% if false %>
+        <input class="form-control main-font center login-form "
+               placeholder="Email" style="top: 17%">
+        <input class="form-control main-font center login-form"
+               placeholder="Password" style="top: 33%" , type="password">
+        <%= link_to 'Forgot password', '#', class: 'text-right main-font login-link' %>
+        <button class="login-button center" style="top: 56%">Login</button>
+        <div class="break-line center" style="top: 68%"></div>
+        <button class="login-button  center" style="top: 85%">Sign Up</button>
+    <% else %>
 
-    <div class="break-line center" style="top: 68%"></div>
 
-    <button  class="login-button  center" style="top: 80%">Sign Up</button>
+    <% end %>
 </div>
