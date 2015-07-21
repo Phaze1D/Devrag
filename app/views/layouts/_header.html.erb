@@ -1,10 +1,14 @@
 <div id="header-div">
     <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
+
+    <% if false %>
+            <h5 id="username-label" class="main-font">username</h5>
+    <% end %>
 </div>
 
 
 <div id="menu-div">
-    <% if false %>
+    <% if true %>
         <input class="form-control main-font center login-form "
                placeholder="Email" style="top: 17%">
         <input class="form-control main-font center login-form"
@@ -14,8 +18,16 @@
         <div class="break-line center" style="top: 68%"></div>
         <button class="login-button  center" style="top: 85%">Sign Up</button>
     <% else %>
+        <!--
+            Menu Items when logged in
+                Home
+                Profile
+                Notifcations
+                Settings
+                ----------
+                Sign Out
+        -->
 
-    
 
     <% end %>
 </div>
