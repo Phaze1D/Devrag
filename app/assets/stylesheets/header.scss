@@ -91,6 +91,8 @@
 
 .login-button:active{
   color: white;
+  outline: 0;
+  border: none;
 }
 
 .login-button:focus{
@@ -109,5 +111,22 @@
   margin: 0;
 }
 
+
+.notification-bubble{
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  background-color: rgba(179, 179, 179, 0.58);
+  opacity: .6;
+}
+
+.notification-text{
+  margin: 0;
+  top: 50%;
+  color: #255d62;
+}
 
 

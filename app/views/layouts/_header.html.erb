@@ -1,14 +1,17 @@
 <div id="header-div">
     <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-    <% if false %>
+    <% if true %>
             <h5 id="username-label" class="main-font">username</h5>
+            <div class="notification-bubble text-center center" style="left: 125px; top: 50%">
+                <h6 class="center notification-text main-font">300</h6>
+            </div>
     <% end %>
 </div>
 
 
 <div id="menu-div">
-    <% if true %>
+    <% if false %>
         <input class="form-control main-font center login-form "
                placeholder="Email" style="top: 17%">
         <input class="form-control main-font center login-form"
@@ -18,6 +21,19 @@
         <div class="break-line center" style="top: 68%"></div>
         <button class="login-button  center" style="top: 85%">Sign Up</button>
     <% else %>
+
+        <button class="login-button center text-left" style="top: 17%">Home</button>
+        <button class="login-button center text-left" style="top: 33%">Profile</button>
+        <button class="login-button center text-left" style="top: 49%">
+            Notifications
+            <div class="notification-bubble text-center center" style="opacity: 1;left: 90%; top: 50%;">
+                <h6 class="center notification-text main-font"
+                    style="color: #d5d5d5; font-size: 8pt">300</h6>
+            </div>
+        </button>
+        <button class="login-button center text-left" style="top: 65%">Settings</button>
+        <div class="break-line center" style="top: 75%"></div>
+        <button class="login-button  center text-left" style="top: 85%">Sign Out</button>
         <!--
             Menu Items when logged in
                 Home
