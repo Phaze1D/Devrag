@@ -153,3 +153,8 @@ html{
   border: 1px solid $base00;
   color: white;
 }
+
+.undecorated-link:hover{
+  text-decoration: none;
+  color: $base1;
+}
