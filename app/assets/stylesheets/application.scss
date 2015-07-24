@@ -78,16 +78,16 @@ $green:     #859900;
 
 .area {
 
-  box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
-  -webkit-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
-  -moz-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
-  -o-box-shadow: 0px 0px 2px 1px rgb(220, 214, 215);
+  box-shadow: 0px 0px 5px 0px deepskyblue;
+  -webkit-box-shadow: 0px 0px 5px 0px deepskyblue;
+  -moz-box-shadow: 0px 0px 5px 0px deepskyblue;
+  -o-box-shadow: 0px 0px 5px 0px deepskyblue;
   padding: 0;
   background-color: #E9E9E9;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
-  color: black;
+  border: 1px solid deepskyblue;
 }
 
 .fill-width {
@@ -109,13 +109,6 @@ $green:     #859900;
 
 .form-input {
   @extend .form-control;
-  border-radius: .3em;
-  border: 1px solid lightgray;
-
-  box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
-  -webkit-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
-  -moz-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
-  -o-box-shadow: inset 0px 0px 2px 0px rgba(193, 188, 189, 0.8);
 
   @media (max-width: 946px) {
     margin-bottom: 20px;
