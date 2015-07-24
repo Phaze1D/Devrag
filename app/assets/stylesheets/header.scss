@@ -85,12 +85,14 @@
   border-radius: 0.3em;
   color: $base1;
   position: absolute;
-  padding: 3px;
+  padding: 0px;
   width: 75%;
 }
 
+
 .login-button:active:focus{
   color: white;
+  padding: 0px;
   outline: 0;
   border: none;
   -webkit-box-shadow: none;
@@ -98,13 +100,11 @@
   text-decoration: none;
 }
 
-.login-button:focus {
-  border: 1px solid #b7b7b7;
+.login-button:focus{
   outline: 0;
-  -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.65);
-  box-shadow:  0 0 8px rgba(102, 175, 233, 0.65);
+  padding: 0px;
   text-decoration: none;
-  color: white;
+  color: $base1;
 }
 
 

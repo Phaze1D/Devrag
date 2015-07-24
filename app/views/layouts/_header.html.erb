@@ -15,22 +15,34 @@
 
 <div id="menu-div">
     <% if false %> <!-- if user logged in -->
-        <button class="login-button center text-left" style="top: 17%">Home</button>
-        <button class="login-button center text-left" style="top: 33%">Profile</button>
-        <button class="login-button center text-left" style="top: 49%">
-            Notifications
+        <%= link_to 'Home', '#',
+                    class:'login-button center text-left undecorated-link',
+                    style: 'top: 17%;'  %>
+
+        <%= link_to 'Profile', '#',
+                    class:'login-button center text-left undecorated-link',
+                    style: 'top: 33%;'  %>
+
+        <%= link_to 'Notification', '#',
+                    class:'login-button center text-left undecorated-link',
+                    style: 'top: 49%;'  %>
 
             <!-- if user has notifications -->
-            <div class="notification-bubble text-center center" style="left: 90%; top: 50%;">
+            <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
                 <h6 class="center notification-text main-font">3</h6>
             </div>
             <!-- end if-->
 
-        </button>
-        <button class="login-button center text-left" style="top: 65%">Settings</button>
+
+        <%= link_to 'Settings', '#',
+                    class:'login-button center text-left undecorated-link',
+                    style: 'top: 65%; '  %>
+
         <div class="break-line center" style="top: 75%"></div>
-        <button class="login-button  center text-left" style="top: 85%">Sign Out</button>
-    <% else %>
+
+        <%= link_to 'Logout', '#',
+                    class:'login-button center text-left undecorated-link',
+                    style: 'top: 85%; '  %>    <% else %>
         <input class="form-control main-font center login-form "
                placeholder="Email" style="top: 17%">
         <input class="form-control main-font center login-form"
@@ -38,7 +50,8 @@
         <%= link_to 'Forgot', '#', class: 'text-right main-font login-link' %>
         <button class="login-button center" style="top: 56%;">Login</button>
         <div class="break-line center" style="top: 68%"></div>
-        <%= link_to 'Sign Up', new_user_path, class:'login-button center text-center undecorated-link', style: 'top: 85%; '  %>
+
+        <%= link_to 'Sign up', new_user_path, class:'login-button center text-center undecorated-link', style: 'top: 85%; '  %>
 
     <% end %>
 </div>
