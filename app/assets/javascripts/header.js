@@ -10,6 +10,7 @@ $(document).mouseup(function (e)
 
     if (!container.is(e.target) && container.has(e.target).length === 0){
         container.css('opacity', '0');
+        container.css('display','none');
     }
 });
 
@@ -18,6 +19,7 @@ function menuAnim(){
 
     if(menu.css('opacity') == '1'){
         menu.css('opacity', '0');
+        menu.css('display','none');
         //menu.css('-webkit-transform:', 'scale(.5)');
         //menu.css('-moz-transform', 'scale(.5)');
         //menu.css('-o-transform', 'scale(.5)');
@@ -26,6 +28,7 @@ function menuAnim(){
 
     }else{
         menu.css('opacity', '1');
+        menu.css('display','initial');
         //menu.css('-webkit-transform:', 'scale(1)');
         //menu.css('-moz-transform', 'scale(1)');
         //menu.css('-o-transform', 'scale(1)');

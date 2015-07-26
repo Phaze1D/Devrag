@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   #Users
   resources :users
 
+  #Search Results URL
+  get 'search', to: 'home#search'
+
 end
