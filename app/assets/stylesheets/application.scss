@@ -78,16 +78,16 @@ $green:     #859900;
 
 .area {
 
-  box-shadow: 0px 0px 5px 0px deepskyblue;
-  -webkit-box-shadow: 0px 0px 5px 0px deepskyblue;
-  -moz-box-shadow: 0px 0px 5px 0px deepskyblue;
-  -o-box-shadow: 0px 0px 5px 0px deepskyblue;
+  //box-shadow: 0px 0px 5px 0px deepskyblue;
+  //-webkit-box-shadow: 0px 0px 5px 0px deepskyblue;
+  //-moz-box-shadow: 0px 0px 5px 0px deepskyblue;
+  //-o-box-shadow: 0px 0px 5px 0px deepskyblue;
   padding: 0;
-  background-color: #E9E9E9;
+  background-color: white;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
-  border: 1px solid deepskyblue;
+ // border: 1px solid deepskyblue;
 }
 
 .fill-width {
