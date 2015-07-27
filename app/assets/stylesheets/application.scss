@@ -1,21 +1,19 @@
-
-$base03:    #002b36;
-$base02:    #073642;
-$base01:    #586e75;
-$base00:    #657b83;
-$base0:     #839496;
-$base1:     #93a1a1;
-$base2:     #eee8d5;
-$base3: #fff9f2;
-$yellow:    #b58900;
-$orange:    #cb4b16;
-$red:       #dc322f;
-$magenta:   #d33682;
-$violet:    #6c71c4;
-$blue:      #268bd2;
-$cyan:      #2aa198;
-$green:     #859900;
-
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
 
 
 @import "bourbon";
@@ -31,7 +29,6 @@ $green:     #859900;
   font-weight: normal;
   font-style: normal;
 }
-
 
 .dbutton {
   @extend .main-font;
@@ -51,12 +48,12 @@ $green:     #859900;
 
 .title {
   @extend .main-font;
-  color: darkslategray;
+  color: $base02;
 }
 
 .title-2-alive {
   @extend .main-font;
-  color: darkslategray;
+  color: $base02;
   font-size: 17pt;
 }
 
@@ -87,7 +84,7 @@ $green:     #859900;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
- // border: 1px solid deepskyblue;
+  // border: 1px solid deepskyblue;
 }
 
 .fill-width {
@@ -120,37 +117,37 @@ body {
   padding-bottom: 100px;
 }
 
-html{
+html {
   min-width: 400px;
 }
 
-.mediadiv{
+.mediadiv {
   display: none;
   @media (max-width: 946px) {
     display: block;
   }
 }
 
-.center{
+.center {
   position: absolute;
   //top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%) ;
+  -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
 
-.break-line{
+.break-line {
   position: absolute;
   width: 80%;
   border: 1px solid $base00;
   color: white;
 }
 
-.undecorated-link:hover{
+.undecorated-link:hover {
   text-decoration: none;
   color: $base1;
 }
