@@ -60,3 +60,24 @@
 #use-title {
   @extend .dead-alive-transition
 }
+
+.tool-result-div{
+  margin: 40px 0 0 0;
+  border: 1px solid $base1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px 0px 10px 10px;
+}
+
+.tool-des{
+  color: $base00;
+}
+
+.tool-name{
+  @extend .title;
+  margin: 0;
+  font-size: 17pt;
+
+}
+
