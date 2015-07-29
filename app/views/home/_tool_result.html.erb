@@ -12,12 +12,31 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <p class="main-font tool-des">This is were a description of the tool will go. It will describle
-                the tool with some words and letters ok just so you know what to use
-                when writing your descriptions. Use words and letters cause that is
-                how englishs works</p>
+                <p class="main-font text-info" style="margin-bottom: 5px">This is were a description of the tool will go.
+                    It will describle
+                    the tool with some words and letters ok just so you know what to use
+                    when writing your descriptions. Use words and letters cause that is
+                    how englishs works</p>
             </div>
         </div>
+
+        <div class="row" style="padding-right: 20px">
+            <div class="col-xs-4">
+                <p class="title-2-dead" style="font-size: 9pt">submitted
+                    by <%= link_to 'username', '#', class: 'title-2-dead' %></p>
+            </div>
+            <div class="col-xs-2 col-xs-offset-6 comment-div">
+
+                <p class="main-font tool-des center-ver" style="font-size: 9pt; left: 50%">123</p>
+                <%= image_tag 'comment_icon.png', id: 'comment-image', class: 'center-ver' %>
+
+            </div>
+        </div>
+
     </div>
 </div>
 
+<!--
+    Added 'Verified' Icon next to website
+    Added 'Follow' button sys '+'
+-->
