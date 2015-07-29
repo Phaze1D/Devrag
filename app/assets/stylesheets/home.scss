@@ -20,11 +20,11 @@
   cursor: pointer;
 }
 
-.hidden-box{
+.hidden-box {
   position: relative;
 }
 
-#lpu-hidden-box{
+#lpu-hidden-box {
   @extend .hidden-box;
   top: 20px;
   opacity: 0;
@@ -35,7 +35,7 @@
 
 }
 
-#name-hidden-box{
+#name-hidden-box {
   @extend .hidden-box;
   top: -40px;
   opacity: 1;
@@ -61,7 +61,7 @@
   @extend .dead-alive-transition
 }
 
-.tool-result-div{
+.tool-result-div {
   margin: 40px 0 0 0;
   border: 1px solid $base1;
   -webkit-border-radius: 10px;
@@ -70,29 +70,42 @@
   padding: 10px 10px 0px 10px;
 }
 
-.tool-des{
-  color: $base00;
+.comment-count {
+  color: #b3c4c4;
+  font-size: 9pt;
+  left: 40%
 }
 
-.tool-name{
+.tool-name {
   @extend .title;
   margin: 0;
   font-size: 17pt;
 }
 
-.comment-div{
+.comment-div {
   min-width: 25px;
   min-height: 20px;
   max-width: 60px;
   padding: 0;
+  left: 5%;
 }
 
+.comment-div:hover{
+  cursor: pointer;
+}
 
-#comment-image{
-  top: 55%;
-  height: 20px;
+#comment-image {
+  top: 50%;
+  height: 17px;
   width: auto;
 }
+
+
+#options-image {
+  height: auto;
+  width: 30px;
+}
+
 
 
 
