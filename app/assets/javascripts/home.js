@@ -20,7 +20,7 @@ function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
     $('#name-hidden-box').animate({
         'top': '20px'
-    }, 300, 'linear', function () {
+    }, 200, 'linear', function () {
         $('#name-hidden-box').css('opacity', '0');
     });
 }
@@ -38,7 +38,7 @@ function closeName() {
     $("#name-title").removeClass('title-2-alive underline-alive').addClass('title-2-dead');
     nameHB.animate({
         'top': topv
-    }, 300, 'linear', function () {
+    }, 200, 'linear', function () {
 
     });
 }
@@ -51,7 +51,7 @@ function openLPU() {
 
     $('#lpu-hidden-box').animate({
         'top': '20px'
-    }, 300, 'linear', function () {
+    }, 200, 'linear', function () {
         $('#lpu-hidden-box').css('opacity', '0');
     });
 }
@@ -76,7 +76,7 @@ function closeLPU() {
 
     lpuhb.animate({
         'top': topv
-    }, 300, 'linear', function () {
+    }, 200, 'linear', function () {
 
     });
 }
