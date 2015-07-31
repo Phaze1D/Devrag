@@ -106,6 +106,14 @@
   color: $base1;
 }
 
+#username-div{
+  width: 140px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.92);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
 
 #username-label{
   position: absolute;
@@ -115,6 +123,7 @@
   top: 23%;
   margin: 0;
 }
+
 
 
 .notification-bubble{
@@ -133,5 +142,7 @@
   color: #0480c3;
   font-size: 8pt;
 }
+
+
 
 
