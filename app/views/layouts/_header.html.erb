@@ -1,16 +1,18 @@
-<div id="header-div">
-    <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
+<div id="username-div">
+    <div id="header-div">
+        <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-    <% if true %>  <!-- if user logged in -->
-        <div id="username-div">
+        <% if true %>  <!-- if user logged in -->
+
             <h5 id="username-label" class="main-font">username</h5>
             <!-- if user has notifications-->
             <div class="notification-bubble text-center center" style="left: 125px; top: 50%">
                 <h6 class="center notification-text main-font">3</h6>
             </div>
-        </div>
-        <!-- end if-->
-    <% end %>
+
+            <!-- end if-->
+        <% end %>
+    </div>
 </div>
 
 
