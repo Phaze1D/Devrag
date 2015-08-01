@@ -78,7 +78,7 @@
 
 .tool-name {
   @extend .title;
-  margin: 0;
+  margin: 0 10px 0 0;
   font-size: 17pt;
 }
 
@@ -90,7 +90,7 @@
   left: 5%;
 }
 
-.comment-div:hover{
+.comment-div:hover {
   cursor: pointer;
 }
 
@@ -100,11 +100,21 @@
   width: auto;
 }
 
-
 #options-image {
   height: auto;
   width: 30px;
 }
+
+#follow-button {
+  font-family: "Lobster", cursive;
+  font-size: 13pt;
+  background-color: #b3c4c4;
+  color: $base02;
+  border: none;
+  float: right;
+}
+
+
 
 
 
