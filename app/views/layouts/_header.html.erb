@@ -2,7 +2,7 @@
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-        <% if true %>  <!--user logged in -->
+        <% if false %>  <!--user logged in -->
 
             <h5 id="username-label" class="main-font">username</h5>
             <!-- if user has notifications-->
@@ -17,7 +17,7 @@
 
 
 <div id="menu-div">
-    <% if true %> <!--user logged in -->
+    <% if false %> <!--user logged in -->
         <%= link_to 'Home', '#',
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>
@@ -55,7 +55,7 @@
         <button class="login-button center" style="top: 56%;">Login</button>
         <div class="break-line center" style="top: 68%"></div>
 
-        <%= link_to 'Sign up', new_user_path, class: 'login-button center text-center undecorated-link', style: 'top: 85%; ' %>
+        <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link', style: 'top: 85%; ' %>
 
     <% end %>
 </div>

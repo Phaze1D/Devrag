@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   #Users
   resources :users
+  get 'signup', to: 'users#new'
 
   #Search Results URL
   get 'search', to: 'home#search'
