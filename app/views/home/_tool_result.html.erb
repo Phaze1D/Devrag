@@ -4,9 +4,16 @@
             <div class="col-xs-6">
                 <h4 class="tool-name">Some Name</h4>
             </div>
-            <div class="col-xs-2 col-xs-offset-4">
-                <button id="follow-button" class="dbutton">Follow</button>
-            </div>
+
+            <% if true %>
+                <div class="col-xs-2 col-xs-offset-4">
+                    <button id="follow-button" class="dbutton">Follow</button>
+                </div>
+            <% else %>
+                <div class="col-xs-2 col-xs-offset-4">
+                    <button id="unfollow-button" class="dbutton">Unfollow</button>
+                </div>
+            <% end %>
         </div>
         <div class="row">
             <div class="col-xs-12">
@@ -15,7 +22,8 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <p class="main-font text-info" style="margin-bottom: 5px">This is were a description of the tool will go.
+                <p class="main-font text-info" style="margin-bottom: 5px">This is were a description of the tool will
+                    go.
                     It will describle
                     the tool with some words and letters ok just so you know what to use
                     when writing your descriptions. Use words and letters cause that is
@@ -28,13 +36,24 @@
                 <p class="title-2-dead" style="font-size: 9pt">submitted
                     by <%= link_to 'username', '#', class: 'title-2-dead' %></p>
             </div>
-            <div class="col-xs-2 col-xs-offset-5 comment-div">
-                <p class="main-font comment-count center-ver">123</p>
-                <%= image_tag 'comment_icon.png', id: 'comment-image', class: 'center-ver' %>
+            <div class="col-xs-2 col-xs-offset-4" style="padding-right: 10px;">
+                <div class="LCO-div">
+                    <%= image_tag 'like_icon.png', id: 'like-image' %>
+                    <p class="main-font comment-count">123</p>
+                </div>
+            </div>
+            <div class="col-xs-1" style="padding: 0;">
+                <div class="LCO-div">
+                    <%= image_tag 'comment_icon.png', id: 'comment-image' %>
+                    <p class="main-font comment-count">123</p>
+                </div>
             </div>
 
-            <div class="col-xs-1 comment-div">
-                <%= image_tag 'tool_options_icon.png', id: 'options-image', class: 'center-ver center-hor' %>
+            <div class="col-xs-1" style="padding-right: 8px">
+                <div class="LCO-div">
+                    <%= image_tag 'tool_options_icon.png', id: 'options-image' %>
+
+                </div>
             </div>
 
         </div>

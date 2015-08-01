@@ -2,7 +2,7 @@
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-        <% if false %>  <!-- if user logged in -->
+        <% if true %>  <!--user logged in -->
 
             <h5 id="username-label" class="main-font">username</h5>
             <!-- if user has notifications-->
@@ -17,7 +17,7 @@
 
 
 <div id="menu-div">
-    <% if false %> <!-- if user logged in -->
+    <% if true %> <!--user logged in -->
         <%= link_to 'Home', '#',
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>

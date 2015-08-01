@@ -73,7 +73,7 @@
 .comment-count {
   color: #b3c4c4;
   font-size: 9pt;
-  left: 40%
+  float:right;
 }
 
 .tool-name {
@@ -82,15 +82,15 @@
   font-size: 17pt;
 }
 
-.comment-div {
+.LCO-div {
   min-width: 25px;
   min-height: 20px;
   max-width: 60px;
   padding: 0;
-  left: 5%;
+  float: right;
 }
 
-.comment-div:hover {
+.LCO-div:hover {
   cursor: pointer;
 }
 
@@ -98,11 +98,21 @@
   top: 50%;
   height: 17px;
   width: auto;
+  float: left;
+  margin-right: 4px;
+  margin-top: 1px;
 }
 
 #options-image {
   height: auto;
   width: 30px;
+  margin-bottom: 8px;
+}
+
+#like-image {
+  height: 17px;
+  margin-bottom: 6px;
+  margin-right: 4px;
 }
 
 #follow-button {
@@ -112,6 +122,13 @@
   color: $base02;
   border: none;
   float: right;
+}
+
+#unfollow-button {
+  @extend #follow-button;
+  margin-top: 4px;
+  font-size: 10pt;
+  color: #69828b
 }
 
 
