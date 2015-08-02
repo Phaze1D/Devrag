@@ -23,6 +23,10 @@ $(document).on('click', '#reportB', function () {
     reportClicked(this);
 });
 
+$(document).on('click','#dropdown-sort',function(){
+    dropdownClicked(this);
+});
+
 
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
@@ -142,4 +146,8 @@ function toolOptionsClicked(selector){
 
 function reportClicked(selector){
     console.log(selector);
+}
+
+function dropdownClicked(selector){
+    console.log('test')
 }
