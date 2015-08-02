@@ -19,6 +19,11 @@ $(document).on('click','#options-image', function(){
     toolOptionsClicked(this);
 });
 
+$(document).on('click', '#reportB', function () {
+    reportClicked(this);
+});
+
+
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
     $('#name-hidden-box').animate({
@@ -125,7 +130,6 @@ function adjust() {
     }
 }
 
-
 function toolOptionsClicked(selector){
     var parent = $(selector).parent();
     var popup = parent.find('div');
@@ -134,4 +138,8 @@ function toolOptionsClicked(selector){
     }else{
         popup.css('display','block')
     }
+}
+
+function reportClicked(selector){
+    console.log(selector);
 }

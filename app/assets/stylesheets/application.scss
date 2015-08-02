@@ -41,10 +41,15 @@ $green: #859900;
 }
 
 .dbutton:active {
+  outline: none;
   box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
   -webkit-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
   -moz-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
   -o-box-shadow: inset 0px 0px 2px 1px rgba(158, 144, 144, 1);
+}
+
+.dbutton:focus{
+  outline: none;
 }
 
 .title {
