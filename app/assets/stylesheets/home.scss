@@ -90,10 +90,6 @@
   float: right;
 }
 
-.LCO-div:hover {
-  cursor: pointer;
-}
-
 #comment-image {
   top: 50%;
   height: 17px;
@@ -103,16 +99,28 @@
   margin-top: 1px;
 }
 
+#comment-image:hover {
+  cursor: pointer;
+}
+
 #options-image {
   height: auto;
   width: 30px;
   margin-bottom: 8px;
 }
 
+#options-image:hover {
+  cursor: pointer;
+}
+
 #like-image {
   height: 17px;
   margin-bottom: 6px;
   margin-right: 4px;
+}
+
+#like-image:hover {
+  cursor: pointer;
 }
 
 #follow-button {
@@ -129,6 +137,21 @@
   margin-top: 4px;
   font-size: 10pt;
   color: #69828b
+}
+
+.options-popup {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background-color: $base02;
+  z-index: 1000;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 2px 1px #8b8b8b;
+  -moz-box-shadow: 0px 0px 2px 1px #8b8b8b;
+  box-shadow: 0px 0px 2px 1px #8b8b8b;
+  display: none;
 }
 
 

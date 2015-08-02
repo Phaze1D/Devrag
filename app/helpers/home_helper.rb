@@ -11,7 +11,7 @@ module HomeHelper
 
   # Returns the css id when the users is logged in
   def resize_div
-    if true
+    if false
       'username-div'
     else
       ''

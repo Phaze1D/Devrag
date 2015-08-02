@@ -16,7 +16,7 @@ $(window).on('resize', function () {
 });
 
 $(document).on('click','#options-image', function(){
-    toolOptionsClicked();
+    toolOptionsClicked(this);
 });
 
 function openName() {
@@ -126,6 +126,12 @@ function adjust() {
 }
 
 
-function toolOptionsClicked(){
-
+function toolOptionsClicked(selector){
+    var parent = $(selector).parent();
+    var popup = parent.find('div');
+    if(popup.css('display') == 'block'){
+        popup.css('display','none')
+    }else{
+        popup.css('display','block')
+    }
 }
