@@ -15,6 +15,9 @@ $(window).on('resize', function () {
     adjust();
 });
 
+$(document).on('click','#options-image', function(){
+    toolOptionsClicked();
+});
 
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
@@ -120,4 +123,9 @@ function adjust() {
             lg_adjusted = true;
         }
     }
+}
+
+
+function toolOptionsClicked(){
+
 }
