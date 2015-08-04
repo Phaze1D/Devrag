@@ -23,8 +23,9 @@ $(document).on('click', '#reportB', function () {
     reportClicked(this);
 });
 
-$(document).on('click','#dropdown-sort',function(){
-    dropdownClicked(this);
+$(document).on('click','#dropdown-sortB',function(){
+    dropdownClicked();
+    console.log('testing')
 });
 
 
@@ -148,6 +149,18 @@ function reportClicked(selector){
     console.log(selector);
 }
 
-function dropdownClicked(selector){
-    console.log('test')
+function removeOptionPop(e){
+    var container = $(".options-popup");
+    container.each(function () {
+        var item = $(this);
+        if (!item.is(e.target) && item.has(e.target).length === 0){
+            item.css('display','none');
+        }
+    });
+}
+
+function dropdownClicked(){
+    var selector = $('#dropdown-sortL');
+    selector.css('display', 'block');
+    selector.css('opacity', '1');
 }

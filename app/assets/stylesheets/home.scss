@@ -73,7 +73,7 @@
 .comment-count {
   color: #b3c4c4;
   font-size: 9pt;
-  float:right;
+  float: right;
 }
 
 .tool-name {
@@ -177,13 +177,13 @@ $tooltip-arrow-distance-from-box: -1.3em;
 
 }
 
-.m-dropdown-button{
+.m-dropdown-button {
   background-color: transparent;
   width: 100%;
   height: 34px;
   border: 1px solid #cccccc;
   color: $base01;
-  border-radius: 4px ;
+  border-radius: 4px;
   padding-left: 10px;
 
   &:after {
@@ -200,8 +200,7 @@ $tooltip-arrow-distance-from-box: -1.3em;
   }
 }
 
-
-.m-dropdown{
+.m-dropdown {
   display: block;
   position: absolute;
   list-style-type: none;
@@ -211,12 +210,27 @@ $tooltip-arrow-distance-from-box: -1.3em;
   background-color: white;
   width: 90%;
   border: 1px solid #cccccc;
-  border-radius: 8px ;
+  border-radius: 8px;
 
   -webkit-box-shadow: 0px 2px 5px 0px #8b8b8b;
   -moz-box-shadow: 0px 2px 5px 0px #8b8b8b;
   box-shadow: 0px 2px 5px 0px #8b8b8b;
+
 }
+
+.m-li {
+  margin: 2px 0 2px 0px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: $base1;
+  }
+}
+
 
 
 
