@@ -198,7 +198,16 @@ $tooltip-arrow-distance-from-box: -1.3em;
     text-align: center;
     //text-shadow: $tooltip-shadow;
   }
+
+  &:active{
+    outline: none;
+  }
+
+  &:focus{
+    outline: none;
+  }
 }
+
 
 .m-dropdown {
   display: block;
