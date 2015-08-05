@@ -28,6 +28,11 @@ $(document).on('click','#dropdown-sortB',function(){
     console.log('testing')
 });
 
+$(document).on('click', '.m-li', function(){
+    console.log($(this).html());
+    mLiClicked(this);
+});
+
 
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
@@ -163,4 +168,12 @@ function dropdownClicked(){
     var selector = $('#dropdown-sortL');
     selector.css('display', 'block');
     selector.css('opacity', '1');
+}
+
+function mLiClicked(selector){
+
+     $(selector).parent().parent().children(":first").html($(selector).html());
+    var list = $('#dropdown-sortL');
+    list.css('display', 'none');
+    list.css('opacity', '0');
 }
