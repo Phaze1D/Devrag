@@ -2,23 +2,30 @@
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-        <% if false %>  <!--user logged in -->
+        <% if true %>  <!--user logged in -->
 
             <h5 id="username-label" class="main-font">username</h5>
             <!-- if user has notifications-->
-            <div class="notification-bubble text-center center" style="left: 125px; top: 50%">
-                <h6 class="center notification-text main-font">3</h6>
-            </div>
+            <!--<div class="notification-bubble text-center center" style="left: 125px; top: 50%">-->
+            <!--<h6 class="center notification-text main-font">3</h6>-->
+            <!--</div>-->
 
             <!-- end if-->
         <% end %>
+
     </div>
 </div>
 
+<% unless @page_header_name.blank? %>
+    <div id="devrag-header-title-div">
+        <%= link_to @page_header_name, root_path, class: 'title-2-alive undecorated-link', id: 'devrag-header-title' %>
+    </div>
+<% end %>
+
 
 <div id="menu-div">
-    <% if false %> <!--user logged in -->
-        <%= link_to 'Home', '#',
+    <% if true %> <!--user logged in -->
+        <%= link_to 'Home', root_path,
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>
 

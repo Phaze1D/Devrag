@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @page_header_name = 'Devrag'
   end
 
 end
