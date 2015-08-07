@@ -1,4 +1,4 @@
-<div id=<%= resize_div %>>
+<div id="username-div" style="<%= resize_div %>">
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
@@ -29,7 +29,7 @@
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>
 
-        <%= link_to 'Profile', '#',
+        <%= link_to 'Profile', user_path(12),
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 33%;' %>
 

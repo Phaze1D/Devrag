@@ -9,12 +9,14 @@ module HomeHelper
     html
   end
 
-  # Returns the css id when the users is logged in
+  # Calculates the css width of the username-div
   def resize_div
-    if true
-      'username-div'
+    if false
+      'width: 140px;'
+    elsif true
+      'width: 110px;'
     else
-      ''
+      'width: 0px;'
     end
   end
 end
