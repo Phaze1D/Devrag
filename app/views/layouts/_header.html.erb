@@ -5,19 +5,18 @@
         <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
 
             <h5 id="username-label" class="main-font">username</h5>
-            <!-- if user has notifications-->
-            <!--<div class="notification-bubble text-center center" style="left: 125px; top: 50%">-->
-            <!--<h6 class="center notification-text main-font">3</h6>-->
-            <!--</div>-->
-
-            <!-- end if-->
+            <% if has_notifications? %>
+                <div class="notification-bubble text-center center" style="left: 125px; top: 50%">
+                    <h6 class="center notification-text main-font">3</h6>
+                </div>
+            <% end %>
         <% end %>
 
     </div>
 </div>
 
 <div id="menu-div">
-    <% if is_logged_in?%> <!--user logged in -->
+    <% if is_logged_in? %> <!--user logged in -->
         <%= link_to 'Home', root_path,
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>
@@ -30,11 +29,11 @@
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 49%;' %>
 
-        <!-- if user has notifications -->
-        <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
-            <h6 class="center notification-text main-font">3</h6>
-        </div>
-        <!-- end if-->
+        <% if has_notifications? %>
+            <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
+                <h6 class="center notification-text main-font">3</h6>
+            </div>
+        <% end %>
 
 
         <%= link_to 'Settings', '#',

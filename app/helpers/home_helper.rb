@@ -9,14 +9,5 @@ module HomeHelper
     html
   end
 
-  # Calculates the css width of the username-div
-  def resize_div
-    if false
-      'width: 140px;'
-    elsif true
-      'width: 110px;'
-    else
-      'width: 0px;'
-    end
-  end
+
 end
