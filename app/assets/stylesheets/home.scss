@@ -163,7 +163,7 @@ $tooltip-arrow-distance-from-box: -1.3em;
   right: 10%;
 
   &:after {
-    @include position(absolute, null 0 null 0);
+    position: absolute;
     border: $tooltip-arrow-width solid transparent;
     bottom: $tooltip-arrow-distance-from-box;
     left: 80%;
@@ -187,10 +187,10 @@ $tooltip-arrow-distance-from-box: -1.3em;
   padding-left: 10px;
 
   &:after {
-    @include position(absolute, null 0 null 0);
+    position: absolute;
     border: 6px solid transparent;
     bottom: .1em;
-    left: 65%;
+    left: 80%;
     color: $base01;
     content: '▼';
     font-size: .9em;
