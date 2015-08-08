@@ -2,7 +2,7 @@
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center' %>
 
-        <% if true %>  <!--user logged in -->
+        <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
 
             <h5 id="username-label" class="main-font">username</h5>
             <!-- if user has notifications-->
@@ -16,15 +16,8 @@
     </div>
 </div>
 
-<% if controller_name == 'users' && action_name == 'show' %>
-    <div id="devrag-header-title-div">
-        <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link', id: 'devrag-header-title' %>
-    </div>
-<% end %>
-
-
 <div id="menu-div">
-    <% if true %> <!--user logged in -->
+    <% if is_logged_in?%> <!--user logged in -->
         <%= link_to 'Home', root_path,
                     class: 'login-button center text-left undecorated-link',
                     style: 'top: 17%;' %>
