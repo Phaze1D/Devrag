@@ -13,7 +13,7 @@ module UsersHelper
 
   # Returns bool if user has unseen notifications
   def has_notifications?
-    false
+    true
   end
 
   # Calculates the css width of the username-div
@@ -27,6 +27,16 @@ module UsersHelper
     else
       'width: 30px'
     end
+  end
+
+  # Return html of list of user's tools
+  def display_user_tools
+    html = ''
+    @user_tools.each do |tool|
+      html += render partial: 'users/user_tool', locals: {tool: tool}
+
+    end
+    html
   end
 
 end
