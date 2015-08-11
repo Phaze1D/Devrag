@@ -13,7 +13,7 @@ module UsersHelper
 
   # Returns bool if user has unseen notifications
   def has_notifications?
-    true
+    false
   end
 
   # Calculates the css width of the username-div
