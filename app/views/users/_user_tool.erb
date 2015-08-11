@@ -9,8 +9,48 @@
 -->
 
 
-<div class="user-tool-area">
-    <h4>Some Name</h4>
-    <p>www.website.com</p>
+<div class="row user-tool-area">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="tool-name" style="font-size: 15pt">Some Name</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <%= link_to 'www.website.com', '#', class: 'main-font' %>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="">
+                    <%= image_tag 'like_icon.png', id: 'like-image', style: 'margin: 10px 0 0 0;' %>
+                    <p class="main-font comment-count" style="margin: 9px 0 0 0;">123</p>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="">
+                    <%= image_tag 'comment_icon.png', id: 'comment-image', style: 'margin: 10px 0 0 0;' %>
+                    <p class="main-font comment-count" style="margin: 9px 0 0 0;">123</p>
+                </div>
+            </div>
+
+            <div class="col-xs-2 col-xs-offset-4">
+                <div class="">
+                    <%= image_tag 'tool_options_icon.png', id: 'options-image',style: 'margin: 10px 0 0 0;' %>
+
+                    <!--
+                        Edit
+                        Delete
+                        Notify Followers
+                    -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
