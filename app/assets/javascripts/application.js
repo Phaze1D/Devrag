@@ -19,26 +19,26 @@
 $(document).mouseup(function (e) {
     removeMenu(e);
     removeOptionPop(e);
-    removeSortDropdown(e)
+    removeSortDropdown(e);
 });
 
 
 function removeMenu(e) {
     var container = $("#menu-div");
-    if (!isPopup(container, e)){
+    if (!didClickTarget(container, e)){
         container.css('opacity', '0');
         container.css('display', 'none');
     }
 }
 
-function isPopup(container, event) {
+function didClickTarget(container, event) {
 
     return !(!container.is(event.target) && container.has(event.target).length === 0);
 }
 
 function removeSortDropdown(e){
     var list = $('#dropdown-sortL');
-   if( !(isPopup(list,e) || isPopup($('#dropdown-sortB'), e) ) ){
+   if( !(didClickTarget(list,e) || didClickTarget($('#dropdown-sortB'), e) ) ){
        list.css('opacity', '0');
        list.css('display', 'none');
    }

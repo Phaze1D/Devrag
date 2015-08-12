@@ -137,13 +137,24 @@ function adjust() {
 }
 
 function removeOptionPop(e){
-    var container = $(".options-popup");
-    container.each(function () {
-        var item = $(this);
-        if (!item.is(e.target) && item.has(e.target).length === 0){
-            item.css('display','none');
+
+    var didClickAny = false;
+
+    $('.option-js').each(function(){
+        if( didClickTarget($(this), e)  && $(this).closest('#uta').attr('data-ani') == 1 ){
+            didClickAny = true;
+            return 0;
         }
     });
+
+    if( !didClickAny ) {
+        $('.user-tool-area').each(function () {
+            if ($(this).attr('data-ani') == 1) {
+                moveBackTool($(this));
+            }
+        });
+    }
+
 }
 
 function dropdownClicked(){
@@ -162,11 +173,28 @@ function mLiClicked(selector){
 
 function resultToolOptionsClicked(selector) {
     var closetP = $(selector).closest('#uta');
-    closetP.css({
-        '-webkit-transform': 'translate(-20em, 0)',
-        '-moz-transform': 'translate(-20em, 0)',
-        '-ms-transform': 'translate(-20em, 0)',
-        '-o-transform': 'translate(-20em, 0)',
-        'transform': 'translate(-20em, 0)'
+
+    if($(closetP).attr('data-ani') == 0){
+        closetP.css({
+            '-webkit-transform': 'translate(-20em, 0)',
+            '-moz-transform': 'translate(-20em, 0)',
+            '-ms-transform': 'translate(-20em, 0)',
+            '-o-transform': 'translate(-20em, 0)',
+            'transform': 'translate(-20em, 0)'
+        });
+        $(closetP).attr('data-ani', '1')
+    }else{
+        moveBackTool($(closetP));
+    }
+}
+
+function moveBackTool(selector){
+    selector.css({
+        '-webkit-transform': 'translate(0, 0)',
+        '-moz-transform': 'translate(0, 0)',
+        '-ms-transform': 'translate(0, 0)',
+        '-o-transform': 'translate(0, 0)',
+        'transform': 'translate(0, 0)'
     });
+    selector.attr('data-ani', '0')
 }
