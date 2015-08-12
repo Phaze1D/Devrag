@@ -5,13 +5,13 @@
                 <h4 class="tool-name">Some Name</h4>
             </div>
 
-            <% if true %> <!-- user is following -->
+            <% if is_following? %> <!-- user is following -->
                 <div class="col-xs-2 col-xs-offset-4">
-                    <button id="follow-button" class="dbutton">Follow</button>
+                    <button id="unfollow-button" class="dbutton">Unfollow</button>
                 </div>
             <% else %>
                 <div class="col-xs-2 col-xs-offset-4">
-                    <button id="unfollow-button" class="dbutton">Unfollow</button>
+                    <button id="follow-button" class="dbutton">Follow</button>
                 </div>
             <% end %>
         </div>
@@ -52,20 +52,10 @@
             <div class="col-xs-1" style="padding-right: 10px">
                 <div class="LCO-div">
                     <%= image_tag 'tool_options_icon.png', id: 'options-image' %>
-                    <div class="options-popup">
-                        <button id="reportB" class="login-button center-hor center-ver" style="font-size: 10pt">
-                            Report Inappropriate</button>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--
-    Added 'Verified' Icon next to website
-
-
-    Report Actions
-        Inappropriate Website
--->

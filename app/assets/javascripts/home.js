@@ -16,11 +16,7 @@ $(window).on('resize', function () {
 });
 
 $(document).on('click','#options-image', function(){
-    toolOptionsClicked(this);
-});
-
-$(document).on('click', '#reportB', function () {
-    reportClicked(this);
+    resultToolOptionsClicked(this);
 });
 
 $(document).on('click','#dropdown-sortB',function(){
@@ -140,20 +136,6 @@ function adjust() {
     }
 }
 
-function toolOptionsClicked(selector){
-    var parent = $(selector).parent();
-    var popup = parent.find('div');
-    if(popup.css('display') == 'block'){
-        popup.css('display','none')
-    }else{
-        popup.css('display','block')
-    }
-}
-
-function reportClicked(selector){
-    console.log(selector);
-}
-
 function removeOptionPop(e){
     var container = $(".options-popup");
     container.each(function () {
@@ -176,4 +158,15 @@ function mLiClicked(selector){
     var list = $('#dropdown-sortL');
     list.css('display', 'none');
     list.css('opacity', '0');
+}
+
+function resultToolOptionsClicked(selector) {
+    var closetP = $(selector).closest('#uta');
+    closetP.css({
+        '-webkit-transform': 'translate(-20em, 0)',
+        '-moz-transform': 'translate(-20em, 0)',
+        '-ms-transform': 'translate(-20em, 0)',
+        '-o-transform': 'translate(-20em, 0)',
+        'transform': 'translate(-20em, 0)'
+    });
 }

@@ -146,36 +146,6 @@ $tooltip-shadow: 0 2px 2px silver;
 $tooltip-distance-from-item: 3em;
 $tooltip-arrow-distance-from-box: -1.3em;
 
-.options-popup {
-  position: absolute;
-  width: 200px;
-  height: 40px;
-  background-color: #0a5061;
-  z-index: 1000;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  -webkit-box-shadow: -1px -1px 1px 0px #8b8b8b;
-  -moz-box-shadow: -1px -1px 1px 0px #8b8b8b;
-  box-shadow: -1px -1px 1px 0px #8b8b8b;
-  display: none;
-  bottom: 150%;
-  right: 10%;
-
-  &:after {
-    position: absolute;
-    border: $tooltip-arrow-width solid transparent;
-    bottom: $tooltip-arrow-distance-from-box;
-    left: 80%;
-    color: #0a5061;
-    content: '▼';
-    font-size: 1.4em;
-    margin-left: -$tooltip-arrow-width;
-    text-align: center;
-    //text-shadow: $tooltip-shadow;
-  }
-
-}
 
 .m-dropdown-button {
   background-color: transparent;

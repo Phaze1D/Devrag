@@ -16,6 +16,11 @@ module UsersHelper
     false
   end
 
+  # Return bool if users is following a tool
+  def is_following?
+    false
+  end
+
   # Calculates the css width of the username-div
   def resize_div
     if has_notifications?
@@ -28,6 +33,7 @@ module UsersHelper
       'width: 30px'
     end
   end
+
 
   # Return html of list of user's tools
   def display_user_tools
