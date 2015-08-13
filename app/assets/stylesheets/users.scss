@@ -43,10 +43,11 @@
   border-radius: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
-  width: 360px;
-  min-width: 360px;
-  max-width: 360px;
-
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+  float: left;
+  position: relative;
     //background-color: $base02
 }
 
@@ -55,9 +56,8 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  padding: 5px 5px 5px 0px;
+  padding: 10px 10px 10px 10px;
   margin: 10px 0 0 0;
-  position: relative;
   //right: 65%;
   background-color: white;
   width: 320px;
@@ -66,10 +66,10 @@
 }
 
 #uta{
-  -webkit-transition: .6s ease-out;
-  -moz-transition: .6s ease-out;
-  -o-transition: .6s ease-out;
-  transition: .6s ease-out;
+  -webkit-transition: .6s;
+  -moz-transition: .6s ;
+  -o-transition: .6s ;
+  transition: .6s ;
 }
 
 #followers_icon {
@@ -81,13 +81,23 @@
   margin-top: 1px;
 }
 
-.tool-hider {
+.tool-hider-left {
   position: absolute;
   background: white;
   width: 500px;
   height: 100%;
   top: 0;
   left: -500px + 15px;
+  z-index: 2;
+}
+
+.tool-hider-right {
+  position: absolute;
+  background: red;
+  width: 500px;
+  height: 100%;
+  top: 0;
+  left: 100%;
   z-index: 2;
 }
 

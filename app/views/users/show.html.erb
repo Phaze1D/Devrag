@@ -29,12 +29,18 @@
 
     <div class="row">
         <div class="col-xs-6" style="padding: 0 20px 0 40px;">
-            <div class="tool-hider">
+            <div class="tool-hider-left">
 
             </div>
             <!-- Add a search engine -->
 
-            <%= display_user_tools.html_safe %>
+            <div class="user-area">
+                <%= display_user_tools.html_safe %>
+                <div class="tool-hider-right">
+
+                </div>
+
+            </div>
 
         </div>
     </div>

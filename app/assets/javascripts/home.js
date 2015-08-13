@@ -176,11 +176,11 @@ function resultToolOptionsClicked(selector) {
 
     if($(closetP).attr('data-ani') == 0){
         closetP.css({
-            '-webkit-transform': 'translate(-25%, 0)',
-            '-moz-transform': 'translate(-25em, 0)',
-            '-ms-transform': 'translate(-25em, 0)',
-            '-o-transform': 'translate(-25em, 0)',
-            'transform': 'translate(-90%, 0)'
+            '-webkit-transform': 'translate(-90%, 0)',
+            '-moz-transform': 'translate(-90%, 0)',
+            '-ms-transform': 'translate(-90%, 0)',
+            '-o-transform': 'translate(-90%, 0)',
+            'transform': 'translate(-85%, 0)'
         });
         $(closetP).attr('data-ani', '1')
     }else{
