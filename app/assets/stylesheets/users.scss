@@ -37,7 +37,7 @@
 }
 
 .user-area {
-  border: 2px solid $base0;
+  border: 1px solid transparent;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -47,7 +47,7 @@
   min-width: 360px;
   max-width: 360px;
 
-  //  background-color: $base02;
+    //background-color: $base02
 }
 
 .user-tool-area {
@@ -59,13 +59,17 @@
   margin: 10px 0 0 0;
   position: relative;
   //right: 65%;
+  background-color: white;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+}
+
+#uta{
   -webkit-transition: .6s ease-out;
   -moz-transition: .6s ease-out;
   -o-transition: .6s ease-out;
   transition: .6s ease-out;
-  width: 320px;
-  min-width: 320px;
-  max-width: 320px;
 }
 
 #followers_icon {
@@ -81,9 +85,9 @@
   position: absolute;
   background: white;
   width: 500px;
-  height: 900px;
+  height: 100%;
   top: 0;
-  left: -460px;
+  left: -500px + 15px;
   z-index: 2;
 }
 

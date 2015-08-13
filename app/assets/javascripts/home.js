@@ -148,7 +148,7 @@ function removeOptionPop(e){
     });
 
     if( !didClickAny ) {
-        $('.user-tool-area').each(function () {
+        $('.uta-class').each(function () {
             if ($(this).attr('data-ani') == 1) {
                 moveBackTool($(this));
             }
@@ -176,11 +176,11 @@ function resultToolOptionsClicked(selector) {
 
     if($(closetP).attr('data-ani') == 0){
         closetP.css({
-            '-webkit-transform': 'translate(-20em, 0)',
-            '-moz-transform': 'translate(-20em, 0)',
-            '-ms-transform': 'translate(-20em, 0)',
-            '-o-transform': 'translate(-20em, 0)',
-            'transform': 'translate(-20em, 0)'
+            '-webkit-transform': 'translate(-25%, 0)',
+            '-moz-transform': 'translate(-25em, 0)',
+            '-ms-transform': 'translate(-25em, 0)',
+            '-o-transform': 'translate(-25em, 0)',
+            'transform': 'translate(-90%, 0)'
         });
         $(closetP).attr('data-ani', '1')
     }else{
