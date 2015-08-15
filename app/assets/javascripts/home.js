@@ -141,7 +141,7 @@ function removeOptionPop(e){
     var didClickAny = false;
 
     $('.option-js').each(function(){
-        if( didClickTarget($(this), e)  && $(this).closest('#uta').attr('data-ani') == 1 ){
+        if( didClickTarget($($(this).closest('#uta')), e)  && $(this).closest('#uta').attr('data-ani') == 1 ){
             didClickAny = true;
             return 0;
         }

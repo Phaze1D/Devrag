@@ -1,6 +1,5 @@
-
-<div id="uta" class="row uta-class" data-ani="0" >
-    <div class="col-xs-12 user-tool-area uta-class">
+<div id="uta" class="row uta-class" data-ani="0">
+    <div class="col-xs-12 user-tool-area">
         <div class="row">
             <div class="col-xs-12">
                 <h4 class="tool-name" style="font-size: 15pt;">Some Name</h4>
@@ -41,12 +40,34 @@
                                   class: 'option-js' %>
                 </div>
             </div>
+        </div>
+
+        <div class="options-div">
+
+
+            <%= link_to 'Notifiy', '#',
+                        class: 'login-button center text-left undecorated-link',
+                        style: 'top: 20%; font-size: 10pt' %>
+
+
+
+            <%= link_to 'Edit', '#',
+                        class: 'login-button center text-left undecorated-link',
+                        style: 'top: 45%; font-size: 10pt' %>
+
+
+            <div class="break-line center" style="top: 63%"></div>
+
+
+            <%= link_to 'Delete', '#',
+                        class: 'login-button center text-left undecorated-link',
+                        style: 'top: 80%; color: #cb4b16; font-size: 10pt' %>
 
             <!--
-                        Edit
-                        Delete
-                        Notify Followers
-                    -->
+                    Edit
+                    Notify Followers
+                    Delete
+                -->
         </div>
     </div>
 </div>

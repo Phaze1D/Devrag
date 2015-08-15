@@ -93,12 +93,25 @@
 
 .tool-hider-right {
   position: absolute;
-  background: red;
+  background-color: white;
   width: 500px;
   height: 100%;
   top: 0;
   left: 100%;
   z-index: 2;
+}
+
+.options-div{
+  position: absolute;
+  width: 280px;
+  height: 91px;
+  left: 100%;
+  top: 0;
+  background-color: $base02;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
 }
 
 
