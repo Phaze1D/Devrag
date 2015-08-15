@@ -210,6 +210,22 @@ $tooltip-arrow-distance-from-box: -1.3em;
   }
 }
 
+.search-options-div{
+  position: absolute;
+  width: 84%;
+  height: 108%;
+  left: 100%;
+  top: -10px;
+  background-color: $base02;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 40px;
+  font-size: 12pt;
+  font-weight: lighter;
+}
+
+
 
 
 
