@@ -16,10 +16,12 @@ module UsersHelper
     true
   end
 
-  # Return bool if users is following a tool
-  def is_following?
+  # Return bool if current user is following a tool
+  def is_following?(tool)
     false
   end
+
+
 
   # Calculates the css width of the username-div
   def resize_div
@@ -36,11 +38,10 @@ module UsersHelper
 
 
   # Return html of list of user's tools
-  def display_user_tools
+  def display_user_tools(user_tools)
     html = ''
-    @user_tools.each do |tool|
+    user_tools.each do |tool|
       html += render partial: 'users/user_tool', locals: {tool: tool}
-
     end
     html
   end
