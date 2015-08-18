@@ -114,7 +114,18 @@
   margin-left: 20px;
   font-size: 12pt;
   font-weight: lighter;
+}
 
+#add-tool-b{
+  width: 30px;
+  height: 30px;
+  left: 100%;
+  top: 60%;
+  border-radius: 15px;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 

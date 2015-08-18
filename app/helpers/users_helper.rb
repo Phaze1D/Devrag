@@ -3,7 +3,7 @@ module UsersHelper
   # Returns bool if user is view his/her profile
   # Call in _header view to remove username if true
   def is_viewing_own_profile?
-    controller_name == 'users' && action_name == 'show' # && is_users_profile
+    controller_name == 'users' && action_name == 'show' && is_current_user?(params[:id])
   end
 
   # Returns bool if user is logged in
@@ -21,19 +21,31 @@ module UsersHelper
     false
   end
 
+  def is_current_user?(user)
+    true
+  end
 
+
+
+  ##
+  # Think about redoing this 'resize_div' as a ajax call
+  # when modules are ready
 
   # Calculates the css width of the username-div
   def resize_div
-    if has_notifications?
-      'width: 140px;'
-    elsif is_logged_in? && is_viewing_own_profile?
-      'width: 30px;'
-    elsif is_logged_in?
-      'width: 110px;'
+
+    if is_logged_in?
+      return_val = 'width: 0px;'
     else
-      'width: 30px'
+      return_val = 'width: 30px;'
     end
+
+    if is_viewing_own_profile?
+      return_val = 'width: 30px;'
+    end
+
+    return_val
+
   end
 
 
