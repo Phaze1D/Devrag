@@ -16,6 +16,17 @@
 //= require_tree .
 
 
+$(document).on("page:load ready", function(){
+    console.log('page load ready testing');
+    $('.lpu-ul').mCustomScrollbar({
+        axis:"y",
+        scrollbarPosition: "outside",
+        autoHideScrollbar: true,
+        scrollInertia: 8,
+        theme: "light-thin"
+    });
+});
+
 $(document).mouseup(function (e) {
     removeMenu(e);
     removeOptionPop(e);
