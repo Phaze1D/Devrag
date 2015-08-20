@@ -61,48 +61,38 @@
         <div class="row search-options-div">
 
             <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="title-2-dead lpu-label">Languages</h5>
+                <h5 class="lpu-label underline-alive">Languages</h5>
 
 
                 <div class="lpu-ul">
                     <% @tools_lpu.each do |lpu| %>
-                        <div style="white-space: nowrap;
-                                overflow-x: hidden;
-                                text-overflow: ellipsis;">
-                            <p style="color: white;"><%= lpu %></p>
+                        <div class="lpu-li">
+                            <%= lpu %>
                         </div>
                     <% end %>
                 </div>
 
             </div>
-
-
             <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="title-2-dead lpu-label">Platforms</h5>
+                <h5 class="lpu-label underline-alive">Platforms</h5>
 
 
                 <div class="lpu-ul">
                     <% @tools_lpu.each do |lpu| %>
-                        <div style="white-space: nowrap;
-                                overflow-x: hidden;
-                                text-overflow: ellipsis;">
-                            <p style="color: white;"><%= lpu %></p>
+                        <div class="lpu-li">
+                            <%= lpu %>
                         </div>
                     <% end %>
                 </div>
             </div>
-
-
             <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="title-2-dead lpu-label">Uses</h5>
+                <h5 class="lpu-label underline-alive">Uses</h5>
 
 
                 <div class="lpu-ul">
                     <% @tools_lpu.each do |lpu| %>
-                        <div style="white-space: nowrap;
-                                overflow-x: hidden;
-                                text-overflow: ellipsis;">
-                            <p style="color: white;"><%= lpu %></p>
+                        <div class="lpu-li">
+                            <%= lpu %>
                         </div>
                     <% end %>
                 </div>
@@ -118,7 +108,7 @@
             <!--< class="text-center" style="margin: 14px 0 2px 0; height: 125px; left: 100%">-->
             <%= link_to 'Report', '#',
                         class: 'login-button undecorated-link center-ver',
-                        style: 'color: #cb4b16; font-size:11pt; left: 91%; width: auto' %>
+                        style: 'color: #cb4b16; font-size:11pt; left: 90%; width: auto' %>
 
 
         </div>
