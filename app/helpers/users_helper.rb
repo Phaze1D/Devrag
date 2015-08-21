@@ -13,7 +13,7 @@ module UsersHelper
 
   # Returns bool if user has unseen notifications
   def has_notifications?
-    true
+    false
   end
 
   # Return bool if current user is following a tool
