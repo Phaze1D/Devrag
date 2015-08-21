@@ -253,10 +253,19 @@ $tooltip-arrow-distance-from-box: -1.3em;
   padding: 2px 15px;
   margin-top: 10px;
 
-  overflow: hidden;
+  overflow-x: hidden;
   word-wrap: break-word;
   white-space:nowrap;
   text-overflow: ellipsis;
+}
+
+.lpu-underlabel{
+  position: absolute;
+  top: 100%;
+  left: 1%;
+  color: $base00;
+  font-size: 10pt;
+  //background-color: red;
 }
 
 

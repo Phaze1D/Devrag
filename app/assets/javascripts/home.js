@@ -15,20 +15,27 @@ $(window).on('resize', function () {
     adjust();
 });
 
-$(document).on('click','#options-image', function(){
+$(document).on('click', '#options-image', function () {
     resultToolOptionsClicked(this);
 });
 
-$(document).on('click','#dropdown-sortB',function(){
+$(document).on('click', '#dropdown-sortB', function () {
     dropdownClicked();
     console.log('testing')
 });
 
-$(document).on('click', '.m-li', function(){
+$(document).on('click', '.m-li', function () {
     console.log($(this).html());
     mLiClicked(this);
 });
 
+$(document).on('mouseover', '.lpu-li', function () {
+    lpuliHover(this)
+});
+
+$(document).on('mouseout', '.lpu-li', function () {
+    lpuliOut($(this))
+});
 
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
@@ -136,18 +143,18 @@ function adjust() {
     }
 }
 
-function removeOptionPop(e){
+function removeOptionPop(e) {
 
     var didClickAny = false;
 
-    $('.option-js').each(function(){
-        if( didClickTarget($($(this).closest('#uta')), e)  && $(this).closest('#uta').attr('data-ani') == 1 ){
+    $('.option-js').each(function () {
+        if (didClickTarget($($(this).closest('#uta')), e) && $(this).closest('#uta').attr('data-ani') == 1) {
             didClickAny = true;
             return 0;
         }
     });
 
-    if( !didClickAny ) {
+    if (!didClickAny) {
         $('.uta-class').each(function () {
             if ($(this).attr('data-ani') == 1) {
                 moveBackTool($(this));
@@ -157,15 +164,15 @@ function removeOptionPop(e){
 
 }
 
-function dropdownClicked(){
+function dropdownClicked() {
     var selector = $('#dropdown-sortL');
     selector.css('display', 'block');
     selector.css('opacity', '1');
 }
 
-function mLiClicked(selector){
+function mLiClicked(selector) {
 
-     $(selector).parent().parent().children(":first").html($(selector).html());
+    $(selector).parent().parent().children(":first").html($(selector).html());
     var list = $('#dropdown-sortL');
     list.css('display', 'none');
     list.css('opacity', '0');
@@ -174,7 +181,7 @@ function mLiClicked(selector){
 function resultToolOptionsClicked(selector) {
     var closetP = $(selector).closest('#uta');
 
-    if($(closetP).attr('data-ani') == 0){
+    if ($(closetP).attr('data-ani') == 0) {
         closetP.css({
             '-webkit-transform': 'translate(-90%, 0)',
             '-moz-transform': 'translate(-90%, 0)',
@@ -183,12 +190,12 @@ function resultToolOptionsClicked(selector) {
             'transform': 'translate(-85%, 0)'
         });
         $(closetP).attr('data-ani', '1')
-    }else{
+    } else {
         moveBackTool($(closetP));
     }
 }
 
-function moveBackTool(selector){
+function moveBackTool(selector) {
     selector.css({
         '-webkit-transform': 'translate(0, 0)',
         '-moz-transform': 'translate(0, 0)',
@@ -197,4 +204,14 @@ function moveBackTool(selector){
         'transform': 'translate(0, 0)'
     });
     selector.attr('data-ani', '0')
+}
+
+function lpuliHover(selector) {
+    if (selector.scrollWidth > $(selector).innerWidth()) {
+        $(selector).closest('.search-options-div').find('.lpu-underlabel').html($(selector).html());
+    }
+}
+
+function lpuliOut(selector) {
+    selector.closest('.search-options-div').find('.lpu-underlabel').html('');
 }

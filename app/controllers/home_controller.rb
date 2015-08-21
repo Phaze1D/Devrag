@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def search
     @results = [1,2,3,4,5,64,44] # Going to be an array of ActiveRecords
-    @tools_lpu = %w(c++ short thisisalongin shithisalongerone
+    @tools_lpu = %w(c++ short thisisalongin sja;lfadkjisalongerone
             thisisthelongestoneofthemalljustincaseyahearmeboy) # this will turn into a local partial varible
 
   end
