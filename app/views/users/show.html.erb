@@ -22,7 +22,9 @@
     </div>
 
     <div class="row" style="padding: 20px 0 0 0">
-        <div class="col-xs-3" style="padding: 0 0px 0 40px; min-width: 350px; max-width: 350px;">
+        <div class="col-xs-3" style="padding: 0 0px 0 40px;
+                min-width: 350px;
+                max-width: 350px;">
             <h2 class="title" style="font-family: 'Lobster',cursive;">Tools</h2>
             <%= image_tag 'add_button2.png', id: 'add-tool-b', class: 'center-ver' %>
         </div>
@@ -33,8 +35,13 @@
             <div class="tool-hider-left">
 
             </div>
-            <!-- Add a search engine -->
 
+            <div style="padding: 10px 0 0px 0; border-top: 2px solid deepskyblue ;
+                    width: 320px; min-width: 320px; max-width: 320px;">
+                <input class="form-input fill-width main-font" placeholder="Search"
+                       style="">
+
+            </div>
             <div class="user-area">
                 <%= display_user_tools(@user_tools).html_safe %>
                 <div class="tool-hider-right">

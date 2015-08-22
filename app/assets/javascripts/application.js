@@ -25,6 +25,15 @@ $(document).on("page:load ready", function(){
         scrollInertia: 8,
         theme: "light-thin"
     });
+
+    $('.user-area').mCustomScrollbar({
+        axis:"y",
+        scrollbarPosition: "outside",
+        autoHideScrollbar: true,
+        scrollInertia: 2,
+        theme: "dark",
+        setLeft: "left:-100px"
+    });
 });
 
 $(document).mouseup(function (e) {
