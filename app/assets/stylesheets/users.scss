@@ -37,18 +37,18 @@
 }
 
 .user-area {
-  border: 1px solid transparent;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  //padding-bottom: 10px;
- // padding-left: 15px;
-  width: 325px;
-  min-width: 325px;
-  max-width: 325px;
-  height: 408px;
+  border-top: 2px solid deepskyblue;
+  //-webkit-border-radius: 10px;
+  //-moz-border-radius: 10px;
+  //border-radius: 10px;
+  //padding-top: 10px;
+  // padding-left: 15px;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 450px;
   position: relative;
-    //background-color: $base02
+  //background-color: $base02
 }
 
 .user-tool-area {
@@ -65,10 +65,10 @@
   max-width: 320px;
 }
 
-#uta{
+#uta {
   -webkit-transition: 1s;
-  -moz-transition: 1s ;
-  -o-transition: 1s ;
+  -moz-transition: 1s;
+  -o-transition: 1s;
   transition: 1s;
 }
 
@@ -101,7 +101,7 @@
   z-index: 2;
 }
 
-.options-div{
+.options-div {
   position: absolute;
   width: 280px;
   height: 91px;
@@ -116,15 +116,30 @@
   font-weight: lighter;
 }
 
-#add-tool-b{
+#add-tool-b {
   width: 15px;
   height: 15px;
-  left: 100%;
+  left: 98%;
   top: 60%;
   border-radius: 15px;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
+}
+
+#tool-search {
+  z-index: 10;
+  background-color: white;
+  color: white;
+  border: none;
+  position: absolute;
+  margin: 2px 0 0 25px;
+  padding-top: 5px;
+  //top: -34px;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 38px;
 }
 

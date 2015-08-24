@@ -17,12 +17,11 @@
 
 
 $(document).on("page:load ready", function(){
-    console.log('page load ready testing');
     $('.lpu-ul').mCustomScrollbar({
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        scrollInertia: 8,
+        scrollInertia: 100,
         theme: "light-thin"
     });
 
@@ -30,9 +29,22 @@ $(document).on("page:load ready", function(){
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        scrollInertia: 2,
-        theme: "dark",
-        setLeft: "left:-100px"
+        //scrollInertia:600,
+        theme: "dark-thin",
+        setLeft: "left:-100px",
+        callbacks:{
+            whileScrolling:function(){
+                mwhileScrolling(this);
+            },
+
+            onScrollStart: function(){
+                startScroll(this.mcs.top)
+            },
+
+            onScroll: function(){
+                endScroll();
+            }
+        }
     });
 });
 
