@@ -18,7 +18,6 @@
   -moz-border-radius: .3em;
   border-radius: .3em;
 
-  
 }
 
 #signup-button:active {
@@ -39,7 +38,7 @@
 }
 
 .user-area {
-  border-top: 2px solid deepskyblue;
+  //border-top: 2px solid #107994;
   //-webkit-border-radius: 10px;
   //-moz-border-radius: 10px;
   //border-radius: 10px;
@@ -119,9 +118,9 @@
 }
 
 #add-tool-b {
-  width: 15px;
-  height: 15px;
-  left: 98%;
+  width: 17px;
+  height: 17px;
+  left: 95%;
   top: 60%;
   border-radius: 15px;
 
@@ -136,12 +135,43 @@
   color: white;
   border: none;
   position: absolute;
-  margin: 2px 0 0 25px;
-  padding-top: 5px;
-  //top: -34px;
+  margin: 0px 0 0 25px;
+  //top: 0px;
   width: 320px;
   min-width: 320px;
   max-width: 320px;
-  height: 38px;
+  height: 34px;
+  border-radius: 15px;
+}
+
+.search-input {
+  -webkit-border-radius: 0px 0px 10px 10px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
+  background: #107994;
+  border-color: #107994;
+  border-top: none;
+  color: white;
+  box-shadow: none;
+
+  &:focus{
+    border-color: #107994;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #d2d2d2;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: #d2d2d2;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: #d2d2d2;
+  }
+
+  &:-ms-input-placeholder {
+    color: #d2d2d2;
+  }
 }
 
