@@ -80,6 +80,10 @@
   @extend .title;
   margin: 0 10px 0 0;
   font-size: 17pt;
+  &:hover{
+    text-decoration: none;
+    color: $base02
+  }
 }
 
 .LCO-div {

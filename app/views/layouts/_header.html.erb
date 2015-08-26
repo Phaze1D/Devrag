@@ -1,3 +1,12 @@
+
+<% if show_devrag_header?%>
+    <div id="devrag-header-title-div">
+        <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link', 
+                                            id: 'devrag-header-title' %>
+    </div>
+<%end%>
+
+
 <div id="username-div" style="<%= resize_div %>">
     <div id="header-div">
         <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center-ver' %>

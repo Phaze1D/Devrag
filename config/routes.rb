@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :users
   get 'signup', to: 'users#new'
 
+  #Tools
+  resources :tools
+  
+  
   #Search Results URL
   get 'search', to: 'home#search'
 
