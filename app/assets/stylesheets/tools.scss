@@ -8,3 +8,14 @@
 	border-radius: 10px;
 }
 
+.unfollow-ts{
+	@extend .unfollow-button;
+	font-size:16pt; margin-top: 20px
+}
+
+.follow-ts{
+	@extend .follow-button;
+	font-size:16pt; margin-top: 20px
+
+}
+

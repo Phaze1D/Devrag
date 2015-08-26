@@ -127,17 +127,18 @@
   cursor: pointer;
 }
 
-#follow-button {
+.follow-button {
   font-family: "Lobster", cursive;
   font-size: 13pt;
   background-color: #b3c4c4;
   color: $base02;
   border: none;
   float: right;
+  border-radius: 0.3em;
 }
 
-#unfollow-button {
-  @extend #follow-button;
+.unfollow-button {
+  @extend .follow-button;
   margin-top: 4px;
   font-size: 10pt;
   color: #69828b

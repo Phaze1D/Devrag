@@ -4,16 +4,27 @@
 	<div class="row">
 		<div class="col-xs-8 tool-info-section">
 
-			<div class="row">
-				<div class="col-xs-12">
-					<h1 class="title underline-alive"
-					style="border-width: 0px 0px 2px 0px; z-index: 1000; margin-bottom: 0;">
+			<div class="row underline-alive" style="border-width: 0px 0px 2px 0px; ">
+				<div class="col-xs-9">
+					<h1 class="title" style="z-index: 1000; margin-bottom: 0;">
 					Some Name</h1>
 				</div>
+
+				<% if is_following? @tool %> <!-- user is following -->
+					<div class="col-xs-3">
+						<button class="unfollow-ts">Unfollow</button>
+					</div>
+					<% else %>
+					<div class="col-xs-3">
+						<button class="follow-ts">Follow</button>
+					</div>
+					<% end %>
 			</div>
 
 			<div class="row">
-				<div class="col-xs-3 col-xs-offset-9 text-right">
+				<div class="col-xs-10 col-xs-offset-2 
+
+							text-right">
 					<%= link_to 'www.website.com', '#', class: 'main-font', style: 'font-size: 12pt' %>
 				</div>
 			</div>
