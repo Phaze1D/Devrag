@@ -38,15 +38,14 @@
 }
 
 .user-area {
-  //border-top: 2px solid #107994;
-  //-webkit-border-radius: 10px;
-  //-moz-border-radius: 10px;
-  //border-radius: 10px;
-  //padding-top: 10px;
-  // padding-left: 15px;
-  width: 320px;
-  min-width: 320px;
-  max-width: 320px;
+  border: 2px solid #107994;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  //padding: 0 0 0 10px;
+  width: 344px;
+  min-width: 344px;
+  max-width: 344px;
   height: 450px;
   position: relative;
   //background-color: $base02
@@ -58,7 +57,7 @@
   -moz-border-radius: 10px;
   border-radius: 10px;
   padding: 10px 10px 10px 10px;
-  margin: 10px 0 0 0;
+  margin: 0 0 15px 10px;
   //right: 65%;
   background-color: white;
   width: 320px;
@@ -135,7 +134,7 @@
   color: white;
   border: none;
   position: absolute;
-  margin: 0px 0 0 25px;
+  margin: 1px 0 0 37px;
   //top: 0px;
   width: 320px;
   min-width: 320px;
