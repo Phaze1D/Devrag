@@ -29,7 +29,7 @@ $(document).on("page:load ready", function(){
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        //scrollInertia:600,
+        scrollInertia:300,
         theme: "dark-thin",
         setLeft: "left:-100px",
         callbacks:{

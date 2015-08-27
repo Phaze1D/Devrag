@@ -1,21 +1,41 @@
 // Place all the styles related to the tools controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here:http://sass-lang.com/
 
 
-.tool-info-section{
-	border: 1px solid $base1;
+.tool-info-section {
+	//border: 2px solid $base01;
 	border-radius: 10px;
 }
 
-.unfollow-ts{
+.unfollow-ts {
 	@extend .unfollow-button;
-	font-size:16pt; margin-top: 20px
+	font-size: 16pt;
+	margin-top: 20px
 }
 
-.follow-ts{
+.follow-ts {
 	@extend .follow-button;
-	font-size:16pt; margin-top: 20px
-
+	font-size: 16pt;
+	margin-top: 20px
 }
 
+.tool-like-div {
+	float: right;
+	width: 70px;
+	min-width: 70px;
+	max-width: 70px
+}
+
+.tool-like-imag {
+	min-width: 20px;
+	max-width: 20px;
+	height: auto;
+	float: left;
+	margin: 4px 10px 0px 0;
+}
+
+.count {
+	color: #b3c4c4;
+	margin: 3px 0 0 0;
+}
