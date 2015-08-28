@@ -24,7 +24,11 @@
 	float: right;
 	width: 70px;
 	min-width: 70px;
-	max-width: 70px
+	max-width: 70px;
+
+	&:hover{
+		cursor: pointer;
+	}
 }
 
 .tool-like-imag {
@@ -38,4 +42,11 @@
 .count {
 	color: #b3c4c4;
 	margin: 3px 0 0 0;
+}
+
+.comments-section{
+	border: 2px solid $base1;
+	border-radius: 20px;
+	width: 95%;
+	height: 500px;
 }
