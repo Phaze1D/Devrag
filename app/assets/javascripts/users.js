@@ -6,8 +6,6 @@ function mwhileScrolling(object){
 
     var delta = object.mcs.top - startL + endAt;
 
-   // console.log(object.mcs.top);
-
     if(delta <= 0 && delta > -50){
         scrollAt = delta;
     }else if (delta > 0){
@@ -21,7 +19,7 @@ function mwhileScrolling(object){
 
     }
 
-
+    console.log(scrollAt + ' --- ' + delta + ' ---- ' + object.mcs.top + ' ------ ' + startL + ' ---- ' + endAt);
 
     $('#tool-search').css({
         '-webkit-transform': 'translate(0,' + scrollAt + 'px)',
@@ -34,9 +32,11 @@ function mwhileScrolling(object){
 
 function startScroll(startLocation){
    startL = startLocation;
+   console.log('Start Called')
 }
 
 function endScroll(){
     endAt = scrollAt;
+    console.log('End Called');
 }
 
