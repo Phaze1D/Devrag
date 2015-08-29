@@ -53,11 +53,19 @@
 
 			<div class="row">
 				<div class="col-xs-12">
-				<p class="title-2-dead" style="font-size: 10pt">submitted by <%= link_to 'username', user_path(12), class: 'title-2-dead' %></p>
+					<p class="title-2-dead" style="font-size: 10pt">submitted by <%= link_to 'username', user_path(12), class: 'title-2-dead' %></p>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu}%>
+
+	<%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu}%>
+
+	<%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu}%>
+
+	
 
 	<div class="row" style="margin-top: 40px">
 		<div class="col-xs-12 col-sm-8 tool-info-section">
@@ -74,6 +82,7 @@
 
 <!-- 
 Add formating the description 
+Add Language Platform Uses
 Add Submitted by User
 -->
 

@@ -60,44 +60,13 @@
 
         <div class="row search-options-div">
 
-            <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="lpu-label underline-alive">Languages</h5>
+            <%= render partial: 'lpuh_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu}%>
 
+             <%= render partial: 'lpuh_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu}%>
 
-                <div class="lpu-ul">
-                    <% @tools_lpu.each do |lpu| %>
-                        <div class="lpu-li">
-                            <%= lpu %>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
-            <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="lpu-label underline-alive">Platforms</h5>
+              <%= render partial: 'lpuh_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu}%>
 
-
-                <div class="lpu-ul">
-                    <% @tools_lpu.each do |lpu| %>
-                        <div class="lpu-li">
-                            <%= lpu %>
-                        </div>
-                    <% end %>
-                </div>
-
-            </div>
-            <div class="col-xs-3 text-center" style="padding: 0 10px 0 30px; height: 100%">
-                <h5 class="lpu-label underline-alive">Uses</h5>
-
-
-                <div class="lpu-ul">
-                    <% @tools_lpu.each do |lpu| %>
-                        <div class="lpu-li">
-                            <%= lpu %>
-                        </div>
-                    <% end %>
-                </div>
-
-            </div>
+           
             <div class="col-xs-1  text-center" style="height: 100%">
                 <div class="break-line center" style="height: 80%; width: 0; top: 50%"></div>
             </div>
