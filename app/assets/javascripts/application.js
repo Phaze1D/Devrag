@@ -17,35 +17,9 @@
 
 
 $(document).on("page:load ready", function(){
-    $('.lpu-ul').mCustomScrollbar({
-        axis:"y",
-        scrollbarPosition: "outside",
-        autoHideScrollbar: true,
-        scrollInertia: 100,
-        theme: "light-thin"
-    });
-
-    $('.user-area').mCustomScrollbar({
-        axis:"y",
-        scrollbarPosition: "outside",
-        autoHideScrollbar: true,
-        scrollInertia:300,
-        theme: "dark-thin",
-        setLeft: "left:-100px",
-        callbacks:{
-            whileScrolling:function(){
-                mwhileScrolling(this);
-            },
-
-            onScrollStart: function(){
-                startScroll(this.mcs.top)
-            },
-
-            onScroll: function(){
-                endScroll();
-            }
-        }
-    });
+    initLPUSeachScroller();
+    initUserAreaScroller();
+    initToolLPUScroller();
 });
 
 $(document).mouseup(function (e) {

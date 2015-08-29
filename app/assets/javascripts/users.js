@@ -40,3 +40,27 @@ function endScroll(){
     console.log('End Called');
 }
 
+function initUserAreaScroller(){
+    $('.user-area').mCustomScrollbar({
+        axis:"y",
+        scrollbarPosition: "outside",
+        autoHideScrollbar: true,
+        scrollInertia:0,
+        theme: "dark-thin",
+        setLeft: "left:-100px",
+        callbacks:{
+            whileScrolling:function(){
+                mwhileScrolling(this);
+            },
+
+            onScrollStart: function(){
+                startScroll(this.mcs.top)
+            },
+
+            onScroll: function(){
+                endScroll();
+            }
+        }
+    });
+}
+

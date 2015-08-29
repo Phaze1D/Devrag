@@ -206,6 +206,16 @@ function moveBackTool(selector) {
     selector.attr('data-ani', '0')
 }
 
+function initLPUSeachScroller(){
+    $('.lpu-ul').mCustomScrollbar({
+        axis:"y",
+        scrollbarPosition: "outside",
+        autoHideScrollbar: true,
+        scrollInertia: 100,
+        theme: "light-thin"
+    });
+}
+
 function lpuliHover(selector) {
     if (selector.scrollWidth > $(selector).innerWidth()) {
         $(selector).closest('.search-options-div').find('.lpu-underlabel').html($(selector).html());

@@ -51,10 +51,24 @@
 	height: 900px;
 }
 
+.rain-scroll{
+	white-space: nowrap;
+	padding: 7px 10px 7px 10px;
+	background-color: $base02;
+	border-radius: 20px;
+}
+
 .ul-lpu{
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	float: left;
 }
 
 .li-lpu{
 	display: inline;
+	color: #BED0D0;
+	border-right: 1px solid $base1;
+	padding: 5px;
 }
