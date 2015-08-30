@@ -8,5 +8,7 @@ function initToolLPUScroller(){
         theme: "dark-thin",
         scrollInertia: 0
     });
+
+    $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css('bottom', '-16px');
 }
 
