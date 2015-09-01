@@ -38,7 +38,7 @@
 }
 
 .user-area {
-  border: 2px solid $base1;
+  border: 1px solid $base1;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -141,8 +141,8 @@
   -webkit-border-radius: 0px 0px 15px 15px;
   -moz-border-radius: 0px 0px 15px 15px;
   border-radius: 0px 0px 15px 15px;
-  border-top: none;
   //box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
   border:1.5px solid deepskyblue;
+  border-top: none;
 }
 
