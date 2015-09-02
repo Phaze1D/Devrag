@@ -72,7 +72,29 @@
 			<div class="comments-section">
 				<div class="row">
 					<div class="col-xs-12">
+						<div id="add-comment-section" class="row" style="margin-top: -170px;">
+							<div class="col-xs-9">
+								<h4 class="title" style="font-size:12pt; margin-left: 10px">CurrentUser</h4>
+							</div>
+
+							<div class="col-xs-3">
+								<%= image_tag 'remove_button.png', id: 'comment-addc', class: 'comment-add-cl-t' %>
+								<%= image_tag 'add_button2.png', id: 'comment-addr', class: 'comment-add-cl-t' %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<%=text_area :post, :body, rows: 5, class: 'comment-area main-font ', placeholder: 'Add Comment.....' %>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-9">
 						<h4 class="title" style="color: #93a1a1; margin-left: 10px">Comments</h4>
+					</div>
+					<div class="col-xs-3">
+						<%= image_tag 'add_button2.png', id: 'comment-addo', class: 'comment-add-cl' %>
 					</div>
 				</div>
 

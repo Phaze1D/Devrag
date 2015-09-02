@@ -72,6 +72,7 @@
 	width: 100%;
 	height: auto;
 	padding: 0px 10px 0 10px;
+	overflow-y: hidden;
 }
 
 .comment-user{
@@ -102,7 +103,34 @@
 	}
 }
 
+.comment-add-cl{
+	width: 25px;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: right;
+	margin-right: 10px;
 
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.comment-add-cl-t{
+	@extend .comment-add-cl;
+	width: 20px;
+
+}
+
+.comment-area{
+	color: $base01;
+	margin: 0 35px 0 35px;
+	border: 1px solid $base1;
+	resize: none;
+	width: 89%;
+	border-radius: 10px;
+	padding: 10px;
+}
 
 
 
