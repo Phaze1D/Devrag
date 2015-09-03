@@ -231,9 +231,7 @@ $tooltip-arrow-distance-from-box: -1.3em;
 }
 
 .search-div{
-  @media (min-width: 546px) {
-    overflow-x: hidden;
-  }
+  overflow: hidden;
 }
 
 .lpu-label{

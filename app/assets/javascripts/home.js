@@ -214,6 +214,8 @@ function initLPUSeachScroller(){
         scrollInertia: 100,
         theme: "light-thin"
     });
+
+    $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
 }
 
 function lpuliHover(selector) {
