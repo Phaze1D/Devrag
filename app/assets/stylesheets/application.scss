@@ -183,6 +183,11 @@ html {
   text-decoration: none;
 }
 
+.undecorated-link-w:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .col-overflow-x{
   overflow-x: hidden;
   word-wrap: break-word;

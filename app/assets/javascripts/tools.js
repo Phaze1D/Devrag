@@ -15,17 +15,32 @@ $(document).on('click', '#comment-addc', function(){
 
 
 function showAddComment(){
+	// $('#comment-addo').css('display', 'none');
+	// $("#add-comment-section").animate({
+	// 	marginTop: '0px'}, 200, "linear"
+	// );
+
+	var y = 165;
 	$('#comment-addo').css('display', 'none');
-	$("#add-comment-section").animate({
-		marginTop: '0px'}
-	);
+	$('#add-comment-section').css({
+        '-webkit-transform': 'translate(0,' + y + 'px)',
+        '-moz-transform': 'translate(0,' + y + 'px)',
+        '-ms-transform': 'translate(0,' + y + 'px)',
+        '-o-transform': 'translate(0,' + y + 'px)',
+        'transform': 'translate(0,' + y + 'px)'
+    });
 }
 
 function closeAddComment(){
-	$("#add-comment-section").animate({
-		marginTop: '-170px'}, function(){
-			$('#comment-addo').css('display', 'block');
-		});
+	var y = 0;
+	$('#comment-addo').css('display', 'block');
+	$('#add-comment-section').css({
+        '-webkit-transform': 'translate(0,' + y + 'px)',
+        '-moz-transform': 'translate(0,' + y + 'px)',
+        '-ms-transform': 'translate(0,' + y + 'px)',
+        '-o-transform': 'translate(0,' + y + 'px)',
+        'transform': 'translate(0,' + y + 'px)'
+    });
 }
 
 function cancelComment(){

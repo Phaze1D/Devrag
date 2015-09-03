@@ -27,15 +27,15 @@
 <div id="menu-div">
     <% if is_logged_in? %> <!--user logged in -->
         <%= link_to 'Home', root_path,
-                    class: 'login-button center text-left undecorated-link',
+                    class: 'login-button center text-left undecorated-link-w',
                     style: 'top: 17%;' %>
 
         <%= link_to 'Profile', user_path(12),
-                    class: 'login-button center text-left undecorated-link',
+                    class: 'login-button center text-left undecorated-link-w',
                     style: 'top: 33%;' %>
 
         <%= link_to 'Notification', '#',
-                    class: 'login-button center text-left undecorated-link',
+                    class: 'login-button center text-left undecorated-link-w',
                     style: 'top: 49%;' %>
 
         <% if has_notifications? %>
@@ -46,13 +46,13 @@
 
 
         <%= link_to 'Settings', '#',
-                    class: 'login-button center text-left undecorated-link',
+                    class: 'login-button center text-left undecorated-link-w',
                     style: 'top: 65%; ' %>
 
         <div class="break-line center" style="top: 75%"></div>
 
         <%= link_to 'Logout', '#',
-                    class: 'login-button center text-left undecorated-link',
+                    class: 'login-button center text-left undecorated-link-w',
                     style: 'top: 85%; ' %>
     <% else %>
         <input class="form-control main-font center login-form "
@@ -63,7 +63,7 @@
         <button class="login-button center" style="top: 56%;">Login</button>
         <div class="break-line center" style="top: 68%"></div>
 
-        <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link', style: 'top: 85%; ' %>
+        <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 85%; ' %>
 
     <% end %>
 </div>
