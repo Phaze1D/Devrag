@@ -15,7 +15,7 @@
     <div class="row" style="padding: 20px 0 0 0;">
         <div class="col-xs-3" style="padding: 0 0px 0 40px; min-width: 380px; max-width: 380px; z-index: 500; background-color: white;">
             <h2 class="title" style="">Tools</h2>
-            <%= image_tag 'add_button2.png', id: 'add-tool-b', class: 'center-ver' %>
+            <%= link_to(image_tag('add_button2.png', id: 'add-tool-b', class: 'center-ver'), new_tool_path) %>
         </div>
 
     </div>
