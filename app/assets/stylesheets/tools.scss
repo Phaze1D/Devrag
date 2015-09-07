@@ -68,9 +68,9 @@
 
 #add-comment-section{
 	-webkit-transition: .5s;
-  -moz-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
+	-moz-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
 }
 
 .comments-section{
@@ -137,6 +137,67 @@
 	width: 89%;
 	border-radius: 10px;
 	padding: 10px;
+}
+
+
+
+/* 888888888888888888888888888888888888888888888888888888888888888888888888888888888888 */
+
+
+.tool-new-input{
+	@extend .main-font;
+}
+
+$place-color: #999999;
+
+.tool-new-input::-webkit-input-placeholder {
+	color: $place-color;
+}
+
+.tool-new-input:-moz-placeholder { 
+	color: $place-color;  
+}
+
+.tool-new-input::-moz-placeholder { 
+	color: $place-color;  
+}
+
+.tool-new-input:-ms-input-placeholder {  
+	color: $place-color;  
+}
+
+.tool-new-title{
+	@extend .tool-new-input;
+	font-size: 20pt;
+	border: none;
+	border-bottom: 1.5px solid deepskyblue;
+	width: 100%;
+	color: $base02;
+	padding: 0;
+}
+
+.tool-new-web{
+	@extend .tool-new-input;
+	font-size: 12pt;
+	width: 100%;
+	color: #337AB7;
+	margin-top: 10px;
+	border: none;
+	padding: 0;
+}
+
+.tool-new-area{
+	@extend .tool-new-input;
+	resize: none;
+	font-size: 12pt;
+	margin-top: 10px;
+	color: #31708F;
+	padding: 5px;
+	display: block;
+	width: 100%;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 
 

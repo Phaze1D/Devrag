@@ -11,7 +11,8 @@ module HomeHelper
 
   def show_devrag_header?
   	(controller_name == 'users' && action_name == 'show') ||
-  	(controller_name == 'tools' && action_name == 'show')
+  	(controller_name == 'tools' && action_name == 'show') ||
+    (controller_name == 'tools' && action_name == 'new')
   end
 
 end
