@@ -231,9 +231,21 @@ $place-color: $base1;
 	color: $base3;
 	//margin-top: 5px;
 	height: 100%;
+	width: 100%;
 	&:focus{
 		outline: none;
 	}
+}
+
+.tool-submit-b{
+	font-family: "Lobster", cursive;
+  	font-size: 18pt;
+  	background-color: #b3c4c4;
+  	color: $base02;
+  	border: none;
+  	margin-top: 40px;
+  	width: 100%;
+  	border-radius: 0.3em;
 }
 
 

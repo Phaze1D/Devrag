@@ -15,10 +15,6 @@ $(document).on('click', '#comment-addc', function(){
 
 
 function showAddComment(){
-	// $('#comment-addo').css('display', 'none');
-	// $("#add-comment-section").animate({
-	// 	marginTop: '0px'}, 200, "linear"
-	// );
 
 	var y = 165;
 	$('#comment-addo').css('display', 'none');
