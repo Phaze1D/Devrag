@@ -186,7 +186,7 @@ $place-color: $base1;
 
 .tool-new-web{
 	@extend .tool-new-input;
-	font-size: 12pt;
+	font-size: 11pt;
 	width: 100%;
 	color: #337AB7;
 	margin-top: 10px;
@@ -213,11 +213,13 @@ $place-color: $base1;
 	list-style-type: none;
 	padding: 0;
 	margin-top: 10px;
+	font-size: 14px;
 	border: 1px solid transparent;
 	padding-left: 5px;
 	background-color: $base02;
 	border-radius: 20px;
 	box-shadow: none;
+	height: 39px;
 }
 
 .new-ul li{
@@ -240,12 +242,16 @@ $place-color: $base1;
 .tool-submit-b{
 	font-family: "Lobster", cursive;
   	font-size: 18pt;
-  	background-color: #b3c4c4;
+  	background-color: $base2;
   	color: $base02;
   	border: none;
-  	margin-top: 40px;
+  	margin-top: 20px;
   	width: 100%;
   	border-radius: 0.3em;
+
+  	&:active{
+  		background-color: #b3c4c4;
+  	}
 }
 
 
