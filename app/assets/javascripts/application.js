@@ -42,6 +42,10 @@ function didClickTarget(container, event) {
     return !(!container.is(event.target) && container.has(event.target).length === 0);
 }
 
+function htmlSafeInput(text) {
+    return $('<div/>').text(text).html();
+}
+
 function removeSortDropdown(e){
     var list = $('#dropdown-sortL');
    if( !(didClickTarget(list,e) || didClickTarget($('#dropdown-sortB'), e) ) ){
