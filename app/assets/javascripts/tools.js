@@ -13,13 +13,13 @@ $(document).on('click', '#comment-addc', function(){
 	addComment();
 });
 
-$(document).on('keypress', '.new-lpu-input',function(e){
+$(document).on('keyup', '.new-lpu-input',function(e){
 
     if(e.keyCode == 13) {
         createToken($(this));
     }
-
-    if (e.keyCode == 8 || e.keyCode == 46) {
+    if (e.keyCode == 8) {
+        console.log('delele');
         deleteToken($(this));
     };
 });
