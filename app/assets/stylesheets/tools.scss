@@ -261,6 +261,11 @@ $place-color: $base1;
 
   	&:active{
   		background-color: #b3c4c4;
+  		outline: none;
+  	}
+
+  	&:focus{
+  		outline: none;
   	}
 }
 
