@@ -13,13 +13,12 @@ $(document).on('click', '#comment-addc', function(){
 	addComment();
 });
 
-$(document).on('keyup', '.new-lpu-input',function(e){
+$(document).on('keydown', '.new-lpu-input',function(e){
 
     if(e.keyCode == 13) {
         createToken($(this));
     }
     if (e.keyCode == 8) {
-        console.log('delele');
         deleteToken($(this));
     };
 });
@@ -33,7 +32,10 @@ function createToken(selector){
         // Check if inputString exist and validate 
         // Check if inputString is already listed
 
-        $( '#'+ulParent.attr('id') + ' li:last').before(createTokenHtml(inputString));
+        $( '#'+ulParent.attr('id') + ' li:last').after(createTokenHtml(inputString));
+        var liW = parseInt($( '#'+ulParent.attr('id') + ' li:last').css("width"));
+        var ulW = parseInt(ulParent.css("width"));
+        ulParent.css('width', ulW+liW+5+'px');
         selector.val('');
     }
 
@@ -41,10 +43,14 @@ function createToken(selector){
 
 function deleteToken(selector){
 
-    if (selector.val() == ''){
-         var ulParent = selector.closest('.new-ul');
-         var li = $('#'+ulParent.attr('id') + ' li:nth-last-child(2)');
+    var ulParent = selector.closest('.new-ul');
+    var li = $('#'+ulParent.attr('id') + ' li:nth-last-child(1)');
+
+    if (!li.hasClass("input-lpu") && selector.val() == ''){
          selector.val(li.find('p:first').text());
+         var liW = parseInt(li.css("width"));
+         var ulW = parseInt(ulParent.css("width"));
+         ulParent.css('width', ulW-liW-5+'px');
          li.remove();
     };
 
@@ -98,7 +104,17 @@ function initToolLPUScroller(){
         alwaysShowScrollbar: 0,
         scrollInertia: 0
     });
+ 
+
+    $('.new-rain').mCustomScrollbar({
+        axis:"x",
+        scrollbarPosition: "outside",
+        autoHideScrollbar: true,
+        theme: "dark-thin",
+        advanced:{ updateOnSelectorChange: ".new-ul" }
+    });
 
     $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css('bottom', '-16px');
+    $('#mCSB_1').css('border-radius','20px');
 }
 
