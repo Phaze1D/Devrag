@@ -32,8 +32,8 @@ function createToken(selector){
         // Check if inputString exist and validate 
         // Check if inputString is already listed
 
-        $( '#'+ulParent.attr('id') + ' li:last').after(createTokenHtml(inputString));
-        var liW = parseInt($( '#'+ulParent.attr('id') + ' li:last').css("width"));
+        $( '#'+ulParent.attr('id') + ' li:first').after(createTokenHtml(inputString));
+        var liW = parseInt($( '#'+ulParent.attr('id') + ' li:eq(1)').css("width"));
         var ulW = parseInt(ulParent.css("width"));
         ulParent.css('width', ulW+liW+5+'px');
         selector.val('');
@@ -44,7 +44,7 @@ function createToken(selector){
 function deleteToken(selector){
 
     var ulParent = selector.closest('.new-ul');
-    var li = $('#'+ulParent.attr('id') + ' li:nth-last-child(1)');
+    var li = $('#'+ulParent.attr('id') + ' li:eq(1)');
 
     if (!li.hasClass("input-lpu") && selector.val() == ''){
          selector.val(li.find('p:first').text());
@@ -111,6 +111,7 @@ function initToolLPUScroller(){
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
         theme: "dark-thin",
+        scrollInertia: 0,
         advanced:{ updateOnSelectorChange: ".new-ul" }
     });
 
