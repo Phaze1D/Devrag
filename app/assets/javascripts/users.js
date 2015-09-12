@@ -6,14 +6,14 @@ function mwhileScrolling(object){
 
     var delta = object.mcs.top - startL + endAt;
 
-    if(delta <= 0 && delta > -50){
+    if(delta <= 0 && delta > -45){
         scrollAt = delta;
     }else if (delta > 0){
         scrollAt = 0;
         startL = object.mcs.top;
         endAt = scrollAt;
-    }else if(delta < -50){
-        scrollAt = -50;
+    }else if(delta < -45){
+        scrollAt = -45;
         startL = object.mcs.top;
         endAt = scrollAt;
 
@@ -62,5 +62,7 @@ function initUserAreaScroller(){
             }
         }
     });
+
+    $('.mCSB_vertical').css('border-radius','10px');
 }
 

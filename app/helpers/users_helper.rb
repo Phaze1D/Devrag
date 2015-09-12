@@ -8,7 +8,7 @@ module UsersHelper
 
   # Returns bool if user is logged in
   def is_logged_in?
-    false
+    true;
   end
 
   # Returns bool if user has unseen notifications

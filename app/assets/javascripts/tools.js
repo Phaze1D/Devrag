@@ -116,6 +116,6 @@ function initToolLPUScroller(){
     });
 
     $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css('bottom', '-16px');
-    $('#mCSB_1').css('border-radius','20px');
+    $('.mCSB_horizontal').css('border-radius','20px');
 }
 
