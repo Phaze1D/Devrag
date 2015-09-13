@@ -13,6 +13,10 @@ $(document).on('click', '#comment-addc', function(){
 	addComment();
 });
 
+$(document).on('click', '.lpu-token', function(){
+    deleteOnClickToken($(this));
+})
+
 $(document).on('keydown', '.new-lpu-input',function(e){
 
     if(e.keyCode == 13) {
@@ -41,6 +45,19 @@ function createToken(selector){
 
 }
 
+function deleteOnClickToken(selector){
+    var ulParent = selector.closest('.new-ul');
+    var input = $('#'+ulParent.attr('id') + ' li:eq(0)').children('.new-lpu-input');
+    input.val(''+ selector.text());
+    var tokenli = selector.closest('.token-li');
+
+    var liW = parseInt(tokenli.css("width"));
+    var ulW = parseInt(ulParent.css("width"));
+    ulParent.css('width', ulW-liW-5+'px');
+    tokenli.remove();
+
+}
+
 function deleteToken(selector){
 
     var ulParent = selector.closest('.new-ul');
@@ -58,7 +75,7 @@ function deleteToken(selector){
 
 function createTokenHtml(inputString){
     var safe = htmlSafeInput(inputString);
-    return '<li style="margin-right: 5px"> <p class="lpu-token">'+safe+'</p></li>'
+    return '<li class="token-li" style="margin-right: 5px"> <p class="lpu-token">'+safe+'</p></li>'
 }
 
 

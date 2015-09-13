@@ -3,34 +3,34 @@
 // You can use Sass (SCSS) here:http://sass-lang.com/
 
 
+.report-flag {
+	width: 10px;
+	height: auto;
+}
 .tool-info-section {
 	//border: 2px solid $base01;
 	border-radius: 10px;
 }
-
 .unfollow-ts {
 	@extend .unfollow-button;
 	font-size: 16pt;
 	margin-top: 20px
 }
-
 .follow-ts {
 	@extend .follow-button;
 	font-size: 16pt;
 	margin-top: 20px
 }
-
 .tool-like-div {
 	float: right;
 	width: 70px;
 	min-width: 70px;
 	max-width: 70px;
 
-	&:hover{
+	&:hover {
 		cursor: pointer;
 	}
 }
-
 .tool-like-imag {
 	min-width: 20px;
 	max-width: 20px;
@@ -38,35 +38,30 @@
 	float: left;
 	margin: 4px 10px 0px 0;
 }
-
 .count {
 	color: #b3c4c4;
 	margin: 3px 0 0 0;
 }
-
-.ul-lpu{
+.ul-lpu {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	width: auto;
 	float: left;
 }
-
-.li-lpu{
+.li-lpu {
 	display: inline;
 	color: #BED0D0;
 	border-right: 1px solid $base1;
 	padding: 5px;
 }
-
-#add-comment-section{
+#add-comment-section {
 	-webkit-transition: .5s;
 	-moz-transition: .5s;
 	-o-transition: .5s;
 	transition: .5s;
 }
-
-.comments-section{
+.comments-section {
 	border: 1px solid $base1;
 	border-radius: 20px;
 	//width: 100%;
@@ -74,36 +69,29 @@
 	padding: 0px 10px 0 10px;
 	overflow-y: hidden;
 }
-
-.comment-user{
+.comment-user {
 	font-size: 12pt;
 	margin-left: 15px;
-
 	color: $base02;
 
-
-	&:hover{
+	&:hover {
 		text-decoration: none;
 		color: deepskyblue;
 	}
-
 }
-
-.user-comment{
+.user-comment {
 	margin: 0 35px 0 35px;
 	color: $base01
 }
-
-.comment-options{
+.comment-options {
 	font-size: 9pt;
 	margin: 0px 25px 0px 25px;
 
-	&:hover{
+	&:hover {
 		text-decoration: none;
 	}
 }
-
-.comment-add-cl{
+.comment-add-cl {
 	width: 25px;
 	height: auto;
 	margin-top: 10px;
@@ -111,18 +99,15 @@
 	float: right;
 	margin-right: 10px;
 
-	&:hover{
+	&:hover {
 		cursor: pointer;
 	}
 }
-
-.comment-add-cl-t{
+.comment-add-cl-t {
 	@extend .comment-add-cl;
 	width: 20px;
-
 }
-
-.comment-area{
+.comment-area {
 	color: $base01;
 	margin: 0 35px 0 35px;
 	border: 1px solid $base1;
@@ -132,42 +117,34 @@
 	padding: 10px;
 }
 
-
-
 /* 888888888888888888888888888888888888888888888888888888888888888888888888888888888888 */
-
-
-.tool-new-input{
+.tool-new-input {
 	@extend .main-font;
 	opacity: 1;
-	&:focus{
+
+	&:focus {
 		outline: none;
 	}
 }
-
 $place-color: $base1;
 
 .tool-new-input::-webkit-input-placeholder {
 	opacity: 1;
 	color: $place-color;
 }
-
 .tool-new-input:-moz-placeholder {
-	opacity: 1; 
-	color: $place-color;  
-}
-
-.tool-new-input::-moz-placeholder { 
 	opacity: 1;
-	color: $place-color;  
+	color: $place-color;
 }
-
-.tool-new-input:-ms-input-placeholder {  
+.tool-new-input::-moz-placeholder {
 	opacity: 1;
-	color: $place-color;  
+	color: $place-color;
 }
-
-.tool-new-title{
+.tool-new-input:-ms-input-placeholder {
+	opacity: 1;
+	color: $place-color;
+}
+.tool-new-title {
 	@extend .tool-new-input;
 	font-size: 20pt;
 	border: none;
@@ -176,8 +153,7 @@ $place-color: $base1;
 	color: $base02;
 	padding: 0;
 }
-
-.tool-new-web{
+.tool-new-web {
 	@extend .tool-new-input;
 	font-size: 11pt;
 	width: 100%;
@@ -186,8 +162,7 @@ $place-color: $base1;
 	border: none;
 	padding: 0;
 }
-
-.tool-new-area{
+.tool-new-area {
 	@extend .tool-new-input;
 	resize: none;
 	font-size: 12pt;
@@ -200,15 +175,13 @@ $place-color: $base1;
 	border-radius: 10px;
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
-
-.rain-scroll{
+.rain-scroll {
 	white-space: nowrap;
 	padding: 9px 12px 9px 12px;
 	background-color: $base02;
 	border-radius: 20px;
 }
-
-.new-rain{
+.new-rain {
 	@extend .rain-scroll;
 	margin-top: 10px;
 	padding: 0;
@@ -218,18 +191,16 @@ $place-color: $base1;
 	box-shadow: none;
 	height: 39px;
 }
-
-.new-ul{
+.new-ul {
 	list-style-type: none;
 	padding: 0 3px;
 	margin: 0;
 	float: left;
 	//min-width: 100%;
 	//position: absolute;
-	 //display: block;
+	//display: block;
 }
-
-.new-ul li{
+.new-ul li {
 	height: 22px;
 	display: inline-block;
 	padding: 0 5px 0 10px;
@@ -237,8 +208,7 @@ $place-color: $base1;
 	margin-top: 3px;
 	margin-right: 10px;
 }
-
-.new-lpu-input{
+.new-lpu-input {
 	@extend .main-font;
 	@extend .form-control;
 	display: inherit;
@@ -250,75 +220,51 @@ $place-color: $base1;
 	width: 100%;
 	border-radius: 20px;
 	padding: 2px 10px;
-  	//height: 22px;
-  	&:focus{
-  		border-color: $base1;
-  	}
-  }
+	//height: 22px;
 
-  .tool-submit-b{
-  	font-family: "Lobster", cursive;
-  	font-size: 20pt;
-  	background-color: white;
-  	color: $base02;
-  	border: none;
-  	margin-top: 20px;
-  	width: 100%;
-  	border-radius: 0.3em;
+	&:focus {
+		border-color: $base1;
+	}
+}
+.tool-submit-b {
+	font-family: "Lobster", cursive;
+	font-size: 20pt;
+	background-color: white;
+	color: $base02;
+	border: none;
+	margin-top: 20px;
+	width: 100%;
+	border-radius: 0.3em;
 
-  	&:active{
-  		background-color: #b3c4c4;
-  		outline: none;
-  	}
-
-  	&:focus{
-  		outline: none;
-  	}
-  }
-
-  .lpu-token{
-  	@extend .main-font;
-  	color: white;
-  	margin: 0;
-  	height: 22px;
-  }
-
-
-  .token-breaker{
+	&:active {
+		background-color: #b3c4c4;
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.lpu-token {
+	@extend .main-font;	
+	color: white;
+	margin: 0;
+	height: 22px;
+	cursor: pointer;
+}
+.token-breaker {
 	//height: 80%;
 	border-right: 1px solid $base1;
 	//width: 0;
 }
-
-.new-title{
+.new-title {
 	margin-top: 0;
 	color: $base02;
 }
-
-.tool-new-p{
+.tool-new-p {
 	font-size: 11pt;
 	margin: 0 10px 0 0px;
 
-	@media(max-width: 991px){
+	@media(max-width:991px) {
 		margin: 0;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

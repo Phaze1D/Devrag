@@ -52,8 +52,14 @@
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-8">
 					<p class="title-2-dead " style="font-size: 10pt">submitted by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
+				</div>
+
+				<div class="col-xs-4 text-right">
+					<%= link_to 'Report', '#' , class: 'main-font undecorated-link title-2-dead', style: 'color: #cb4b16; font-size: 7pt' %>
+
+					<% link_to(image_tag('flag.png', class: 'report-flag'), '#') %>
 				</div>
 			</div>
 		</div>
@@ -105,11 +111,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- 
-Add formating the description 
-Add comment pic click animation to comment section
--->
 
 
 

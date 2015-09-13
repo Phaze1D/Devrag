@@ -2,6 +2,8 @@
     User notifications
     User following
     Added profile picture circle
+
+    Added if state if viewing someone elses profile
 -->
 
 <div class="container">
@@ -35,7 +37,7 @@
 
                 <% end %>
 
-                    <div class="user-area">
+                    <div id="user-area-tool" class="user-area">
                     <% if @user_tools.length > 5 %>
                         <div style="height: 30px"> </div>
                      <% end %>
@@ -56,7 +58,7 @@
              <div class="row">
                 <div class="col-xs-12">
 
-                    <div class="user-area">
+                    <div class="user-area" style="background-color: #073642">
                         <%= display_user_notifications(@user_notifications).html_safe%>
                     </div>
                 </div>
@@ -66,7 +68,7 @@
 
          <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12" style="z-index: 500; background-color: white">
                     <h2 class="title text-center" style=" margin-bottom: 5px">Following</h2>
                 </div>
             </div>
@@ -84,7 +86,7 @@
                     </div>
                     <% end %>
 
-                    <div class="user-area">
+                    <div id="user-area-following" class="user-area">
                     <% if @user_follows.length > 5 %>
                         <div style="height: 30px"> </div>
                     <% end %>

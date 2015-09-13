@@ -1,47 +1,60 @@
 
-var scrollAt = 0;
-var startL = 0;
-var endAt = 0;
-function mwhileScrolling(object){
+var ScrollHandler = function( searchBarID){
+    this.scrollAt = 0;
+    this.startL = 0;
+    this.endAt = 0;
+    this.searchBarID = searchBarID;
+}
 
-    var delta = object.mcs.top - startL + endAt;
+ScrollHandler.prototype.setScrollArea = function(scrollArea) {
+    this.scrollArea = scrollArea;
+};
+
+ScrollHandler.prototype.mwhileScrolling = function() {
+    var delta = this.scrollArea.mcs.top - this.startL + this.endAt;
 
     if(delta <= 0 && delta > -45){
-        scrollAt = delta;
+        this.scrollAt = delta;
     }else if (delta > 0){
-        scrollAt = 0;
-        startL = object.mcs.top;
-        endAt = scrollAt;
+        this.scrollAt = 0;
+        this.startL = this.scrollArea.mcs.top;
+        this.endAt = this.scrollAt;
     }else if(delta < -45){
-        scrollAt = -45;
-        startL = object.mcs.top;
-        endAt = scrollAt;
+        this.scrollAt = -45;
+        this.startL = this.scrollArea.mcs.top;
+        this.endAt = this.scrollAt;
 
     }
 
-    console.log(scrollAt + ' --- ' + delta + ' ---- ' + object.mcs.top + ' ------ ' + startL + ' ---- ' + endAt);
-
-    $('#user-tool-search').css({
-        '-webkit-transform': 'translate(0,' + scrollAt + 'px)',
-        '-moz-transform': 'translate(0,' + scrollAt + 'px)',
-        '-ms-transform': 'translate(0,' + scrollAt + 'px)',
-        '-o-transform': 'translate(0,' + scrollAt + 'px)',
-        'transform': 'translate(0,' + scrollAt + 'px)'
+    $(this.searchBarID).css({
+        '-webkit-transform': 'translate(0,' + this.scrollAt + 'px)',
+        '-moz-transform': 'translate(0,' + this.scrollAt + 'px)',
+        '-ms-transform': 'translate(0,' + this.scrollAt + 'px)',
+        '-o-transform': 'translate(0,' + this.scrollAt + 'px)',
+        'transform': 'translate(0,' + this.scrollAt + 'px)'
     });
-}
+};
 
-function startScroll(startLocation){
-   startL = startLocation;
-   console.log('Start Called')
-}
+ScrollHandler.prototype.startScroll = function() {
+    this.startL = this.scrollArea.mcs.top;
+};
 
-function endScroll(){
-    endAt = scrollAt;
-    console.log('End Called');
-}
+ScrollHandler.prototype.endScroll = function() {
+    this.endAt = this.scrollAt;
+};
+
+var toolScroll = new ScrollHandler('#user-tool-search');
+var followingScroll = new ScrollHandler('#user-fol-search');
 
 function initUserAreaScroller(){
-    $('.user-area').mCustomScrollbar({
+    initSingleUserScroller('#user-area-tool', toolScroll);
+    initSingleUserScroller('#user-area-following', followingScroll);
+    $('.mCSB_vertical').css('border-radius','10px');
+
+}
+
+function initSingleUserScroller(scrollerAreaID, scrollerHandler){
+     $(scrollerAreaID).mCustomScrollbar({
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
@@ -49,21 +62,25 @@ function initUserAreaScroller(){
         theme: "dark-thin",
         setLeft: "left:-100px",
         callbacks:{
+
+            onInit: function(){
+                scrollerHandler.setScrollArea(this);
+            },
+
             whileScrolling:function(){
-                mwhileScrolling(this);
+                scrollerHandler.mwhileScrolling();     
             },
 
             onScrollStart: function(){
-                startScroll(this.mcs.top)
+                scrollerHandler.startScroll();
             },
 
             onScroll: function(){
-                endScroll();
+                scrollerHandler.endScroll();
             }
         }
     });
-
-    $('.mCSB_vertical').css('border-radius','10px');
-
 }
+
+
 
