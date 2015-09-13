@@ -58,4 +58,12 @@ module UsersHelper
     html
   end
 
+  def display_user_notifications(user_notification)
+    ' '
+  end
+
+  def display_user_follows(user_notification)
+    ' '
+  end
+
 end

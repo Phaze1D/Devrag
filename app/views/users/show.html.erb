@@ -1,44 +1,98 @@
 <!--
     User notifications
     User following
+    Added profile picture circle
 -->
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1 class="title underline-dead"
-            style="border-width: 0px 0px 2px 0px; z-index: 1000 ">
-            username</h1>
+            <h1 class="title underline-dead" style="border-width: 0px 0px 2px 0px; z-index: 1000 "> username</h1>
         </div>
     </div>
 
     <div class="row">
-        
+
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="row" >
                 <div class="col-xs-12" style="z-index: 500; background-color: white">
-                    <h2 class="title" style=" margin-bottom: 0">Tools</h2>
+                    <h2 class="title text-center" style=" margin-bottom: 5px">Your Tools</h2>
                     <%= link_to(image_tag('add_button2.png', id: 'add-tool-b', class: 'center-ver'), new_tool_path) %>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                     
-                        <div id="tool-search">
-                            <input class="form-input main-font search-input" placeholder="Search...">
-                        </div>
 
-                        <div style="width: 100%; position:absolute; z-index: 100; padding: 0 50px 0 20px;">
-                            <div style="border-top: 1px solid #93a1a1;"></div>
-                        </div>
+                <% if @user_tools.length > 5 %>
+                    <div id="user-tool-search" class="tool-search">
+                        <input class="form-input main-font search-input" placeholder="Search...">
+                    </div>
+
+                    <div style="width: 100%; position:absolute; z-index: 100; padding: 0 50px 0 20px;">
+                        <div style="border-top: 1px solid #93a1a1;"></div>
+                    </div>
+
+                <% end %>
 
                     <div class="user-area">
+                    <% if @user_tools.length > 5 %>
                         <div style="height: 30px"> </div>
+                     <% end %>
                         <%= display_user_tools(@user_tools).html_safe%>
                     </div>
                 </div>
             </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="title text-center" style=" margin-bottom: 5px">Notifications</h2>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="user-area">
+                        <%= display_user_notifications(@user_notifications).html_safe%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+         <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="title text-center" style=" margin-bottom: 5px">Following</h2>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-xs-12">
+
+                     <% if @user_follows.length > 5 %>
+                    <div id="user-fol-search" class="tool-search">
+                        <input class="form-input main-font search-input" placeholder="Search...">
+                    </div>
+
+                    <div style="width: 100%; position:absolute; z-index: 100; padding: 0 50px 0 20px;">
+                        <div style="border-top: 1px solid #93a1a1;"></div>
+                    </div>
+                    <% end %>
+
+                    <div class="user-area">
+                    <% if @user_follows.length > 5 %>
+                        <div style="height: 30px"> </div>
+                    <% end %>
+                        <%= display_user_follows(@user_follows).html_safe%>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

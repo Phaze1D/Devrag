@@ -21,7 +21,7 @@ function mwhileScrolling(object){
 
     console.log(scrollAt + ' --- ' + delta + ' ---- ' + object.mcs.top + ' ------ ' + startL + ' ---- ' + endAt);
 
-    $('#tool-search').css({
+    $('#user-tool-search').css({
         '-webkit-transform': 'translate(0,' + scrollAt + 'px)',
         '-moz-transform': 'translate(0,' + scrollAt + 'px)',
         '-ms-transform': 'translate(0,' + scrollAt + 'px)',
@@ -64,5 +64,6 @@ function initUserAreaScroller(){
     });
 
     $('.mCSB_vertical').css('border-radius','10px');
+
 }
 

@@ -20,6 +20,7 @@ $(document).on("page:load ready", function(){
     initLPUSeachScroller();
     initUserAreaScroller();
     initToolLPUScroller();
+   $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
 });
 
 $(document).mouseup(function (e) {
