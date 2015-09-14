@@ -9,6 +9,44 @@
   border-color: rgba(176, 176, 176, 0.58);
 }
 
+.user-profile-img{
+  height: auto;
+  //width: 100%;
+  border-radius: 100%;
+  margin-top: 10px;
+  height: 90px;
+  width: 90px;
+  float: right;
+  background: url('profile_img.jpg');
+  background-size:   cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center; 
+  overflow: hidden;
+}
+
+.edit-img-div{
+  @extend .main-font;
+  background-color: rgba(0,0,0, .4);
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  color: white;
+  display: block;
+  margin-top: 100px;
+
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.edit-img-link{
+  color: white;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
 #signup-button {
   font-size: 16pt;
   width: 100%;
@@ -43,6 +81,8 @@
   -moz-border-radius: 10px;
   border-radius: 10px;
   height: 450px;
+  //box-shadow: inset 0 0 10px -4px rgba(0,0,0,.5);
+  z-index: 100px;
 }
 
 .user-tool-area {
@@ -52,6 +92,7 @@
   margin: 5px 0;
   //right: 65%;
   background-color: white;
+  //z-index: -100;
 }
 
 #uta {

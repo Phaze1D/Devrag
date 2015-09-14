@@ -4,9 +4,21 @@
 -->
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 class="title underline-dead" style="border-width: 0px 0px 2px 0px; z-index: 1000 "> username</h1>
+    <div class="row underline-dead" style="border-width: 0px 0px 2px 0px; margin-bottom: 20px">
+        <div class="col-xs-10" style="padding: 0 40px 0 0; ">
+            <h1 class="title col-overflow-x" style="z-index: 1000; margin: 65px 0 0 0; overflow: hidden"> username</h1>
+        </div>
+
+        <div class="col-xs-2 text-right" style="">
+            <div class="user-profile-img">
+                <div class="edit-img-div text-center">
+                     <%= link_to  '#', class: 'edit-img-link undecorated-link-w' do %>
+                        <p class="center-ver center-hor" style="margin: 0 ">Edit</p>
+                     <%end%>
+                </div>
+                
+            </div>
+            <% image_tag 'profile_img.jpg', class: 'user-profile-img'%>
         </div>
     </div>
 

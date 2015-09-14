@@ -132,16 +132,24 @@
   font-size: 13pt;
   background-color: #b3c4c4;
   color: $base02;
-  border: none;
+  border: 1px solid #b3c4c4;
   float: right;
   border-radius: 0.3em;
+
+  &:active{
+    color: $base02;
+    background-color: $base2;
+    border: 1px solid #D5CFBE;
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 .unfollow-button {
   @extend .follow-button;
   margin-top: 4px;
   font-size: 10pt;
-  color: #69828b
+  color: #69828b;
 }
 
 $tooltip-background: white;

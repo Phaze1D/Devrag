@@ -183,9 +183,19 @@ html {
   text-decoration: none;
 }
 
+.undecorated-link-w{
+
+}
+
 .undecorated-link-w:hover {
   text-decoration: none;
   color: white;
+  outline: none;
+}
+
+.undecorated-link-w:focus{
+  color: white;
+  outline: none;
 }
 
 .col-overflow-x{

@@ -43,6 +43,23 @@ ScrollHandler.prototype.endScroll = function() {
     this.endAt = this.scrollAt;
 };
 
+
+$(document).on('mouseover', '.user-profile-img', function(){
+    showEditUserImg();
+});
+
+$(document).on('mouseout', '.user-profile-img', function(){
+    hideEditUserImg();
+});
+
+function showEditUserImg(){
+    $('.edit-img-div').css('margin-top', '0px');
+}
+
+function hideEditUserImg(){
+    $('.edit-img-div').css('margin-top', '100px');
+}
+
 var toolScroll = new ScrollHandler('#user-tool-search');
 var followingScroll = new ScrollHandler('#user-fol-search');
 
@@ -58,7 +75,6 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        scrollInertia:0,
         theme: "dark-thin",
         setLeft: "left:-100px",
         callbacks:{
