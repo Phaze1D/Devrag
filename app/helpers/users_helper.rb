@@ -58,8 +58,12 @@ module UsersHelper
     html
   end
 
-  def display_user_notifications(user_notification)
-    ' '
+  def display_user_notifications(user_notifications)
+    html = ''
+    user_notifications.each do |notification|
+      html += render partial: 'users/user_notification', locals: {notification: notification}
+    end
+    html
   end
 
   def display_user_follows(user_following_tools)
