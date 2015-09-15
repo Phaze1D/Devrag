@@ -181,6 +181,8 @@ function mLiClicked(selector) {
 function resultToolOptionsClicked(selector) {
     var closetP = $(selector).closest('#uta');
 
+    closetP.find('.search-options-div').css('display', 'block');
+
     if ($(closetP).attr('data-ani') == 0) {
         closetP.css({
             '-webkit-transform': 'translate(-90%, 0)',
@@ -189,13 +191,16 @@ function resultToolOptionsClicked(selector) {
             '-o-transform': 'translate(-90%, 0)',
             'transform': 'translate(-85%, 0)'
         });
-        $(closetP).attr('data-ani', '1')
+        $(closetP).attr('data-ani', '1');
+
     } else {
         moveBackTool($(closetP));
     }
 }
 
 function moveBackTool(selector) {
+
+
     selector.css({
         '-webkit-transform': 'translate(0, 0)',
         '-moz-transform': 'translate(0, 0)',
@@ -203,6 +208,14 @@ function moveBackTool(selector) {
         '-o-transform': 'translate(0, 0)',
         'transform': 'translate(0, 0)'
     });
+
+    var option_div = selector.find('.search-options-div');
+    option_div.animate({
+      opacity: 0.99  
+    }, 500, "linear", function() {
+        option_div.css('display', 'none');
+    });
+
     selector.attr('data-ani', '0')
 }
 
