@@ -1,74 +1,83 @@
-
 <div class="header-background">
-    
 
-<% if show_devrag_header?%>
-    <div id="devrag-header-title-div">
-        <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link', 
-                                            id: 'devrag-header-title' %>
+
+    <% if show_devrag_header? %>
+        <div id="devrag-header-title-div">
+            <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link',
+                        id: 'devrag-header-title' %>
+        </div>
+    <% end %>
+
+
+    <div id="username-div" style="<%= resize_div %>">
+        <div id="header-div">
+            <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center-ver' %>
+
+            <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
+
+                <h5 id="username-label" class="main-font">username</h5>
+                <% if has_notifications? %>
+                    <div class="notification-bubble text-center center-ver">
+                        <h6 class="center notification-text main-font">3</h6>
+                    </div>
+                <% end %>
+            <% end %>
+
+        </div>
     </div>
-<%end%>
+
+    <div id="menu-div">
+        <% if is_logged_in? %>
+            <%= link_to 'Home', root_path,
+                        class: 'login-button center text-left undecorated-link-w',
+                        style: 'top: 17%;' %>
+
+            <%= link_to 'Profile', user_path(12),
+                        class: 'login-button center text-left undecorated-link-w',
+                        style: 'top: 33%;' %>
+
+            <%= link_to 'Notification', '', id: 'notification-button',
+                        class: 'login-button center text-left undecorated-link-w',
+                        style: 'top: 49%;' %>
 
 
-<div id="username-div" style="<%= resize_div %>">
-    <div id="header-div">
-        <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center-ver' %>
 
-        <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
-
-            <h5 id="username-label" class="main-font">username</h5>
             <% if has_notifications? %>
-                <div class="notification-bubble text-center center-ver">
+                <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
                     <h6 class="center notification-text main-font">3</h6>
                 </div>
             <% end %>
-        <% end %>
 
+
+            <%= link_to 'Settings', '#',
+                        class: 'login-button center text-left undecorated-link-w',
+                        style: 'top: 65%; ' %>
+
+            <div class="break-line center" style="top: 75%"></div>
+
+            <%= link_to 'Logout', '#',
+                        class: 'login-button center text-left undecorated-link-w',
+                        style: 'top: 85%; ' %>
+        <% else %>
+            <input class="form-control main-font center login-form "
+                   placeholder="Email" style="top: 17%">
+            <input class="form-control main-font center login-form"
+                   placeholder="Password" style="top: 33%" , type="password">
+            <%= link_to 'Forgot', '#', class: 'text-right main-font login-link' %>
+            <button class="login-button center" style="top: 56%;">Login</button>
+            <div class="break-line center" style="top: 68%"></div>
+
+            <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 85%; ' %>
+
+        <% end %>
     </div>
-</div>
 
-<div id="menu-div">
-    <% if is_logged_in? %> <!--user logged in -->
-        <%= link_to 'Home', root_path,
-                    class: 'login-button center text-left undecorated-link-w',
-                    style: 'top: 17%;' %>
+    <!-- Remember to change data-id to the current users id/ username-->
+    <div id="notification-div" data-id="12">
+        <h4 class="login-button underline-alive noti-title">Notifications</h4>
+        <div class="notis-area">
 
-        <%= link_to 'Profile', user_path(12),
-                    class: 'login-button center text-left undecorated-link-w',
-                    style: 'top: 33%;' %>
-
-        <%= link_to 'Notification', '#',
-                    class: 'login-button center text-left undecorated-link-w',
-                    style: 'top: 49%;' %>
-
-        <% if has_notifications? %>
-            <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
-                <h6 class="center notification-text main-font">3</h6>
-            </div>
-        <% end %>
-
-
-        <%= link_to 'Settings', '#',
-                    class: 'login-button center text-left undecorated-link-w',
-                    style: 'top: 65%; ' %>
-
-        <div class="break-line center" style="top: 75%"></div>
-
-        <%= link_to 'Logout', '#',
-                    class: 'login-button center text-left undecorated-link-w',
-                    style: 'top: 85%; ' %>
-    <% else %>
-        <input class="form-control main-font center login-form "
-               placeholder="Email" style="top: 17%">
-        <input class="form-control main-font center login-form"
-               placeholder="Password" style="top: 33%" , type="password">
-        <%= link_to 'Forgot', '#', class: 'text-right main-font login-link' %>
-        <button class="login-button center" style="top: 56%;">Login</button>
-        <div class="break-line center" style="top: 68%"></div>
-
-        <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 85%; ' %>
-
-    <% end %>
-</div>
+        </div>
+    </div>
 
 </div>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #Users
   resources :users
   get 'signup', to: 'users#new'
+  get 'notifications', to: 'users#notifications'
 
   #Tools
   resources :tools

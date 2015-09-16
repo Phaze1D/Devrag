@@ -173,6 +173,74 @@
   font-size: 8pt;
 }
 
+.noti-title{
+  border-radius: 0;
+  padding-left: 10px;
+  width: 100%;
+}
+
+#notification-div{
+  position: fixed;
+  height: 400px;
+  width: 300px;
+  background-color: $base03;
+  top: 55px;
+  left: 20px;
+
+  -webkit-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  -moz-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  box-shadow: 0px 0px 5px 0px #8b8b8b;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  transform-origin: top left;
+
+  opacity: 0;
+  display: none;
+
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+
+}
+
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spinner {
+  to {-webkit-transform: rotate(360deg);}
+}
+
+.spinner {
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.spinner:before {
+  content: 'Loading…';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin-top: -13px;
+  margin-left: -13px;
+}
+
+.spinner:not(:required):before {
+  content: '';
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  border-top-color: #03ade0;
+  animation: spinner .6s linear infinite;
+  -webkit-animation: spinner .6s linear infinite;
+}
+
 
 
 

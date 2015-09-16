@@ -27,16 +27,13 @@ $(document).mouseup(function (e) {
     removeMenu(e);
     removeOptionPop(e);
     removeSortDropdown(e);
+    removeNoti(e);
 });
 
+$(window).on('resize', function () {
+    adjust();
+});
 
-function removeMenu(e) {
-    var container = $("#menu-div");
-    if (!didClickTarget(container, e)){
-        container.css('opacity', '0');
-        container.css('display', 'none');
-    }
-}
 
 function didClickTarget(container, event) {
 
@@ -45,12 +42,4 @@ function didClickTarget(container, event) {
 
 function htmlSafeInput(text) {
     return $('<div/>').text(text).html();
-}
-
-function removeSortDropdown(e){
-    var list = $('#dropdown-sortL');
-   if( !(didClickTarget(list,e) || didClickTarget($('#dropdown-sortB'), e) ) ){
-       list.css('opacity', '0');
-       list.css('display', 'none');
-   }
 }

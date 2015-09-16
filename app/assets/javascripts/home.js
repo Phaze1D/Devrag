@@ -11,10 +11,6 @@ $(document).on('click', '#lpu-down-arror', function () {
     openLPU();
 });
 
-$(window).on('resize', function () {
-    adjust();
-});
-
 $(document).on('click', '#options-image', function () {
     resultToolOptionsClicked(this);
 });
@@ -239,4 +235,13 @@ function lpuliHover(selector) {
 
 function lpuliOut(selector) {
     selector.closest('.search-options-div').find('.lpu-underlabel').html('');
+}
+
+
+function removeSortDropdown(e){
+    var list = $('#dropdown-sortL');
+    if( !(didClickTarget(list,e) || didClickTarget($('#dropdown-sortB'), e) ) ){
+        list.css('opacity', '0');
+        list.css('display', 'none');
+    }
 }
