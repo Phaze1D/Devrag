@@ -11,11 +11,5 @@ class UsersController < ApplicationController
   	@user_follows= [1,2,3,4]
   end
 
-  def notifications
-    @current_user_notifications = [1,2,3,4,1,2,3,4,1,2,3,4]
-    respond_to do |format|
-      format.js
-    end
-  end
 
 end

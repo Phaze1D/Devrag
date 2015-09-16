@@ -49,6 +49,9 @@ module UsersHelper
   end
 
 
+
+  ## When creating the backend move these 2 methods into tools_helper
+
   # Return html of list of user's tools
   def display_user_tools(user_tools)
     html = ''
