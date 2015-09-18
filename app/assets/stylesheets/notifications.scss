@@ -1,3 +1,53 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.noti-title{
+  border-radius: 0;
+  padding-left: 10px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#notification-div{
+  position: fixed;
+  height: 400px;
+  width: 300px;
+  background-color: $base03;
+  top: 55px;
+  left: 20px;
+
+  -webkit-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  -moz-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  box-shadow: 0px 0px 5px 0px #8b8b8b;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  transform-origin: top left;
+
+  opacity: 0;
+  display: none;
+
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+
+}
+
+.notis-area{
+  height: 368px;
+}
+
+.noti-container{
+  width: 300px;
+  height: 70px;
+  border-bottom: 1px solid $base1;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  margin:0px 0;
+  padding: 5px 16px 5px 5px;
+
+}
