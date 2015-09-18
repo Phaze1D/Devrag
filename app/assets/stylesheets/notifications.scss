@@ -48,6 +48,19 @@
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   margin:0px 0;
-  padding: 5px 16px 5px 5px;
+  padding: 10px 16px 10px 8px;
 
+}
+
+.noti-profile-img{
+  width: auto;
+  height: 49px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5%;
+}
+
+.noti-profile-link{
+  //display: block;
+  height: 100%;
 }
