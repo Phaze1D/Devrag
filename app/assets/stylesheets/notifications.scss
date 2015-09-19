@@ -45,8 +45,6 @@
   width: 300px;
   height: 70px;
   border-bottom: 1px solid $base1;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
   margin:0px 0;
   padding: 10px 16px 10px 8px;
 
@@ -60,7 +58,70 @@
   border-radius: 5%;
 }
 
-.noti-profile-link{
-  //display: block;
+.noti-link{
+  display: inline-block;
   height: 100%;
+  float: left;
+  margin-right: 5px;
+}
+
+.noti-sm-icon{
+  width: 12px;
+  height: auto;
+  display: inline-block;
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
+.noti-date{
+  display: inline-block;
+  color: $base01;
+  margin: 0;
+  //left: 5px;
+  font-size: 10px;
+  position: absolute;
+}
+
+.noti-cross{
+  //@extend .main-font;
+  color: deepskyblue;
+  position: absolute;
+  left: 278px;
+  top: 8px;
+  margin: 0;
+  cursor: pointer;
+  width: 13px;
+  height: auto;
+}
+
+.noti-p{
+  @extend .main-font;
+  color: $base1;
+  font-size: 12.5px;
+  font-weight: 200;
+  margin: 0;
+  height: 36px;
+}
+
+.span-yes{
+  color: $base2;
+  display: inline-block;
+  max-width: 150px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  height: 16px;
+  margin-top: -1px;
+}
+
+.span-no{
+  color: $base2;
+  display: inline-block;
+  max-width: 100px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  height: 16px;
+  margin-bottom: -1px;
 }

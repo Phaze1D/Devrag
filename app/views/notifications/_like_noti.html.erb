@@ -5,9 +5,25 @@
     Date and time
 -->
 
-<div class="noti-container">
+<div class="noti-container" style="position: relative">
 
-    <%= link_to user_path(12), class: 'undecorated-link-w noti-profile-link' do %>
+    <%= link_to user_path(12), class: 'undecorated-link-w noti-link' do %>
         <%= image_tag 'profile_img_2.jpg', class: 'noti-profile-img' %>
     <% end %>
+
+    <%= link_to '#', class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
+        <p class="noti-p">
+            <span class="span-no">SoAndSo</span>
+            <span class="span-no" style="color: #93a1a1">liked your tool</span>
+            <span class="span-yes">Some Tool Name</span>
+        </p>
+
+        <%= image_tag 'like_icon.png', class: 'noti-sm-icon' %>
+        <p class="noti-date">
+            November 15, 2015
+        </p>
+    <% end %>
+
+    <%= image_tag 'remove_button.png', class: 'noti-cross' %>
+
 </div>

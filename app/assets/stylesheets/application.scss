@@ -205,3 +205,10 @@ html {
   white-space:nowrap;
   text-overflow: ellipsis;
 }
+
+.col-overflow-y{
+  overflow-y: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}

@@ -9,7 +9,7 @@
   border-color: rgba(176, 176, 176, 0.58);
 }
 
-.user-profile-img{
+.user-profile-img {
   height: auto;
   //width: 100%;
   border-radius: 100%;
@@ -18,15 +18,15 @@
   width: 90px;
   float: right;
   background: url('profile_img.jpg');
-  background-size:   cover;                      /* <------ */
+  background-size: cover; /* <------ */
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
   overflow: hidden;
 }
 
-.edit-img-div{
+.edit-img-div {
   @extend .main-font;
-  background-color: rgba(0,0,0, .4);
+  background-color: rgba(0, 0, 0, .4);
   height: 100%;
   width: 100%;
   border-radius: 100%;
@@ -40,7 +40,7 @@
   transition: .3s;
 }
 
-.edit-img-link{
+.edit-img-link {
   color: white;
   height: 100%;
   display: block;
@@ -110,7 +110,6 @@
   margin-top: 1px;
 }
 
-
 .options-div {
   position: absolute;
   width: 280px;
@@ -140,19 +139,29 @@
 
 .tool-search {
   position: absolute;
-  width: 100%;
+  width: -webkit-calc(100% - 50px);
+  width: calc(100% - 50px);
   z-index: 10;
   height: 34px;
   border-radius: 0px;
-  padding: 0 50px 0 20px;
+  padding: 0 0 0 20px;
 }
 
 .search-input {
   -webkit-border-radius: 0px 0px 10px 10px;
   -moz-border-radius: 0px 0px 10px 10px;
   border-radius: 0px 0px 10px 10px;
-  border:1.5px solid deepskyblue;
+  border: 1.5px solid deepskyblue;
   border-top: none;
 
 }
+
+.upper-user-area {
+  width: -webkit-calc(100% - 50px);
+  width: calc(100% - 50px);
+  position: absolute;
+  z-index: 100;
+  padding: 0 0px 0 20px;
+}
+
 
