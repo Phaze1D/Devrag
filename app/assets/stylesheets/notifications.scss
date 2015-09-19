@@ -74,12 +74,14 @@
 }
 
 .noti-date{
+ @extend .main-font;
   display: inline-block;
   color: $base01;
   margin: 0;
   //left: 5px;
   font-size: 10px;
   position: absolute;
+
 }
 
 .noti-cross{
@@ -92,6 +94,7 @@
   cursor: pointer;
   width: 13px;
   height: auto;
+  opacity: .8;
 }
 
 .noti-p{
@@ -104,7 +107,7 @@
 }
 
 .span-yes{
-  color: $base2;
+  color: #ffffff;
   display: inline-block;
   max-width: 150px;
   overflow-x: hidden;
@@ -112,16 +115,15 @@
   white-space:nowrap;
   text-overflow: ellipsis;
   height: 16px;
-  margin-top: -1px;
+  margin-top: -5px;
 }
 
 .span-no{
-  color: $base2;
+  color: #ffffff;
   display: inline-block;
   max-width: 100px;
   overflow-x: hidden;
   word-wrap: break-word;
-  white-space:nowrap;
+  //white-space:nowrap;
   height: 16px;
-  margin-bottom: -1px;
 }

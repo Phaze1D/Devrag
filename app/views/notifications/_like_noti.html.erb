@@ -8,20 +8,20 @@
 <div class="noti-container" style="position: relative">
 
     <%= link_to user_path(12), class: 'undecorated-link-w noti-link' do %>
-        <%= image_tag 'profile_img_2.jpg', class: 'noti-profile-img' %>
+        <%= image_tag 'profile_img.jpg', class: 'noti-profile-img' %>
     <% end %>
 
     <%= link_to '#', class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
-        <p class="noti-p">
-            <span class="span-no">SoAndSo</span>
-            <span class="span-no" style="color: #93a1a1">liked your tool</span>
-            <span class="span-yes">Some Tool Name</span>
-        </p>
+        <div class="noti-p">
+            <span class="span-no">SoAndS</span>
+            <span class="span-no" style="color: #93a1a1"><span style="color: #bdcfcf;">liked</span> your tool</span>
+            <span class="span-yes">Some</span>
+        </div>
 
         <%= image_tag 'like_icon.png', class: 'noti-sm-icon' %>
-        <p class="noti-date">
+        <div class="noti-date">
             November 15, 2015
-        </p>
+        </div>
     <% end %>
 
     <%= image_tag 'remove_button.png', class: 'noti-cross' %>
