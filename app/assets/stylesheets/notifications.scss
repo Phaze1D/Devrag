@@ -46,7 +46,8 @@
   height: 70px;
   border-bottom: 1px solid $base1;
   margin:0px 0;
-  padding: 10px 16px 10px 8px;
+  padding: 10px 20px 10px 8px;
+  position: relative;
 
 }
 
@@ -97,6 +98,12 @@
   opacity: .8;
 }
 
+.noti-tool-h{
+  @extend .main-font;
+  color: $base2;
+  margin: 0;
+}
+
 .noti-p{
   @extend .main-font;
   color: $base1;
@@ -106,8 +113,22 @@
   height: 36px;
 }
 
+.noti-p-l{
+  @extend .main-font;
+  color: $base1;
+  font-size: 11px;
+  font-weight: 200;
+  height: 20px;
+  width: 250px;
+  margin: 5px 0 0;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
 .span-yes{
-  color: #ffffff;
+  color: $base2;
   display: inline-block;
   max-width: 150px;
   overflow-x: hidden;
@@ -119,7 +140,7 @@
 }
 
 .span-no{
-  color: #ffffff;
+  color: $base2;
   display: inline-block;
   max-width: 100px;
   overflow-x: hidden;

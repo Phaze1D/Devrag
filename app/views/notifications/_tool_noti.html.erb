@@ -6,5 +6,23 @@
 -->
 
 <div class="noti-container">
+    <%= link_to user_path(12), class: 'undecorated-link-w noti-link' do %>
+        <h6 class="noti-tool-h" style="font-size: 12.5px;">
+            Tool NaName
+            <span class="noti-p" style="font-size: 11px;">has notified their followers</span>
+        </h6>
+        <p class="noti-p-l">
+            This is were the small part of the notification that
+            the tool has made will go it should not show all of the
+            notifiction even if it is very long notification. Am adding
+            in some more words to make sure that this is long enough
+        </p>
 
+        <%= image_tag 'code_icon.png', class: 'noti-sm-icon', style: 'width: 20px'%>
+        <div class="noti-date">
+            November 15, 2015
+        </div>
+    <% end %>
+
+    <%= image_tag 'remove_button.png', class: 'noti-cross' %>
 </div>
