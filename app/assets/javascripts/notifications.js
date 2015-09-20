@@ -4,6 +4,32 @@ $(document).on('click', '#notification-button', function(e){
     e.preventDefault();
 });
 
+$(document).on('click', '.noti-cross', function(){
+    removeNotifiction($(this));
+});
+
+
+function removeNotifiction(notiCross){
+    var container = notiCross.closest('.noti-container');
+    var num = -320;
+    container.css({
+        '-webkit-transform': 'translate('+num+ 'px,0)',
+        '-moz-transform': 'translate('+num+ 'px,0)',
+        '-ms-transform': 'translate('+num+ 'px,0)',
+        '-o-transform': 'translate('+num+ 'px,0)',
+        'transform': 'translate('+num+ 'px,0)'
+    });
+
+
+    container.animate({
+        opacity: 0.99
+    }, 350, "linear", function() {
+        container.remove();
+    });
+
+
+}
+
 function showNotifications(){
     var notidiv =  $('#notification-div');
 
