@@ -102,6 +102,10 @@
   @extend .main-font;
   color: $base2;
   margin: 0;
+  max-width: 100px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
 }
 
 .noti-p{
@@ -130,7 +134,7 @@
 .span-yes{
   color: $base2;
   display: inline-block;
-  max-width: 150px;
+  max-width: 190px;
   overflow-x: hidden;
   word-wrap: break-word;
   white-space:nowrap;
@@ -145,6 +149,6 @@
   max-width: 100px;
   overflow-x: hidden;
   word-wrap: break-word;
-  //white-space:nowrap;
+  white-space:nowrap;
   height: 16px;
 }
