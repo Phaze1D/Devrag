@@ -7,17 +7,19 @@ Rails.application.routes.draw do
   #Users
   resources :users do
     #Notifications
-    get 'notifications', to: 'notifications#index'
+    resources :notifications
+
+    #Tools
+    ## Make ajax calls to user display tools and user following tools
+    resources :tools, except: :show
   end
 
   get 'signup', to: 'users#new'
 
 
-  ## When creating the backend move resources tools into users resources
-  ## And make ajax calls to user display tools and user following tools
 
   #Tools
-  resources :tools
+  get 'tool/:id', to: 'tools#show', as: 'tool'
   
   
   #Search Results URL
