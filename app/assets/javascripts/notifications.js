@@ -23,7 +23,7 @@ function removeNotifiction(notiCross){
 
     container.animate({
         opacity: 0.99
-    }, 350, "linear", function() {
+    }, 450, "linear", function() {
         container.remove();
     });
 
