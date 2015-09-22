@@ -77,6 +77,7 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
         autoHideScrollbar: true,
         theme: "dark-thin",
         setLeft: "left:-100px",
+         scrollInertia: 0,
         callbacks:{
 
             onInit: function(){
