@@ -2,7 +2,7 @@ module NotificationsHelper
 
   def display_notifications(notifications)
 
-    html = ''
+    html = ' '
     notifications.each do |notification|
         case notification
 
