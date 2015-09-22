@@ -12,10 +12,15 @@ var num2 = 0;
 function removeNotifiction(notiCross) {
     var container = notiCross.closest('.noti-li');
 
-    var num = -370;
     num2 -= 70;
+    cssAnimation(container);
+    removeCallback(container);
+}
+
+function cssAnimation(container){
 
     var lower = false;
+    var num = -370;
 
     $('#noti-ul').children().each(function () {
 
@@ -45,8 +50,9 @@ function removeNotifiction(notiCross) {
             });
         }
     });
+}
 
-
+function removeCallback(container){
     container.animate({
         opacity: 0.99
     }, 450, "linear", function () {
@@ -78,8 +84,6 @@ function removeNotifiction(notiCross) {
         container.remove();
 
     });
-
-
 }
 
 function showNotifications() {
