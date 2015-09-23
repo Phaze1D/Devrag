@@ -220,7 +220,7 @@ function initLPUSeachScroller(){
         axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        scrollInertia: 100,
+        scrollInertia: 0,
         theme: "light-thin"
     });
 
