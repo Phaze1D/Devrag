@@ -235,14 +235,22 @@ $place-color: $base1;
 	margin-top: 20px;
 	width: 100%;
 	border-radius: 0.3em;
+    //background-color: #b3c4c4;
 
 	&:active {
 		background-color: #b3c4c4;
 		outline: none;
+      text-decoration: none;
 	}
 	&:focus {
 		outline: none;
+      text-decoration: none;
 	}
+
+    &:hover{
+      text-decoration: none;
+      color: $base02;
+    }
 }
 .lpu-token {
 	@extend .main-font;	

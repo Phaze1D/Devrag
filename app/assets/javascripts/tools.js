@@ -49,6 +49,7 @@ function deleteOnClickToken(selector){
     var ulParent = selector.closest('.new-ul');
     var input = $('#'+ulParent.attr('id') + ' li:eq(0)').children('.new-lpu-input');
     input.val(''+ selector.text());
+    console.log(selector.text());
     var tokenli = selector.closest('.token-li');
 
     var liW = parseInt(tokenli.css("width"));

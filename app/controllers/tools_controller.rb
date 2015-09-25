@@ -19,5 +19,13 @@ class ToolsController < ApplicationController
 
 	end
 
+	def edit
+		@tools_lpu = %w(c++ short thisisalongin sja;lfadkjisalongerone isthelongestoneofthemalljustoy tjasdf;kljasd ads flkjsdf kjadsf ajd flksd flka)
+	end
+
+	def update
+
+	end
+
 
 end
