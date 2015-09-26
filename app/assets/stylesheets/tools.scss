@@ -11,16 +11,7 @@
 	//border: 2px solid $base01;
 	border-radius: 10px;
 }
-.unfollow-ts {
-	@extend .unfollow-button;
-	font-size: 16pt;
-	margin-top: 20px
-}
-.follow-ts {
-	@extend .follow-button;
-	font-size: 16pt;
-	margin-top: 20px
-}
+
 .tool-like-div {
 	float: right;
 	width: 70px;
@@ -277,7 +268,35 @@ $place-color: $base1;
 	}
 }
 
+.follow-main{
+  position: relative;
+}
 
+.follow-hover-div{
+  position: absolute;
+  height: 42px;
+  width: 160px;
+  background-color: $base03;
+  color: $base1;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  z-index: 1000;
+  right: 50%;
+  top: -42px;
+  font-weight: 200;
+
+  -webkit-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  -moz-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  box-shadow: 0px 0px 5px 0px #8b8b8b;
+
+  display: none;
+
+}
+
+.follow-hover-div p{
+  margin: 10px 5px;
+}
 
 .lcf-section{
   color: #b3c4c4;

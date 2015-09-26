@@ -24,8 +24,24 @@ $(document).on('keydown', '.new-lpu-input',function(e){
     }
     if (e.keyCode == 8) {
         deleteToken($(this));
-    };
+    }
 });
+
+$(document).on('mouseover', '.follow-button', function(){
+    showFollowDiv($(this));
+});
+
+$(document).on('mouseout', '.follow-button', function(){
+    hideFollowDiv($(this));
+});
+
+function hideFollowDiv(button){
+    button.closest('.follow-main').find('.follow-hover-div').css('display', 'none');
+}
+
+function showFollowDiv(button){
+    button.closest('.follow-main').find('.follow-hover-div').css('display', 'block');
+}
 
 function createToken(selector){
 
