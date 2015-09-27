@@ -273,9 +273,10 @@ $place-color: $base1;
 }
 
 .follow-hover-div{
+  @extend .text-center;
   position: absolute;
   height: 42px;
-  width: 160px;
+  width: 170px;
   background-color: $base03;
   color: $base1;
   -webkit-border-radius: 8px;
@@ -295,7 +296,7 @@ $place-color: $base1;
 }
 
 .follow-hover-div p{
-  margin: 10px 5px;
+  margin: 10px 0px;
 }
 
 .lcf-section{
