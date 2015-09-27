@@ -7,6 +7,13 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def new_tool_notify
+    @notify_from_tool = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
+    respond_to do |format|
+      format.js
+    end
+  end
+
 
 
 

@@ -303,3 +303,14 @@ $place-color: $base1;
   font-size: 9pt;
   margin-top: 10px;
 }
+
+.notify-b {
+  @extend .follow-button;
+  @extend .main-font;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 1px solid $base03;
+  background-color: white;
+  color: $base03;
+}

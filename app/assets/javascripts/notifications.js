@@ -7,6 +7,24 @@ $(document).on('click', '.noti-cross', function () {
     removeNotifiction($(this));
 });
 
+$(document).on('click', '.notify-link', function(e){
+
+    ajaxCreateToolNotify();
+    e.preventDefault();
+});
+
+function ajaxCreateToolNotify(){
+    $.ajax({
+        url: '/notify'
+    }).done(function (data){
+
+    }).fail(function(){
+        console.log('fail');
+    }).always(function(){
+        console.log('always');
+    });
+}
+
 var num2 = 0;
 
 function removeNotifiction(notiCross) {

@@ -2,9 +2,7 @@
 var notiArea = $('.notis-area');
 
 $('#notification-div').removeClass('spinner');
-$('.noti-lower-area').html('<ul id="noti-ul">'+
-
-        '<%= escape_javascript( display_notifications(@current_user_notifications).html_safe)%>' +'</ul>');
+$('.noti-lower-area').html('<%= escape_javascript( display_notifications(@current_user_notifications).html_safe)%>');
 
 notiArea.mCustomScrollbar({
     axis: "y",
@@ -19,5 +17,4 @@ notiArea.mCustomScrollbar({
 
 notiArea.find('.mCSB_container').css('margin-right', '0px');
 
-console.log('test');
 

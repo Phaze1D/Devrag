@@ -2,7 +2,7 @@ module NotificationsHelper
 
   def display_notifications(notifications)
 
-    html = ' '
+    html = '<ul id="noti-ul">'
     notifications.each do |notification|
         case notification
 
@@ -21,7 +21,7 @@ module NotificationsHelper
         end
 
     end
-    html
+    html += '</ul>'
   end
 
 end
