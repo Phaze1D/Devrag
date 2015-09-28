@@ -13,6 +13,21 @@ $(document).on('click', '.notify-link', function(e){
     e.preventDefault();
 });
 
+$(document).on('click', '#cancel-noti', function(){
+    cancelNoti();
+
+});
+
+function cancelNoti(){
+
+    $('html, body').animate({
+        scrollTop: $('html, body').offset().top
+    }, 500, function(){
+        $('#notify-sect').html(' ');
+    });
+
+}
+
 function ajaxCreateToolNotify(){
     $.ajax({
         url: '/notify'

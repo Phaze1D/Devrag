@@ -59,6 +59,7 @@
 	height: auto;
 	padding: 0px 10px 0 10px;
 	overflow-y: hidden;
+    overflow-x: hidden;
 }
 .comment-user {
 	font-size: 12pt;
@@ -106,6 +107,10 @@
 	width: 89%;
 	border-radius: 10px;
 	padding: 10px;
+
+  &:focus{
+    outline: none;
+  }
 }
 
 /* 888888888888888888888888888888888888888888888888888888888888888888888888888888888888 */

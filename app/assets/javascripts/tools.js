@@ -15,7 +15,7 @@ $(document).on('click', '#comment-addc', function(){
 
 $(document).on('click', '.lpu-token', function(){
     deleteOnClickToken($(this));
-})
+});
 
 $(document).on('keydown', '.new-lpu-input',function(e){
 
@@ -27,6 +27,11 @@ $(document).on('keydown', '.new-lpu-input',function(e){
     }
 });
 
+$(document).on('click', '.reply-b', function(e){
+    replyHandler($(this));
+    e.preventDefault();
+});
+
 $(document).on('mouseover', '.follow-button', function(){
     showFollowDiv($(this));
 });
@@ -34,6 +39,15 @@ $(document).on('mouseover', '.follow-button', function(){
 $(document).on('mouseout', '.follow-button', function(){
     hideFollowDiv($(this));
 });
+
+function replyHandler(selector){
+   var username = '@' + selector.attr('data-user');
+    showAddComment();
+    $('#comment-ta').val(username);
+    $('html, body').animate({
+        scrollTop: $('.comments-section').offset().top - 100
+    }, 500);
+}
 
 function hideFollowDiv(button){
     button.closest('.follow-main').find('.follow-hover-div').css('display', 'none');
