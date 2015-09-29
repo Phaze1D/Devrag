@@ -22,7 +22,7 @@ module UsersHelper
   end
 
   def is_current_user?(user)
-    true
+    false
   end
 
 
@@ -55,16 +55,18 @@ module UsersHelper
   # Return html of list of user's tools
   def display_user_tools(user_tools)
     html = ''
+    tool_owner = 'test'
     user_tools.each do |tool|
-      html += render partial: 'users/user_tool', locals: {tool: tool}
+      html += render partial: 'users/user_tool', locals: {tool: tool, user: tool_owner}
     end
     html
   end
 
   def display_user_follows(user_following_tools)
      html = ''
+     tool_owner = 'test'
     user_following_tools.each do |tool|
-      html += render partial: 'users/user_following_tool', locals: {tool: tool}
+      html += render partial: 'users/user_following_tool', locals: {tool: tool, user: tool_owner}
     end
     html
   end

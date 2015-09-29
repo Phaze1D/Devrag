@@ -5,9 +5,11 @@
                 <%= link_to 'Some Name', tool_path(12), class: 'tool-name', style: 'font-size: 15pt;' %>
             </div>
 
-            <div class="col-xs-4 text-right">
+            <% if is_current_user? user %>
+                <div class="col-xs-4 text-right">
                     <button class="unfollow-button">Unfollow</button>
-            </div>
+                </div>
+            <% end %>
 
         </div>
         <div class="row">
@@ -18,7 +20,8 @@
 
         <div class="row">
             <div class="col-xs-12 col-overflow-x">
-                <p class="title-2-dead" style="font-size: 9pt; margin: 5px 0 0 0">submitted by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
+                <p class="title-2-dead" style="font-size: 9pt; margin: 5px 0 0 0">submitted
+                    by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
 
             </div>
         </div>
