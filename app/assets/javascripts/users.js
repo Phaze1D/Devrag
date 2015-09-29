@@ -73,7 +73,7 @@ function initUserAreaScroller(){
 function initSingleUserScroller(scrollerAreaID, scrollerHandler){
      $(scrollerAreaID).mCustomScrollbar({
         axis:"y",
-        scrollbarPosition: "outside",
+        scrollbarPosition: "inside",
         autoHideScrollbar: true,
         theme: "dark-thin",
         setLeft: "left:-100px",
@@ -97,6 +97,8 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
             }
         }
     });
+
+    $(scrollerAreaID).find('.mCSB_container').css('margin-right', '0px');
 }
 
 
