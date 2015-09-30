@@ -29,14 +29,18 @@
                 </div>
                 <div class="col-xs-3 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-2 col-overflow-x">
                     <div class="tool-like-div text-left">
-                        <%= image_tag 'like_icon.png', class: 'tool-like-imag' %>
-                        <p class="main-font count">2421</p>
+                        <% if likes_tool @tool %>
+                            <%= image_tag 'liked_icon.png', class: 'like-image', style: 'margin: 0px 0 0 ', 'data-likes' => '1' %>
+                        <% else %>
+                            <%= image_tag 'like_icon.png', class: 'like-image', style: 'margin: 0px 0 0 ', 'data-likes' => '0' %>
+                        <% end %>
+                        <p class="main-font count" style="display: inline">2421</p>
                     </div>
                 </div>
                 <div class="col-xs-3 col-sm-2 col-md-2 col-overflow-x">
                     <div class="tool-like-div text-left">
-                        <%= image_tag 'comment_icon.png', class: 'tool-like-imag' %>
-                        <p class="main-font count">2421</p>
+                        <%= image_tag 'comment_icon.png', class: 'comment-image', style: 'margin: 0px 0 0 ' %>
+                        <p class="main-font count" style="display: inline">2421</p>
                     </div>
                 </div>
             </div>

@@ -28,8 +28,16 @@ $(document).on('keydown', '.new-lpu-input',function(e){
 });
 
 $(document).on('click', '.reply-b', function(e){
-    replyHandler($(this));
+    showReplyArea($(this));
     e.preventDefault();
+});
+
+$(document).on('click', '.reply-add-img', function(){
+    removeReplyArea($(this));
+});
+
+$(document).on('click', '.reply-rem-img', function(){
+    removeReplyArea($(this));
 });
 
 $(document).on('mouseover', '.follow-button', function(){
@@ -40,14 +48,30 @@ $(document).on('mouseout', '.follow-button', function(){
     hideFollowDiv($(this));
 });
 
-function replyHandler(selector){
-   var username = '@' + selector.attr('data-user');
-    showAddComment();
-    $('#comment-ta').val(username);
-    $('html, body').animate({
-        scrollTop: $('.comments-section').offset().top - 100
-    }, 500);
+$(document).on('click', '.like-image', function(){
+    likeClickHandler($(this))
+});
+
+function removeReplyArea(selector){
+    selector.closest('.main-parent').find('.reply-area').css('display', 'none');
 }
+
+function showReplyArea(selector){
+    selector.closest('.main-parent').find('.reply-area').css('display', 'block');
+}
+
+function likeClickHandler(selector){
+    /** If the ajax call is a success */
+    if (selector.attr('data-likes') == 1) {
+        selector.attr('src', '/assets/like_icon.png');
+        selector.attr('data-likes', '0');
+
+    }else if(selector.attr('data-likes') == 0){
+        selector.attr('src', '/assets/liked_icon.png');
+        selector.attr('data-likes', '1');
+    }
+}
+
 
 function hideFollowDiv(button){
     button.closest('.follow-main').find('.follow-hover-div').css('display', 'none');

@@ -8,4 +8,9 @@ module ToolsHelper
 		html
 	end
 
+	# If current users likes a tool
+	def likes_tool(tool)
+		false
+	end
+
 end

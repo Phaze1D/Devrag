@@ -1,23 +1,40 @@
-<div class="row">
-	<div class="col-xs-12">
-		<p class="title-2-dead" style="font-size: 8pt; margin-bottom: 0px;">
-			<%= link_to 'username', user_path(12), class: 'main-font comment-user' %>
-			46 minutes ago
-		</p>
-		
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="user-comment main-font text-justify">
-					This is were a comment would go if someone were to right a comment the user will go  here comment will he put here is were the go ove there look at the start and see wat you are. you are something in the mes
-				</p>
-			</div>
-		</div>
+<div class="row" style="margin-top: 15px">
+    <div class="col-xs-12 main-parent">
+        <p class="title-2-dead" style="font-size: 8pt; margin-bottom: 0px;">
+            <%= link_to 'username', user_path(12), class: 'main-font comment-user' %>
+            46 minutes ago
+        </p>
 
-		<div class="row" style="margin: 2px 0 15px 0px">
-			<div class="col-xs-2">
-				<%= link_to 'Reply', '#' , class: 'main-font title-2-dead comment-options reply-b', 'data-user' => 'username' %>
-			</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="user-comment main-font text-justify">
+                    This is were a comment would go if someone were to right a comment the user will go here comment
+                    will he put here is were the go ove there look at the start and see wat you are. you are something
+                    in the mes
+                </p>
+            </div>
+        </div>
 
-		</div>
-	</div>
+        <div class="row" style="margin: 2px 0 0px 0px">
+            <div class="col-xs-2">
+                <%= link_to 'Reply', '#', class: 'main-font title-2-dead comment-options reply-b', 'data-user' => 'username' %>
+            </div>
+        </div>
+
+        <div class="reply-area" style="display: none">
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <%= image_tag 'add_button2.png', id: 'comment-addr', class: 'comment-add-cl-t reply-add-img', style: 'margin: 5px 0px 0 35px; float: left' %>
+                    <%= image_tag 'remove_button.png', id: 'comment-addc', class: 'comment-add-cl-t reply-rem-img', style: 'margin: 5px; float: left' %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <%= text_area :post, :body, rows: 5, class: 'comment-area main-font ', value: '@username', id: 'comment-ta' %>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
