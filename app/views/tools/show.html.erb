@@ -80,8 +80,13 @@
     <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu} %>
 
 
+    <div class="row" style="margin: 40px -15px 20px">
+        <div class="col-xs-12 will-pag">
+            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2%>
+        </div>
+    </div>
 
-    <div class="row" style="margin-top: 40px">
+    <div class="row" >
         <div class="col-xs-12 col-sm-8">
             <div class="comments-section">
                 <div id="add-comment-section" style="margin-top: -165px">
@@ -113,9 +118,19 @@
                         </div>
                     </div>
 
-                    <%= display_comments(@tools_comments).html_safe %>
+                    <div id="ajax-comments">
+                        <%= display_comments(@tools_comments).html_safe %>
+                    </div>
+
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin: 20px -15px">
+        <div class="col-xs-12 will-pag">
+            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+
         </div>
     </div>
 </div>

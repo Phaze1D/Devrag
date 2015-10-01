@@ -1,7 +1,6 @@
 
 var notisect = $('#notify-sect');
-console.log('testnoti');
-notisect.html('<%= escape_javascript( render partial: 'notifications/notify_section', locals: {tool:  @notify_from_tool} )%>');
+notisect.html('<%= escape_javascript( render partial: 'notifications/notify_form', locals: {tool:  @notify_from_tool} )%>');
 
 $('html, body').animate({
     scrollTop: notisect.offset().top

@@ -22,7 +22,7 @@ module UsersHelper
   end
 
   def is_current_user?(user)
-    false
+    true
   end
 
 

@@ -52,6 +52,7 @@ $(document).on('click', '.like-image', function(){
     likeClickHandler($(this))
 });
 
+
 function removeReplyArea(selector){
     selector.closest('.main-parent').find('.reply-area').css('display', 'none');
 }

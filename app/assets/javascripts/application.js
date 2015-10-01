@@ -16,11 +16,11 @@
 //= require_tree .
 
 
-$(document).on("page:load ready", function(){
+$(document).on("page:load ready", function () {
     initLPUSeachScroller();
     initUserAreaScroller();
     initToolLPUScroller();
-   $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
+    $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
 
 });
 
@@ -35,6 +35,23 @@ $(window).on('resize', function () {
     adjust();
 });
 
+$(document).on('click', '.pagination a', function (e) {
+    ajaxPagination(this);
+    e.preventDefault();
+
+});
+
+function ajaxPagination(selector) {
+
+    $.ajax({
+        url: selector.href
+    }).done(function (data) {
+
+    }).fail(function () {
+        console.log('faild')
+    });
+
+}
 
 function didClickTarget(container, event) {
 

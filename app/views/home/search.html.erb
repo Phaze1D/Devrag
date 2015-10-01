@@ -25,8 +25,10 @@
             </div>
 
             <div class="row" style="margin-top: 20px; margin-bottom: -25px">
-                <div class="col-xs-5 col-xs-offset-7
-                            col-sm-3 col-sm-offset-9">
+                <div class="col-xs-7 col-sm-9 will-pag">
+                    <%= will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+                </div>
+                <div class="col-xs-5 col-sm-3 ">
                     <button id="dropdown-sortB" class="m-dropdown-button main-font text-left">
                         Sort
                     </button>
@@ -38,7 +40,18 @@
                     </ul>
                 </div>
             </div>
-            <%= display_results(@results).html_safe %>
+
+            <div id="search-results">
+                <%= display_results(@results).html_safe %>
+            </div>
+
+
+            <div class="row" style="margin: 40px -15px">
+                <div class="col-xs-12 will-pag">
+                    <%= will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
