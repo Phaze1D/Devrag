@@ -1,9 +1,11 @@
 
-var ScrollHandler = function( searchBarID){
+var ScrollHandler = function( searchBarID, onTotalAjax){
     this.scrollAt = 0;
     this.startL = 0;
     this.endAt = 0;
+    this.pageAt = 1;
     this.searchBarID = searchBarID;
+    this.onTotalAjax = onTotalAjax;
 }
 
 ScrollHandler.prototype.setScrollArea = function(scrollArea) {
@@ -43,6 +45,11 @@ ScrollHandler.prototype.endScroll = function() {
     this.endAt = this.scrollAt;
 };
 
+ScrollHandler.prototype.onTotalScrollAjax = function(){
+    this.pageAt++;
+    this.onTotalAjax(this.pageAt);
+};
+
 
 $(document).on('mouseover', '.user-profile-img', function(){
     showEditUserImg();
@@ -60,8 +67,8 @@ function hideEditUserImg(){
     $('.edit-img-div').css('margin-top', '100px');
 }
 
-var toolScroll = new ScrollHandler('#user-tool-search');
-var followingScroll = new ScrollHandler('#user-fol-search');
+var toolScroll = new ScrollHandler('#user-tool-search', ajaxUsersTools);
+var followingScroll = new ScrollHandler('#user-fol-search', ajaxUsersFollows);
 
 function initUserAreaScroller(){
     initSingleUserScroller('#user-area-tool', toolScroll);
@@ -85,7 +92,8 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
             },
 
             whileScrolling:function(){
-                scrollerHandler.mwhileScrolling();     
+                scrollerHandler.mwhileScrolling();
+
             },
 
             onScrollStart: function(){
@@ -94,9 +102,17 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
 
             onScroll: function(){
                 scrollerHandler.endScroll();
+            },
+
+            onTotalScroll: function(){
+
+                scrollerHandler.onTotalScrollAjax();
             }
-        }
-    });
+        },
+         mouseWheel:{ preventDefault: true }
+
+
+     });
 
     $(scrollerAreaID).find('.mCSB_container').css('margin-right', '0px');
 }

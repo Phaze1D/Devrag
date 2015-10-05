@@ -10,12 +10,12 @@ Rails.application.routes.draw do
     resources :notifications
 
     #Tools
-    ## Make ajax calls to user display tools and user following tools
     resources :tools, except: :show
+
+    #Follows
+    resources :follows
   end
   get 'signup', to: 'users#new'
-
-
   get 'notify', to: 'notifications#new_tool_notify'
 
   #Tools

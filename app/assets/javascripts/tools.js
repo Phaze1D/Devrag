@@ -53,6 +53,21 @@ $(document).on('click', '.like-image', function(){
 });
 
 
+function ajaxUsersTools(page){
+    if($('#user-area-tool').length > 0 ){
+        $.ajax({
+            url: window.location.href + '/tools?page='+page
+        }).done(function (data) {
+
+        }).fail(function () {
+            console.log('faild')
+        }).always(function () {
+
+        });
+    }
+}
+
+
 function removeReplyArea(selector){
     selector.closest('.main-parent').find('.reply-area').css('display', 'none');
 }
@@ -62,7 +77,7 @@ function showReplyArea(selector){
 }
 
 function likeClickHandler(selector){
-    /** If the ajax call is a success */
+    /** missing If the ajax call is a success */
     if (selector.attr('data-likes') == 1) {
         selector.attr('src', '/assets/like_icon.png');
         selector.attr('data-likes', '0');
@@ -175,7 +190,8 @@ function initToolLPUScroller(){
         autoHideScrollbar: true,
         theme: "dark-thin",
         alwaysShowScrollbar: 0,
-        scrollInertia: 0
+        scrollInertia: 0,
+        mouseWheel:{ preventDefault: true }
     });
  
 
@@ -185,11 +201,14 @@ function initToolLPUScroller(){
         autoHideScrollbar: true,
         theme: "dark-thin",
         scrollInertia: 0,
-        advanced:{ updateOnSelectorChange: ".new-ul" }
+        advanced:{ updateOnSelectorChange: ".new-ul" },
+        mouseWheel:{ preventDefault: true }
     });
 
-    $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css('bottom', '-16px');
-    $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css('width', '100%');
+    $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css({
+        'bottom': '-16px',
+        'width': '100%'
+    });
 
     $('.mCSB_horizontal').css('border-radius','20px');
 }

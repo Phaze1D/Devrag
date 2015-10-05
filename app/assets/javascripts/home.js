@@ -221,7 +221,8 @@ function initLPUSeachScroller(){
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
         scrollInertia: 0,
-        theme: "light-thin"
+        theme: "light-thin",
+        mouseWheel:{ preventDefault: true }
     });
 
     $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');

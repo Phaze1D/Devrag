@@ -17,6 +17,17 @@ class ToolsController < ApplicationController
 
 	end
 
+	def index
+		sleep 1
+		@user_tools = [1,2,1,1,2,1,1,1,1,1,1,2,2,3,4,5,1,1,1,1,1,1,1,1,1,1,1,1]  # When User Model is created change @user_tools to @user.tools
+		@user_tools= @user_tools.paginate(:page => params[:page], :per_page => 5)
+
+			respond_to do |format|
+				format.js
+			end
+
+	end
+
 	def new 
 
 	end

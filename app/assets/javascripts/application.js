@@ -22,6 +22,9 @@ $(document).on("page:load ready", function () {
     initToolLPUScroller();
     $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
 
+    ajaxUsersTools(1);
+    ajaxUsersFollows(1);
+
 });
 
 $(document).mouseup(function (e) {
