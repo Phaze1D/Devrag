@@ -11,5 +11,9 @@ class UsersController < ApplicationController
     @user_follows_length = 5
   end
 
+  def edit
+
+  end
+
 
 end

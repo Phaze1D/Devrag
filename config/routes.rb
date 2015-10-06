@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :follows
   end
   get 'signup', to: 'users#new'
+
+  #Notification (double check)
   get 'notify', to: 'notifications#new_tool_notify'
 
   #Tools

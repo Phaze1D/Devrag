@@ -142,6 +142,7 @@
   display: inline-block;
   max-width: 190px;
   overflow-x: hidden;
+  overflow-y: hidden;
   word-wrap: break-word;
   white-space:nowrap;
   text-overflow: ellipsis;
@@ -154,8 +155,10 @@
   display: inline-block;
   max-width: 100px;
   overflow-x: hidden;
+  overflow-y: hidden;
   word-wrap: break-word;
   white-space:nowrap;
+  text-overflow: ellipsis;
   height: 16px;
 }
 

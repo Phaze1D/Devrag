@@ -18,7 +18,7 @@ module ToolsHelper
 		html = ''
 		tool_owner = 'test'
 		user_tools.each do |tool|
-			html += render partial: 'users/user_tool', locals: {tool: tool, user: tool_owner}
+			html += render partial: 'tools/user_tool', locals: {tool: tool, user: tool_owner}
 		end
 		html
 	end
