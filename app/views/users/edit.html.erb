@@ -1,12 +1,74 @@
-<!--password reset-->
-<!--change user name-->
-<!--link github-->
-<!--view github repos-->
-<!--notification preferences-->
-<!--photo change-->
+
+
+<!--
+
+    Profile Settings
+        edit username
+        edit user profile picture
+
+    Link Github
+        Link github
+        List repos
+            Option to add repo as a tool
+
+    Link to Password reset
+        old password
+        new password
+        new password confrimation
+
+    Nofitcation Preferences
+        Recive via email check box
+        Receive comment notification check box
+        Receive like notification check box
+        Receive tool notification check box
+        Receive follow notification check box
+
+-->
 
 <div class="container">
     <div class="row">
+        <div class="col-xs-8">
+            <div class="row underline-dead" style="border-width: 0 0 2px 0; padding-bottom: 5px">
+                <div class="col-xs-8" style="padding-left: 0">
+                    <h3 class="set-title col-overflow-x">Profile Settings</h3>
+                </div>
+                <div class="col-xs-3 col-xs-offset-1" style="padding-right: 0;">
+                    <button class="tool-submit-b text-right" type="" style="margin: 0; font-size: 22px;">Save</button>
+                </div>
+            </div>
 
+            <div class="row" style="margin: 10px -15px">
+                <div class="col-xs-3  text-right">
+                    <h5 class="set-info">Username:</h5>
+                </div>
+
+                <div class="col-xs-5" style="padding-left: 0">
+                    <input class="form-input-set fill-width main-font" value="playssss">
+                </div>
+            </div>
+
+            <div class="row" style="margin: 10px -15px">
+                <div class="col-xs-3  text-right">
+                    <h5 class="set-info" style="margin: 44px 0px;">Profile Picture:</h5>
+                </div>
+
+                <div class="col-xs-5" style="padding-left: 0">
+                    <div class="user-profile-img" style="margin-bottom: 4.5px; float: none">
+
+                        <% if is_current_user?(@user)%>
+                            <div class="edit-img-div text-center">
+                                <%= link_to '#', class: 'edit-img-link undecorated-link-w' do %>
+                                    <p class="center-ver center-hor" style="margin: 0 ">Edit</p>
+                                <% end %>
+                            </div>
+                        <% end %>
+
+                    </div>
+                    <% image_tag 'profile_img.jpg', class: 'user-profile-img' %>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </div>
