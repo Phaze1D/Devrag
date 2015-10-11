@@ -304,6 +304,15 @@ $place-color: $base1;
   margin: 10px 0px;
 }
 
+.followers-a{
+  color: #b3c4c4;
+
+  &:hover{
+    text-decoration: none;
+    color: #b3c4c4;
+  }
+}
+
 .lcf-section{
   color: #b3c4c4;
   font-size: 9pt;

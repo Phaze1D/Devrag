@@ -13,16 +13,21 @@ Rails.application.routes.draw do
     resources :tools, except: :show
 
     #Follows
-    resources :follows
+    resources :follows, except: [:edit, :update, :show]
   end
   get 'signup', to: 'users#new'
 
-  #Notification (double check)
+  #Notification (double check) may need to go under tool resources
   get 'notify', to: 'notifications#new_tool_notify'
 
   #Tools
-  get 'tool/:id', to: 'tools#show', as: 'tool'
-  
+  resources :tools, only: :show do
+    resources :followers, except: [:edit, :update, :show]
+  end
+
+
+  ## May need to create a relationship controller for handling
+  ## the creation of a user following a tool and vice versa
   
   #Search Results URL
   get 'search', to: 'home#search'

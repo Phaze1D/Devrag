@@ -47,8 +47,10 @@
 
             <div class="col-xs-4" style="padding-right: 0">
                 <div class="main-font lcf-section col-overflow-x">
-                    <%= image_tag 'followers_icon.png', id: 'followers_icon' %>
-                    1234
+                    <%= link_to  tool_followers_path(12), class: 'followers-a' do %>
+                        <%= image_tag 'followers_icon.png', id: 'followers_icon' %>
+                        1234
+                    <% end %>
                 </div>
             </div>
         </div>
