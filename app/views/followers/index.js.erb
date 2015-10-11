@@ -1,0 +1,4 @@
+$('#followers-section').html('<%= escape_javascript(display_followers(@followers).html_safe)%>');
+
+var willpag = $('.will-pag');
+willpag.html('<%= escape_javascript( will_paginate @followers, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 )%>');
