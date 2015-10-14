@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
   get 'signup', to: 'users#new'
 
+  resources :sessions , only: [:new, :create, :destory]
+
   #Notification (double check) may need to go under tool resources
   get 'notify', to: 'notifications#new_tool_notify'
 

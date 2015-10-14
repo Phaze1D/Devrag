@@ -59,15 +59,16 @@
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 85%; ' %>
         <% else %>
-            <input class="form-control main-font center login-form "
-                   placeholder="Email" style="top: 17%">
-            <input class="form-control main-font center login-form"
-                   placeholder="Password" style="top: 33%" , type="password">
-            <%= link_to 'Forgot', '#', class: 'text-right main-font login-link' %>
-            <button class="login-button center" style="top: 56%;">Login</button>
-            <div class="break-line center" style="top: 68%"></div>
 
-            <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 85%; ' %>
+            <%= link_to 'Home', root_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 16%; ' %>
+
+            <div class="break-line center" style="top: 33%"></div>
+
+            <%= link_to 'Login', new_session_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 49%; ' %>
+
+            <div class="break-line center" style="top: 65%"></div>
+
+            <%= link_to 'Sign up', signup_path, class: 'login-button center text-center undecorated-link-w', style: 'top: 81%; ' %>
 
         <% end %>
     </div>
