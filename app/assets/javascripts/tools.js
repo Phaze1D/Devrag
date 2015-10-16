@@ -185,7 +185,7 @@ function addComment(){
 
 function initToolLPUScroller(){
 	$('.rain-scroll').mCustomScrollbar({
-        axis:"x",
+        axis:"y",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
         theme: "dark-thin",
@@ -199,17 +199,17 @@ function initToolLPUScroller(){
         axis:"x",
         scrollbarPosition: "outside",
         autoHideScrollbar: true,
-        theme: "dark-thin",
+        theme: "light-thin",
         scrollInertia: 0,
         advanced:{ updateOnSelectorChange: ".new-ul" },
         mouseWheel:{ preventDefault: true }
     });
 
     $('.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal').css({
-        'bottom': '-16px',
+        'bottom': '-6px',
         'width': '100%'
     });
 
-    $('.mCSB_horizontal').css('border-radius','20px');
+    $('.mCSB_horizontal').css('border-radius','5px');
 }
 

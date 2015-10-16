@@ -73,20 +73,36 @@
         </div>
     </div>
 
-    <%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu} %>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 tool-info-section">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu} %>
 
-    <%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu} %>
+                </div>
 
-    <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu} %>
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu} %>
 
+                </div>
 
-    <div class="row" style="margin: 40px -15px 20px">
-        <div class="col-xs-12 will-pag">
-            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2%>
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu} %>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
 
-    <div class="row" >
+    <div class="row" style="margin: 40px -15px 20px">
+        <div class="col-xs-12 will-pag">
+            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 ">
             <div class="comments-section">
                 <div id="add-comment-section" style="margin-top: -165px">

@@ -51,7 +51,7 @@
 
         <div class="options-div row">
 
-            <% if is_current_user? user %>
+            <% if is_current_user?(user) && is_logged_in? %>
                 <div class="col-xs-3 col-xs-offset-1 text-center" style="height: 100%; ">
                     <%= link_to 'Notifiy', '#', class: 'notify-link login-button center-ver undecorated-link-w uoption-b' %>
                 </div>

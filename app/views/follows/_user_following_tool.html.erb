@@ -5,7 +5,7 @@
                 <%= link_to 'Some Name', tool_path(12), class: 'tool-name', style: 'font-size: 15pt;' %>
             </div>
 
-            <% if is_current_user? user %>
+            <% if is_current_user?(user) && is_logged_in? %>
                 <div class="col-xs-4 text-right">
                     <button class="unfollow-button">Unfollow</button>
                 </div>
