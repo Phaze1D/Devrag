@@ -9,24 +9,34 @@
 
 # Users
 #   username, email, password, picture, activation_token, reset_token, activated, reset_sent_at
+
 # Tools
 #   name, website, description, user_id, (likes_amount, follows_amounts, comments_amounts)
+
 # Reports
 #   description, for_tool_id, by_user_id
+
 # Relationships (Followers, Follows)
 #   id, user_id, tool_id
+
 # Comments
 #   comment, made_by_user_id, on_tool_id, reply_to_user_id
+
 # Languages
 #   name
+
 # Platforms
 #   name
+
 # Uses
 #   name
+
 # Languages_Tools
 #     language_id, tool_id
+
 # Platforms_Tools
 #     platform_id, tool_id
+
 # Uses_Tools
 #     uses_id, tool_id
 
