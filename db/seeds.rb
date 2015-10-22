@@ -20,7 +20,7 @@
 #   id, user_id, tool_id
 
 # Comments
-#   comment, made_by_user_id, on_tool_id, reply_to_user_id
+#   comment, made_by_user_id, on_tool_id, reply_to_comment_id
 
 # Languages
 #   name
@@ -50,4 +50,7 @@
 #   info, seen, made_by_user_id, for_tool_id, comment_id
 
 # Tool_Notifications
-#   info, seen, made_by_tool_id, for_followers_id
+#   info, seen, made_by_tool_id
+
+# Tool_Notifications_Relationships
+#   followers_id, tool_notification_id

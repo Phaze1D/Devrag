@@ -10,9 +10,6 @@ class CreateTools < ActiveRecord::Migration
       t.integer :followers, null: false, default: 0
       t.timestamps null: false
     end
-
     add_index :tools, :name, unique: true
-    
-
   end
 end
