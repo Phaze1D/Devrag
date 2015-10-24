@@ -1,4 +1,3 @@
-
 <!--
     Missing AJAX form check
 -->
@@ -48,7 +47,7 @@
 
             <div class="row" style="">
                 <div class="col-md-12">
-                    <p class="main-font text-info text-left info-p" >
+                    <p class="main-font text-info text-left info-p">
                         Find the things you need to create even better software.
                         Whether it be a javascript scrollbar or a custom kernal.
                 </div>
@@ -57,35 +56,36 @@
 
 
         <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="row" style="margin: 20px 5px 25px 5px">
-                <div class="col-md-12">
-                    <input class="form-control-large main-font" placeholder="Username">
-                </div>
-            </div>
-            <div class="row" style="margin: 20px 5px 25px 5px">
-                <div class="col-md-12">
-                    <input class="form-control-large main-font" placeholder="Email">
-                </div>
-            </div>
-            <div class="row" style="margin: 20px 5px 25px 5px">
-                <div class="col-md-12">
-                    <input class="form-control-large main-font" placeholder="Password">
-                </div>
-            </div>
+            <%= form_for @user do |f| %>
 
-            <div class="row" style="margin: 20px 5px 25px 5px">
-                <div class="col-md-12">
-                    <input class="form-control-large main-font" placeholder="Password Confirmation">
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.text_field :username, class: 'form-control-large main-font', placeholder: 'Username' %>
+                    </div>
                 </div>
-            </div>
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.text_field :email, class: 'form-control-large main-font', placeholder: 'Email' %>
+                    </div>
+                </div>
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.password_field :password, class: 'form-control-large main-font', placeholder: 'Password' %>
+                    </div>
+                </div>
 
-            <div class="row" style="margin: 20px 5px 25px 5px">
-                <div class="col-md-12">
-                    <button id="signup-button" class="title-2-alive text-center">
-                        Sign up
-                    </button>
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.password_field :password_confirmation, class: 'form-control-large main-font', placeholder: 'Confirmation' %>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.submit 'Sign up', class: 'title-2-alive text-center', id:'signup-button'  %>
+                    </div>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

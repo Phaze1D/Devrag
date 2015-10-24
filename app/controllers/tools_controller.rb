@@ -27,8 +27,10 @@ class ToolsController < ApplicationController
 
 	end
 
-	def new 
-
+	def new
+		@tool = Tool.new
+		@current_user = User.new
+		@current_user.id = 12
 	end
 
 	def create
