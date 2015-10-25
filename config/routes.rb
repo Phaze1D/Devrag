@@ -19,12 +19,10 @@ Rails.application.routes.draw do
 
   resources :sessions , only: [:new, :create, :destory]
 
-  #Notification (double check) may need to go under tool resources
-  get 'notify', to: 'notifications#new_tool_notify'
-
   #Tools
   resources :tools, only: :show do
     resources :followers, except: [:edit, :update, :show]
+    get 'notify', to: 'notifications#new_tool_notify'
   end
 
 
