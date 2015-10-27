@@ -7,39 +7,7 @@ $(document).on('click', '.noti-cross', function () {
     removeNotifiction($(this));
 });
 
-$(document).on('click', '.notify-link', function(e){
 
-    ajaxCreateToolNotify();
-    e.preventDefault();
-});
-
-$(document).on('click', '#cancel-noti', function(){
-    cancelNoti();
-
-});
-
-function cancelNoti(){
-
-    $('html, body').animate({
-        scrollTop: $('html, body').offset().top
-    }, 500, function(){
-        $('#notify-sect').html(' ');
-    });
-
-}
-
-//  CHANGE URL TO ADD TOOL_ID
-function ajaxCreateToolNotify(){
-    $.ajax({
-        url: '/notify'
-    }).done(function (data){
-
-    }).fail(function(){
-        console.log('fail');
-    }).always(function(){
-        console.log('always');
-    });
-}
 
 var num2 = 0;
 
@@ -51,7 +19,7 @@ function removeNotifiction(notiCross) {
     removeCallback(container);
 }
 
-function cssAnimation(container){
+function cssAnimation(container) {
 
     var lower = false;
     var num = -370;
@@ -86,7 +54,7 @@ function cssAnimation(container){
     });
 }
 
-function removeCallback(container){
+function removeCallback(container) {
     container.animate({
         opacity: 0.99
     }, 450, "linear", function () {
@@ -106,7 +74,7 @@ function removeCallback(container){
             } else if (lowers) {
                 $(this).css({
                     '-webkit-transform': 'translate(0,' + (num2 ) + 'px)',
-                    '-moz-transform': 'translate(0,' + (num2)+ 'px)',
+                    '-moz-transform': 'translate(0,' + (num2) + 'px)',
                     '-ms-transform': 'translate(0,' + (num2) + 'px)',
                     '-o-transform': 'translate(0,' + (num2 ) + 'px)',
                     'transform': 'translate(0,' + (num2 ) + 'px)'
@@ -142,9 +110,9 @@ function showNotifications() {
 function ajaxRetriveNotifications() {
 
     $.ajax({
-        url: '/users/-1/notifications'
+        url: '/users/-1/user_notifications'
     }).done(function (data) {
-        //console.log(data);
+//console.log(data);
         num2 = 0;
     }).fail(function () {
         console.log('faild')

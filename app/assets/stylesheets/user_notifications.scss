@@ -1,6 +1,7 @@
-// Place all the styles related to the notifications controller here.
+// Place all the styles related to the user_notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 .noti-title{
   border-radius: 0;
@@ -81,7 +82,7 @@
 }
 
 .noti-date{
- @extend .main-font;
+  @extend .main-font;
   display: inline-block;
   color: $base01;
   margin: 0;

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #Users
   resources :users do
     #Notifications
-    resources :notifications
+    resources :user_notifications, only: :index
 
     #Tools
     resources :tools, except: :show
@@ -21,8 +21,10 @@ Rails.application.routes.draw do
 
   #Tools
   resources :tools, only: :show do
+
     resources :followers, except: [:edit, :update, :show]
-    get 'notify', to: 'notifications#new_tool_notify'
+
+    resources :tool_notifications, only: [:new, :create, :destroy]
   end
 
 

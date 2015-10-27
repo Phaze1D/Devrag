@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022021255) do
+ActiveRecord::Schema.define(version: 20151027013347) do
 
   create_table "comment_notifications", force: :cascade do |t|
     t.string   "info",            limit: 255,                 null: false
