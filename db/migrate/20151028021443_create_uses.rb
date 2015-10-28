@@ -1,0 +1,12 @@
+class CreateUses < ActiveRecord::Migration
+  def change
+    create_table :uses do |t|
+
+      t.string :name, null: false
+      t.timestamps null: false
+
+    end
+
+    add_index :uses, :name, unique: true
+  end
+end

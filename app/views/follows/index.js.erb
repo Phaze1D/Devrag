@@ -1,8 +1,0 @@
-
-var spinner = $('#user-follow-spinner');
-spinner.before('<%= escape_javascript(display_user_follows(@user_follows).html_safe) %>');
-
-<% if params[:page].to_i >= @user_follows.total_pages %>
-spinner.removeClass('spinner');
-spinner.css('height','0');
-<% end %>

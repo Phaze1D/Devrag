@@ -8,7 +8,7 @@
 
 
 # Users
-#   username, email, password, picture, activation_token, reset_token, activated, reset_sent_at
+#   username, email, password, picture, reset_token, reset_sent_at
 
 # Tools
 #   name, website, description, user_id, (likes_amount, follows_amounts, comments_amounts)
