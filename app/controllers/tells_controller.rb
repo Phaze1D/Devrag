@@ -1,0 +1,2 @@
+class TellsController < ApplicationController
+end
