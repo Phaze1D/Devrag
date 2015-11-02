@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     resources :tools, except: :show
 
-    resources :notifications, except: [ :edit, :update ]
+    resources :notifications, except: [ :edit, :update, :new]
 
     resources :follows, only: [ :index ]
 
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
     resources :comments, except: [ :update, :edit, :show ]
 
-    resources :likes , only: [ :new, :create, :index, :destroy ]
+    resources :likes , only: [ :create, :index, :destroy ]
 
-    resources :relationships, only: [ :new, :create, :destroy ]
+    resources :relationships, only: [ :create, :destroy ]
 
     resources :followers, only: [ :index ]
 
