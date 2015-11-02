@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :tools, only: :show do
 
-    resources :comments, except: [ :update, :edit, :show ]
+    resources :comments, except: [ :update, :edit, :show, :new ]
 
     resources :likes , only: [ :create, :index, :destroy ]
 
