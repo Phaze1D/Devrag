@@ -16,16 +16,13 @@ $blue: #268bd2;
 $cyan: #2aa198;
 $green: #859900;
 
-
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "home";
-@import "header";
+@import "pages";
 @import "users";
+@import "notifications";
 @import "tools";
 @import "followers";
-@import "sessions";
-@import "jquery.mCustomScrollbar";
-@import "user_notifications";
 @import url(http://fonts.googleapis.com/css?family=Belgrano);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 

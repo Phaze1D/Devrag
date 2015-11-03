@@ -1,3 +1,172 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.noti-title{
+  border-radius: 0;
+  padding-left: 10px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#notification-div{
+  position: fixed;
+  height: 400px;
+  width: 300px;
+  background-color: $base03;
+  top: 55px;
+  left: 20px;
+
+  -webkit-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  -moz-box-shadow: 0px 0px 5px 0px #8b8b8b;
+  box-shadow: 0px 0px 5px 0px #8b8b8b;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  transform-origin: top left;
+
+  opacity: 0;
+  display: none;
+
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+
+}
+
+.notis-area{
+  height: 368px;
+}
+
+.noti-container{
+
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+
+  width: 300px;
+  height: 70px;
+  border-bottom: 1px solid $base1;
+  margin:0px 0;
+  padding: 10px 20px 10px 8px;
+  position: relative;
+
+}
+
+.noti-profile-img{
+  width: auto;
+  height: 49px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5%;
+}
+
+.noti-link{
+  display: inline-block;
+  height: 100%;
+  float: left;
+  margin-right: 5px;
+}
+
+.noti-sm-icon{
+  width: 12px;
+  height: auto;
+  display: inline-block;
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
+.noti-date{
+  @extend .main-font;
+  display: inline-block;
+  color: $base01;
+  margin: 0;
+  //left: 5px;
+  font-size: 10px;
+  position: absolute;
+
+}
+
+.noti-cross{
+  //@extend .main-font;
+  color: deepskyblue;
+  position: absolute;
+  left: 272px;
+  top: 4px;
+  margin: 0;
+  cursor: pointer;
+  width: 16px;
+  height: 14px;
+  opacity: .8;
+}
+
+.noti-tool-h{
+  @extend .main-font;
+  color: $base2;
+  margin: 0;
+  max-width: 100px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+}
+
+.noti-p{
+  @extend .main-font;
+  color: $base1;
+  font-size: 12.5px;
+  font-weight: 200;
+  margin: 0;
+  height: 36px;
+}
+
+.noti-p-l{
+  @extend .main-font;
+  color: $base1;
+  font-size: 11px;
+  font-weight: 200;
+  height: 20px;
+  width: 250px;
+  margin: 5px 0 0;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
+.span-yes{
+  color: $base2;
+  display: inline-block;
+  max-width: 190px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  height: 16px;
+  margin-top: -5px;
+}
+
+.span-no{
+  color: $base2;
+  display: inline-block;
+  max-width: 100px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  word-wrap: break-word;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  height: 16px;
+}
+
+#noti-ul{
+  list-style: none;
+  padding: 0;
+}
+
+.noti-li{
+
+}
