@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <input class="tool-new-title" type="text" name="" value="Tool Name" placeholder="Name" autofocus>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <input class="tool-new-web" type="text" name="" value="www.somewebsitelongname.com" placeholder="Website or Repository">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <%=text_area :post, :body, rows: 5, value: 'The tool description of the tool that decapr The tool description of the of the tool that decapr The tool description of the of the tool that decapr The tool description of the tool that decapr'  ,class: 'tool-new-area', placeholder: 'Description...' %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="new-rain">
+                        <ul id="l-ul" class="new-ul">
+                            <li class="input-lpu" style="border: none; padding: 0; ">
+                                <input class="new-lpu-input" type="text" name="" value="" placeholder="Languages">
+                            </li>
+                            <% @tools_lpu.each do |lpu|%>
+                                <li class="token-li" style="margin-right: 5px">
+                                    <p class="lpu-token"><%= lpu.html_safe %></p>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="new-rain">
+                        <ul id="p-ul" class="new-ul">
+                            <li class="input-lpu" style="border: none; padding: 0; ">
+                                <input class="new-lpu-input" type="text" name="" value="" placeholder="Platforms">
+                            </li>
+                            <% @tools_lpu.each do |lpu|%>
+                                <li class="token-li" style="margin-right: 5px">
+                                    <p class="lpu-token"><%= lpu %></p>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="new-rain">
+                        <ul id="u-ul" class="new-ul">
+                            <li class="input-lpu" style="border: none; padding: 0; ">
+                                <input class="new-lpu-input" type="text" name="" value="" placeholder="Uses">
+                            </li>
+                            <% @tools_lpu.each do |lpu|%>
+                                <li class="token-li" style="margin-right: 5px">
+                                    <p class="lpu-token"><%= lpu %></p>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <button class="tool-submit-b text-left" type="">Save Changes</button>
+                </div>
+
+                <div class="col-xs-4 col-xs-offset-4 text-right">
+                    <%= link_to 'Cancel' ,user_path(12), class: 'tool-submit-b text-right', style: 'display: block; padding: 0 6px' %>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-xs-12">
+                    <p class="text-info text-left tool-new-p" style="padding-left: 5px; font-size: 17px; color: #787878; font-weight: 200">
+                        Would you like to add a notification to your followers about the changes you made?
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <%=text_area :post, :body, rows: 5  ,class: 'tool-new-area' %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+
+	Add  char count to description
+	Ajax Verify
+	AJax auto fill
+ -->

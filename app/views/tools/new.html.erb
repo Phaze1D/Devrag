@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12
+					col-sm-6
+					col-md-5 col-md-offset-1" style="margin-bottom: 30px">
+            <h2 class="main-font new-title ">Add Your Tool</h2>
+
+            <p class="main-font text-info text-left tool-new-p">
+                <br>
+                <br>
+                Link you website or repository so that other people can find them
+                <br>
+                <br>
+                Write a short description about how your software works and how people should use it
+                <br>
+                <br>
+                Add the programming language or languages that it is written in. For example: c++, javascript, etc..
+                <br>
+                <br>
+                Add the platform or platforms that it works on. For example: windows, sublime, android, etc..
+                <br>
+                <br>
+                Add what it is meant for / use for. For example: scrollbar, neural network algorithm, social media sdk,
+                etc..
+            </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-5">
+            <%= form_for [@current_user, @tool] do |f| %>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <%= f.text_field :name, class: 'tool-new-title', placeholder: 'Name' %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <%= f.text_field :website, class: 'tool-new-web', placeholder: 'Website or Repository' %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <%= f.text_area :description, rows: 5, class: 'tool-new-area', placeholder: 'Description...' %>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-xs-12">
+                        <div class="new-rain">
+                            <%= f.fields_for :languages do |lf| %>
+                                <ul id="l-ul" class="new-ul">
+                                    <li class="input-lpu" style="border: none; padding: 0; ">
+                                        <%= lf.text_field :name, class: 'new-lpu-input', placeholder: 'Languages' %>
+                                    </li>
+                                </ul>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-xs-12">
+                        <div class="new-rain">
+                            <%= f.fields_for :platforms do |pf| %>
+                                <ul id="p-ul" class="new-ul">
+                                    <li class="input-lpu" style="border: none; padding: 0; ">
+                                        <%= pf.text_field :name, class: 'new-lpu-input', placeholder: 'Platforms' %>
+                                    </li>
+                                </ul>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-xs-12">
+                        <div class="new-rain">
+                            <%= f.fields_for :uses do |uf| %>
+                                <ul id="u-ul" class="new-ul">
+                                    <li class="input-lpu" style="border: none; padding: 0; ">
+                                        <%= uf.text_field :name, class: 'new-lpu-input', placeholder: 'Uses' %>
+                                    </li>
+                                </ul>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <%= f.submit 'Create', class: 'tool-submit-b text-left' %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+
+	Add ajax char count to description
+	Ajax Verify
+	AJax auto fill
+ -->

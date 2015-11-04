@@ -1,8 +1,3 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .header-background{
   position: fixed;
   top: 0;
@@ -212,7 +207,6 @@
   animation: spinner .6s linear infinite;
   -webkit-animation: spinner .6s linear infinite;
 }
-
 
 .dead-alive-transition {
   -webkit-transition: all 0.35s;
@@ -530,4 +524,37 @@ $tooltip-arrow-distance-from-box: -1.3em;
   @media (max-width: 768px) {
     left: 82%;
   }
+}
+
+.login-section{
+  width: 300px;
+  height: 370px;
+  border: 0px solid $base02;
+  margin-left: -moz-calc(50% - 175px);
+  margin-left: -webkit-calc(50% - 175px);
+  margin-left: calc(50% - 175px);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  //-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  //-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+  padding: 15px;
+}
+
+.login-label{
+  @extend .main-font;
+  color: $base02;
+}
+
+#login-button {
+  font-size: 13pt;
+  margin-top: 15px;
+  background-color: transparent;
+  border: 1px solid deepskyblue;
+  -webkit-border-radius: .3em;
+  -moz-border-radius: .3em;
+  border-radius: .3em;
+
 }

@@ -1,0 +1,152 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 tool-info-section">
+
+            <div class="row underline-alive" style="border-width: 0px 0px 1px 0px; margin: 0">
+                <div class="col-xs-9" style="padding-left: 0">
+                    <h1 class="title" style="z-index: 1000; margin-bottom: 0;"> Some Name</h1>
+                </div>
+
+                <% if is_following? @tool %> <!-- user is following -->
+                    <div class="col-xs-3 text-right" style="padding-right: 0">
+                        <button class="unfollow-button" style="font-size: 16pt; margin-top: 20px">Unfollow</button>
+                    </div>
+                <% else %>
+                    <div class="col-xs-3 text-right" style="padding-right: 0">
+                        <div class="follow-main">
+                            <button class="follow-button" style="font-size: 16pt; margin-top: 20px">Follow</button>
+                            <div class="follow-hover-div" style="right: 39%; top: -20px">
+                                <p>Follow to get notifications</p>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 text-left col-overflow-x">
+                    <%= link_to 'www.website.com', '#', class: 'main-font undecorated-link', style: 'font-size: 12pt;' %>
+                </div>
+                <div class="col-xs-3 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-2 col-overflow-x">
+                    <div class="tool-like-div text-left">
+                        <% if likes_tool @tool %>
+                            <%= image_tag 'liked_icon.png', class: 'like-image', style: 'margin: 0px 0 0 ', 'data-likes' => '1' %>
+                        <% else %>
+                            <%= image_tag 'like_icon.png', class: 'like-image', style: 'margin: 0px 0 0 ', 'data-likes' => '0' %>
+                        <% end %>
+                        <p class="main-font count" style="display: inline">2421</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-2 col-md-2 col-overflow-x">
+                    <div class="tool-like-div text-left">
+                        <%= image_tag 'comment_icon.png', class: 'comment-image', style: 'margin: 0px 0 0 ' %>
+                        <p class="main-font count" style="display: inline">2421</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="main-font text-info text-justify" style="margin: 5px 0 0 0; font-size: 13pt">
+                        This is were a description of the tool will go.
+                        It will describle
+                        the tool with some words and letters ok just so you know what to use
+                        when writing your descriptions. Use words and letters cause that is
+                        how englishs works
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <p class="title-2-dead " style="font-size: 10pt">submitted
+                        by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
+                </div>
+
+                <div class="col-xs-4 text-right">
+                    <%= link_to 'Report', '#', class: 'main-font undecorated-link title-2-dead', style: 'color: #cb4b16; font-size: 7pt' %>
+
+                    <% link_to(image_tag('flag.png', class: 'report-flag'), '#') %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 tool-info-section">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu} %>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu} %>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu} %>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin: 40px -15px 20px">
+        <div class="col-xs-12 will-pag">
+            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 ">
+            <div class="comments-section">
+                <div id="add-comment-section" style="margin-top: -165px">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-9 ">
+                                    <h4 class="title" style="font-size:12pt; margin-left: 10px">CurrentUser</h4>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <%= image_tag 'remove_button.png', id: 'comment-addc', class: 'comment-add-cl-t' %>
+                                    <%= image_tag 'add_button2.png', id: 'comment-addr', class: 'comment-add-cl-t' %>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <%= text_area :post, :body, rows: 4, class: 'comment-area main-font ', placeholder: 'Add Comment.....', id: 'comment-ta' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-xs-9">
+                            <h4 class="title" style="color: #93a1a1; margin-left: 10px">Comments</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <%= image_tag 'add_button2.png', id: 'comment-addo', class: 'comment-add-cl' %>
+                        </div>
+                    </div>
+
+                    <div id="ajax-comments">
+                        <%= display_comments(@tools_comments).html_safe %>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin: 20px -15px">
+        <div class="col-xs-12 will-pag">
+            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+
+        </div>
+    </div>
+</div>

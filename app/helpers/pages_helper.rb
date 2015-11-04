@@ -7,6 +7,14 @@ module PagesHelper
   end
 
 
+  def display_results(results)
+    html = ''
+    results.each do |result|
+      html += render partial: 'pages/tool_result', locals: {tool: result}
+    end
+    html
+  end
+
   def resize_div
 
     if is_logged_in?

@@ -23,7 +23,7 @@ function cancelNoti() {
 //  CHANGE URL TO ADD TOOL_ID
 function ajaxCreateToolNotify() {
     $.ajax({
-        url: '/tools/-1/tool_notifications/new'
+        url: '/tools/-1/tells/new'
     }).done(function (data) {
 
     }).fail(function () {

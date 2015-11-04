@@ -10,6 +10,8 @@
 }
 
 .user-profile-img {
+  height: auto;
+  //width: 100%;
   border-radius: 100%;
   margin-top: 10px;
   height: 90px;
@@ -202,38 +204,5 @@
   &:hover{
     cursor: pointer;
   }
-
-}
-
-.login-section{
-  width: 300px;
-  height: 370px;
-  border: 0px solid $base02;
-  margin-left: -moz-calc(50% - 175px);
-  margin-left: -webkit-calc(50% - 175px);
-  margin-left: calc(50% - 175px);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  //-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-  //-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-  //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-
-  padding: 15px;
-}
-
-.login-label{
-  @extend .main-font;
-  color: $base02;
-}
-
-#login-button {
-  font-size: 13pt;
-  margin-top: 15px;
-  background-color: transparent;
-  border: 1px solid deepskyblue;
-  -webkit-border-radius: .3em;
-  -moz-border-radius: .3em;
-  border-radius: .3em;
 
 }

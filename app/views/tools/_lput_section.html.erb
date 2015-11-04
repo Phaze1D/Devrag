@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div>
+            <h3 class="title-2-alive" style="font-size: 13pt"><%= lpu_title %></h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="rain-scroll">
+            <ul class="ul-lpu">
+                <% lpu_array.each_with_index do |item, i| %>
+
+                    <% if i == lpu_array.size - 1 %>
+                        <li class="li-lpu main-font" style="border-right: none">
+                            <%= item %>
+                        </li>
+                    <% else %>
+                        <li class="li-lpu main-font">
+                            <%= item %>
+                        </li>
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
