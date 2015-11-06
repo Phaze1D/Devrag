@@ -109,7 +109,7 @@ function showNotifications() {
 function ajaxRetriveNotifications() {
 
     $.ajax({
-        url: '/users/-1/user_notifications'
+        url: '/users/-1/notifications'
     }).done(function (data) {
 //console.log(data);
         num2 = 0;

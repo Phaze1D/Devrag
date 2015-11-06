@@ -1,0 +1,29 @@
+<!--
+    User pic that followed
+    Small intro
+    Date and time
+-->
+<li class="noti-li">
+    <div class="noti-container">
+
+        <%= link_to user_path(12), class: 'undecorated-link-w noti-link' do %>
+            <%= image_tag 'profile_img_2.jpg', class: 'noti-profile-img' %>
+        <% end %>
+
+        <%= link_to '#', class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
+            <div class="noti-p">
+                <span class="span-no">SoAndS</span>
+                <span class="span-no" style="color: #93a1a1; max-width: 150px">followed your tool</span>
+                <span class="span-yes">Some Tool</span>
+            </div>
+
+            <%= image_tag 'followers_icon.png', class: 'noti-sm-icon' %>
+            <div class="noti-date">
+                November 15, 2015
+            </div>
+        <% end %>
+
+        <%= image_tag 'remove_button.png', class: 'noti-cross' %>
+
+    </div>
+</li>

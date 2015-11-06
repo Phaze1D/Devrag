@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
+  get 'search', to: 'pages#search'
+
   resources :users do
 
     resources :tools, except: :show

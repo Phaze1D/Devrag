@@ -1,0 +1,91 @@
+<!--
+    Missing AJAX form check
+-->
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-2
+                    col-sm-6 col-sm-offset-0
+                    col-xs-12">
+            <div class="row" style="margin: 5px 0px 0px 0px">
+                <div class="col-md-12">
+                    <h2 class="title-2-alive" style="margin: 0">Join Us</h2>
+                </div>
+            </div>
+
+            <div class="row" style="">
+                <div class="col-md-12">
+                    <p class="main-font text-info text-left info-p">
+                        Help us create an awesome and searchable community of
+                        software development tools.
+                </div>
+            </div>
+
+            <div class="row" style=" margin: 50px 0px 0px 0px">
+                <div class="col-md-12">
+                    <h2 class="title-2-alive" style="margin: 0">Link Up</h2>
+                </div>
+            </div>
+
+            <div class="row" style="">
+                <div class="col-md-12">
+                    <p class="main-font text-info text-left info-p">
+                        Link up your websites or repositories so that it is easier for
+                        anyone creating any sort of software, to find
+                        them with our search engine.
+                </div>
+            </div>
+
+            <div class="row" style=" margin: 50px 15px 0px 0px">
+                <div class="col-md-12">
+                    <h2 class="title-2-alive" style="margin: 0">Find</h2>
+                </div>
+            </div>
+
+            <div class="row" style="">
+                <div class="col-md-12">
+                    <p class="main-font text-info text-left info-p">
+                        Find the things you need to create even better software.
+                        Whether it be a javascript scrollbar or a custom kernal.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <%= form_for @user do |f| %>
+
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.text_field :username, class: 'form-control-large main-font', placeholder: 'Username' %>
+                    </div>
+                </div>
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.text_field :email, class: 'form-control-large main-font', placeholder: 'Email' %>
+                    </div>
+                </div>
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.password_field :password, class: 'form-control-large main-font', placeholder: 'Password' %>
+                    </div>
+                </div>
+
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.password_field :password_confirmation, class: 'form-control-large main-font', placeholder: 'Confirmation' %>
+                    </div>
+                </div>
+
+                <div class="row" style="margin: 20px 5px 25px 5px">
+                    <div class="col-md-12">
+                        <%= f.submit 'Sign up', class: 'title-2-alive text-center', id:'signup-button'  %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
