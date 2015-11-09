@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'pages#search'
 
+  resources :sessions , only: [:new, :create, :destroy]
+
   resources :users do
 
     resources :tools, except: :show
