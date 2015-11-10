@@ -7,4 +7,19 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :notifications
 
+  has_secure_password
+
+  validates :email, presence: true, length: { maximum: 255 },
+            format: { with: /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i },
+            uniqueness: { case_sensitive: false }
+
+  validates :username, presence: true, length: { maximum: 50 },
+            uniqueness: { case_sensitive: false }
+
+  validates :password, presence: true, length: { minimum: 6 },
+            confirmation: true
+
+
+  # validate profile picture
+
 end

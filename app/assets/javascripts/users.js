@@ -59,6 +59,18 @@ $(document).on('mouseout', '.user-profile-img', function(){
     hideEditUserImg();
 });
 
+$(document).on('focusout', '.user-input', function(){
+    ajaxValidation($('#user-create-form'), ajaxUserSuccess, ajaxUserFailed);
+});
+
+function ajaxUserSuccess(data){
+    console.log('success' + data);
+}
+
+function ajaxUserFailed(data){
+    console.log('failed' + data);
+}
+
 function showEditUserImg(){
     $('.edit-img-div').css('margin-top', '0px');
 }
@@ -116,3 +128,5 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
 
     $(scrollerAreaID).find('.mCSB_container').css('margin-right', '0px');
 }
+
+

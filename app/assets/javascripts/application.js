@@ -56,6 +56,20 @@ function ajaxPagination(selector) {
 
 }
 
+
+function ajaxValidation(form, success, failed){
+
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
+    }).done(function(data){
+        success(data);
+    }).fail(function(data){
+        failed(data);
+    });
+}
+
 function didClickTarget(container, event) {
 
     return !(!container.is(event.target) && container.has(event.target).length === 0);
