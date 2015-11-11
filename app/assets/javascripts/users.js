@@ -60,15 +60,33 @@ $(document).on('mouseout', '.user-profile-img', function(){
 });
 
 $(document).on('focusout', '.user-input', function(){
-    ajaxValidation($('#user-create-form'), ajaxUserSuccess, ajaxUserFailed);
+    ajaxValidation($('#user-create-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
 });
 
-function ajaxUserSuccess(data){
-    console.log('success' + data);
+function ajaxUserSuccess(){
+    $('.error-div').each(function(){
+        $(this).css('display', 'none');
+    });
 }
 
-function ajaxUserFailed(data){
-    console.log('failed' + data);
+function ajaxUserFailed(input_selector, data){
+    var error_div = input_selector.closest('.col-md-12').find('.error-div');
+    var name = input_selector.attr('name').replace('user[', '').replace(']','');
+
+    console.log(error_div);
+
+    if(data[name]){
+        error_div.css('display', 'block');
+        var error_ul = error_div.find('ul');
+        error_ul.html('');
+        for(var i = 0; i < data[name].length; i++){
+            error_ul.append('<li>' + data[name][i] + '</li>');
+        }
+    }else{
+        error_div.css('display', 'none');
+    }
+
+
 }
 
 function showEditUserImg(){

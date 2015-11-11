@@ -57,16 +57,17 @@ function ajaxPagination(selector) {
 }
 
 
-function ajaxValidation(form, success, failed){
+function ajaxValidation(form, input_selector, success, failed){
 
     $.ajax({
         type: form.attr('method'),
         url: form.attr('action'),
         data: form.serialize(),
-    }).done(function(data){
-        success(data);
+        dataType: 'json'
+    }).done(function(){
+        success();
     }).fail(function(data){
-        failed(data);
+        failed(input_selector, data.responseJSON);
     });
 }
 
