@@ -19,13 +19,13 @@ class UsersController < ApplicationController
           @user.save
           redirect_to root_url
         end
-        
+
         format.json { render json: {:success => 'true'}.to_json }
       else
         format.html { render 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-
+      
     end
 
   end
