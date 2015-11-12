@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <% if @user_tools_length > 5 %>
+                    <% if @user.tools.size > 5 %>
                         <div id="user-tool-search" class="tool-search">
                             <input class="form-input main-font search-input" placeholder="Search...">
                         </div>
@@ -51,7 +51,7 @@
                     <% end %>
 
                     <div id="user-area-tool" class="user-area">
-                        <% if @user_tools_length > 5 %>
+                        <% if @user.tools.size> 5 %>
                             <div style="height: 30px"></div>
                         <% end %>
 
@@ -75,7 +75,7 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <% if @user_follows_length > 5 %>
+                    <% if @user.follows.size > 5 %>
                         <div id="user-fol-search" class="tool-search">
                             <input class="form-input main-font search-input" placeholder="Search...">
                         </div>
@@ -86,7 +86,7 @@
                     <% end %>
 
                     <div id="user-area-following" class="user-area">
-                        <% if @user_follows_length > 5 %>
+                        <% if @user.follows.size > 5 %>
                             <div style="height: 30px"></div>
                         <% end %>
 

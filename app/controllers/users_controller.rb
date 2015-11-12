@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = 'user'
-    @user_tools_length = 5
-    @user_follows_length = 4
+    @user = User.find(params[:id])
   end
 
   def new
@@ -17,6 +15,7 @@ class UsersController < ApplicationController
       if @user.valid?
         format.html do
           @user.save
+          log_in @user
           redirect_to root_url
         end
 

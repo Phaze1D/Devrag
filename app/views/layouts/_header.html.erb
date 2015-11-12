@@ -32,7 +32,7 @@
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 17%;' %>
 
-            <%= link_to 'Profile', user_path(12),
+            <%= link_to 'Profile', user_path(current_user),
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 33%;' %>
 
@@ -49,7 +49,7 @@
             <% end %>
 
 
-            <%= link_to 'Settings', edit_user_path(12),
+            <%= link_to 'Settings', edit_user_path(current_user),
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 65%; ' %>
 
