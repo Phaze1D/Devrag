@@ -105,8 +105,6 @@ function deleteToken(selector) {
         ulParent.css('width', ulW - liW - 5 + 'px');
         li.remove();
     }
-    ;
-
 }
 
 function createTokenHtml(inputString) {

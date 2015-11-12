@@ -19,11 +19,9 @@ class ToolsController < ApplicationController
 
   def index
     @user_tools = User.find(params[:user_id]).tools.paginate(:page => params[:page], :per_page => 5)
-
     respond_to do |format|
       format.js
     end
-
   end
 
   def new
