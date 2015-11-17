@@ -1,3 +1,5 @@
+
+
 $(document).on('click', '.lpu-token', function () {
     deleteOnClickToken($(this));
 });
@@ -78,9 +80,8 @@ function createToken(selector) {
         var inputString = selector.val().trim();
         var ulParent = selector.closest('.new-ul');
 
-        // Check if inputString exist and validate
         if(!doesTokenExist(inputString, ulParent)) {
-            ajaxValidateToken(inputString, selector);
+            ajaxValidateToken(inputString, selector, ulParent.find('.lpu-token').size());
         }else{
             lpuFailed(selector, null);
         }
@@ -104,7 +105,7 @@ function deleteOnClickToken(selector) {
     var ulParent = selector.closest('.new-ul');
     var input = $('#' + ulParent.attr('id') + ' li:eq(0)').children('.new-lpu-input');
     input.val('' + selector.text());
-    console.log(selector.text());
+
     var tokenli = selector.closest('.token-li');
 
     var liW = parseInt(tokenli.css("width"));
@@ -130,7 +131,10 @@ function deleteToken(selector) {
 
 function createTokenHtml(inputString) {
     var safe = htmlSafeInput(inputString);
-    return '<li class="token-li" style="margin-right: 5px"> <p class="lpu-token">' + safe + '</p></li>'
+    return '<li class="token-li" style="margin-right: 5px"> ' +
+                '<p class="lpu-token">' + safe + '</p>' +
+                '<input type="hidden" name="tool[languages][names]['+ safe + ']" value=' + safe+ '> </input>' +
+            '</li>'
 }
 
 function initToolLPUScroller() {

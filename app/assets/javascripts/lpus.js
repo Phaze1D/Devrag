@@ -1,9 +1,9 @@
 
-function ajaxValidateToken(tokenString, inputSel){
+function ajaxValidateToken(tokenString, inputSel, size){
 
     $.ajax({
         url: '/lpu_validation',
-        data: { lpu_string: tokenString }
+        data: { lpu_string: tokenString, size: size }
 
     }).done(function(){
         lpuSuccess(inputSel);
