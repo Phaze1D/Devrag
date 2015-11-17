@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   end
 
+  get 'lpu_validation', to: 'lpus#lpu_validation'
+
 
 
 end

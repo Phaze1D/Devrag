@@ -11,4 +11,6 @@ class Tool < ActiveRecord::Base
   has_many :reports
   has_many :tells
 
+
+
 end

@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-5">
-            <%= form_for [@current_user, @tool] do |f| %>
+            <%= form_for [@user, @tool], html: {id: 'new-tool-form'} do |f| %>
                 <div class="row">
                     <div class="col-xs-12">
                         <%= f.text_field :name, class: 'tool-new-title', placeholder: 'Name' %>

@@ -1,0 +1,2 @@
+module LpusHelper
+end

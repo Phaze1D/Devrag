@@ -4,12 +4,19 @@ $(document).on('click', '.lpu-token', function () {
 
 $(document).on('keydown', '.new-lpu-input', function (e) {
 
+    $(this).css('border-color', '#93A1A1');
+
     if (e.keyCode == 13) {
         createToken($(this));
+        e.preventDefault();
     }
     if (e.keyCode == 8) {
         deleteToken($(this));
     }
+});
+
+$(document).on('focusout', '.new-lpu-input', function () {
+    $(this).css('border-color', '#657B83');
 });
 
 $(document).on('mouseover', '.follow-button', function () {
@@ -22,6 +29,10 @@ $(document).on('mouseout', '.follow-button', function () {
 
 $(document).on('click', '.like-image', function () {
     likeClickHandler($(this))
+});
+
+$(document).on('submit', '#new-tool-form', function(){
+
 });
 
 
@@ -68,15 +79,25 @@ function createToken(selector) {
         var ulParent = selector.closest('.new-ul');
 
         // Check if inputString exist and validate
-        // Check if inputString is already listed
-
-        $('#' + ulParent.attr('id') + ' li:first').after(createTokenHtml(inputString));
-        var liW = parseInt($('#' + ulParent.attr('id') + ' li:eq(1)').css("width"));
-        var ulW = parseInt(ulParent.css("width"));
-        ulParent.css('width', ulW + liW + 5 + 'px');
-        selector.val('');
+        if(!doesTokenExist(inputString, ulParent)) {
+            ajaxValidateToken(inputString, selector);
+        }else{
+            lpuFailed(selector, null);
+        }
     }
+}
 
+
+
+function doesTokenExist(tokenString, ulParent){
+    var didFind = false;
+    ulParent.find('.lpu-token').each(function () {
+        if($(this).html() === tokenString){
+            didFind = true;
+            return false;
+        }
+    });
+    return didFind;
 }
 
 function deleteOnClickToken(selector) {
