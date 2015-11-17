@@ -4,7 +4,7 @@ class LpusController < ApplicationController
   def lpu_validation
 
     lpu_string = params[:lpu_string]
-    size = params[:size]
+    size = params[:size].to_i
 
     respond_to do |format|
 
