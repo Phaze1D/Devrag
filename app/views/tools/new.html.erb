@@ -30,18 +30,60 @@
             <%= form_for [@user, @tool], html: {id: 'new-tool-form'} do |f| %>
                 <div class="row">
                     <div class="col-xs-12">
-                        <%= f.text_field :name, class: 'tool-new-title', placeholder: 'Name' %>
+                        <%= f.text_field :name, class: 'tool-new-title tool-input', placeholder: 'Name' %>
+                        <% if @tool.errors[:name].size > 0 %>
+                            <div class="error-div">
+                                <ul>
+                                    <% @tool.errors[:name].each do |error| %>
+                                        <li><%= error %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <div class="error-div" style="display: none">
+                                <ul>
+                                </ul>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <%= f.text_field :website, class: 'tool-new-web', placeholder: 'Website or Repository' %>
+                        <%= f.text_field :website, class: 'tool-new-web tool-input', placeholder: 'Website or Repository' %>
+                        <% if @tool.errors[:website].size > 0 %>
+                            <div class="error-div">
+                                <ul>
+                                    <% @tool.errors[:website].each do |error| %>
+                                        <li><%= error %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <div class="error-div" style="display: none">
+                                <ul>
+                                </ul>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <%= f.text_area :description, rows: 5, class: 'tool-new-area', placeholder: 'Description...' %>
+                        <%= f.text_area :description, rows: 5, class: 'tool-new-area tool-input', placeholder: 'Description...' %>
+                        <% if @tool.errors[:description].size > 0 %>
+                            <div class="error-div">
+                                <ul>
+                                    <% @tool.errors[:description].each do |error| %>
+                                        <li><%= error %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <div class="error-div" style="display: none">
+                                <ul>
+                                </ul>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
 
@@ -85,6 +127,22 @@
                                 </ul>
                             <% end %>
                         </div>
+
+                        <% if @tool.errors[:lpu].size > 0 %>
+                            <div class="error-div">
+                                <ul>
+                                    <% @tool.errors[:lpu].each do |error| %>
+                                        <li><%= error %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <div class="error-div" style="display: none">
+                                <ul>
+                                </ul>
+                            </div>
+                        <% end %>
+
                     </div>
                 </div>
 

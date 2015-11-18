@@ -2,11 +2,11 @@
     <div class="row" style=" margin-bottom: 20px">
 
         <div class="col-xs-10 col-sm-10 col-md-8 underline-dead" style="padding: 0 40px 0 0; border-width: 0 0 2px 0;">
-            <h1 class="title col-overflow-x" style="z-index: 1000; margin: 65px 0 0 0; overflow: hidden"> username</h1>
+            <h1 class="title col-overflow-x" style="z-index: 1000; margin: 54px 0 0 0; overflow: hidden; height: 50px"><%= @user.username %></h1>
         </div>
 
         <div class="col-xs-2 col-sm-2 col-md-2 text-right underline-dead" style="border-width: 0 0 2px 0; ">
-            <div class="user-profile-img" style="margin-bottom: 4.5px;">
+            <div class="user-profile-img" style="margin-bottom: 4px;">
 
                 <% if is_current_user?(@user) && is_logged_in? %>
                     <div class="edit-img-div text-center">
@@ -28,7 +28,7 @@
 
                     <% if is_current_user?(@user) && is_logged_in? %>
                         <h2 class="title text-center" style=" margin-bottom: 5px">Your Tools</h2>
-                        <%= link_to(image_tag('add_button2.png', id: 'add-tool-b', class: 'center-ver'), new_user_tool_path(user_id: 12)) %>
+                        <%= link_to(image_tag('add_button2.png', id: 'add-tool-b', class: 'center-ver'), new_user_tool_path(@user)) %>
 
                     <% else %>
                         <h2 class="title text-center" style=" margin-bottom: 5px">Owns</h2>

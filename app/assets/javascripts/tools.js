@@ -34,8 +34,38 @@ $(document).on('click', '.like-image', function () {
 });
 
 $(document).on('submit', '#new-tool-form', function(){
-
+    $('.error-div').each(function(){
+        $(this).css('display', 'none');
+    });
 });
+
+$(document).on('focusout', '.tool-input', function(){
+    ajaxValidation($('#new-tool-form'), $(this), toolValidationSuccess, toolValidationFailed);
+});
+
+function toolValidationSuccess(){
+    $('.error-div').each(function(){
+        $(this).css('display', 'none');
+    });
+}
+
+function toolValidationFailed(input_selector, data){
+    var error_div = input_selector.closest('.col-xs-12').find('.error-div');
+    var name = input_selector.attr('name').replace('tool[', '').replace(']','');
+
+    console.log(error_div);
+
+    if(data[name]){
+        error_div.css('display', 'block');
+        var error_ul = error_div.find('ul');
+        error_ul.html('');
+        for(var i = 0; i < data[name].length; i++){
+            error_ul.append('<li>' + data[name][i] + '</li>');
+        }
+    }else{
+        error_div.css('display', 'none');
+    }
+}
 
 
 function ajaxUsersTools(page) {
@@ -93,7 +123,7 @@ function createToken(selector) {
 function doesTokenExist(tokenString, ulParent){
     var didFind = false;
     ulParent.find('.lpu-token').each(function () {
-        if($(this).html() === tokenString){
+        if($(this).html().toLowerCase() === tokenString.toLowerCase()){
             didFind = true;
             return false;
         }
@@ -129,11 +159,11 @@ function deleteToken(selector) {
     }
 }
 
-function createTokenHtml(inputString) {
+function createTokenHtml(inputString, typeString) {
     var safe = htmlSafeInput(inputString);
     return '<li class="token-li" style="margin-right: 5px"> ' +
                 '<p class="lpu-token">' + safe + '</p>' +
-                '<input type="hidden" name="tool[languages][names]['+ safe + ']" value=' + safe+ '> </input>' +
+                '<input type="hidden" name="tool[' + typeString + '][names]['+ safe + ']" value=' + safe+ '> </input>' +
             '</li>'
 }
 

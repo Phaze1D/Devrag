@@ -73,8 +73,6 @@ function ajaxUserFailed(input_selector, data){
     var error_div = input_selector.closest('.col-md-12').find('.error-div');
     var name = input_selector.attr('name').replace('user[', '').replace(']','');
 
-    console.log(error_div);
-
     if(data[name]){
         error_div.css('display', 'block');
         var error_ul = error_div.find('ul');
@@ -85,7 +83,6 @@ function ajaxUserFailed(input_selector, data){
     }else{
         error_div.css('display', 'none');
     }
-
 
 }
 

@@ -11,6 +11,13 @@ class Tool < ActiveRecord::Base
   has_many :reports
   has_many :tells
 
+  validates :name, length: { maximum: 100 },
+            presence: true, uniqueness: {case_sensitive: false}
 
+  validates :website, length: { maximum: 255 },
+            presence: true
+
+  validates :description, length: { maximum: 255, minimum: 60 },
+            presence: true
 
 end

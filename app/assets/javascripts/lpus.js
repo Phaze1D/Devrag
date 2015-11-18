@@ -18,8 +18,11 @@ function lpuFailed(inputSel, data){
 
 function lpuSuccess(inputSel){
     var inputString = inputSel.val().trim();
+    var typeString = inputSel.attr('name').replace('tool','').replace('[', '').replace(']', '').replace('[name]', '');
     var ulParent = inputSel.closest('.new-ul');
-    $('#' + ulParent.attr('id') + ' li:first').after(createTokenHtml(inputString));
+
+
+    $('#' + ulParent.attr('id') + ' li:first').after(createTokenHtml(inputString, typeString));
     var liW = parseInt($('#' + ulParent.attr('id') + ' li:eq(1)').css("width"));
     var ulW = parseInt(ulParent.css("width"));
     ulParent.css('width', ulW + liW + 5 + 'px');
