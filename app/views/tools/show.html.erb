@@ -4,7 +4,7 @@
 
             <div class="row underline-alive" style="border-width: 0px 0px 1px 0px; margin: 0">
                 <div class="col-xs-9" style="padding-left: 0">
-                    <h1 class="title" style="z-index: 1000; margin-bottom: 0;"> Some Name</h1>
+                    <h1 class="title" style="z-index: 1000; margin-bottom: 0;"> <%= @tool.name %></h1>
                 </div>
 
                 <% if is_following? @tool %> <!-- user is following -->
@@ -25,7 +25,7 @@
 
             <div class="row">
                 <div class="col-xs-6 text-left col-overflow-x">
-                    <%= link_to 'www.website.com', '#', class: 'main-font undecorated-link', style: 'font-size: 12pt;' %>
+                    <%= link_to @tool.website, @tool.website, class: 'main-font undecorated-link', style: 'font-size: 12pt;' %>
                 </div>
                 <div class="col-xs-3 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-2 col-overflow-x">
                     <div class="tool-like-div text-left">
@@ -49,11 +49,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p class="main-font text-info text-justify" style="margin: 5px 0 0 0; font-size: 13pt">
-                        This is were a description of the tool will go.
-                        It will describle
-                        the tool with some words and letters ok just so you know what to use
-                        when writing your descriptions. Use words and letters cause that is
-                        how englishs works
+                        <%= @tool.description %>
                     </p>
                 </div>
             </div>
@@ -61,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-8">
                     <p class="title-2-dead " style="font-size: 10pt">submitted
-                        by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
+                        by <%= link_to 'username', user_path(@tool.user), class: 'title-2-dead undecorated-link' %></p>
                 </div>
 
                 <div class="col-xs-4 text-right">
@@ -77,17 +73,17 @@
         <div class="col-xs-12 col-sm-10 col-md-8 tool-info-section">
             <div class="row text-center">
                 <div class="col-xs-12 col-sm-4">
-                    <%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tools_lpu} %>
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Languages', lpu_array: @tool.languages} %>
 
                 </div>
 
                 <div class="col-xs-12 col-sm-4">
-                    <%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tools_lpu} %>
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Platforms', lpu_array: @tool.platforms} %>
 
                 </div>
 
                 <div class="col-xs-12 col-sm-4">
-                    <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tools_lpu} %>
+                    <%= render partial: 'lput_section', locals: {lpu_title: 'Uses', lpu_array: @tool.uses} %>
 
                 </div>
 

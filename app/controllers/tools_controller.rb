@@ -2,10 +2,7 @@ class ToolsController < ApplicationController
 
 
   def show
-    @tool = 1
-    @tools_lpu = %w(c++ short thisisalongin sja;lfadkjisalongerone
-						isthelongestoneofthemalljustoyajd;lskfjsd;flkjasd;lfkalfkjas;lfk
-						tjasdf;kljasd ads flkjsdf kjadsf ajd flksd flka) # Change to @tool.languages or platforms or uses
+    @tool = Tool.find(params[:id])
 
     @tools_comments = [1, 21, 2, 3, 3, 4, 4, 3, 3] # Change to @ tool.comments
     @tools_comments = @tools_comments.paginate(:page => params[:page], :per_page => 8)
@@ -41,6 +38,13 @@ class ToolsController < ApplicationController
 
         format.html do
           @tool.save
+
+          languages = save_languages params[:tool][:languages][:names].values if params[:tool][:languages].has_key?(:names)
+          platforms = save_platforms params[:tool][:platforms][:names].values if params[:tool][:platforms].has_key?(:names)
+          uses = save_uses params[:tool][:uses][:names].values if params[:tool][:uses].has_key?(:names)
+
+          create_lpu_relationships(@tool, languages, platforms, uses)
+
           redirect_to @user
         end
 
@@ -74,13 +78,96 @@ class ToolsController < ApplicationController
   end
 
   def check_lpu_min?
-    
+
     if params[:tool][:languages].has_key?(:names) || params[:tool][:platforms].has_key?(:names) || params[:tool][:uses].has_key?(:names)
       true
     else
       @tool.errors[:lpu] << 'You must link atleast one language, platform or use'
       false
     end
+  end
+
+  #Careful when adding duplicate relationships
+  def create_lpu_relationships(tool, languages = [], platforms = [], uses = [])
+
+    unless languages.nil?
+      languages.each do |language|
+        unless tool.languages.where(name: language.name).any?
+          tool.languages << language
+        end
+      end
+    end
+
+    unless platforms.nil?
+      platforms.each do |platform|
+        unless tool.platforms.where(name: platform.name).any?
+          tool.platforms << platform
+        end
+      end
+    end
+
+
+    unless uses.nil?
+      uses.each do |use|
+        unless tool.uses.where(name: use.name).any?
+          tool.uses << use
+        end
+      end
+    end
+
+    tool.save
+
+  end
+
+  def save_languages(languages)
+
+    array = []
+    languages.each do |language|
+      language = language.downcase
+      if Language.exists?(name: language)
+        array.push Language.find_by_name(language)
+      else
+        lang = Language.new(name: language)
+        lang.save
+        array.push lang
+      end
+    end
+    array
+
+  end
+
+  def save_platforms(platforms)
+
+    array = []
+    platforms.each do |platform|
+      platform = platform.downcase
+      if Platform.exists?(name: platform)
+        array.push Platform.find_by_name(platform)
+      else
+        plat = Platform.new(name: platform)
+        plat.save
+        array.push plat
+      end
+    end
+    array
+
+  end
+
+  def save_uses(uses)
+
+    array = []
+    uses.each do |use|
+      use = use.downcase
+      if Use.exists?(name: use)
+        array.push Use.find_by_name(use)
+      else
+        us = Use.new(name: use)
+        us.save
+        array.push us
+      end
+    end
+    array
+
   end
 
 end

@@ -15,4 +15,8 @@ module ToolsHelper
     html
   end
 
+  def uppercase_first_letter(word)
+    word.split.map(&:capitalize)*' '
+  end
+
 end

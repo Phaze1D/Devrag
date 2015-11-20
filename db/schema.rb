@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028030415) do
+ActiveRecord::Schema.define(version: 20151120034406) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535, null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151028030415) do
   end
 
   add_index "languages_tools", ["language_id"], name: "fk_rails_bc63bac6da", using: :btree
-  add_index "languages_tools", ["tool_id"], name: "fk_rails_65a5cd333a", using: :btree
+  add_index "languages_tools", ["tool_id", "language_id"], name: "index_languages_tools_on_tool_id_and_language_id", unique: true, using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4, null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20151028030415) do
   end
 
   add_index "platforms_tools", ["platform_id"], name: "fk_rails_4d89a12ba4", using: :btree
-  add_index "platforms_tools", ["tool_id"], name: "fk_rails_751c4f95ea", using: :btree
+  add_index "platforms_tools", ["tool_id", "platform_id"], name: "index_platforms_tools_on_tool_id_and_platform_id", unique: true, using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "user_id",    limit: 4, null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20151028030415) do
     t.integer "use_id",  limit: 4, null: false
   end
 
-  add_index "tools_uses", ["tool_id"], name: "fk_rails_4d27e4cf69", using: :btree
+  add_index "tools_uses", ["tool_id", "use_id"], name: "index_tools_uses_on_tool_id_and_use_id", unique: true, using: :btree
   add_index "tools_uses", ["use_id"], name: "fk_rails_3b42ce8057", using: :btree
 
   create_table "users", force: :cascade do |t|

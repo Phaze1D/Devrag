@@ -13,11 +13,11 @@
 
                     <% if i == lpu_array.size - 1 %>
                         <li class="li-lpu main-font" style="border-right: none">
-                            <%= item %>
+                            <%= uppercase_first_letter item.name %>
                         </li>
                     <% else %>
                         <li class="li-lpu main-font">
-                            <%= item %>
+                            <%= uppercase_first_letter item.name %>
                         </li>
                     <% end %>
                 <% end %>
