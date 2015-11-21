@@ -15,7 +15,7 @@
 
             <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
 
-                <h5 id="username-label" class="main-font">username</h5>
+                <h5 id="username-label" class="main-font"><%= current_user.username %></h5>
                 <% if has_notifications? %>
                     <div class="notification-bubble text-center center-ver">
                         <h6 class="center notification-text main-font">3</h6>

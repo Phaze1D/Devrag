@@ -67,6 +67,35 @@ class ToolsController < ApplicationController
 
   def update
 
+    @tool = Tool.find(params[:id])
+    @tool.attributes = tool_params
+
+    respond_to do |format|
+      if @tool.valid? && check_lpu_min?
+
+        format.html do
+          @tool.save
+          @tool.languages.delete_all
+          @tool.platforms.delete_all
+          @tool.uses.delete_all
+          languages = save_languages params[:tool][:languages][:names].values if params[:tool][:languages].has_key?(:names)
+          platforms = save_platforms params[:tool][:platforms][:names].values if params[:tool][:platforms].has_key?(:names)
+          uses = save_uses params[:tool][:uses][:names].values if params[:tool][:uses].has_key?(:names)
+
+          create_lpu_relationships(@tool, languages, platforms, uses)
+
+          redirect_to @tool.user
+        end
+
+        format.json { render json: {:success => 'true'}.to_json }
+      else
+        format.html { render 'edit' }
+        format.json { render json: @tool.errors, status: :unprocessable_entity }
+      end
+
+    end
+
+
   end
 
   def destroy

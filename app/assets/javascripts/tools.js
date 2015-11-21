@@ -40,7 +40,7 @@ $(document).on('submit', '#new-tool-form', function(){
 });
 
 $(document).on('focusout', '.tool-input', function(){
-    ajaxValidation($('#new-tool-form'), $(this), toolValidationSuccess, toolValidationFailed);
+    ajaxValidation($(this).closest('form'), $(this), toolValidationSuccess, toolValidationFailed);
 });
 
 function toolValidationSuccess(){
