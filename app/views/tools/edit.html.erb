@@ -1,21 +1,22 @@
 <div class="container">
     <div class="row">
 
+        <%= form_for [@user, @tool], url: user_tool_path, html: {id: 'edit-tool-form', method: 'patch'} do |f| %>
         <div class="col-xs-12 col-sm-10 col-md-8">
             <div class="row">
                 <div class="col-xs-12">
-                    <input class="tool-new-title" type="text" name="" value="Tool Name" placeholder="Name" autofocus>
+                    <%= f.text_field :name, class: 'tool-new-title', placeholder: 'Name', value: @tool.name, autofocus: true %>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <input class="tool-new-web" type="text" name="" value="www.somewebsitelongname.com" placeholder="Website or Repository">
+                    <%= f.text_field :website, class: 'tool-new-web', value: @tool.website, placeholder: 'Website or Repository' %>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <%=text_area :post, :body, rows: 5, value: 'The tool description of the tool that decapr The tool description of the of the tool that decapr The tool description of the of the tool that decapr The tool description of the tool that decapr'  ,class: 'tool-new-area', placeholder: 'Description...' %>
+                    <%=f.text_area :description, rows: 5, value: @tool.description  ,class: 'tool-new-area', placeholder: 'Description...' %>
                 </div>
             </div>
 
@@ -26,10 +27,14 @@
                             <li class="input-lpu" style="border: none; padding: 0; ">
                                 <input class="new-lpu-input" type="text" name="" value="" placeholder="Languages">
                             </li>
-                            <% @tools_lpu.each do |lpu|%>
-                                <li class="token-li" style="margin-right: 5px">
-                                    <p class="lpu-token"><%= lpu.html_safe %></p>
-                                </li>
+
+                            <%= f.fields_for :languages do |lf| %>
+                                <% @tool.languages.each do |language| %>
+                                    <li class="token-li" style="margin-right: 5px">
+                                        <p class="lpu-token"><%= language.name.html_safe %></p>
+                                        <%= lf.hidden_field :names, value: language.name, name: "tool[languages][names][#{language.name}]" %>
+                                    </li>
+                                <% end %>
                             <% end %>
                         </ul>
                     </div>
@@ -43,10 +48,14 @@
                             <li class="input-lpu" style="border: none; padding: 0; ">
                                 <input class="new-lpu-input" type="text" name="" value="" placeholder="Platforms">
                             </li>
-                            <% @tools_lpu.each do |lpu|%>
-                                <li class="token-li" style="margin-right: 5px">
-                                    <p class="lpu-token"><%= lpu %></p>
-                                </li>
+
+                            <%= f.fields_for :platforms do |pf| %>
+                                <% @tool.platforms.each do |platform| %>
+                                    <li class="token-li" style="margin-right: 5px">
+                                        <p class="lpu-token"><%= platform.name.html_safe %></p>
+                                        <%= pf.hidden_field :names,  value: platform.name, name: "tool[platforms][names][#{platform.name}]" %>
+                                    </li>
+                                <% end %>
                             <% end %>
                         </ul>
                     </div>
@@ -60,10 +69,13 @@
                             <li class="input-lpu" style="border: none; padding: 0; ">
                                 <input class="new-lpu-input" type="text" name="" value="" placeholder="Uses">
                             </li>
-                            <% @tools_lpu.each do |lpu|%>
-                                <li class="token-li" style="margin-right: 5px">
-                                    <p class="lpu-token"><%= lpu %></p>
-                                </li>
+                            <%= f.fields_for :uses do |uf| %>
+                                <% @tool.uses.each do |use| %>
+                                    <li class="token-li" style="margin-right: 5px">
+                                        <p class="lpu-token"><%= use.name.html_safe %></p>
+                                        <%= uf.hidden_field :names, value: use.name, name: "tool[uses][names][#{use.name}]"%>
+                                    </li>
+                                <% end %>
                             <% end %>
                         </ul>
                     </div>
@@ -72,15 +84,15 @@
 
             <div class="row">
                 <div class="col-xs-4">
-                    <button class="tool-submit-b text-left" type="">Save Changes</button>
+                    <%= f.submit 'Save Changes', class: 'tool-submit-b text-left' %>
                 </div>
 
                 <div class="col-xs-4 col-xs-offset-4 text-right">
-                    <%= link_to 'Cancel' ,user_path(12), class: 'tool-submit-b text-right', style: 'display: block; padding: 0 6px' %>
+                    <%= link_to 'Cancel' ,user_path(@tool.user), class: 'tool-submit-b text-right', style: 'display: block; padding: 0 6px' %>
                 </div>
             </div>
 
-
+            <% end %>
             <div class="row" style="margin-top: 40px;">
                 <div class="col-xs-12">
                     <p class="text-info text-left tool-new-p" style="padding-left: 5px; font-size: 17px; color: #787878; font-weight: 200">

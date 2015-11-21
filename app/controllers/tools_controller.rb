@@ -23,7 +23,7 @@ class ToolsController < ApplicationController
 
   def new
     @tool = Tool.new
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
 
@@ -59,7 +59,10 @@ class ToolsController < ApplicationController
   end
 
   def edit
-    @tools_lpu = %w(c++ short thisisalongin sja;lfadkjisalongerone isthelongestoneofthemalljustoy tjasdf;kljasd ads flkjsdf kjadsf ajd flksd flka)
+
+    @user = User.find(params[:user_id])
+    @tool = Tool.find(params[:id])
+
   end
 
   def update
