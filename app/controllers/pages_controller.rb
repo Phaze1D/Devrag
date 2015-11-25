@@ -6,17 +6,33 @@ class PagesController < ApplicationController
   end
 
   def search
-    @results = [1,2,3,4,5,64,44,2,3,3,4,4,5,3,5,4,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,3,23,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3] # Going to be an array of ActiveRecords
+    @results = get_results # Going to be an array of ActiveRecords
     @results = @results.paginate(:page => params[:page], :per_page => 8)
-    logger.info @results
-    @tools_lpu = %w(c++ short thisisalongin sja;lfadkjisalongerone
-            thisisthelongestoneofthemalljustincaseyahearmeboy) # this will turn into a local partial varible
 
 
     respond_to do |format|
       format.js
       format.html
     end
+  end
+
+
+
+  private
+
+  # Recheck whether to use merge (AND) instead of OR, you get more refine results
+  def get_results
+
+    tools_l = []
+    tools_p = []
+    tools_u = []
+
+    tools_l = Tool.joins(:languages).where('languages.name LIKE ?', "%#{params[:language]}%") unless params[:language].blank?
+    tools_p = Tool.joins(:platforms).where('platforms.name LIKE ?', "%#{params[:platform]}%") unless params[:platform].blank?
+    tools_u = Tool.joins(:uses).where('uses.name LIKE ?', "%#{params[:use]}%") unless params[:use].blank?
+
+    tools_l | tools_p | tools_u
+
   end
   
 end

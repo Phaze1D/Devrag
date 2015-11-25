@@ -32,6 +32,31 @@ $(document).on('mouseout', '.lpu-li', function () {
     lpuliOut($(this))
 });
 
+$(document).on('keypress', '.sinput', function(e) {
+    if(e.keyCode === 13) {
+        $('#search-form').submit();
+    }
+});
+
+$(document).on('keypress', '.sainput', function(e) {
+    if(e.keyCode === 13) {
+        ajaxSearchSubmit();
+    }
+});
+
+function ajaxSearchSubmit(){
+    var form = $('#ajax-search-form');
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize()
+    }).done(function(data){
+        console.log(data);
+    }).fail(function(data){
+        console.log('search faild');
+    });
+}
+
 function openName() {
     $('#name-title').removeClass('title-2-dead').addClass('title-2-alive underline-alive');
     $('#name-hidden-box').animate({
