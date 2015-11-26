@@ -2,7 +2,7 @@
     <div class="col-xs-12 user-tool-area">
         <div class="row">
             <div class="col-xs-8 col-overflow-x">
-                <%= link_to 'Some Name', tool_path(12), class: 'tool-name', style: 'font-size: 15pt;' %>
+                <%= link_to tool.name, tool_path(tool), class: 'tool-name', style: 'font-size: 15pt;' %>
             </div>
 
             <% if is_current_user?(user) && is_logged_in? %>
@@ -14,14 +14,14 @@
         </div>
         <div class="row">
             <div class="col-xs-8 col-overflow-x">
-                <%= link_to 'www.website.com', '#', class: 'main-font undecorated-link' %>
+                <%= link_to tool.website, tool.website, class: 'main-font undecorated-link' %>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-12 col-overflow-x">
                 <p class="title-2-dead" style="font-size: 9pt; margin: 5px 0 0 0">submitted
-                    by <%= link_to 'username', user_path(12), class: 'title-2-dead undecorated-link' %></p>
+                    by <%= link_to user.username, user_path(user), class: 'title-2-dead undecorated-link' %></p>
 
             </div>
         </div>

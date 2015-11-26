@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @results = get_results # Going to be an array of ActiveRecords
     @results = @results.paginate(:page => params[:page], :per_page => 8)
 
+    @relation = Relationship.new
 
     respond_to do |format|
       format.js

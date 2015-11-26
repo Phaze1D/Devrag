@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120034406) do
+ActiveRecord::Schema.define(version: 20151126041843) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535, null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20151120034406) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "relationships", ["tool_id"], name: "fk_rails_f4f1beca08", using: :btree
+  add_index "relationships", ["tool_id", "user_id"], name: "index_relationships_on_tool_id_and_user_id", unique: true, using: :btree
   add_index "relationships", ["user_id"], name: "fk_rails_a3d77c3b00", using: :btree
 
   create_table "reports", force: :cascade do |t|

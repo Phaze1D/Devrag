@@ -1,0 +1,2 @@
+
+$('#relationship-form-<%= @tool.id%>').closest('.t-r').html('<%=  escape_javascript(render(partial: 'pages/tool_result', locals: {tool: @tool, relation: @relation}).html_safe )%>');
