@@ -3,6 +3,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @relation = Relationship.new
 
     @tools_comments = [1, 21, 2, 3, 3, 4, 4, 3, 3] # Change to @ tool.comments
     @tools_comments = @tools_comments.paginate(:page => params[:page], :per_page => 8)

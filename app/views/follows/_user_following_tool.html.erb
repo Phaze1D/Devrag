@@ -5,12 +5,6 @@
                 <%= link_to tool.name, tool_path(tool), class: 'tool-name', style: 'font-size: 15pt;' %>
             </div>
 
-            <% if is_current_user?(user) && is_logged_in? %>
-                <div class="col-xs-4 text-right">
-                    <button class="unfollow-button">Unfollow</button>
-                </div>
-            <% end %>
-
         </div>
         <div class="row">
             <div class="col-xs-8 col-overflow-x">

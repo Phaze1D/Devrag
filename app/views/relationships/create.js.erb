@@ -1,2 +1,7 @@
 
-$('#relationship-form-<%= @tool.id%>').closest('.t-r').html('<%=  escape_javascript(render(partial: 'pages/tool_result', locals: {tool: @tool, relation: @relation}).html_safe )%>');
+$('#relationship-form-<%= @tool.id%>').closest('.form-div').html
+        (
+        '<%= form_for [@tool, get_relationship(@tool)], method: 'DELETE', html: {id: "relationship-form-#{@tool.id}", class: 'relation-from'} do |f| %>' +
+        '<%= f.submit 'Unfollow', class: 'unfollow-button unfollow-b-form' %>' +
+        '<% end %>'
+        );

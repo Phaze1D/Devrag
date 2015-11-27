@@ -11,5 +11,10 @@ module UsersHelper
     true
   end
 
+  # Return bool if current user is following a tool
+  def is_following?(tool)
+    current_user.follows.where(id: tool.id).any?
+  end
+
 
 end

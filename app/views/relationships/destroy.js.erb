@@ -1,0 +1,11 @@
+$('#relationship-form-<%= @tool.id%>').closest('.form-div').html
+(
+        '<%= form_for [@tool, @relation], html: {id: "relationship-form-#{@tool.id}", class: 'relation-from'} do |f| %>' +
+        '<div class="follow-main">' +
+        '<%= f.submit 'Follow', class: 'follow-button follow-b-form' %>' +
+        '<div class="follow-hover-div">' +
+        '<p>Follow to get notifications</p>' +
+        '</div>' +
+        '</div>' +
+        '<% end %>'
+);

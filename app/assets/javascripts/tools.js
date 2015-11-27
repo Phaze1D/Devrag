@@ -22,11 +22,11 @@ $(document).on('focusout', '.new-lpu-input', function () {
 });
 
 $(document).on('mouseover', '.follow-button', function () {
-    showFollowDiv($(this));
+    //showFollowDiv($(this));
 });
 
 $(document).on('mouseout', '.follow-button', function () {
-    hideFollowDiv($(this));
+    //hideFollowDiv($(this));
 });
 
 $(document).on('click', '.like-image', function () {

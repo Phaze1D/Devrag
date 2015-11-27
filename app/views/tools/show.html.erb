@@ -4,21 +4,25 @@
 
             <div class="row underline-alive" style="border-width: 0px 0px 1px 0px; margin: 0">
                 <div class="col-xs-9" style="padding-left: 0">
-                    <h1 class="title" style="z-index: 1000; margin-bottom: 0;"> <%= @tool.name %></h1>
+                    <h1 class="title" style="z-index: 1000; margin: 0;"> <%= @tool.name %></h1>
                 </div>
 
                 <% if is_following? @tool %> <!-- user is following -->
-                    <div class="col-xs-3 text-right" style="padding-right: 0">
-                        <button class="unfollow-button" style="font-size: 16pt; margin-top: 20px">Unfollow</button>
+                    <div class="col-xs-3 text-right form-div" style="padding-right: 0">
+                        <%= form_for [@tool, get_relationship(@tool)], method: 'DELETE', html: {id: "relationship-form-#{@tool.id}", class: 'relation-from'} do |f| %>
+                            <%= f.submit 'Unfollow', class: 'unfollow-button unfollow-b-form' %>
+                        <% end %>
                     </div>
                 <% else %>
-                    <div class="col-xs-3 text-right" style="padding-right: 0">
-                        <div class="follow-main">
-                            <button class="follow-button" style="font-size: 16pt; margin-top: 20px">Follow</button>
-                            <div class="follow-hover-div" style="right: 39%; top: -20px">
-                                <p>Follow to get notifications</p>
+                    <div class="col-xs-3 text-right form-div" style="padding-right: 0">
+                        <%= form_for [@tool, @relation], html: {id: "relationship-form-#{@tool.id}", class: 'relation-from'} do |f| %>
+                            <div class="follow-main">
+                                <%= f.submit 'Follow', class: 'follow-button follow-b-form' %>
+                                <div class="follow-hover-div">
+                                    <p>Follow to get notifications</p>
+                                </div>
                             </div>
-                        </div>
+                        <% end %>
                     </div>
                 <% end %>
             </div>

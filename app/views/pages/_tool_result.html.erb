@@ -8,20 +8,21 @@
 
             <div class="follow-form">
                 <% if is_following? tool %> <!-- user is following -->
-                    <div class="col-xs-2 col-xs-offset-4 text-right">
-                        <button class="unfollow-button">Unfollow</button>
+                    <div class="col-xs-2 col-xs-offset-4 text-right form-div ">
+                        <%= form_for [tool, get_relationship(tool)], method: 'DELETE', html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
+                            <%= f.submit 'Unfollow', class: 'unfollow-button unfollow-b-form', style: '' %>
+                        <% end %>
                     </div>
                 <% else %>
-                    <div class="col-xs-2 col-xs-offset-4 text-right">
+                    <div class="col-xs-2 col-xs-offset-4 text-right form-div">
+                        <%= form_for [tool, relation], html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
                         <div class="follow-main">
-
-                            <%= form_for [tool, relation], html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
                                 <%= f.submit 'Follow', class: 'follow-button follow-b-form' %>
                                 <div class="follow-hover-div">
                                     <p>Follow to get notifications</p>
                                 </div>
-                            <% end %>
                         </div>
+                        <% end %>
                     </div>
                 <% end %>
             </div>
