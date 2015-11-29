@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
     resources :likes , only: [ :create, :index, :destroy ]
 
-    resources :relationships, only: [ :create, :destroy ]
+    resources :relationships, only: [ :create, :index, :destroy ]
 
     resources :followers, only: [ :index ]
 

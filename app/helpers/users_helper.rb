@@ -16,5 +16,10 @@ module UsersHelper
     current_user.follows.where(id: tool.id).any?
   end
 
+  # If current users likes a tool
+  def likes_tool(tool)
+    current_user.likes.where(tool_id: tool.id).any?
+  end
+
 
 end

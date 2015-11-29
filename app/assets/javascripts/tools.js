@@ -29,9 +29,6 @@ $(document).on('mouseout', '.follow-button', function () {
     //hideFollowDiv($(this));
 });
 
-$(document).on('click', '.like-image', function () {
-    likeClickHandler($(this))
-});
 
 $(document).on('submit', '#new-tool-form', function(){
     $('.error-div').each(function(){
@@ -68,8 +65,15 @@ function toolValidationFailed(input_selector, data){
 }
 
 
-function ajaxUsersTools(page) {
-    if ($('#user-area-tool').length > 0) {
+function ajaxUsersTools(page, remove) {
+
+    var sel = $('#user-area-tool');
+
+    if(remove && sel.length > 0){
+        sel.find('.uta-class').remove();
+    }
+
+    if (sel.length > 0) {
         $.ajax({
             url: window.location.href + '/tools?page=' + page
         }).done(function (data) {
@@ -79,19 +83,6 @@ function ajaxUsersTools(page) {
         }).always(function () {
 
         });
-    }
-}
-
-
-function likeClickHandler(selector) {
-    /** missing If the ajax call is a success */
-    if (selector.attr('data-likes') == 1) {
-        selector.attr('src', '/assets/like_icon.png');
-        selector.attr('data-likes', '0');
-
-    } else if (selector.attr('data-likes') == 0) {
-        selector.attr('src', '/assets/liked_icon.png');
-        selector.attr('data-likes', '1');
     }
 }
 

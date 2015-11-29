@@ -1,5 +1,5 @@
 var commentsect = $('#search-results');
-commentsect.html('<%= escape_javascript(display_results(@results, @relation).html_safe )%>');
+commentsect.html('<%= escape_javascript(display_results(@results, @relation, @like).html_safe )%>');
 
 var willpag = $('.will-pag');
 willpag.html('<%= escape_javascript( will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 )%>');

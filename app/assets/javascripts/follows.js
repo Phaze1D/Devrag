@@ -1,5 +1,12 @@
-function ajaxUsersFollows(page) {
-    if ($('#user-area-following').length > 0) {
+function ajaxUsersFollows(page, remove) {
+
+    var sel = $('#user-area-following');
+
+    if(remove && sel.length > 0){
+        sel.find('.uta-class').remove();
+    }
+
+    if (sel.length > 0) {
         $.ajax({
             url: window.location.href + '/follows?page=' + page
         }).done(function (data) {

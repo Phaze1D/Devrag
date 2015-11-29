@@ -22,8 +22,8 @@ $(document).on("page:load ready", function () {
     initToolLPUScroller();
     $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
 
-    ajaxUsersTools(1);
-    ajaxUsersFollows(1);
+    ajaxUsersTools(1, false);
+    ajaxUsersFollows(1, false);
 
 });
 

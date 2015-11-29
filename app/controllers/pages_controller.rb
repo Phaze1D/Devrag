@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @results = @results.paginate(:page => params[:page], :per_page => 8)
 
     @relation = Relationship.new
+    @like = Like.new
 
     respond_to do |format|
       format.js

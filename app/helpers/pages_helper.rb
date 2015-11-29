@@ -7,10 +7,10 @@ module PagesHelper
   end
 
 
-  def display_results(results, relation)
+  def display_results(results, relation, like)
     html = ''
     results.each do |result|
-      html += '<div class="t-r">' + render(partial: 'pages/tool_result', locals: {tool: result, relation: relation} ) + '</div>'
+      html += '<div class="t-r">' + render(partial: 'pages/tool_result', locals: {tool: result, relation: relation, like: like} ) + '</div>'
     end
     html
   end

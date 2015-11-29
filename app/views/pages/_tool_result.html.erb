@@ -16,12 +16,12 @@
                 <% else %>
                     <div class="col-xs-2 col-xs-offset-4 text-right form-div">
                         <%= form_for [tool, relation], html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
-                        <div class="follow-main">
+                            <div class="follow-main">
                                 <%= f.submit 'Follow', class: 'follow-button follow-b-form' %>
                                 <div class="follow-hover-div">
                                     <p>Follow to get notifications</p>
                                 </div>
-                        </div>
+                            </div>
                         <% end %>
                     </div>
                 <% end %>
@@ -48,13 +48,19 @@
 
         <div class="row">
             <div class="col-xs-3 col-sm-3">
-                <div class="main-font lcf-section col-overflow-x">
+                <div class="main-font lcf-section col-overflow-x like-div">
                     <% if likes_tool tool %>
-                        <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
+                        <%= form_for [tool, get_like(tool)], method: 'DELETE', html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
+                            <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
+                            123
+                        <% end %>
+
                     <% else %>
-                        <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
+                        <%= form_for [tool, like], html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
+                            <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
+                            123
+                        <% end %>
                     <% end %>
-                    123
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3">
