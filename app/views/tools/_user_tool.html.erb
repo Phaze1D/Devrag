@@ -20,13 +20,13 @@
                     <% if likes_tool tool %>
                         <%= form_for [tool, get_like(tool)], method: 'DELETE', html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
                             <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
-                            123
+                            <%= tool.likes.count %>
                         <% end %>
 
                     <% else %>
                         <%= form_for [tool, Like.new], html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
                             <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
-                            123
+                            <%= tool.likes.count %>
                         <% end %>
                     <% end %>
                 </div>

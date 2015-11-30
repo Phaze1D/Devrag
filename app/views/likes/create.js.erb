@@ -3,6 +3,6 @@ $('#like-form-<%= @tool.id%>').closest('.like-div').html
 (
         '<%= form_for [@tool, get_like(@tool)], method: 'DELETE', html: {id: "like-form-#{@tool.id}", class: 'like-from'} do |f| %>' +
         '<%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>' +
-        '234' +
+        '<%= @tool.likes.count%>' +
         '<% end %>'
 );

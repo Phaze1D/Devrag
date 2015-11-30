@@ -24,6 +24,7 @@ $(document).on("page:load ready", function () {
 
     ajaxUsersTools(1, false);
     ajaxUsersFollows(1, false);
+    ajaxCommentIndex();
 
 });
 

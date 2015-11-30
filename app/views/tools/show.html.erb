@@ -36,13 +36,13 @@
                         <% if likes_tool @tool %>
                             <%= form_for [@tool, get_like(@tool)], method: 'DELETE', html: {id: "like-form-#{@tool.id}", class: 'like-from'} do |f| %>
                                 <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
-                                123
+                                <%= @tool.likes.count %>
                             <% end %>
 
                         <% else %>
                             <%= form_for [@tool, Like.new], html: {id: "like-form-#{@tool.id}", class: 'like-from'} do |f| %>
                                 <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
-                                123
+                                <%= @tool.likes.count %>
                             <% end %>
                         <% end %>
                     </div>
@@ -102,57 +102,9 @@
         </div>
     </div>
 
-    <div class="row" style="margin: 40px -15px 20px">
-        <div class="col-xs-12 will-pag">
-            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
-        </div>
+
+    <div id="comment-index">
+
     </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 ">
-            <div class="comments-section">
-                <div id="add-comment-section" style="margin-top: -165px">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="row">
-                                <div class="col-xs-9 ">
-                                    <h4 class="title" style="font-size:12pt; margin-left: 10px">CurrentUser</h4>
-                                </div>
-
-                                <div class="col-xs-3">
-                                    <%= image_tag 'remove_button.png', id: 'comment-addc', class: 'comment-add-cl-t' %>
-                                    <%= image_tag 'add_button2.png', id: 'comment-addr', class: 'comment-add-cl-t' %>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <%= text_area :post, :body, rows: 4, class: 'comment-area main-font ', placeholder: 'Add Comment.....', id: 'comment-ta' %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 15px;">
-                        <div class="col-xs-9">
-                            <h4 class="title" style="color: #93a1a1; margin-left: 10px">Comments</h4>
-                        </div>
-                        <div class="col-xs-3">
-                            <%= image_tag 'add_button2.png', id: 'comment-addo', class: 'comment-add-cl' %>
-                        </div>
-                    </div>
-
-                    <div id="ajax-comments">
-                        <%= display_comments(@tools_comments).html_safe %>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin: 20px -15px">
-        <div class="col-xs-12 will-pag">
-            <%= will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
-
-        </div>
-    </div>
 </div>

@@ -1,6 +1,0 @@
-var commentsect = $('#ajax-comments');
-commentsect.html('<%= escape_javascript( display_comments(@tools_comments).html_safe )%>');
-
-
-var willpag = $('.will-pag');
-willpag.html('<%= escape_javascript( will_paginate @tools_comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 )%>');
