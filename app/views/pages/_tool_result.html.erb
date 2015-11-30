@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-xs-3 col-sm-3">
                 <div class="main-font lcf-section col-overflow-x like-div">
-                    <% if likes_tool tool %>
+                    <% if likes_tool(tool) %>
                         <%= form_for [tool, get_like(tool)], method: 'DELETE', html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
                             <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
                             <%= tool.likes.count %>

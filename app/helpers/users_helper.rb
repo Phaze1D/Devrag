@@ -13,12 +13,21 @@ module UsersHelper
 
   # Return bool if current user is following a tool
   def is_following?(tool)
-    current_user.follows.where(id: tool.id).any?
+    if is_logged_in?
+      current_user.follows.where(id: tool.id).any?
+    else
+      false
+    end
+
   end
 
   # If current users likes a tool
   def likes_tool(tool)
-    current_user.likes.where(tool_id: tool.id).any?
+    if is_logged_in?
+      current_user.likes.where(tool_id: tool.id).any?
+    else
+      false
+    end
   end
 
 

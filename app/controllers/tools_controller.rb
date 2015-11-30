@@ -1,5 +1,6 @@
 class ToolsController < ApplicationController
 
+# the saving of spacing tokens
 
   def show
     @tool = Tool.find(params[:id])

@@ -71,7 +71,7 @@
                             <%= f.fields_for :languages do |lf| %>
 
                                 <li class="input-lpu" style="border: none; padding: 0; ">
-                                    <%= lf.text_field :name, class: 'new-lpu-input', placeholder: 'Languages' %>
+                                    <%= lf.text_field :name, class: 'new-lpu-input', placeholder: 'Languages',  autocomplete: 'off' %>
                                 </li>
 
                                 <% @tool.languages.each do |language| %>
@@ -93,7 +93,7 @@
                             <%= f.fields_for :platforms do |pf| %>
 
                                 <li class="input-lpu" style="border: none; padding: 0; ">
-                                    <%= pf.text_field :name, class: 'new-lpu-input', placeholder: 'Platforms' %>
+                                    <%= pf.text_field :name, class: 'new-lpu-input', placeholder: 'Platforms', autocomplete: 'off' %>
                                 </li>
 
                                 <% @tool.platforms.each do |platform| %>
@@ -115,7 +115,7 @@
                             <%= f.fields_for :uses do |uf| %>
 
                                 <li class="input-lpu" style="border: none; padding: 0; ">
-                                    <%= uf.text_field :name, class: 'new-lpu-input', placeholder: 'Uses' %>
+                                    <%= uf.text_field :name, class: 'new-lpu-input', placeholder: 'Uses', autocomplete: 'off' %>
                                 </li>
 
                                 <% @tool.uses.each do |use| %>

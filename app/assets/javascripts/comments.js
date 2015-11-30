@@ -44,6 +44,13 @@ function showAddComment() {
         '-o-transform': 'translate(0,' + y + 'px)',
         'transform': 'translate(0,' + y + 'px)'
     });
+
+    var csec = $('#comsec');
+    var size = csec.outerHeight() + 165;
+
+    console.log(size);
+
+    csec.css('height', size+'px');
 }
 
 function closeAddComment() {
@@ -56,6 +63,13 @@ function closeAddComment() {
         '-o-transform': 'translate(0,' + y + 'px)',
         'transform': 'translate(0,' + y + 'px)'
     });
+
+    var csec = $('#comsec');
+    var size = csec.outerHeight() - 165;
+
+    console.log(size);
+
+    csec.css('height', size+'px');
 }
 
 function cancelComment() {

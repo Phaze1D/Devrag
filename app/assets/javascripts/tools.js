@@ -152,9 +152,12 @@ function deleteToken(selector) {
 
 function createTokenHtml(inputString, typeString) {
     var safe = htmlSafeInput(inputString);
+
+    console.log(inputString + ' -------- ' + safe);
+
     return '<li class="token-li" style="margin-right: 5px"> ' +
                 '<p class="lpu-token">' + safe + '</p>' +
-                '<input type="hidden" name="tool[' + typeString + '][names]['+ safe + ']" value=' + safe+ '> </input>' +
+                '<input type="hidden" name="tool[' + typeString + '][names]['+ safe + ']" value="' + safe+ '"> </input>' +
             '</li>'
 }
 
