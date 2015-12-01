@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
 
   def index
 
-    @tools_comments = Tool.find(params[:tool_id]).comments
-    @tools_comments = @tools_comments.paginate(:page => params[:page], :per_page => 8)
+    @tool = Tool.find(params[:tool_id])
+    @comments = @tool.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 8)
 
     respond_to do |format|
       format.js
@@ -13,10 +13,32 @@ class CommentsController < ApplicationController
 
   def create
 
+    tool = Tool.find(params[:tool_id])
+    @comment = tool.comments.build(comments_params)
+    @comment.user_id = current_user.id
+
+    respond_to do |format|
+      if @comment.valid?
+        @comment.save
+        format.js
+      else
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+
+    end
+
+
   end
 
   def destroy
 
+  end
+
+
+  private
+
+  def comments_params
+    params.require(:comment).permit(:comment)
   end
 
 end

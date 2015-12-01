@@ -3,11 +3,11 @@ $(document).on('click', '#comment-addo', function () {
 });
 
 $(document).on('click', '#comment-addr', function () {
-    cancelComment();
+    addComment($(this));
 });
 
 $(document).on('click', '#comment-addc', function () {
-    addComment();
+
 });
 
 
@@ -45,12 +45,6 @@ function showAddComment() {
         'transform': 'translate(0,' + y + 'px)'
     });
 
-    var csec = $('#comsec');
-    var size = csec.outerHeight() + 165;
-
-    console.log(size);
-
-    csec.css('height', size+'px');
 }
 
 function closeAddComment() {
@@ -64,21 +58,40 @@ function closeAddComment() {
         'transform': 'translate(0,' + y + 'px)'
     });
 
-    var csec = $('#comsec');
-    var size = csec.outerHeight() - 165;
-
-    console.log(size);
-
-    csec.css('height', size+'px');
 }
 
 function cancelComment() {
-    closeAddComment();
+
 }
 
-function addComment() {
-    closeAddComment();
+function addComment(button) {
+    ajaxCommentAdd(button)
 }
+
+function ajaxCommentAdd(button){
+    var form = button.closest('.comment-form');
+    var inputsel = button.closest('.comment-form').find('.comment-area');
+
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize()
+    }).done(function(data){
+        commentSuccess(inputsel,data);
+    }).fail(function(data){
+        commentFailed(inputsel, data);
+    });
+
+}
+
+function commentSuccess(inputsel, data){
+    inputsel.val('');
+}
+
+function commentFailed(inputsel, data){
+
+}
+
 
 function ajaxCommentIndex(){
 

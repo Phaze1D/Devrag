@@ -63,7 +63,7 @@ $(document).on('focusout', '.user-input', function(){
     ajaxValidation($('#user-create-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
 });
 
-function ajaxUserSuccess(){
+function ajaxUserSuccess(data){
     $('.error-div').each(function(){
         $(this).css('display', 'none');
     });

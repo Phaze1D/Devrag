@@ -5,4 +5,6 @@ class Comment < ActiveRecord::Base
   has_many :replies , :class_name => 'Comment'
   has_many :notifications, as: :from_action
 
+  validates :comment, presence: true
+
 end
