@@ -19,20 +19,25 @@
             </div>
         </div>
 
-        <div class="reply-area" style="display: none">
 
-            <div class="row">
-                <div class="col-xs-3">
-                    <%= image_tag 'add_button2.png', id: '', class: 'comment-add-cl-t reply-add-img', style: 'margin: 5px 0px 0 35px; float: left' %>
-                    <%= image_tag 'remove_button.png', id: '', class: 'comment-add-cl-t reply-rem-img', style: 'margin: 5px; float: left' %>
+        <div class="reply-area" style="display: none">
+            <%= form_for [comment.tool, Comment.new], url: tool_replies_path(comment.tool.id), html: {class: 'reply-form'} do |f| %>
+                <%= f.hidden_field :comment_id, value: comment.id %>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <%= image_tag 'add_button2.png', class: 'comment-add-cl-t reply-add-img', style: 'margin: 5px 0px 0 35px; float: left' %>
+                        <%= image_tag 'remove_button.png', class: 'comment-add-cl-t reply-rem-img', style: 'margin: 5px; float: left' %>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <%= text_area :post, :body, rows: 5, class: 'comment-area main-font ', value: '@username', id: 'comment-ta' %>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <%= f.text_area :comment, rows: 5, class: 'comment-area main-font ', id: 'comment-ta', value: "@#{comment.user.username}" %>
+                    </div>
                 </div>
-            </div>
+            <% end %>
 
         </div>
+
+
     </div>
 </div>

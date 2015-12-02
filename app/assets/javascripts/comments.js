@@ -11,27 +11,6 @@ $(document).on('click', '#comment-addc', function () {
 });
 
 
-$(document).on('click', '.reply-b', function (e) {
-    showReplyArea($(this));
-    e.preventDefault();
-});
-
-$(document).on('click', '.reply-add-img', function () {
-    removeReplyArea($(this));
-});
-
-$(document).on('click', '.reply-rem-img', function () {
-    removeReplyArea($(this));
-});
-
-function removeReplyArea(selector) {
-    selector.closest('.main-parent').find('.reply-area').css('display', 'none');
-}
-
-function showReplyArea(selector) {
-    selector.closest('.main-parent').find('.reply-area').css('display', 'block');
-}
-
 
 function showAddComment() {
 

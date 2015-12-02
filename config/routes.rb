@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
     resources :comments, except: [ :update, :edit, :show, :new ]
 
+    resources :replies, except: [ :update, :edit, :show, :new ]
+
     resources :likes , only: [ :create, :index, :destroy ]
 
     resources :relationships, only: [ :create, :index, :destroy ]
