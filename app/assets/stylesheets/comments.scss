@@ -1,3 +1,25 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mce-tinymce{
+  margin: 0 35px;
+}
+
+.mce-container{
+  border-radius: 10px;
+}
+
+.mce-edit-area{
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.mce-edit-area iframe{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.mce-btn-group{
+  border-radius: 0px;
+}

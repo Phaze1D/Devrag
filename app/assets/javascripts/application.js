@@ -14,7 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require tinymce
 //= require_tree .
+
+
+
 
 $(document).on("page:load ready", function () {
     initLPUSeachScroller();
@@ -25,6 +29,7 @@ $(document).on("page:load ready", function () {
     ajaxUsersTools(1, false);
     ajaxUsersFollows(1, false);
     ajaxCommentIndex();
+
 
 });
 

@@ -4,7 +4,6 @@ $(document).on('click', '.reply-b', function (e) {
 });
 
 $(document).on('click', '.reply-add-img', function () {
-    removeReplyArea($(this));
     ajaxCreateReply($(this))
 });
 
@@ -13,7 +12,9 @@ $(document).on('click', '.reply-rem-img', function () {
 });
 
 function removeReplyArea(selector) {
-    selector.closest('.main-parent').find('.reply-area').css('display', 'none');
+    var replyA = selector.closest('.main-parent').find('.reply-area');
+    replyA.find('.error-div').css('display', 'none');
+    replyA.css('display', 'none');
 }
 
 function showReplyArea(selector) {
@@ -30,8 +31,8 @@ function ajaxCreateReply(button) {
         url: form.attr('action'),
         data: form.serialize()
     }).done(function(data){
-
+        removeReplyArea($(this));
     }).fail(function(data){
-
+        commentFailed(inputsel, data.responseJSON);
     });
 }

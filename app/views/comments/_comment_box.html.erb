@@ -31,7 +31,11 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <%= f.text_area :comment, rows: 5, class: 'comment-area main-font ', id: 'comment-ta', value: "@#{comment.user.username}" %>
+                        <%= f.text_area :comment, rows: 5, class: 'comment-area main-font ', id: 'comment-ta' %>
+                        <div class="error-div" style="display: none; margin: 5px 35px; width: 89%">
+                            <ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             <% end %>

@@ -58,17 +58,26 @@ function ajaxCommentAdd(button){
     }).done(function(data){
         commentSuccess(inputsel,data);
     }).fail(function(data){
-        commentFailed(inputsel, data);
+        commentFailed(inputsel, data.responseJSON);
     });
 
 }
 
 function commentSuccess(inputsel, data){
     inputsel.val('');
+    var error_div = inputsel.closest('.col-xs-12').find('.error-div');
+    error_div.css('display', 'none');
 }
 
 function commentFailed(inputsel, data){
+    var error_div = inputsel.closest('.col-xs-12').find('.error-div');
 
+    error_div.css('display', 'block');
+    var error_ul = error_div.find('ul');
+    error_ul.html('');
+    for(var i = 0; i < data['comment'].length; i++){
+        error_ul.append('<li>' + data['comment'][i] + '</li>');
+    }
 }
 
 
