@@ -2,7 +2,7 @@
 selector: textarea.comment-area
 
 toolbar:
-  - codesample | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent
+  - mybutton | codesample | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent
 plugins:
   - codesample
   - autoresize
@@ -10,4 +10,5 @@ menubar: false
 statusbar: false
 width : 89%
 autoresize_max_height: 1500
+
 

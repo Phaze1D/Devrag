@@ -1,1 +1,23 @@
 $('#comment-index').html('<%= escape_javascript( render partial: 'comments/comments_index', locals: {tool: @tool, comments: @comments})%>');
+
+tinyMCE.init({
+    selector: "textarea.comment-area",
+    toolbar: ["mycode | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"],
+    plugins: "autoresize",
+    menubar: false,
+    statusbar: false,
+    width: "89%",
+    autoresize_max_height: 1500,
+    setup : function(ed) {
+        // Add a custom button
+        ed.addButton('mycode', {
+            title : 'Insert/Edit code samples',
+            icon: 'mce-ico mce-i-codesample',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+
+            }
+        });
+    }
+});

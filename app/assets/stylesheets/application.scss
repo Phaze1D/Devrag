@@ -24,8 +24,8 @@ $green: #859900;
 @import "followers";
 @import "jquery.mCustomScrollbar";
 @import "notifications";
-@import "prism";
 @import "comments";
+@import "solarized-light";
 @import url(http://fonts.googleapis.com/css?family=Belgrano);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 
@@ -42,6 +42,11 @@ $green: #859900;
   background-color: white;
   border-radius: 0.3em;
   color: darkslategrey;
+}
+
+pre{
+  background-color: transparent;
+  border: none;
 }
 
 .dbutton:active {

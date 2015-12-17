@@ -3,9 +3,6 @@
         <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
     </div>
 </div>
-
-<%= tinymce %>
-
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 ">
         <div id="comsec" class="comments-section">
@@ -23,7 +20,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <%= f.text_area :comment,rows: 8, class: 'comment-area main-font', placeholder: 'Add Comment.....', id: 'comment-ta' %>
+                                    <%= f.text_area :comment,rows: 6, class: 'comment-area main-font', placeholder: 'Add Comment.....', id: 'comment-ta' %>
 
                                     <div class="error-div" style="display: none; margin: 5px 35px; width: 89%">
                                         <ul>

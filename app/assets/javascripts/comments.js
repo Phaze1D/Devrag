@@ -69,6 +69,7 @@ function commentSuccess(inputsel, data){
     error_div.css('display', 'none');
 }
 
+
 function commentFailed(inputsel, data){
     var error_div = inputsel.closest('.col-xs-12').find('.error-div');
 
@@ -87,7 +88,7 @@ function ajaxCommentIndex(){
         $.ajax({
             url: window.location.href + '/comments'
         }).done(function (data) {
-
+            hljs.initHighlighting();
         }).fail(function () {
             console.log('faild')
         }).always(function () {
