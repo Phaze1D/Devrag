@@ -20,7 +20,6 @@
 
 
 
-
 $(document).on("page:load ready", function () {
     initLPUSeachScroller();
     initUserAreaScroller();
@@ -44,11 +43,16 @@ $(window).on('resize', function () {
     adjust();
 });
 
+$(document).on('click', 'a', function(e){
+    tinymce.remove();
+});
+
 $(document).on('click', '.pagination a', function (e) {
     ajaxPagination(this);
     e.preventDefault();
 
 });
+
 
 function ajaxPagination(selector) {
 
@@ -85,4 +89,28 @@ function didClickTarget(container, event) {
 function htmlSafeInput(text) {
     return $('<div/>').text(text).html();
 }
+
+
+tinymce.init({
+    selector: ".comment-area",
+    toolbar: ["mycode | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"],
+    plugins: "autoresize",
+    menubar: false,
+    statusbar: false,
+    width: "89%",
+    autoresize_max_height: 1500,
+    setup : function(ed) {
+        // Add a custom button
+        ed.addButton('mycode', {
+            title : 'Insert/Edit code samples',
+            icon: 'mce-ico mce-i-codesample',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+
+            }
+        });
+    }
+});
+
 

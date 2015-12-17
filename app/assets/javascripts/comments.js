@@ -83,8 +83,8 @@ function commentFailed(inputsel, data){
 
 
 function ajaxCommentIndex(){
-
     if($('#comment-index').length > 0){
+
         $.ajax({
             url: window.location.href + '/comments'
         }).done(function (data) {

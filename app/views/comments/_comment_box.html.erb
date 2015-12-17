@@ -15,7 +15,7 @@
 
         <div class="row" style="margin: 2px 0 0px 0px">
             <div class="col-xs-2">
-                <%= link_to 'Reply', '#', class: 'main-font title-2-dead comment-options reply-b', 'data-user' => 'username' %>
+                <%= button_tag 'Reply', class: 'main-font title-2-dead comment-options reply-b', 'data-user' => 'username' %>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <%= f.text_area :comment, rows: 6, class: 'comment-area main-font ', id: 'comment-ta' %>
+                        <%= f.text_area :comment, rows: 6, class: 'comment-area main-font ', id: "reply-area-#{comment.id}" %>
                         <div class="error-div" style="display: none; margin: 5px 35px; width: 89%">
                             <ul>
                             </ul>
