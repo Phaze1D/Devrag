@@ -31,3 +31,78 @@
   padding: 0;
   margin: 0 5px;
 }
+
+.code-div{
+  margin: 5px 35px;
+  width: 89%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #CCCCCC;
+
+  height: 200px;
+}
+
+.code-header{
+  background-color: #F0F0F0;
+  height: 36px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0 10px;
+}
+
+.code-header ul{
+  @extend .main-font;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: table;
+}
+
+.code-header li{
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.code-header select{
+  border: 1px solid #CCCCCC;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+}
+
+
+.code-content{
+  height: -moz-calc(100% - 36px);
+  height: -webkit-calc(100% - 36px);
+  height: calc(100% - 36px);
+}
+
+.ver-img {
+  width: 15px;
+  height: 15px;
+  float: right;
+  background: url('add_button2.png') no-repeat center center;
+  background-size: cover;
+}
+
+  .ver-img:hover{
+  cursor: pointer;
+}
+
+.code-area{
+  border: none;
+  resize: none;
+  height: 100%;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0px 10px
+
+}

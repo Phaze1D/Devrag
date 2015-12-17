@@ -10,7 +10,73 @@ $(document).on('click', '#comment-addc', function () {
 
 });
 
+$(document).on('keyup', '.code-area', function(){
+    liveInsertCode($(this));
+    $(this).focus();
+});
 
+$(document).on('click', '.ver-img', function () {
+    removeCodeDiv($(this));
+    count++;
+});
+
+var count = 0;
+
+function removeCodeDiv(imgS){
+    imgS.closest('.code-parent').html('');
+}
+
+function addCodeDiv(textaS){
+    var codep = textaS.closest('.com-code-area').find('.code-parent');
+
+    var options = "";
+    var langs = hljs.listLanguages();
+
+    for(var i = 0; i < langs.length; i++){
+        options += '<option value="'+ langs[i] + '">'+ langs[i] + '</option>'
+    }
+
+    codep.html('<div class="code-div"> <div class="code-header"> <ul> <li> <select name="languaged" id="languaged"><option selected="selected" value="Auto">Auto</option>' + options +
+        '</select> </li> <li style="width: 100%"> <div class="ver-img"> </div> </li> </ul> </div> <div class="code-content"> <textarea name="code" id="code" class="code-area"></textarea> </div> </div>')
+
+}
+
+function liveInsertCode(codeS){
+    var editorid = codeS.closest('.row').find('.comment-area').attr('id');
+    console.log('testing live');
+    tinymce.get(editorid).dom.remove(editorid+count);
+    var select = codeS.closest('.code-div').find('#languaged');
+
+    var codestring = "";
+
+    if (select.val() === "Auto") {
+        codestring = hljs.highlightAuto(codeS.val()).value;
+    } else {
+        codestring = hljs.highlightAuto(codeS.val(), [select.val().toLowerCase()]).value;
+    }
+
+    var edito = tinymce.get(editorid);
+
+    if(edito.dom.get('pre'+editorid+count) !== null){
+        edito.dom.add('pre'+editorid+count, 'code', {id: editorid+count}, codestring);
+    }else{
+        insertCode(editorid, codeS, select);
+    }
+}
+
+function insertCode(editorid, codearea, select) {
+
+    var codestring = "";
+
+    if (select.val() === "Auto") {
+        codestring = hljs.highlightAuto(codearea.val()).value;
+    } else {
+        codestring = hljs.highlightAuto(codearea.val(), [select.val().toLowerCase()]).value;
+    }
+
+    var string = '<pre id="pre'+editorid+count+'" class="hljs" contenteditable=false style=""> <code id="'+editorid+count+'">' + codestring + '</code> </pre> <br>';
+    tinymce.get(editorid).insertContent(string);
+}
 
 function showAddComment() {
 
@@ -47,7 +113,7 @@ function addComment(button) {
     ajaxCommentAdd(button)
 }
 
-function ajaxCommentAdd(button){
+function ajaxCommentAdd(button) {
     var form = button.closest('.comment-form');
     var inputsel = button.closest('.comment-form').find('.comment-area');
 
@@ -55,35 +121,35 @@ function ajaxCommentAdd(button){
         type: form.attr('method'),
         url: form.attr('action'),
         data: form.serialize()
-    }).done(function(data){
-        commentSuccess(inputsel,data);
-    }).fail(function(data){
+    }).done(function (data) {
+        commentSuccess(inputsel, data);
+    }).fail(function (data) {
         commentFailed(inputsel, data.responseJSON);
     });
 
 }
 
-function commentSuccess(inputsel, data){
+function commentSuccess(inputsel, data) {
     inputsel.val('');
     var error_div = inputsel.closest('.col-xs-12').find('.error-div');
     error_div.css('display', 'none');
 }
 
 
-function commentFailed(inputsel, data){
+function commentFailed(inputsel, data) {
     var error_div = inputsel.closest('.col-xs-12').find('.error-div');
 
     error_div.css('display', 'block');
     var error_ul = error_div.find('ul');
     error_ul.html('');
-    for(var i = 0; i < data['comment'].length; i++){
+    for (var i = 0; i < data['comment'].length; i++) {
         error_ul.append('<li>' + data['comment'][i] + '</li>');
     }
 }
 
 
-function ajaxCommentIndex(){
-    if($('#comment-index').length > 0){
+function ajaxCommentIndex() {
+    if ($('#comment-index').length > 0) {
 
         $.ajax({
             url: window.location.href + '/comments'

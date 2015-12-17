@@ -99,13 +99,14 @@ tinymce.init({
     statusbar: false,
     width: "89%",
     autoresize_max_height: 1500,
+    content_css : '/assets/solarized-light.scss',
     setup : function(ed) {
         // Add a custom button
         ed.addButton('mycode', {
             title : 'Insert/Edit code samples',
             icon: 'mce-ico mce-i-codesample',
             onclick : function() {
-                // Add you own code to execute something on click
+                addCodeDiv($('#'+ed.id));
                 ed.focus();
 
             }
