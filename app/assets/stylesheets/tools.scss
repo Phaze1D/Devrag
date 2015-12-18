@@ -74,7 +74,7 @@
 }
 
 .comment-user {
-  font-size: 12pt;
+  font-size: 14px;
   margin-left: 15px;
   color: $base02;
 
@@ -85,8 +85,18 @@
 }
 
 .user-comment {
-  margin: 0 35px 0 35px;
-  color: $base01
+  margin: 5px 35px 0;
+  color: $base01;
+  font-size: 13px;
+}
+
+.user-comment p{
+  margin: 0;
+}
+
+.user-comment pre code{
+  white-space: inherit;
+  font-size: 12px;
 }
 
 .comment-options {

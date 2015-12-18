@@ -114,8 +114,12 @@ function addComment(button) {
 }
 
 function ajaxCommentAdd(button) {
+
     var form = button.closest('.comment-form');
     var inputsel = button.closest('.comment-form').find('.comment-area');
+    var editorid = inputsel.attr('id');
+    tinymce.get(editorid).save();
+    tinymce.get(editorid).setContent('');
 
     $.ajax({
         type: form.attr('method'),
@@ -124,7 +128,11 @@ function ajaxCommentAdd(button) {
     }).done(function (data) {
         commentSuccess(inputsel, data);
     }).fail(function (data) {
-        commentFailed(inputsel, data.responseJSON);
+
+        console.log(data);
+        if(data.responseJSON) {
+            commentFailed(inputsel, data.responseJSON);
+        }
     });
 
 }
@@ -154,7 +162,7 @@ function ajaxCommentIndex() {
         $.ajax({
             url: window.location.href + '/comments'
         }).done(function (data) {
-            hljs.initHighlighting();
+
         }).fail(function () {
             console.log('faild')
         }).always(function () {

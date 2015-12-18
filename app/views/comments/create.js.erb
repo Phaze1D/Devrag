@@ -1,1 +1,3 @@
 $('#ajax-comments').prepend('<%= escape_javascript( render partial: 'comments/comment_box', locals: {comment: @comment})%>');
+
+tinymce.EditorManager.execCommand('mceAddEditor', true, 'reply-area-'+ "<%= @comment.id.to_s %>");

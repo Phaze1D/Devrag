@@ -47,6 +47,10 @@ $(document).on('click', 'a', function(e){
     tinymce.remove();
 });
 
+$(window).on('popstate', function(event) {
+    tinymce.remove();
+});
+
 $(document).on('click', '.pagination a', function (e) {
     ajaxPagination(this);
     e.preventDefault();

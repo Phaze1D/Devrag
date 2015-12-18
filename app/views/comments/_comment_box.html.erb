@@ -7,9 +7,9 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <p class="user-comment main-font text-justify">
-                    <%= comment.comment %>
-                </p>
+                <div class="user-comment main-font text-justify">
+                    <%= comment.comment.html_safe %>
+                </div>
             </div>
         </div>
 
