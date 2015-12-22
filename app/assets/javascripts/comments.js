@@ -43,39 +43,53 @@ function addCodeDiv(textaS){
 
 function liveInsertCode(codeS){
     var editorid = codeS.closest('.row').find('.comment-area').attr('id');
-    console.log('testing live');
     tinymce.get(editorid).dom.remove(editorid+count);
     var select = codeS.closest('.code-div').find('#languaged');
 
     var codestring = "";
+    var codeValue = codeS.val().trim();
 
-    if (select.val() === "Auto") {
-        codestring = hljs.highlightAuto(codeS.val()).value;
-    } else {
-        codestring = hljs.highlightAuto(codeS.val(), [select.val().toLowerCase()]).value;
-    }
+    if(codeValue) {
 
-    var edito = tinymce.get(editorid);
+        if (select.val() === "Auto") {
+            codestring = hljs.highlightAuto(codeValue).value;
+        } else {
+            codestring = hljs.highlightAuto(codeValue, [select.val().toLowerCase()]).value;
+        }
 
-    if(edito.dom.get('pre'+editorid+count) !== null){
-        edito.dom.add('pre'+editorid+count, 'code', {id: editorid+count}, codestring);
+        var edito = tinymce.get(editorid);
+
+        if (edito.dom.get('pre' + editorid + count) !== null) {
+            edito.dom.add('pre' + editorid + count, 'code', {id: editorid + count}, codestring);
+        } else {
+            insertCode(editorid, codeS, select);
+        }
     }else{
-        insertCode(editorid, codeS, select);
+
+        var edito = tinymce.get(editorid);
+        if (edito.dom.get('pre' + editorid + count) !== null && edito.dom.isEmpty('pre' + editorid + count)) {
+            edito.dom.remove('pre' + editorid + count);
+        }
+
     }
 }
 
 function insertCode(editorid, codearea, select) {
 
     var codestring = "";
+    var codeValue = codearea.val().trim();
 
-    if (select.val() === "Auto") {
-        codestring = hljs.highlightAuto(codearea.val()).value;
-    } else {
-        codestring = hljs.highlightAuto(codearea.val(), [select.val().toLowerCase()]).value;
+    if(codeValue) {
+
+        if (select.val() === "Auto") {
+            codestring = hljs.highlightAuto(codeValue).value;
+        } else {
+            codestring = hljs.highlightAuto(codeValue, [select.val().toLowerCase()]).value;
+        }
+
+        var string = '<pre id="pre' + editorid + count + '" class="hljs" contenteditable=false style=""> <code id="' + editorid + count + '">' + codestring + '</code> </pre> <br>';
+        tinymce.get(editorid).insertContent(string);
     }
-
-    var string = '<pre id="pre'+editorid+count+'" class="hljs" contenteditable=false style=""> <code id="'+editorid+count+'">' + codestring + '</code> </pre> <br>';
-    tinymce.get(editorid).insertContent(string);
 }
 
 function showAddComment() {
@@ -118,6 +132,7 @@ function ajaxCommentAdd(button) {
     var form = button.closest('.comment-form');
     var inputsel = button.closest('.comment-form').find('.comment-area');
     var editorid = inputsel.attr('id');
+    tinymce.get(editorid).dom.remove(tinymce.get(editorid).dom.select('br'));
     tinymce.get(editorid).save();
     tinymce.get(editorid).setContent('');
 

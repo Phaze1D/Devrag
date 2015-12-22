@@ -104,6 +104,10 @@ tinymce.init({
     width: "89%",
     autoresize_max_height: 1500,
     content_css : '/assets/solarized-light.scss',
+    forced_root_block : "",
+    force_br_newlines : true,
+    force_p_newlines : false,
+    remove_redundant_brs : true,
     setup : function(ed) {
         // Add a custom button
         ed.addButton('mycode', {

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def index
 
     @tool = Tool.find(params[:tool_id])
-    @comments = @tool.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 8)
+    @comments =Comment.where(tool_id: @tool.id).where(comment_id: nil).order(created_at: :desc).paginate(:page => params[:page], :per_page => 8)
 
     respond_to do |format|
       format.js

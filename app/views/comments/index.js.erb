@@ -10,3 +10,12 @@ tinymce.EditorManager.execCommand('mceAddEditor', true, 'comment-area-'+ "<%= @t
 <% @comments.each do |comment| %>
 tinymce.EditorManager.execCommand('mceAddEditor', true, 'reply-area-'+ "<%= comment.id.to_s %>");
 <% end %>
+
+$("p:empty").remove();
+
+$('p').each(function() {
+    var $this = $(this);
+    if($this.html().replace(/\s|&nbsp;/g, '').length == 0) {
+        $this.remove();
+    }
+});
