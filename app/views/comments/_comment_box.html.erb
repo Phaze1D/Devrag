@@ -47,22 +47,25 @@
         <% if comment.replies.length > 0 %>
             <div class="replies-area">
                 <div class="rdivs" style="max-height: 0px; overflow: hidden; padding: 0">
-                <% comment.replies.each do |reply| %>
-                    <div class="replies-div">
-                        <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
-                            <%= reply.user.username %>
-                            <%= time_ago_in_words(reply.created_at) %>
-                        </p>
+                    <% comment.replies.each do |reply| %>
 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="reply-comment main-font text-justify" style="font-size: 10px">
-                                    <%= reply.comment.html_safe %>
+                        <%= link_to tool_reply_path(id: reply.id), class: 'replies-div' do %>
+
+                            <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
+                                <%= reply.user.username %>
+                                <%= time_ago_in_words(reply.created_at) %>
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="reply-comment main-font text-justify" style="font-size: 10px">
+                                        <%= reply.comment.html_safe %>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                <% end %>
+
+                        <% end %>
+                    <% end %>
                 </div>
                 <div class=" underline-dead text-center" style="height: 25px; background-color: white; border-width: 1px 0 0; margin-top: 10px;">
                     <%= image_tag 'dropdown.png', class: 'down-arror reply-arror', 'data-open' => '0' %>

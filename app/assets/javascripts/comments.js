@@ -143,8 +143,6 @@ function ajaxCommentAdd(button) {
     }).done(function (data) {
         commentSuccess(inputsel, data);
     }).fail(function (data) {
-
-        console.log(data);
         if(data.responseJSON) {
             commentFailed(inputsel, data.responseJSON);
         }

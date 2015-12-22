@@ -44,7 +44,9 @@ $(window).on('resize', function () {
 });
 
 $(document).on('click', 'a', function(e){
-    tinymce.remove();
+    if(!$(this).hasClass('replies-div')) {
+        tinymce.remove();
+    }
 });
 
 $(window).on('popstate', function(event) {
@@ -94,32 +96,35 @@ function htmlSafeInput(text) {
     return $('<div/>').text(text).html();
 }
 
+initTinymce();
 
-tinymce.init({
-    selector: ".comment-area",
-    toolbar: ["mycode | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"],
-    plugins: "autoresize",
-    menubar: false,
-    statusbar: false,
-    width: "89%",
-    autoresize_max_height: 1500,
-    content_css : '/assets/solarized-light.scss',
-    forced_root_block : "",
-    force_br_newlines : true,
-    force_p_newlines : false,
-    remove_redundant_brs : true,
-    setup : function(ed) {
-        // Add a custom button
-        ed.addButton('mycode', {
-            title : 'Insert/Edit code samples',
-            icon: 'mce-ico mce-i-codesample',
-            onclick : function() {
-                addCodeDiv($('#'+ed.id));
-                ed.focus();
+function initTinymce(){
+    tinymce.init({
+        selector: ".comment-area",
+        toolbar: ["mycode | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"],
+        plugins: "autoresize",
+        menubar: false,
+        statusbar: false,
+        width: "89%",
+        autoresize_max_height: 1500,
+        content_css : '/assets/solarized-light.scss',
+        forced_root_block : "",
+        force_br_newlines : true,
+        force_p_newlines : false,
+        remove_redundant_brs : true,
+        setup : function(ed) {
+            // Add a custom button
+            ed.addButton('mycode', {
+                title : 'Insert/Edit code samples',
+                icon: 'mce-ico mce-i-codesample',
+                onclick : function() {
+                    addCodeDiv($('#'+ed.id));
+                    ed.focus();
 
-            }
-        });
-    }
-});
+                }
+            });
+        }
+    });
+}
 
 

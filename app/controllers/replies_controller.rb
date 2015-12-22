@@ -20,6 +20,14 @@ class RepliesController < ApplicationController
 
   end
 
+  def show
+    reply = Comment.find(params[:id])
+    respond_to do |format|
+      format.js {render partial: 'comments/comment_box', locals: {comment: reply} }
+    end
+
+  end
+
 
   private
 
