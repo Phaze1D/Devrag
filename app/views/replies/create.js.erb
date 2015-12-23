@@ -1,0 +1,11 @@
+
+tinymce.remove('#reply-area-' + "<%= @reply.comment_id%>");
+
+var commentBx = $('#reply-area-' + "<%= @reply.comment_id%>").closest('.comment-box');
+
+commentBx.replaceWith('<%= escape_javascript( render partial: 'comments/comment_box', locals: {comment: @reply.to_comment})%>');
+
+tinymce.EditorManager.execCommand('mceAddEditor', true, 'reply-area-'+ "<%= @reply.comment_id.to_s %>");
+
+
+showReplies($('#reply-area-' + "<%= @reply.comment_id%>").closest('.comment-box').find('.reply-arror'));

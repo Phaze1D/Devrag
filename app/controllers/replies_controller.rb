@@ -3,17 +3,17 @@ class RepliesController < ApplicationController
 
   def create
     tool = Tool.find(params[:tool_id])
-    @comment = tool.comments.build(reply_params)
-    @comment.user_id = current_user.id
+    @reply = tool.comments.build(reply_params)
+    @reply.user_id = current_user.id
 
 
     respond_to do |format|
 
-      if @comment.valid?
-        @comment.save
+      if @reply.valid?
+        @reply.save
         format.js
       else
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.json { render json: @reply.errors, status: :unprocessable_entity }
       end
 
     end
