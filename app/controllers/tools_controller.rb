@@ -1,6 +1,8 @@
 class ToolsController < ApplicationController
 
-# the saving of spacing tokens
+  before_action :require_login, except: [:show]
+
+  # the saving of spacing tokens
 
   def show
     @tool = Tool.find(params[:id])

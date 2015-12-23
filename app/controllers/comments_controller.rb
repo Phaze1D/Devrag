@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :require_login, except: [:index]
+
   def index
 
     @tool = Tool.find(params[:tool_id])

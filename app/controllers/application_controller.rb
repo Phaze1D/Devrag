@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
 
 
 
+  protected
+
+  def require_login
+
+  end
+
+
 end

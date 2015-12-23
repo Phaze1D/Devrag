@@ -1,5 +1,6 @@
 class TellsController < ApplicationController
 
+  before_action :require_login
 
   def new
     @tool_notification = Tell.new

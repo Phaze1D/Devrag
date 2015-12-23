@@ -1,5 +1,7 @@
 class RelationshipsController < ApplicationController
 
+  before_action :require_login, only: [:create, :destroy]
+
 
   # Make sure to add before filters when creating a relationship (user must be logged in)
 

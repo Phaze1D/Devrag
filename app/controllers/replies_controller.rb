@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
 
+  before_action :require_login, only: [:create]
 
   def create
     tool = Tool.find(params[:tool_id])

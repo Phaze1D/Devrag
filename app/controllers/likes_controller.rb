@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
 
-  # Add before filters
+  before_action :require_login
 
   def create
     @tool = Tool.find(params[:tool_id])
