@@ -1,6 +1,6 @@
 class ToolsController < ApplicationController
 
-  before_action :require_login, except: [:show]
+  before_action :require_login, except: [:show, :index]
 
   # the saving of spacing tokens
 

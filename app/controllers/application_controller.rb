@@ -10,7 +10,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def require_login
-
+    logger.info('Testing require login')
+    unless is_logged_in?
+      respond_to do |format|
+        format.js {render :js => "window.location.href = '#{new_session_url}'"}
+        format.html {redirect_to new_session_url}
+      end
+    end
   end
 
 

@@ -14,6 +14,13 @@
             <div class="login-section" style="margin-top: 100px">
 
                 <div class="row">
+                    <div class="col-xs-12" style="margin-bottom: 15px">
+                        <%= link_to 'Sign up', new_user_path, class: 'login-button text-center undecorated-link-w', style: 'display: block; margin-bottom: 5px; width: 100%;' %>
+                        <div class="break-line center" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-xs-12">
                         <div class="alert-danger main-font" style="background-color: transparent; font-size: 13px">
                             <%= flash[:danger] %>
