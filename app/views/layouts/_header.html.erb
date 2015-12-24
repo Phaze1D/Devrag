@@ -36,7 +36,7 @@
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 33%;' %>
 
-            <%= link_to 'Notification', '', id: 'notification-button',
+            <%= link_to 'Notification', user_notifications_path(current_user.id), id: 'notification-button',
                         class: 'login-button center text-left undecorated-link-w',
                         style: 'top: 49%;' %>
 

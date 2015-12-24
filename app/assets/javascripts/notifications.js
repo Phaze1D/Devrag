@@ -1,5 +1,5 @@
 $(document).on('click', '#notification-button', function (e) {
-    showNotifications();
+    showNotifications($(this));
     e.preventDefault();
 });
 
@@ -87,7 +87,7 @@ function removeCallback(container) {
     });
 }
 
-function showNotifications() {
+function showNotifications(atag) {
     var notidiv = $('#notification-div');
 
     if (notidiv.css('opacity') == '1') {
@@ -99,19 +99,18 @@ function showNotifications() {
         notidiv.css('display', 'initial');
         notidiv.addClass('spinner');
 
-        ajaxRetriveNotifications()
+        ajaxRetriveNotifications(atag)
     }
 
     menuAnim();
 
 }
 
-function ajaxRetriveNotifications() {
+function ajaxRetriveNotifications(atag) {
 
     $.ajax({
-        url: '/users/-1/notifications'
+        url: atag.attr('href')
     }).done(function (data) {
-//console.log(data);
         num2 = 0;
     }).fail(function () {
         console.log('faild')

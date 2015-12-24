@@ -12,7 +12,10 @@ class ApplicationController < ActionController::Base
   def correct_user(user_id)
     user = User.find_by(id: user_id)
     unless is_current_user?(user)
-      redirect_to user_path(current_user.id)
+      respond_to do |format|
+        format.js {render :js => "window.location.href = '#{root_url}'"}
+        format.html {redirect_to root_url}
+      end
     end
   end
 
