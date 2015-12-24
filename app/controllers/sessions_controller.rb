@@ -10,7 +10,14 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to user
+
+      if session[:return_to]
+        redirect_to session[:return_to]
+        session.delete(:return_to)
+      else
+        redirect_to user
+      end
+
     else
       flash.now[:danger] = 'Incorrect email or password combination'
       render 'new'

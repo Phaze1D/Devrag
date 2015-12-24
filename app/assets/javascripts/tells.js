@@ -1,6 +1,6 @@
 $(document).on('click', '.notify-link', function (e) {
 
-    ajaxCreateToolNotify();
+    ajaxCreateToolNotify($(this));
     e.preventDefault();
 });
 
@@ -21,9 +21,9 @@ function cancelNoti() {
 }
 
 //  CHANGE URL TO ADD TOOL_ID
-function ajaxCreateToolNotify() {
+function ajaxCreateToolNotify(atag) {
     $.ajax({
-        url: '/tools/-1/tells/new'
+        url: atag.attr('href')
     }).done(function (data) {
 
     }).fail(function () {

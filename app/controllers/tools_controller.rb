@@ -1,6 +1,9 @@
 class ToolsController < ApplicationController
 
   before_action :require_login, except: [:show, :index]
+  before_action only: [:new, :create, :edit, :update, :destroy] do
+    correct_user(params[:user_id])
+  end
 
   # the saving of spacing tokens
 
