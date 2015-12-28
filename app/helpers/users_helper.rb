@@ -8,7 +8,7 @@ module UsersHelper
 
   # Returns bool if user has unseen notifications
   def has_notifications?
-    true
+    current_user.notifications.where(seen: false).count > 0
   end
 
   # Return bool if current user is following a tool

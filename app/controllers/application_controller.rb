@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def create_notification(user, from_action_id, from_action_type)
+    noti = Notification.new(user_id: user.id, from_action_id: from_action_id, from_action_type: from_action_type)
+    noti.save
+    noti.from_action
+  end
+
   def correct_user(user_id)
     user = User.find_by(id: user_id)
     unless is_current_user?(user)

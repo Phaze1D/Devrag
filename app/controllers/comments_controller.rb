@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.valid?
         @comment.save
+        create_notification tool.user, @comment.id, 'Comment'
         format.js
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }

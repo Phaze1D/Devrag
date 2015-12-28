@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
   end
 
   def index
-    @current_user_notifications = %w( like follow commentT commentR notit like commentR notit)
+    @notifications = current_user.notifications.where(seen: false)
     respond_to do |format|
       format.js
     end
@@ -21,6 +21,11 @@ class NotificationsController < ApplicationController
   end
 
   def destroy
+    notification = Notification.find(params[:id])
+    notification.destroy
+    respond_to do |format|
+      format.js
+    end
 
   end
 

@@ -2,9 +2,6 @@ class RelationshipsController < ApplicationController
 
   before_action :require_login, only: [:create, :destroy]
 
-
-  # Make sure to add before filters when creating a relationship (user must be logged in)
-
   def index
 
   end
@@ -15,6 +12,7 @@ class RelationshipsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     respond_to do |format|
       if @relation.save
+        create_notification @tool.user, @relation.id, 'Relationship'
         format.js
       else
         format.json { render json: @relation.errors, status: :unprocessable_entity }

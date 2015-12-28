@@ -13,6 +13,7 @@ var num2 = 0;
 function removeNotifiction(notiCross) {
     var container = notiCross.closest('.noti-li');
 
+    ajaxDestroyNotification(notiCross);
     num2 -= 70;
     cssAnimation(container);
     removeCallback(container);
@@ -126,4 +127,18 @@ function removeNoti(e) {
         container.css('opacity', '0');
         container.css('display', 'none');
     }
+}
+
+function ajaxDestroyNotification(img){
+
+    $.ajax({
+        url: img.attr('data-href'),
+        type: 'DELETE'
+    }).done(function (data) {
+
+    }).fail(function () {
+        console.log('destory failed')
+    }).always(function () {
+
+    });
 }

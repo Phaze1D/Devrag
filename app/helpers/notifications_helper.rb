@@ -4,15 +4,13 @@ module NotificationsHelper
 
     html = '<ul id="noti-ul">'
     notifications.each do |notification|
-      case notification
+      case notification.from_action_type
 
-        when 'like'
+        when 'Like'
           html += render(partial: 'notifications/like_noti', locals: {notification: notification})
-        when 'follow'
+        when 'Relationship'
           html += render(partial: 'notifications/follow_noti', locals: {notification: notification})
-        when 'commentT'
-          html += render(partial: 'notifications/comment_noti', locals: {notification: notification})
-        when 'commentR'
+        when 'Comment'
           html += render(partial: 'notifications/comment_noti', locals: {notification: notification})
         when 'notit'
           html += render(partial: 'notifications/tool_noti', locals: {notification: notification})

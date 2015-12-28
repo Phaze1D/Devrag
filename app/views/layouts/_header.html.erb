@@ -1,4 +1,4 @@
-<div class="header-background">
+<div id="header-id" class="header-background">
 
 
     <% if show_devrag_header? %>
@@ -18,7 +18,7 @@
                 <h5 id="username-label" class="main-font"><%= current_user.username %></h5>
                 <% if has_notifications? %>
                     <div class="notification-bubble text-center center-ver">
-                        <h6 class="center notification-text main-font">3</h6>
+                        <h6 class="center notification-text main-font"><%= current_user.notifications.where(seen: false).count %></h6>
                     </div>
                 <% end %>
             <% end %>
@@ -44,7 +44,7 @@
 
             <% if has_notifications? %>
                 <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
-                    <h6 class="center notification-text main-font">3</h6>
+                    <h6 class="center notification-text main-font"><%= current_user.notifications.where(seen: false).count %></h6>
                 </div>
             <% end %>
 
