@@ -58,6 +58,7 @@ ScrollHandler.prototype.onTotalScrollAjax = function(){
     if(this.pageAt < this.maxPage) {
         this.pageAt++;
         this.onTotalAjax(this.pageAt);
+
     }
 };
 
@@ -145,6 +146,7 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
             onTotalScroll: function(){
 
                 scrollerHandler.onTotalScrollAjax();
+
             }
         },
         mouseWheel:{ preventDefault: true }
