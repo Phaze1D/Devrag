@@ -12,7 +12,7 @@ module NotificationsHelper
           html += render(partial: 'notifications/follow_noti', locals: {notification: notification})
         when 'Comment'
           html += render(partial: 'notifications/comment_noti', locals: {notification: notification})
-        when 'notit'
+        when 'Tell'
           html += render(partial: 'notifications/tool_noti', locals: {notification: notification})
         else
           # type code here

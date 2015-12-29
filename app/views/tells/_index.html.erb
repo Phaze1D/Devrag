@@ -1,0 +1,30 @@
+<div id="tells-area-div">
+    <% tells.each do |tell| %>
+
+        <div class="row">
+            <div class="col-xs-12" style="padding: 10px 30px">
+                <div class="tell-area">
+                    <p>
+                        <%= tell.description %>
+                    </p>
+                </div>
+                <div class="noti-date" style="position: inherit">
+                    <%= tell.created_at.strftime("%B %d, %Y") %>
+                </div>
+            </div>
+        </div>
+
+    <% end %>
+
+    <% if tells.count == 0 %>
+        <div class="row">
+            <div class="col-xs-12" style="padding: 10px 30px 0">
+                <div class="tell-area" style="border: none; color: #CCCCCC">
+                    <p>
+                        No new notifications from this tool
+                    </p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

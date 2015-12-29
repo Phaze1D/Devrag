@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
     resources :followers, only: [ :index ]
 
-    resources :tells, only: [ :new, :create ]
+    resources :tells, only: [ :new, :create, :destroy, :index]
 
     resources :reports, only: [ :new, :create ]
 

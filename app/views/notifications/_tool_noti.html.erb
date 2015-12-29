@@ -6,26 +6,23 @@
 -->
 <li class="noti-li">
     <div class="noti-container">
-        <%= link_to user_path(12), class: 'undecorated-link-w noti-link' do %>
+        <%= link_to tool_path(notification.from_action.tool_id), class: 'undecorated-link-w noti-link' do %>
 
             <div class="noti-p" style="height: 14px">
-                <span class="span-no" style=" max-width: 80px; font-size: 12px;">Tool Namejaafdsfadfadsf</span>
+                <span class="span-no" style=" max-width: 80px; font-size: 12px;"><%= notification.from_action.tool.name %></span>
                 <span class="span-no" style="color: #93a1a1; max-width: 165px; font-size: 12px; font-weight: 200">has notified their followers</span>
             </div>
 
             <p class="noti-p-l">
-                This is were the small part of the notification that
-                the tool has made will go it should not show all of the
-                notifiction even if it is very long notification. Am adding
-                in some more words to make sure that this is long enough
+                <%= notification.from_action.description %>
             </p>
 
             <%= image_tag 'code_icon.png', class: 'noti-sm-icon', style: 'width: 20px' %>
             <div class="noti-date">
-                November 15, 2015
+                <%= notification.created_at.strftime("%B %d, %Y") %>
             </div>
         <% end %>
 
-        <%= image_tag 'remove_button.png', class: 'noti-cross' %>
+        <%= image_tag 'remove_button.png', class: 'noti-cross', 'data-href' => user_notification_path(user_id: notification.user_id, id: notification.id) %>
     </div>
 </li>

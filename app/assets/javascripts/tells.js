@@ -13,6 +13,33 @@ $(document).on('click', '#add-tell', function () {
     ajaxCreateTell();
 });
 
+
+function initTellIndexScroll(){
+    $('#tells-area-div').mCustomScrollbar({
+        axis: "y",
+        scrollbarPosition: "inside",
+        autoHideScrollbar: true,
+        theme: "dark-thin",
+        scrollInertia: 0,
+        mouseWheel: {preventDefault: true}
+    });
+}
+
+function ajaxTellsIndex(){
+    if ($('#tells-index').length > 0) {
+
+        $.ajax({
+            url: window.location.href + '/tells'
+        }).done(function (data) {
+
+        }).fail(function () {
+            console.log('faild')
+        }).always(function () {
+
+        });
+    }
+}
+
 function cancelNoti() {
 
     var htmlBody = $('html, body');

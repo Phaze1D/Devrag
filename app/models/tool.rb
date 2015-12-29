@@ -17,7 +17,7 @@ class Tool < ActiveRecord::Base
   validates :website, length: { maximum: 255 },
             presence: true
 
-  validates :description, length: { maximum: 255, minimum: 60 },
+  validates :description, length: { maximum: 555, minimum: 60 },
             presence: true
 
 end

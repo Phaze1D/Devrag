@@ -5,3 +5,6 @@ spinner.before('<%= escape_javascript( display_user_tools(@user_tools).html_safe
 spinner.removeClass('spinner');
 spinner.css('height','0');
 <% end %>
+
+toolScroll.setMaxPage(<%= @user_tools.total_pages%>);
+toolScroll.setPage(<%= params[:page]%>);

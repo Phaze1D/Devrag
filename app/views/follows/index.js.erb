@@ -5,3 +5,6 @@ spinner.before('<%= escape_javascript(display_user_follows(@user_follows).html_s
 spinner.removeClass('spinner');
 spinner.css('height','0');
 <% end %>
+
+followingScroll.setMaxPage(<%= @user_follows.total_pages%>);
+followingScroll.setPage(<%= params[:page]%>);

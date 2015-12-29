@@ -29,6 +29,7 @@ $(document).on("page:load ready", function () {
     ajaxUsersTools(1, false);
     ajaxUsersFollows(1, false);
     ajaxCommentIndex();
+    ajaxTellsIndex()
 
 });
 
@@ -51,6 +52,10 @@ $(document).on('click', 'a', function(e){
 
 $(window).on('popstate', function(event) {
     tinymce.remove();
+});
+
+$(window).on('pushstate', function(event) {
+
 });
 
 $(document).on('click', '.pagination a', function (e) {
@@ -105,7 +110,7 @@ function initTinymce(){
         plugins: "autoresize",
         menubar: false,
         statusbar: false,
-        width: "89%",
+        width: "100%",
         autoresize_max_height: 1500,
         content_css : '/assets/solarized-light.scss',
         forced_root_block : "",

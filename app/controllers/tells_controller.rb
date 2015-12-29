@@ -1,12 +1,19 @@
 class TellsController < ApplicationController
 
-  before_action :require_login
-  before_action only: [:new, :create] do
+  before_action :require_login, except: [:index]
+  before_action only: [:new, :create, :destroy] do
     tool = Tool.find_by(id: params[:tool_id])
     correct_user(tool ? tool.user.id : -1)
   end
 
-  # MAKE SURE TO ADD A TELL SECTION IN THE TOOLS SHOW PAGE
+  def index
+
+    @tells = Tool.find(params[:tool_id]).tells.where(created_at: Time.now.beginning_of_week..Time.now.end_of_month).order(created_at: :desc)
+    respond_to do |format|
+      format.js
+    end
+
+  end
 
   def new
     @tool_notification = Tell.new
@@ -31,6 +38,10 @@ class TellsController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
 
   private
 
@@ -38,8 +49,11 @@ class TellsController < ApplicationController
     params.require(:tell).permit(:description)
   end
 
+  # Make sure to add queue job for this
   def notify_all_followers(tell)
-
+    tell.tool.followers.each do | follower|
+      create_notification follower, tell.id, 'Tell'
+    end
   end
 
 end

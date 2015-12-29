@@ -4,12 +4,21 @@ var ScrollHandler = function( searchBarID, onTotalAjax){
     this.startL = 0;
     this.endAt = 0;
     this.pageAt = 1;
+    this.maxPage = 0;
     this.searchBarID = searchBarID;
     this.onTotalAjax = onTotalAjax;
 }
 
 ScrollHandler.prototype.setScrollArea = function(scrollArea) {
     this.scrollArea = scrollArea;
+};
+
+ScrollHandler.prototype.setMaxPage = function(maxPage) {
+    this.maxPage = maxPage;
+};
+
+ScrollHandler.prototype.setPage = function(page) {
+    this.pageAt = page;
 };
 
 ScrollHandler.prototype.mwhileScrolling = function() {
@@ -46,8 +55,10 @@ ScrollHandler.prototype.endScroll = function() {
 };
 
 ScrollHandler.prototype.onTotalScrollAjax = function(){
-    this.pageAt++;
-    this.onTotalAjax(this.pageAt);
+    if(this.pageAt < this.maxPage) {
+        this.pageAt++;
+        this.onTotalAjax(this.pageAt);
+    }
 };
 
 

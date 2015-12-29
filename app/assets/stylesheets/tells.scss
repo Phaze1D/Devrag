@@ -1,3 +1,35 @@
 // Place all the styles related to the tells controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-tell{
+  @extend .main-font;
+  border-bottom: 1px solid #CCCCCC;
+  padding-left: 5px;
+  color: $base01
+
+}
+
+.tells-div{
+  border: 1px solid #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  max-height: 700px;
+  padding: 10px 0;
+}
+
+.tell-area{
+  @extend .main-font;
+  border-bottom: 1px solid #CCCCCC;
+  color: #3196a8;
+}
+
+.tell-area p{
+  margin: 5px 0;
+}
+
+#tells-area-div{
+  max-height: 655px;
+}
