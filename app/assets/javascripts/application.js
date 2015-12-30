@@ -45,7 +45,7 @@ $(window).on('resize', function () {
 });
 
 $(document).on('click', 'a', function(e){
-    if(!$(this).hasClass('replies-div')) {
+    if(!$(this).hasClass('no-link')) {
         tinymce.remove();
     }
 });

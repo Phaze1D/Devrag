@@ -49,7 +49,7 @@
                 <div class="rdivs" style="max-height: 0px; overflow: hidden; padding: 0">
                     <% comment.ordered_replies.each do |reply| %>
 
-                        <%= link_to tool_reply_path(id: reply.id), class: 'replies-div' do %>
+                        <%= link_to tool_reply_path(id: reply.id), class: 'replies-div no-link' do %>
 
                             <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
                                 <%= reply.user.username %>
