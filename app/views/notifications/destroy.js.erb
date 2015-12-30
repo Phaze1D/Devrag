@@ -1,4 +1,7 @@
+var count = '<%= current_user.notifications.count%>';
 
-$('#header-id').replaceWith('<%= escape_javascript( render partial: 'layouts/header')%>');
-
-showNotifications($('#notification-button'));
+if(count === '0' ){
+    $('.notification-bubble').replaceWith(' ');
+}else{
+    $('.notification-bubble').find('.notification-text').html(count);
+}
