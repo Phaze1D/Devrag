@@ -2,9 +2,16 @@ var spinner = $('#user-tool-spinner');
 spinner.before('<%= escape_javascript( display_user_tools(@user_tools).html_safe) %>');
 
 
+
 <% if params[:page].to_i >= @user_tools.total_pages%>
 spinner.removeClass('spinner');
-spinner.css('height','0');
+spinner.css('height', '0');
+
+<% else %>
+if (!spinner.hasClass('spinner')) {
+    spinner.addClass('spinner');
+    spinner.css('height', '50px');
+}
 <% end %>
 
 toolScroll.setMaxPage(<%= @user_tools.total_pages%>);

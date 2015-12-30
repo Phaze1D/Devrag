@@ -5,6 +5,7 @@ var ScrollHandler = function( searchBarID, onTotalAjax){
     this.endAt = 0;
     this.pageAt = 1;
     this.maxPage = 0;
+    this.queryString = '';
     this.searchBarID = searchBarID;
     this.onTotalAjax = onTotalAjax;
 }
@@ -19,6 +20,10 @@ ScrollHandler.prototype.setMaxPage = function(maxPage) {
 
 ScrollHandler.prototype.setPage = function(page) {
     this.pageAt = page;
+};
+
+ScrollHandler.prototype.setQueryString = function(string) {
+    this.queryString = string;
 };
 
 ScrollHandler.prototype.mwhileScrolling = function() {
@@ -57,7 +62,7 @@ ScrollHandler.prototype.endScroll = function() {
 ScrollHandler.prototype.onTotalScrollAjax = function(){
     if(this.pageAt < this.maxPage) {
         this.pageAt++;
-        this.onTotalAjax(this.pageAt);
+        this.onTotalAjax(this.pageAt, false, this.queryString);
 
     }
 };
@@ -106,8 +111,8 @@ function hideEditUserImg(){
     $('.edit-img-div').css('margin-top', '100px');
 }
 
-var toolScroll = new ScrollHandler('#user-tool-search', ajaxUsersTools);
 var followingScroll = new ScrollHandler('#user-fol-search', ajaxUsersFollows);
+var toolScroll = new ScrollHandler('#user-tool-search', ajaxUsersTools);
 
 function initUserAreaScroller(){
     initSingleUserScroller('#user-area-tool', toolScroll);

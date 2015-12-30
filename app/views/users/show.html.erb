@@ -49,7 +49,9 @@
 
                     <% if @user.tools.size > 5 %>
                         <div id="user-tool-search" class="tool-search">
-                            <input class="form-input main-font search-input" placeholder="Search...">
+                            <%= form_tag user_tools_path(user_id: @user.id), method: 'get', id: 'search-user-tools-form' do %>
+                                <%= text_field_tag :query, nil ,id: 'user-tool-query',class: 'form-input main-font search-input', placeholder: 'Search...',autocomplete: 'off' %>
+                            <% end %>
                         </div>
 
                         <div class="upper-user-area">
@@ -85,7 +87,9 @@
 
                     <% if @user.follows.size > 5 %>
                         <div id="user-fol-search" class="tool-search">
-                            <input class="form-input main-font search-input" placeholder="Search...">
+                            <%= form_tag user_follows_path(user_id: @user.id), method: 'get', id: 'search-user-follows-form' do %>
+                                <%= text_field_tag :query, nil ,id: 'user-follows-query',class: 'form-input main-font search-input', placeholder: 'Search...',autocomplete: 'off' %>
+                            <% end %>
                         </div>
 
                         <div class="upper-user-area">

@@ -40,6 +40,20 @@ $(document).on('focusout', '.tool-input', function(){
     ajaxValidation($(this).closest('form'), $(this), toolValidationSuccess, toolValidationFailed);
 });
 
+$(document).on('keyup', '#user-tool-query', function(){
+    setToolQueryString($(this).val());
+});
+
+$(document).on('submit', '#search-user-tools-form', function(e){
+    e.preventDefault();
+});
+
+function setToolQueryString(string){
+    toolScroll.setQueryString(string);
+    toolScroll.setPage(1);
+    toolScroll.onTotalAjax(1, true, string)
+}
+
 function toolValidationSuccess(data){
     $('.error-div').each(function(){
         $(this).css('display', 'none');
@@ -65,18 +79,21 @@ function toolValidationFailed(input_selector, data){
 }
 
 
-function ajaxUsersTools(page, remove) {
+
+function ajaxUsersTools(page, remove, query) {
 
     var sel = $('#user-area-tool');
 
-    if(remove && sel.length > 0){
-        sel.find('.uta-class').remove();
-    }
 
     if (sel.length > 0) {
+
+        if(remove){
+            sel.find('.uta-class').remove();
+        }
+
         sel.mCustomScrollbar("disable");
         $.ajax({
-            url: window.location.href + '/tools?page=' + page
+            url: window.location.href + '/tools?page=' + page + '&query=' + query
         }).done(function (data) {
             sel.mCustomScrollbar("update");
         }).fail(function () {

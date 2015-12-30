@@ -4,6 +4,12 @@ spinner.before('<%= escape_javascript(display_user_follows(@user_follows).html_s
 <% if params[:page].to_i >= @user_follows.total_pages %>
 spinner.removeClass('spinner');
 spinner.css('height','0');
+
+<% else %>
+if (!spinner.hasClass('spinner')) {
+    spinner.addClass('spinner');
+    spinner.css('height', '50px');
+}
 <% end %>
 
 followingScroll.setMaxPage(<%= @user_follows.total_pages%>);
