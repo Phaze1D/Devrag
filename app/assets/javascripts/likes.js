@@ -12,8 +12,8 @@ function ajaxLike(button){
         url: form.attr('action'),
         data: form.serialize()
     }).done(function(data){
-        ajaxUsersFollows(1, true);
-        ajaxUsersTools(1, true);
+        ajaxUsersFollows(1, true, '');
+        ajaxUsersTools(1, true, '');
     }).fail(function(data){
 
     });

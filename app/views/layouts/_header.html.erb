@@ -1,30 +1,60 @@
 <div id="header-id" class="header-background">
 
 
-    <% if show_devrag_header? %>
-        <div id="devrag-header-title-div">
-            <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link',
-                        id: 'devrag-header-title' %>
-        </div>
-    <% end %>
+    <div class="container-fluid" style="width: 100%">
+        <div class="row">
+            <div class="col-xs-7 col-sm-3 col-md-2">
+                <div id="username-div">
+                    <div id="header-div">
+                        <%= image_tag 'devrmenu.png', id: 'header-image' %>
 
+                        <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
 
-    <div id="username-div" style="<%= resize_div %>">
-        <div id="header-div">
-            <%= image_tag 'devrmenu.png', id: 'header-image', class: 'center-ver' %>
+                            <h5 id="username-label" class="main-font"><%= current_user.username %></h5>
+                            <% if has_notifications? %>
+                                <div class="notification-bubble-2 text-center">
+                                    <h6 class="notification-text main-font" style="margin-top: 4px;"><%= current_user.notifications.where(seen: false).count %></h6>
+                                </div>
+                            <% end %>
+                        <% end %>
 
-            <% if is_logged_in? && !is_viewing_own_profile? %>  <!--user logged in -->
-
-                <h5 id="username-label" class="main-font"><%= current_user.username %></h5>
-                <% if has_notifications? %>
-                    <div class="notification-bubble text-center center-ver">
-                        <h6 class="center notification-text main-font"><%= current_user.notifications.where(seen: false).count %></h6>
                     </div>
-                <% end %>
+                </div>
+            </div>
+
+
+            <% if display_search? %>
+                <div class="col-xs-8 col-sm-7 col-md-8 hidden-xs">
+                    <div id="search-area">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <%= text_field_tag :language, nil, class: 'form-input sainput fill-width main-font', placeholder: 'Language', autocomplete: 'off' %>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <%= text_field_tag :platform, nil, class: 'form-input sainput fill-width main-font', placeholder: 'Platform', autocomplete: 'off' %>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <%= text_field_tag :use, nil, class: 'form-input sainput fill-width main-font', placeholder: 'Use', autocomplete: 'off' %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <% end %>
 
+            <div class="col-xs-5 col-sm-2 col-md-2">
+                <% if show_devrag_header? %>
+                    <div id="devrag-header-title-div" class="text-right">
+                        <%= link_to 'Devrag', root_path, class: 'title-2-alive undecorated-link',
+                                    id: 'devrag-header-title' %>
+                    </div>
+                <% end %>
+            </div>
         </div>
+
     </div>
+
 
     <div id="menu-div">
         <% if is_logged_in? %>
@@ -43,7 +73,7 @@
 
 
             <% if has_notifications? %>
-                <div class="notification-bubble text-center center" style="left: 80%; top: 49%;">
+                <div class="notification-bubble text-center center" style="left: 80%; top: 49%; margin: 0">
                     <h6 class="center notification-text main-font"><%= current_user.notifications.where(seen: false).count %></h6>
                 </div>
             <% end %>
@@ -73,14 +103,15 @@
         <% end %>
     </div>
 
-    <!-- Remember to change data-id to the current users id/ username-->
     <div id="notification-div">
         <h4 class="login-button underline-alive noti-title">Notifications</h4>
+
         <div class="notis-area">
             <div class="noti-lower-area">
 
             </div>
         </div>
     </div>
+
 
 </div>

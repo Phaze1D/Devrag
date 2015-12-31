@@ -1,38 +1,28 @@
 .header-background{
-  //position: fixed;
+  position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 70px;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: white;
   z-index: 1000;
+  padding: 25px 10px;
 }
 
 
 #header-div{
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: auto;
-  height: 30px;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: transparent;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  padding: 6px 0;
+  display: inline-block;
 
-}
-
-#header-div:hover{
-  background-color: #CEE1E1
 }
 
 
 #header-image{
-  top: 50%;
-  height: 60%;
-  left: 15px;
-  width: auto;
+  height: 20px;
+  display: inline-block;
 }
 
 #menu-div{
@@ -40,8 +30,8 @@
   position: fixed;
   width: 260px;
   height: 250px;
-  top: 55px;
-  left: 20px;
+  top: 65px;
+  left: 25px;
   background-color: $base03;
   opacity: 0;
   display: none;
@@ -126,66 +116,73 @@
   color: $base1;
 }
 
-#username-div{
+#username-div {
   z-index: 1000;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 140px;
-  height: 30px;
-  background-color: rgba(255, 255, 255, 0.92);
+  display: inline-block;
+  background-color: #CEE1E1;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  padding: 0 5px;
 
   &:hover{
-    background-color: #CEE1E1
+    cursor: pointer;
   }
 }
 
 #username-label{
   color: #107994;
-  //text-decoration: ;
-  margin: 7px 35px 0 35px ;
+  display: inline-block;
+  margin: 0 5px;
 }
 
 #devrag-header-title{
-  float: right;
   color: #107994;
   font-size: 22pt;
 }
 
 #devrag-header-title-div{
-  position: fixed;
-  top: 20px;
-  right: 30px;
   z-index: 1000;
   background-color: white;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding: 0 10px;
+  margin-top: -5px;
 }
 
 
 
 .notification-bubble{
-  position: absolute;
   height: 20px;
   width: 20px;
   -webkit-border-radius: .2em;
   -moz-border-radius: .2em;
   border-radius: .2em;
   background-color: rgba(218, 218, 218, 0.99);
-  left: calc(100% - 15px);
+  display: inline-block;
+  transform: translate(-50%, -50%);
+  float: right;
 
 }
 
+.notification-bubble-2{
+  height: 20px;
+  width: 20px;
+  -webkit-border-radius: .2em;
+  -moz-border-radius: .2em;
+  border-radius: .2em;
+  background-color: rgb(207, 207, 207);
+  display: inline-block;
+  float: right;
+  margin-top: 1px;
+}
+
 .notification-text{
-  margin: 0;
   top: 50%;
   color: #0480c3;
   font-size: 8pt;
+  margin: 0;
 }
 
 
@@ -586,3 +583,4 @@ $tooltip-arrow-distance-from-box: -1.3em;
   border-radius: .3em;
 
 }
+

@@ -15,20 +15,8 @@ module PagesHelper
     html
   end
 
-  def resize_div
-
-    if is_logged_in?
-      return_val = 'width: 0px;'
-    else
-      return_val = 'width: 30px;'
-    end
-
-    if is_viewing_own_profile?
-      return_val = 'width: 30px;'
-    end
-
-    return_val
-
+  def display_search?
+    (controller_name != 'pages' && (action_name != 'home' || action_name != 'search') )
   end
 
 end
