@@ -1,7 +1,11 @@
 var count = '<%= current_user.notifications.count%>';
 
 if(count === '0' ){
+    console.log('0 noti ---- ' + count);
+    $('.notification-bubble-2').replaceWith(' ');
     $('.notification-bubble').replaceWith(' ');
 }else{
+    console.log('more noti ----- ' + count);
     $('.notification-bubble').find('.notification-text').html(count);
+    $('.notification-bubble-2').find('.notification-text').html(count);
 }
