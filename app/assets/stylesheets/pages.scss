@@ -581,6 +581,50 @@ $tooltip-arrow-distance-from-box: -1.3em;
   -webkit-border-radius: .3em;
   -moz-border-radius: .3em;
   border-radius: .3em;
+}
 
+.drop-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: -moz-calc(100% - 30px);
+  width: -webkit-calc(100% - 30px);
+  width: calc(100% - 30px);
+  position: absolute;
+  background-color: #ffffff;
+  //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.drop-list-item {
+  @extend .main-font;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  word-wrap: break-word;
+}
+
+.drop-list-item:last-child {
+  border: none;
+  border-radius: 5px;
+}
+
+.drop-list-item {
+  text-decoration: none;
+  color: #000;
+  display: block;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.hovered {
+  font-size: 23px;
+  background: #f6f6f6;
+  cursor: pointer;
 }
 

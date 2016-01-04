@@ -34,13 +34,25 @@ $(document).on('mouseout', '.lpu-li', function () {
 
 $(document).on('keypress', '.sinput', function(e) {
     if(e.keyCode === 13) {
-        $('#search-form').submit();
+        var ul = $(this).closest('.input-div').find('.drop-list');
+        if(ul.children().hasClass('hovered')){
+            itemClicked(ul.find('.hovered'));
+        }else {
+            $('#search-form').submit();
+        }
     }
 });
 
 $(document).on('keypress', '.sainput', function(e) {
     if(e.keyCode === 13) {
-        ajaxSearchSubmit();
+
+        var ul = $(this).closest('.input-div').find('.drop-list');
+        if(ul.children().hasClass('hovered')){
+            itemClicked(ul.find('.hovered'));
+        }else {
+            ajaxSearchSubmit();
+        }
+
     }
 });
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'search', to: 'pages#search'
+  post 'auto_completion', to: 'pages#auto_completion'
 
   resources :sessions , only: [:new, :create, :destroy]
 

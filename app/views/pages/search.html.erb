@@ -14,14 +14,23 @@
 
             <%= form_tag search_path, method: 'get', id: 'ajax-search-form' do %>
                 <div class="row" style="margin-top: 5px; padding-bottom: 5px">
-                    <div class="col-xs-12 col-sm-4">
-                        <%= text_field_tag :language, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Language'  %>
+                    <div class="col-xs-12 col-sm-4 input-div">
+                        <%= text_field_tag :language, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Language', autocomplete: 'off'  %>
+                        <ul class="drop-list">
+
+                        </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <%= text_field_tag :platform, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Platform'   %>
+                    <div class="col-xs-12 col-sm-4 input-div">
+                        <%= text_field_tag :platform, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Platform', autocomplete: 'off'   %>
+                        <ul class="drop-list">
+
+                        </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <%= text_field_tag :use, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Use'   %>
+                    <div class="col-xs-12 col-sm-4 input-div">
+                        <%= text_field_tag :use, nil ,class: 'form-input sainput fill-width main-font', placeholder: 'Use', autocomplete: 'off'   %>
+                        <ul class="drop-list">
+
+                        </ul>
                     </div>
                 </div>
             <% end %>

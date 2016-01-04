@@ -18,6 +18,28 @@ class PagesController < ApplicationController
     end
   end
 
+  def auto_completion
+
+    results = []
+
+    if params[:name] == 'language'
+      results = Language.select(:name).where('name LIKE ?', "#{params[:value]}%").limit(5) unless params[:value].blank?
+    end
+
+    if params[:name] == 'platform'
+      results = Platform.select(:name).where('name LIKE ?', "#{params[:value]}%").limit(5) unless params[:value].blank?
+    end
+
+    if params[:name] == 'use'
+      results = Use.select(:name).where('name LIKE ?', "#{params[:value]}%").limit(5) unless params[:value].blank?
+    end
+
+    respond_to do | format |
+      format.json {render json: results}
+    end
+
+  end
+
 
 
   private
@@ -33,7 +55,20 @@ class PagesController < ApplicationController
     tools_p = Tool.joins(:platforms).where('platforms.name LIKE ?', "%#{params[:platform]}%") unless params[:platform].blank?
     tools_u = Tool.joins(:uses).where('uses.name LIKE ?', "%#{params[:use]}%") unless params[:use].blank?
 
-    tools_l | tools_p | tools_u
+    tn = [tools_l, tools_p, tools_u]
+    tf = []
+
+    (0..2).each do |i|
+      unless tn[i].empty?
+        if tf.empty?
+          tf = tn[i]
+        else
+          tf = tf & tn[i]
+        end
+      end
+    end
+
+    tf
 
   end
   
