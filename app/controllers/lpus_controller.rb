@@ -8,7 +8,7 @@ class LpusController < ApplicationController
 
     respond_to do |format|
 
-      if !lpu_string.nil? && lpu_string.length < 100 && size < 15
+      if !lpu_string.nil? && lpu_string.length < 45 && size < 15
         format.json { render json: {:success => 'true'}.to_json, status: :ok }
       else
         format.json { render json: {:failed => 'to long'}.to_json, status: :unprocessable_entity }
