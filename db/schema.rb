@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129191537) do
+ActiveRecord::Schema.define(version: 20160105191505) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535, null: false
@@ -111,12 +111,15 @@ ActiveRecord::Schema.define(version: 20151129191537) do
   add_index "tells", ["tool_id"], name: "fk_rails_4fa0b67318", using: :btree
 
   create_table "tools", force: :cascade do |t|
-    t.string   "name",        limit: 255,   null: false
-    t.text     "website",     limit: 65535, null: false
-    t.text     "description", limit: 65535, null: false
-    t.integer  "user_id",     limit: 4,     null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",                limit: 255,               null: false
+    t.text     "website",             limit: 65535,             null: false
+    t.text     "description",         limit: 65535,             null: false
+    t.integer  "user_id",             limit: 4,                 null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "likes_count",         limit: 4,     default: 0
+    t.integer  "comments_count",      limit: 4,     default: 0
+    t.integer  "relationships_count", limit: 4,     default: 0
   end
 
   add_index "tools", ["name"], name: "index_tools_on_name", unique: true, using: :btree

@@ -16,12 +16,10 @@ $(document).on('click', '#options-image', function () {
 
 $(document).on('click', '#dropdown-sortB', function () {
     dropdownClicked();
-    console.log('testing')
 });
 
 $(document).on('click', '.m-li', function () {
-    console.log($(this).html());
-    mLiClicked(this);
+    mLiClicked($(this));
 });
 
 $(document).on('mouseover', '.lpu-li', function () {
@@ -204,10 +202,36 @@ function dropdownClicked() {
 
 function mLiClicked(selector) {
 
-    $(selector).parent().parent().children(":first").html($(selector).html());
+    var drpB = $('#dropdown-sortB');
+    drpB.html(selector.html());
+
+    var sorts = $('#sort-params');
+    if(drpB.attr('data-sort') === selector.attr('data-sort')){
+        ajaxSort(sorts.attr('data-lang'), sorts.attr('data-plat'), sorts.attr('data-use'), selector.attr('data-sort'), true);
+        drpB.attr('data-sort', '-'+selector.attr('data-sort'));
+    }else{
+        ajaxSort(sorts.attr('data-lang'), sorts.attr('data-plat'), sorts.attr('data-use'), selector.attr('data-sort'), false);
+        drpB.attr('data-sort', selector.attr('data-sort'));
+    }
+
     var list = $('#dropdown-sortL');
     list.css('display', 'none');
     list.css('opacity', '0');
+
+
+}
+
+function ajaxSort(lang, plat, use, sort, by){
+    var form = $('#ajax-search-form');
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: {language: lang, platform: plat, use: use, sort: sort, by: by}
+    }).done(function(data){
+        console.log(data);
+    }).fail(function(data){
+        console.log('sort faild');
+    });
 }
 
 function resultToolOptionsClicked(selector) {

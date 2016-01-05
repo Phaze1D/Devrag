@@ -40,15 +40,16 @@
                     <%= will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
                 </div>
                 <div class="col-xs-5 col-sm-3 ">
-                    <button id="dropdown-sortB" class="m-dropdown-button main-font text-left">
+                    <button id="dropdown-sortB" class="m-dropdown-button main-font text-left" data-sort="0">
                         Sort
                     </button>
                     <ul id="dropdown-sortL" class="m-dropdown text-left main-font" style="display:none">
-                        <li class="m-li">Name</li>
-                        <li class="m-li">Likes</li>
-                        <li class="m-li">Random</li>
-                        <li class="m-li">Followers</li>
+                        <li class="m-li" data-sort="1">Name</li>
+                        <li class="m-li" data-sort="2">Likes</li>
+                        <li class="m-li" data-sort="3">Random</li>
+                        <li class="m-li" data-sort="4">Followers</li>
                     </ul>
+                    <div id="sort-params" data-lang="<%= params[:language] %>" data-plat="<%= params[:platform] %>" data-use="<%= params[:use]%>" style="display: none"></div>
                 </div>
             </div>
 

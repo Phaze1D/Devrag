@@ -56,19 +56,35 @@ class PagesController < ApplicationController
     tools_u = Tool.joins(:uses).where('uses.name LIKE ?', "%#{params[:use]}%") unless params[:use].blank?
 
     tn = [tools_l, tools_p, tools_u]
-    tf = []
+    tf = nil
 
     (0..2).each do |i|
       unless tn[i].empty?
-        if tf.empty?
+        if tf.nil?
           tf = tn[i]
         else
-          tf = tf & tn[i]
+          tf = tf.merge(tn[i])
         end
       end
     end
 
-    tf
+    sort_results(tf.uniq)
+
+  end
+
+  def sort_results(results)
+
+    if params.has_key?(:sort)
+      results = results.order(name: (params[:by] == 'false' ? :asc : :desc) ) if params[:sort] == '1'
+
+      results = results.order(likes_count: (params[:by] == 'false' ? :desc : :asc) ) if params[:sort] == '2'
+
+      results = results.order('RAND()') if params[:sort] == '3'
+
+      results = results.order(relationships_count: (params[:by] == 'false' ? :desc : :asc) ) if params[:sort] == '4'
+    end
+
+    results
 
   end
   

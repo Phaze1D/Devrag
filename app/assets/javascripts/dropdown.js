@@ -35,6 +35,16 @@ $(document).on('keyup', '.sainput', function(e){
     }
 });
 
+$(document).on('focusout', '.sinput', function(){
+    var ul = $(this).closest('.input-div').find('.drop-list');
+    ul.html('');
+});
+
+$(document).on('focusout', '.sainput', function(){
+    var ul = $(this).closest('.input-div').find('.drop-list');
+    ul.html('');
+});
+
 function removeList(selItem){
     var ul = selItem.closest('.input-div').find('.drop-list');
     ul.html('');

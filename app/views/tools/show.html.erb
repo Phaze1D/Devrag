@@ -40,13 +40,13 @@
                                 <% if likes_tool @tool %>
                                     <%= form_for [@tool, get_like(@tool)], method: 'DELETE', html: {id: "like-form-#{@tool.id}", class: 'like-from'} do |f| %>
                                         <%= image_tag 'liked_icon.png', class: 'like-image', 'data-likes' => '1' %>
-                                        <%= @tool.likes.count %>
+                                        <%= @tool.likes.size %>
                                     <% end %>
 
                                 <% else %>
                                     <%= form_for [@tool, Like.new], html: {id: "like-form-#{@tool.id}", class: 'like-from'} do |f| %>
                                         <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
-                                        <%= @tool.likes.count %>
+                                        <%= @tool.likes.size %>
                                     <% end %>
                                 <% end %>
                             </div>
@@ -54,7 +54,7 @@
                         <div class="col-xs-3 col-sm-2 col-md-2 col-overflow-x">
                             <div class="tool-like-div text-left">
                                 <%= image_tag 'comment_icon.png', class: 'comment-image', style: 'margin: 0px 0 0 ' %>
-                                <p class="main-font count" style="display: inline"><%= @tool.comments.count %></p>
+                                <p class="main-font count" style="display: inline"><%= @tool.comments.size %></p>
                             </div>
                         </div>
                     </div>

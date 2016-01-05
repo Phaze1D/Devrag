@@ -12,4 +12,6 @@ $('.lpu-ul').mCustomScrollbar({
     theme: "light-thin"
 });
 
+$('#sort-params').replaceWith('<div id="sort-params" data-lang="<%= params[:language] %>" data-plat="<%= params[:platform] %>" data-use="<%= params[:use]%>" style="display: none"></div>');
+
 $('.mCSB_outside + .mCSB_scrollTools').css('right', '-16px');
