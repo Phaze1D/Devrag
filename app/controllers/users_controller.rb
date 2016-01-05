@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
 
-    @user = User.new(user_params)
+    @user = User.new(user_create_params)
     respond_to do |format|
       if @user.valid?
         format.html do
@@ -44,18 +44,31 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
 
   end
 
   def update
+    @user = current_user
+
+    respond_to do |format|
+
+
+    end
+
+
 
   end
 
 
   private
 
-  def user_params
+  def user_create_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def user_update_params
+    params.require(:user).permit(:username, :old_password, :password, :password_confirmation)
   end
 
 end

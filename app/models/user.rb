@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  attr_accessor :old_password
+
   validates :email, presence: true, length: { maximum: 255 },
             format: { with: /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i },
             uniqueness: { case_sensitive: false }
@@ -20,7 +22,15 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 6 }
 
+  validate :old_password_validation, on: :update
 
   # validate profile picture
+
+  def old_password_validation
+    unless self.authenticate(self.old_password)
+      errors.add(:old_password, 'Incorrect Password')
+    end
+  end
+
 
 end
