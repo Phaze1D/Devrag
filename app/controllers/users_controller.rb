@@ -65,6 +65,12 @@ class UsersController < ApplicationController
 
       if @user.valid?
 
+        format.html do
+          @user.save
+          redirect_to user_path(@user.id)
+        end
+
+        format.json { render json: {:success => 'true'}.to_json }
       else
         format.html { render 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
