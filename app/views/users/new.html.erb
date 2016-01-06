@@ -59,7 +59,7 @@
             <%= form_for @user, html: {id: 'user-create-form'} do |f| %>
 
                 <div class="row" style="margin: 20px 5px 25px 5px">
-                    <div class="col-md-12">
+                    <div class="col-md-12 error-area">
                         <%= f.text_field :username, class: 'form-control-large main-font user-input', placeholder: 'Username', autocomplete: 'off' %>
 
                         <% if @user.errors[:username].size > 0 %>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="row" style="margin: 20px 5px 25px 5px">
-                    <div class="col-md-12">
+                    <div class="col-md-12 error-area">
                         <%= f.text_field :email, class: 'form-control-large main-font user-input', placeholder: 'Email', autocomplete: 'off' %>
 
                         <% if @user.errors[:email].size > 0 %>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="row" style="margin: 20px 5px 25px 5px">
-                    <div class="col-md-12">
+                    <div class="col-md-12 error-area">
                         <%= f.password_field :password, class: 'form-control-large main-font user-input', placeholder: 'Password', autocomplete: 'off' %>
                         <% if @user.errors[:password].size > 0 %>
                             <div class="error-div">
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="row" style="margin: 20px 5px 25px 5px">
-                    <div class="col-md-12">
+                    <div class="col-md-12 error-area">
                         <%= f.password_field :password_confirmation, class: 'form-control-large main-font user-input', placeholder: 'Confirmation', autocomplete: 'off' %>
                         <% if @user.errors[:password_confirmation].size > 0 %>
                             <div class="error-div">

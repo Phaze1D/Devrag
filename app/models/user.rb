@@ -27,9 +27,12 @@ class User < ActiveRecord::Base
   # validate profile picture
 
   def old_password_validation
-    unless self.authenticate(self.old_password)
-      errors.add(:old_password, 'Incorrect Password')
+    unless old_password.blank?
+      unless self.authenticate(self.old_password)
+        errors.add(:old_password, 'Incorrect Password')
+      end
     end
+
   end
 
 
