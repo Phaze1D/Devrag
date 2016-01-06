@@ -80,6 +80,10 @@ $(document).on('focusout', '.user-input', function(){
     ajaxValidation($('#user-create-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
 });
 
+$(document).on('focusout', '.user-input-edit', function(){
+    ajaxValidation($('#user-edit-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
+});
+
 function ajaxUserSuccess(data){
     $('.error-div').each(function(){
         $(this).css('display', 'none');

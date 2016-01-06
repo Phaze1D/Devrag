@@ -11,7 +11,7 @@ MISSING GITHUB
     <div class="row" style="margin: 0">
         <div class="col-xs-12 col-md-8">
 
-            <%= form_for @user  do |f| %>
+            <%= form_for @user, html: {id: 'user-edit-form'} do |f| %>
 
             <div class="row underline-dead" style="border-width: 0 0 2px 0; padding-bottom: 5px">
                 <div class="col-xs-8" style="padding-left: 0">
@@ -28,7 +28,7 @@ MISSING GITHUB
                 </div>
 
                 <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
-                    <%= f.text_field :username, class: 'form-input-set fill-width main-font'%>
+                    <%= f.text_field :username, class: 'form-input-set fill-width main-font user-input-edit'%>
                     <% if @user.errors[:username].size > 0 %>
                         <div class="error-div">
                             <ul>
@@ -84,7 +84,7 @@ MISSING GITHUB
                 </div>
 
                 <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
-                    <%= f.password_field :old_password, class: 'form-input-set fill-width main-font'%>
+                    <%= f.password_field :old_password, class: 'form-input-set fill-width main-font user-input-edit'%>
                     <% if @user.errors[:old_password].size > 0 %>
                         <div class="error-div">
                             <ul>
@@ -108,7 +108,7 @@ MISSING GITHUB
                 </div>
 
                 <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
-                    <%= f.password_field :password, class: 'form-input-set fill-width main-font'%>
+                    <%= f.password_field :password, class: 'form-input-set fill-width main-font user-input-edit'%>
                     <% if @user.errors[:password].size > 0 %>
                         <div class="error-div">
                             <ul>
@@ -132,7 +132,7 @@ MISSING GITHUB
                 </div>
 
                 <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
-                    <%= f.password_field :password_confirmation, class: 'form-input-set fill-width main-font'%>
+                    <%= f.password_field :password_confirmation, class: 'form-input-set fill-width main-font user-input-edit'%>
                     <% if @user.errors[:password_confirmation].size > 0 %>
                         <div class="error-div">
                             <ul>

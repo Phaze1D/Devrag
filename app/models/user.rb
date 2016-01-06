@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             format: { with: /\A[a-zA-Z0-9_\.]*\z/}
 
-  validates :password, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   validate :old_password_validation, on: :update
 

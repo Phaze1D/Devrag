@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         format.html { render 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-      
+
     end
 
   end
@@ -51,8 +51,24 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
+    @user.username = params[:user][:username]
+    @user.old_password = params[:user][:old_password]
+
+    if @user.valid? && !params[:user][:old_password].blank?
+      @user.password_digest = nil
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password_confirmation]
+      @user.old_password = ''
+    end
+
     respond_to do |format|
 
+      if @user.valid?
+
+      else
+        format.html { render 'edit' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
 
     end
 
@@ -70,5 +86,6 @@ class UsersController < ApplicationController
   def user_update_params
     params.require(:user).permit(:username, :old_password, :password, :password_confirmation)
   end
+
 
 end
