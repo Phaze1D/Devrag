@@ -9,8 +9,7 @@ $(document).on('mouseout', '.drop-list-item', function () {
     onli = -1;
 });
 
-$(document).on('mouseup', '.drop-list-item', function(){
-    console.log($(this).text());
+$(document).on('click', '.drop-list-item', function(){
     itemClicked($(this));
 
 });
@@ -38,11 +37,19 @@ $(document).on('keyup', '.sainput', function(e){
 });
 
 $(document).on('focusout', '.sinput', function(){
-    removeList($(this));
+    var a = $(this);
+    window.setTimeout(function(){
+        removeList(a);
+        }, 150
+    );
 });
 
 $(document).on('focusout', '.sainput', function(){
-    removeList($(this));
+    var a = $(this);
+    window.setTimeout(function(){
+            removeList(a);
+        }, 150
+    );
 });
 
 function removeList(selItem){

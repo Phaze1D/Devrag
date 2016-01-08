@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :users do
 
+    patch  'update_notifications', to: 'users#update_notifications'
+
     resources :tools, except: :show
 
     resources :notifications, except: [ :edit, :update, :new]

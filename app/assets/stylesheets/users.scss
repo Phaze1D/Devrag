@@ -45,6 +45,10 @@
   height: 100%;
   display: block;
   position: relative;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 #signup-button {
@@ -219,5 +223,17 @@
     padding-left: 5px;
     font-size: 12px;
     font-weight: 300;
+  }
+}
+
+.custom-file-input {
+  color: transparent;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+
+  &:hover{
+    cursor: pointer;
   }
 }

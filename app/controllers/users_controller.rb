@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
+  before_action :require_login, only: [:update, :edit, :update_notifications]
   before_action only: [:update, :edit] do
     correct_user(params[:id])
+  end
+
+  before_action only: [:update_notifications] do
+    correct_user(params[:user_id])
   end
 
   def show
@@ -78,10 +83,16 @@ class UsersController < ApplicationController
 
     end
 
-
-
   end
 
+  # Updates the current users notifications settings
+  def update_notifications
+
+    @user = current_user
+    @user.update_attributes(user_update_noti_params)
+    redirect_to edit_user_url(@user.id)
+
+  end
 
   private
 
@@ -89,8 +100,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
-  def user_update_params
-    params.require(:user).permit(:username, :old_password, :password, :password_confirmation)
+  def user_update_noti_params
+    params.require(:user).permit(:email_notification, :like_notification, :tell_notification, :follow_notification, :comment_notification)
   end
 
 

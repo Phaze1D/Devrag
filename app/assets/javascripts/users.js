@@ -84,6 +84,26 @@ $(document).on('focusout', '.user-input-edit', function(){
     ajaxValidation($('#user-edit-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
 });
 
+$(document).on('change', '.custom-file-input', function(event){
+    var form = $('#user-edit-form');
+    var fd = new FormData();
+    fd.append( 'file', this.files[0] );
+    console.log(fd);
+
+
+    $.ajax({
+        type: 'PATCH',
+        url: form.attr('action'),
+        data: fd,
+        processData: false,
+        contentType: false
+    }).done(function(){
+
+    }).fail(function(data){
+
+    });
+});
+
 function ajaxUserSuccess(data){
     $('.error-div').each(function(){
         $(this).css('display', 'none');
