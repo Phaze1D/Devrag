@@ -9,8 +9,10 @@ $(document).on('mouseout', '.drop-list-item', function () {
     onli = -1;
 });
 
-$(document).on('click', '.drop-list-item', function(){
+$(document).on('mouseup', '.drop-list-item', function(){
+    console.log($(this).text());
     itemClicked($(this));
+
 });
 
 $(document).on('keyup', '.sinput', function(e){
@@ -36,13 +38,11 @@ $(document).on('keyup', '.sainput', function(e){
 });
 
 $(document).on('focusout', '.sinput', function(){
-    var ul = $(this).closest('.input-div').find('.drop-list');
-    ul.html('');
+    removeList($(this));
 });
 
 $(document).on('focusout', '.sainput', function(){
-    var ul = $(this).closest('.input-div').find('.drop-list');
-    ul.html('');
+    removeList($(this));
 });
 
 function removeList(selItem){
@@ -77,6 +77,7 @@ function addItems(selDL, array){
 function itemClicked(selItem){
     var input = selItem.closest('.input-div').find('.form-input');
     input.val(selItem.text());
+
     input.focus();
     selItem.closest('.drop-list').html('');
 }
