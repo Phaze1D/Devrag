@@ -85,24 +85,27 @@ $(document).on('focusout', '.user-input-edit', function(){
 });
 
 $(document).on('change', '.custom-file-input', function(event){
+    ajaxAvatarUpload($(this), this.files[0]);
+});
+
+function ajaxAvatarUpload(inputsel, file){
     var form = $('#user-edit-form');
     var fd = new FormData();
-    fd.append( 'file', this.files[0] );
-    console.log(fd);
-
+    fd.append( 'avatar', file );
 
     $.ajax({
         type: 'PATCH',
-        url: form.attr('action'),
+        url: inputsel.attr('data-url'),
         data: fd,
+        datatype: 'json',
         processData: false,
         contentType: false
-    }).done(function(){
-
+    }).done(function(data){
+        ajaxUserSuccess(data)
     }).fail(function(data){
-
+        ajaxUserFailed(inputsel, data.responseJSON)
     });
-});
+}
 
 function ajaxUserSuccess(data){
     $('.error-div').each(function(){

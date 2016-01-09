@@ -10,14 +10,12 @@
 }
 
 .user-profile-img {
-  height: auto;
   //width: 100%;
   border-radius: 100%;
   margin-top: 10px;
   height: 90px;
   width: 90px;
   float: right;
-  background: url('profile_img.jpg');
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;

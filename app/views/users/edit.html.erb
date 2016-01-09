@@ -62,13 +62,13 @@ MISSING GITHUB
                     </div>
 
                     <div class="col-xs-7 col-md-5" style="padding-left: 0">
-                        <div class="user-profile-img" style="margin-bottom: 4.5px; float: none">
+                        <div class="user-profile-img error-area" style="margin-bottom: 4.5px; float: none; background: url('<%=  @user.avatar.url(:medium) %>');">
 
                             <% if is_current_user?(@user) %>
                                 <div class="edit-img-div text-center">
-                                    <div class="edit-img-link undecorated-link-w'">
+                                    <div class="edit-img-link undecorated-link-w">
                                         <p class="center-ver center-hor" style="margin: 0 ">Edit</p>
-                                        <%= f.file_field :avatar, class: 'custom-file-input' %>
+                                        <%= f.file_field :avatar, class: 'custom-file-input', 'data-url' => user_update_avatar_path(@user)  %>
                                     </div>
                                 </div>
                             <% end %>

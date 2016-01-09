@@ -94,6 +94,22 @@ class UsersController < ApplicationController
 
   end
 
+  def update_avatar
+
+    @user = current_user
+
+    respond_to do | format |
+
+      if @user.valid?
+        format.json { render json: {:success => 'true'}.to_json }
+      else
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+
+    end
+
+  end
+
   private
 
   def user_create_params
