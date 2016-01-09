@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :users do
 
-    patch  'update_notifications', to: 'users#update_notifications'
-    patch  'update_avatar', to: 'users#update_avatar'
+    post  'update_notifications', to: 'users#update_notifications'
+    post  'update_avatar', to: 'users#update_avatar'
 
     resources :tools, except: :show
 

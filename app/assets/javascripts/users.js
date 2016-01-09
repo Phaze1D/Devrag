@@ -93,8 +93,11 @@ function ajaxAvatarUpload(inputsel, file){
     var fd = new FormData();
     fd.append( 'avatar', file );
 
+    var imageDiv = inputsel.closest('.user-profile-img ');
+    imageDiv.addClass('spinner');
+
     $.ajax({
-        type: 'PATCH',
+        type: 'POST',
         url: inputsel.attr('data-url'),
         data: fd,
         datatype: 'json',
@@ -104,6 +107,8 @@ function ajaxAvatarUpload(inputsel, file){
         ajaxUserSuccess(data)
     }).fail(function(data){
         ajaxUserFailed(inputsel, data.responseJSON)
+    }).always(function(){
+        imageDiv.removeClass('spinner');
     });
 }
 

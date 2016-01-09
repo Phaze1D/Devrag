@@ -97,11 +97,12 @@ class UsersController < ApplicationController
   def update_avatar
 
     @user = current_user
-
+    @user.avatar = params[:avatar]
     respond_to do | format |
 
       if @user.valid?
-        format.json { render json: {:success => 'true'}.to_json }
+        @user.save
+        format.js
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

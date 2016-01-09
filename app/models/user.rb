@@ -26,8 +26,9 @@ class User < ActiveRecord::Base
 
   # validate profile picture
   has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/:style/default.png'
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/, size: { in: 0..200.kilobytes }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
+  validates_attachment_size :avatar, in: 1..250.kilobytes
 
   def old_password_validation
     unless old_password.blank?
@@ -35,7 +36,15 @@ class User < ActiveRecord::Base
         errors.add(:old_password, 'Incorrect Password')
       end
     end
+  end
 
+  def image_dimensions
+    required_width  = 600
+    required_height = 600
+    dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
+
+    errors.add(:avatar, "Width must be #{width}px") unless dimensions.width == required_width
+    errors.add(:avatar, "Height must be #{height}px") unless dimensions.height == required_height
   end
 
 

@@ -61,8 +61,8 @@ MISSING GITHUB
                         <%= f.label :avatar, 'Profile Picture:', class: 'set-info', style: 'margin: 44px 0px' %>
                     </div>
 
-                    <div class="col-xs-7 col-md-5" style="padding-left: 0">
-                        <div class="user-profile-img error-area" style="margin-bottom: 4.5px; float: none; background: url('<%=  @user.avatar.url(:medium) %>');">
+                    <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
+                        <div class="user-profile-img" style="margin-bottom: 4.5px; float: none; background-image: url('<%=  @user.avatar.url(:medium) %>');">
 
                             <% if is_current_user?(@user) %>
                                 <div class="edit-img-div text-center">
@@ -72,23 +72,22 @@ MISSING GITHUB
                                     </div>
                                 </div>
                             <% end %>
-
-                            <% if @user.errors[:avatar].size > 0 %>
-                                <div class="error-div">
-                                    <ul>
-                                        <% @user.errors[:avatar].each do |error| %>
-                                            <li><%= error %></li>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                            <% else %>
-                                <div class="error-div" style="display: none">
-                                    <ul>
-                                    </ul>
-                                </div>
-                            <% end %>
-
                         </div>
+
+                        <% if @user.errors[:avatar].size > 0 %>
+                            <div class="error-div">
+                                <ul>
+                                    <% @user.errors[:avatar].each do |error| %>
+                                        <li><%= error %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <div class="error-div" style="display: none">
+                                <ul>
+                                </ul>
+                            </div>
+                        <% end %>
 
                     </div>
                 </div>
@@ -168,7 +167,7 @@ MISSING GITHUB
 
             <% end %>
 
-            <%= form_for @user, url: user_update_notifications_path(@user.id) do |f| %>
+            <%= form_for @user, url: user_update_notifications_path(@user.id), method: 'POST' do |f| %>
                 <div class="row underline-dead" style="border-width: 0 0 2px 0; margin: 20px -15px">
                     <div class="col-xs-8">
                         <h3 class="set-title col-overflow-x" style="font-size: 16px;">Notification Preferences</h3>
@@ -220,13 +219,13 @@ MISSING GITHUB
                     </div>
                 </div>
 
+            <% end %>
+
                 <div class="row underline-dead" style="border-width: 0 0 2px 0; margin: 20px -15px">
                     <div class="col-xs-8">
                         <h3 class="set-title col-overflow-x" style="font-size: 16px;">Github</h3>
                     </div>
                 </div>
-
-            <% end %>
         </div>
 
     </div>
