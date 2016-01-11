@@ -173,7 +173,7 @@ function ajaxCommentIndex() {
     if ($('#comment-index').length > 0) {
 
         $.ajax({
-            url: window.location.href + '/comments'
+            url: $('#comment-index').attr('data-url')
         }).done(function (data) {
 
         }).fail(function () {

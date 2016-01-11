@@ -7,10 +7,10 @@
     <div class="noti-container">
 
         <%= link_to user_path(notification.from_action.user_id), class: 'undecorated-link-w noti-link' do %>
-            <%= image_tag 'profile_img_2.jpg', class: 'noti-profile-img' %>
+            <%= image_tag notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
         <% end %>
 
-        <%= link_to '#', class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
+        <%= link_to tool_followers_path(notification.from_action.tool_id), class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
             <div class="noti-p">
                 <span class="span-no"><%= notification.from_action.user.username %></span>
                 <span class="span-no" style="color: #93a1a1; max-width: 150px">followed your tool</span>

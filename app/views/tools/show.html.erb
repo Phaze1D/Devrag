@@ -62,7 +62,7 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="main-font text-info " style="margin: 5px 0 0 0; font-size: 14px">
+                            <p class="main-font text-info " style="word-wrap: break-word; margin: 5px 0 0 0; font-size: 14px">
                                 <%= @tool.description %>
                             </p>
                         </div>
@@ -107,7 +107,7 @@
             </div>
 
 
-            <div id="comment-index">
+            <div id="comment-index" data-url="<%= tool_comments_path(@tool.id) %>">
 
 
             </div>
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="row">
-                    <div id="tells-index" class="col-xs-12">
+                    <div id="tells-index" class="col-xs-12" data-url="<%= tool_tells_path(@tool.id) %>">
 
                     </div>
                 </div>

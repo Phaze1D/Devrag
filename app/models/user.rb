@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validate :old_password_validation, on: :update
 
   # validate profile picture
-  has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/:style/default.png'
+  has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/default.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   validates_attachment_size :avatar, in: 1..250.kilobytes

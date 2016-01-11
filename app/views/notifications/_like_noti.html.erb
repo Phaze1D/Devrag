@@ -8,7 +8,7 @@
     <div class="noti-container">
 
         <%= link_to user_path(notification.from_action.user_id), class: 'undecorated-link-w noti-link' do %>
-            <%= image_tag 'profile_img.jpg', class: 'noti-profile-img' %>
+            <%= image_tag notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
         <% end %>
 
         <%= link_to tool_path(notification.from_action.tool.id), class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>

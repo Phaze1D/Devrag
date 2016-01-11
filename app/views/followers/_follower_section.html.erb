@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-sm-6 col-md-4" style="margin: 5px 0">
+    <div class="follower-cell">
+        <div class="row">
+            <%= link_to user_path(follower.id), class: 'undecorated-link' do %>
+                <div class="col-xs-2 ">
+                    <div class="user-profile-img" style="margin-bottom: 5px; margin-left: 5px; float: none; height: 70px; width: 70px; background-image: url('<%=  follower.avatar.url(:medium) %>');">
+
+                    </div>
+                </div>
+
+                <div class="col-xs-10 text-center">
+                    <h4 class="title col-overflow-x" style="overflow-x: inherit; margin: 35px 0 0 0;">
+                        <%= follower.username %></h4>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ function ajaxTellsIndex(){
     if ($('#tells-index').length > 0) {
 
         $.ajax({
-            url: window.location.href + '/tells'
+            url: $('#tells-index').attr('data-url')
         }).done(function (data) {
 
         }).fail(function () {
