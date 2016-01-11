@@ -8,7 +8,7 @@ class TellsController < ApplicationController
 
   def index
 
-    @tells = Tool.find(params[:tool_id]).tells.where(created_at: Time.now.beginning_of_week..Time.now.end_of_month).order(created_at: :desc)
+    @tells = Tool.find(params[:tool_id]).tells.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).order(created_at: :desc)
     respond_to do |format|
       format.js
     end

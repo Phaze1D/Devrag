@@ -42,6 +42,7 @@ function ajaxShowReply(rSelc) {
             removeReplies(rSelc.closest('.replies-area').find('.reply-arror'));
             commentBx.after(data);
             initTinymce();
+            highlightBox(id);
         }).fail(function (data) {
 
         }).always(function () {
@@ -53,6 +54,14 @@ function ajaxShowReply(rSelc) {
 
 function highlightBox(id) {
 
+    var div = $('#reply-area-'+id).closest('.main-parent');
+    div.addClass('shine');
+    $({alpha:1}).animate({alpha:0}, {
+        duration: 2500,
+        step: function(){
+            div.css('border-color','rgba(0,191,255,'+this.alpha+')');
+        }
+    });
 }
 
 function showReplies($sel) {

@@ -172,8 +172,11 @@ function commentFailed(inputsel, data) {
 function ajaxCommentIndex() {
     if ($('#comment-index').length > 0) {
 
+
+
         $.ajax({
-            url: $('#comment-index').attr('data-url')
+            url: $('#comment-index').attr('data-url'),
+            data: {conversation: getUrlParameter('conversation')}
         }).done(function (data) {
 
         }).fail(function () {
@@ -181,5 +184,15 @@ function ajaxCommentIndex() {
         }).always(function () {
 
         });
+    }
+}
+
+function moveToComments(){
+    if ($('#comment-index').length > 0 && getUrlParameter('moveComment')) {
+
+        $('html, body').animate({
+            scrollTop: $('#comment-index').offset().top
+        }, 1000);
+
     }
 }

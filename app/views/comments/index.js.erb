@@ -16,3 +16,11 @@ $('p').each(function() {
         $this.remove();
     }
 });
+
+<% if params.has_key?(:conversation) && !params[:conversation].blank? %>
+
+highlightBox('<%= @comments.first.id%>');
+
+console.log('<%= @comments.first.id%>');
+
+<% end %>

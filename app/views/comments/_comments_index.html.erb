@@ -1,6 +1,6 @@
 <div class="row" style="margin: 40px -15px 20px">
     <div class="col-xs-12 will-pag">
-        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2, params: {conversation: ''} %>
     </div>
 </div>
 <div class="row">
@@ -55,7 +55,7 @@
 
 <div class="row" style="margin: 20px -15px">
     <div class="col-xs-12 will-pag">
-        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2, params: {conversation: ''}%>
 
     </div>
 </div>

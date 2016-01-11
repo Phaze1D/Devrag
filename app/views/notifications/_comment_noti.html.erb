@@ -11,30 +11,44 @@
     <div class="noti-container">
 
         <%= link_to user_path(notification.from_action.user_id), class: 'undecorated-link-w noti-link' do %>
-            <%= image_tag notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
+            <%= image_tag notification.from_action.user.avatar, class: 'noti-profile-img' %>
         <% end %>
 
-        <%= link_to '#', class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
-            <div class="noti-p">
-                <span class="span-no" style=" max-width: 60px; font-size: 12px;"><%= notification.from_action.user.username %></span>
-                <% if notification.from_action.comment_id.nil? %>
+        <% if notification.from_action.comment_id.nil? %>
+            <%= link_to tool_path(notification.from_action.tool_id, moveComment: 'true'), class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
+                <div class="noti-p">
+                    <span class="span-no" style=" max-width: 60px; font-size: 12px;"><%= notification.from_action.user.username %></span>
                     <span class="span-no" style="color: #93a1a1; max-width: 147px; font-size: 12px;">wrote a comment on </span>
-                <% else %>
-                    <span class="span-no" style="color: #93a1a1; max-width: 147px; font-size: 12px;">replied to comment on</span>
-            <% end %>
                 <span class="span-yes" style="">
                     <%= notification.from_action.tool.name %>
                 </span>
-            </div>
+                </div>
 
-            <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
-            <div class="noti-date">
-                <%= notification.created_at.strftime("%B %d, %Y") %>
-            </div>
+                <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
+                <div class="noti-date">
+                    <%= notification.created_at.strftime("%B %d, %Y") %>
+                </div>
+            <% end %>
+        <% else %>
+            <%= link_to tool_path(notification.from_action.tool_id, moveComment: 'true', conversation: notification.from_action.id), class: 'undecorated-link-w noti-link ', style: 'width: 200px;' do %>
+                <div class="noti-p">
+                    <span class="span-no" style=" max-width: 60px; font-size: 12px;"><%= notification.from_action.user.username %></span>
+                    <span class="span-no" style="color: #93a1a1; max-width: 147px; font-size: 12px;">replied to comment on</span>
+                <span class="span-yes" style="">
+                    <%= notification.from_action.tool.name %>
+                </span>
+                </div>
+
+                <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
+                <div class="noti-date">
+                    <%= notification.created_at.strftime("%B %d, %Y") %>
+                </div>
+            <% end %>
         <% end %>
 
-        <%= image_tag 'remove_button.png', class: 'noti-cross' , 'data-href' => user_notification_path(user_id: notification.user_id, id: notification.id)  %>
+        <%= image_tag 'remove_button.png', class: 'noti-cross', 'data-href' => user_notification_path(user_id: notification.user_id, id: notification.id) %>
 
     </div>
 
 </li>
+
