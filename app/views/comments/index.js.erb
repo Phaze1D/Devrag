@@ -21,6 +21,6 @@ $('p').each(function() {
 
 highlightBox('<%= @comments.first.id%>');
 
-console.log('<%= @comments.first.id%>');
+showReplies($('#reply-area-'+'<%= @comments.first.id%>').closest('.main-parent').find('.reply-arror'));
 
 <% end %>
