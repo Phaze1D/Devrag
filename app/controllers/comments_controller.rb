@@ -8,9 +8,10 @@ class CommentsController < ApplicationController
     @comments =Comment.where(tool_id: @tool.id).where(comment_id: nil).order(created_at: :desc)
 
     if params.has_key?(:conversation) && !params[:conversation].blank?
-      root_c = Comment.find(params[:conversation]).conversation_root
-      @comments = @comments - [root_c]
-      @comments = @comments.unshift(root_c)
+      @root_c = Comment.find(params[:conversation]).to_comment
+      @comments = @comments - [@root_c]
+      @comments = @comments.unshift(@root_c)
+
     end
 
     @comments = @comments.paginate(:page => params[:page], :per_page => 8)

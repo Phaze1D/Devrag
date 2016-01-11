@@ -17,7 +17,7 @@ $('p').each(function() {
     }
 });
 
-<% if params.has_key?(:conversation) && !params[:conversation].blank? %>
+<% if params.has_key?(:conversation) && !params[:conversation].blank? && @root_c.id == @comments.first.id %>
 
 highlightBox('<%= @comments.first.id%>');
 
