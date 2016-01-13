@@ -77,8 +77,8 @@
                 </div>
             <% else %>
                 <div class="col-xs-12   text-center" style="height: 100%">
-                    <%= link_to 'Report', '#',
-                                class: 'login-button center-ver undecorated-link-w uoption-b report-b no-link', style: 'color: #cb4b16;' %>
+                    <button class="login-button center-ver undecorated-link-w uoption-b report-b" style="color: #cb4b16;" data-url="<%= new_tool_report_path(tool.id) %>">Report</button>
+
                 </div>
             <% end %>
 

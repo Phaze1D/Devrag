@@ -15,7 +15,7 @@
                     </div>
                 <% else %>
                     <div class="col-xs-2 col-xs-offset-2 col-sm-2 col-sm-offset-4 text-right form-div">
-                        <%= form_for [tool, relation], html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
+                        <%= form_for [tool, Relationship.new], html: {id: "relationship-form-#{tool.id}", class: 'relation-from'} do |f| %>
                             <div class="follow-main">
                                 <%= f.submit 'Follow', class: 'follow-button follow-b-form' %>
                                 <div class="follow-hover-div">
@@ -56,7 +56,7 @@
                         <% end %>
 
                     <% else %>
-                        <%= form_for [tool, like], html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
+                        <%= form_for [tool, Like.new], html: {id: "like-form-#{tool.id}", class: 'like-from'} do |f| %>
                             <%= image_tag 'like_icon.png', class: 'like-image', 'data-likes' => '0' %>
                             <%= tool.likes.size %>
                         <% end %>
@@ -99,7 +99,8 @@
                 <div class="break-line-2 center" style="width: 0;"></div>
             </div>
 
-            <%= link_to 'Report', '#', class: ' report-l undecorated-link center-ver report-b no-link' %>
+            <button class="report-l undecorated-link center-ver report-b" data-url="<%= new_tool_report_path(tool.id) %>">Report</button>
+
 
             <div class="lpu-underlabel main-font">
 

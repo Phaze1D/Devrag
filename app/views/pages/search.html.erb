@@ -5,6 +5,14 @@
                     col-md-7 col-md-offset-1
                     search-div">
 
+            <div class="row">
+                <div class="col-xs-10" style="padding: 0">
+                    <div class="alert alert-success report-success" role="alert" style="display: none">
+                        Your report has been sent
+                    </div>
+                </div>
+            </div>
+
 
             <div class="row">
                 <div class="col-xs-12">
@@ -35,6 +43,7 @@
                 </div>
             <% end %>
 
+
             <div class="row" style="margin-top: 20px; margin-bottom: -25px">
                 <div class="col-xs-7 col-sm-9 will-pag">
                     <%= will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
@@ -54,7 +63,7 @@
             </div>
 
             <div id="search-results">
-                <%= display_results(@results, @relation, @like).html_safe %>
+                <%= display_results(@results).html_safe %>
             </div>
 
 
@@ -63,6 +72,15 @@
                     <%= will_paginate @results, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
                 </div>
             </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="report-background" style="display: none">
+    <div class="report-div">
+        <%= image_tag 'remove_button.png', class: 'comment-add-cl-t cancel-report', style: 'margin: 5px; float: right' %>
+        <div id="report-div">
 
         </div>
     </div>
