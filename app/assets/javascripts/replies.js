@@ -27,7 +27,7 @@ $(document).on('click', '.replies-div', function (e) {
 
 function ajaxShowReply(rSelc) {
     var commentBx = rSelc.closest('.comment-box');
-    var id = rSelc.attr('href').split('/')[4];
+    var id = rSelc.attr('data-url').split('/')[4];
 
 
     if(tinymce.get('reply-area-'+id)){
@@ -36,7 +36,7 @@ function ajaxShowReply(rSelc) {
     }else{
         tinymce.remove();
         $.ajax({
-            url: rSelc.attr('href'),
+            url: rSelc.attr('data-url'),
             dataType: 'html'
         }).done(function (data) {
             removeReplies(rSelc.closest('.replies-area').find('.reply-arror'));

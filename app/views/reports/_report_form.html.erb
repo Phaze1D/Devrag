@@ -1,0 +1,35 @@
+<% if report.user_id.nil? && report.tool_id.nil? %>
+
+    <div class="error-area">
+        <%= form_for [tool, report], remote: true, html: {class: 'report-form'} do |f| %>
+            <h3 class="title" style="margin-top: 40px; padding: 10px">Report <%= tool.name %></h3>
+            <%= f.text_area :description, rows: 8, class: 'report-area main-font', placeholder: 'Describle the issue.....' %>
+            <% if report.errors[:description].size > 0 %>
+                <div class="error-div">
+                    <ul>
+                        <% report.errors[:description].each do |error| %>
+                            <li><%= error %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% else %>
+                <div class="error-div" style="display: none">
+                    <ul>
+                    </ul>
+                </div>
+            <% end %>
+
+            <%= f.submit 'Submit', class: 'follow-button', style: 'float: right; margin: 35px 15px; font-size: 20px' %>
+        <% end %>
+    </div>
+
+<% else %>
+
+    <p class="main-font text-info text-left info-p" style="margin: 40px 0; font-size: 15px; padding: 10px">
+        You have already submitted a report for this tool.<br><br>
+        You can only submitted 1 report per tool.<br><br>
+        Every report will be evaluated by one of our staff members within 7 days.<br><br>
+        We will contact you via email about the measures that have been taken in response to your report.<br><br>
+    </p>
+
+<% end %>

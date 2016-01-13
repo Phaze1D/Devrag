@@ -49,7 +49,8 @@
                 <div class="rdivs" style="max-height: 0px; overflow: hidden; padding: 0">
                     <% comment.ordered_replies.each do |reply| %>
 
-                        <%= link_to tool_reply_path(id: reply.id), class: 'replies-div no-link' do %>
+
+                        <div class="replies-div no-link" data-url="<%= tool_reply_path(id: reply.id) %>">
 
                             <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
                                 <%= reply.user.username %>
@@ -63,8 +64,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                        <% end %>
+
                     <% end %>
                 </div>
                 <div class=" underline-dead text-center" style="height: 25px; background-color: white; border-width: 1px 0 0; margin-top: 10px;">
