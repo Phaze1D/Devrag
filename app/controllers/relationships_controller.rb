@@ -2,6 +2,10 @@ class RelationshipsController < ApplicationController
 
   before_action :require_login, only: [:create, :destroy]
 
+  before_action only: [:destroy] do
+    correct_model('Relationship', params[:id])
+  end
+
   def index
 
   end

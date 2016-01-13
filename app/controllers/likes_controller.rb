@@ -2,6 +2,10 @@ class LikesController < ApplicationController
 
   before_action :require_login
 
+  before_action only: [:destroy] do
+    correct_model('Like', params[:id])
+  end
+
   def create
     @tool = Tool.find(params[:tool_id])
     like = Like.new(tool_id: @tool.id, user_id: current_user.id)

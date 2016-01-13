@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="col-xs-3   text-center" style="height: 100%">
-                    <%= link_to 'Delete', '#',
+                    <%= link_to 'Delete', user_tool_path(user, tool), method: 'DELETE', remote: true, data: {confirm: 'Deleting a tool will delete all its comments, likes, and followers. This cannot be undone.'},
                                 class: 'login-button center-ver undecorated-link-w uoption-b', style: 'color: #cb4b16;' %>
                 </div>
             <% else %>

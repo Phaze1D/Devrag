@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
 
   before_action :require_login, except: [:index]
 
+  before_action only: [:destroy] do
+    correct_model('Comment', params[:id])
+  end
+
   def index
 
     @tool = Tool.find(params[:tool_id])

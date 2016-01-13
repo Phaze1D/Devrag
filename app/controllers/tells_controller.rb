@@ -6,6 +6,10 @@ class TellsController < ApplicationController
     correct_user(tool ? tool.user.id : -1)
   end
 
+  before_action only: [:destroy] do
+    correct_model('Tell', params[:id])
+  end
+
   def index
 
     @tells = Tool.find(params[:tool_id]).tells.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).order(created_at: :desc)

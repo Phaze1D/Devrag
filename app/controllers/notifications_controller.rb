@@ -5,6 +5,10 @@ class NotificationsController < ApplicationController
     correct_user(params[:user_id])
   end
 
+  before_action only: [:destroy] do
+    correct_model('Notification', params[:id])
+  end
+
   def index
 
     @notifications = current_user.notifications.where(seen: false)

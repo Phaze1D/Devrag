@@ -5,6 +5,10 @@ class ToolsController < ApplicationController
     correct_user(params[:user_id])
   end
 
+  before_action only: [:edit, :update, :destroy] do
+    correct_model('Tool', params[:id])
+  end
+
   # the saving of spacing tokens
 
   def show
@@ -12,7 +16,7 @@ class ToolsController < ApplicationController
   end
 
   def index
-    @user_tools = User.find(params[:user_id]).tools.where('name LIKE ?', "%#{params[:query]}%").paginate(:page => params[:page], :per_page => 5)
+    @user_tools = User.find(params[:user_id]).tools.where('name LIKE ?', "%#{params[:query]}%").where(soft_delete: false).paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.js
     end
@@ -97,7 +101,15 @@ class ToolsController < ApplicationController
 
   def destroy
 
+    tool = Tool.find_by( id: params[:id])
+    tool.destroy unless tool.nil?
+    respond_to do |format|
+      format.js
+    end
+
   end
+
+
 
 
   private

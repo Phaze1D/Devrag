@@ -1,15 +1,15 @@
 class Tool < ActiveRecord::Base
 
   belongs_to :user
-  has_and_belongs_to_many :languages
-  has_and_belongs_to_many :platforms
-  has_and_belongs_to_many :uses
-  has_many :likes
-  has_many :relationships
+  has_and_belongs_to_many :languages, dependent: :destroy
+  has_and_belongs_to_many :platforms, dependent: :destroy
+  has_and_belongs_to_many :uses, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :relationships, dependent: :destroy
   has_many :followers, through: :relationships, source: :user
-  has_many :comments
-  has_many :reports
-  has_many :tells
+  has_many :comments, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many :tells, dependent: :destroy
 
 
   validates :name, length: { maximum: 100 },
