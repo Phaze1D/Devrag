@@ -12,7 +12,7 @@ class RepliesController < ApplicationController
 
       if @reply.valid?
         @reply.save
-        create_notification @reply.to_comment.user, @reply.id, 'Comment'
+        create_notification(@reply.to_comment.user, @reply.id, 'Comment') if @reply.to_comment.user.comment_notification
         format.js
       else
         format.json { render json: @reply.errors, status: :unprocessable_entity }

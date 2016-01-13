@@ -65,7 +65,7 @@ class PagesController < ApplicationController
       end
     end
 
-    sort_results(tf.uniq)
+    tf.nil? ? [] : sort_results(tf.uniq)
 
   end
 

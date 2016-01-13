@@ -8,7 +8,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       if like.save
-        create_notification @tool.user, like.id, 'Like'
+        create_notification(@tool.user, like.id, 'Like') if @tool.user.like_notification
         format.js
       else
         format.json { render json: like.errors, status: :unprocessable_entity }

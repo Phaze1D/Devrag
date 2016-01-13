@@ -6,7 +6,9 @@ class NotificationsController < ApplicationController
   end
 
   def index
+
     @notifications = current_user.notifications.where(seen: false)
+
     respond_to do |format|
       format.js
     end

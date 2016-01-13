@@ -12,7 +12,7 @@ class RelationshipsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     respond_to do |format|
       if @relation.save
-        create_notification @tool.user, @relation.id, 'Relationship'
+        create_notification(@tool.user, @relation.id, 'Relationship') if @tool.user.follow_notification
         format.js
       else
         format.json { render json: @relation.errors, status: :unprocessable_entity }

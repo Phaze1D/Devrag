@@ -52,7 +52,7 @@ class TellsController < ApplicationController
   # Make sure to add queue job for this
   def notify_all_followers(tell)
     tell.tool.followers.each do | follower|
-      create_notification follower, tell.id, 'Tell'
+      create_notification(follower, tell.id, 'Tell') if follower.tell_notification
     end
   end
 
