@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
   def create_notification(user, from_action_id, from_action_type)
     noti = Notification.new(user_id: user.id, from_action_id: from_action_id, from_action_type: from_action_type)
     noti.save
-    noti.from_action
+
+    # if user.email_notification && (from_action_type == 'Comment' || from_action_type == 'Tell' )
+    # send_email_notification user, noti
+    # end
+
   end
 
   def correct_user(user_id)

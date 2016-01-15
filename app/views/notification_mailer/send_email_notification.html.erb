@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style>
+
+        @import url(http://fonts.googleapis.com/css?family=Belgrano);
+
+        .main-font {
+            font-family: 'Belgrano', serif;
+        }
+
+        .title {
+            color: #073642;
+            font-weight: 200;
+        }
+
+        .noti-profile-img {
+            width: auto;
+            height: 60px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 5%;
+            float: right;
+        }
+
+        .username {
+            color: #073642;
+            margin: 0;
+        }
+
+        .info-p {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        .span-yes {
+            color: #073642;
+        }
+
+        .noti-sm-icon {
+            width: 15px;
+            height: auto;
+            margin-right: 10px;
+            margin-bottom: 2px;
+        }
+
+        .background {
+
+        }
+
+        .footer {
+            border-top: 1px solid #c7dada;
+            margin-top: 10px;
+        }
+
+        .header {
+            border-bottom: 0px solid #c7dada;
+            margin: 60px 0;
+        }
+
+        .noti-date {
+            color: #586e75;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .user-comment {
+            border: 1px solid deepskyblue;
+            margin: 10px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            background: #fdf6e3;
+            color: #657b83;
+            border-radius: 10px;
+            border: 1px solid #CCC;
+
+        }
+
+        .hljs-comment,
+        .hljs-quote {
+            color: #93a1a1;
+        }
+
+        /* Solarized Green */
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-addition {
+            color: #859900;
+        }
+
+        /* Solarized Cyan */
+        .hljs-number,
+        .hljs-string,
+        .hljs-meta .hljs-meta-string,
+        .hljs-literal,
+        .hljs-doctag,
+        .hljs-regexp {
+            color: #2aa198;
+        }
+
+        /* Solarized Blue */
+        .hljs-title,
+        .hljs-section,
+        .hljs-name,
+        .hljs-selector-id,
+        .hljs-selector-class {
+            color: #268bd2;
+        }
+
+        /* Solarized Yellow */
+        .hljs-attribute,
+        .hljs-attr,
+        .hljs-variable,
+        .hljs-template-variable,
+        .hljs-class .hljs-title,
+        .hljs-type {
+            color: #b58900;
+        }
+
+        /* Solarized Orange */
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-subst,
+        .hljs-meta,
+        .hljs-meta .hljs-keyword,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-link {
+            color: #cb4b16;
+        }
+
+        /* Solarized Red */
+        .hljs-built_in,
+        .hljs-deletion {
+            color: #dc322f;
+        }
+
+        .hljs-formula {
+            background: #eee8d5;
+        }
+
+        .hljs-emphasis {
+            font-style: italic;
+        }
+
+        .hljs-strong {
+            font-weight: bold;
+        }
+
+        .title-2-dead {
+            color: rgba(182, 182, 182, 0.83);
+        }
+
+        .comment-options {
+            font-size: 13px;
+        }
+
+        .comment-options:hover {
+            text-decoration: none;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-xs-offset-0
+        col-sm-10 col-sm-offset-1
+        col-md-8 col-md-offset-2">
+            <div class="background">
+
+                <div class="row header">
+                    <div class="col-xs-12
+                    text-center">
+                        <h1 class="title main-font" style="font-size: 40pt;">Devrag</h1>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <%= image_tag @notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="username main-font"><%= @notification.from_action.user.username %></h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p class="main-font text-info text-left info-p">
+                                            Commented on your tool
+                                            <span class="span-yes"><%= @notification.from_action.tool.name %></span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="user-comment main-font text-justify">
+                            <%= @notification.from_action.comment.html_safe %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <%= link_to 'Reply', tool_path(@notification.from_action.tool_id, moveComment: 'true'), class: 'main-font title-2-dead comment-options reply-b' %>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <div class="noti-date main-font">
+                            <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
+                            <%= @notification.created_at.strftime("%B %d, %Y") %>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 footer">
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
