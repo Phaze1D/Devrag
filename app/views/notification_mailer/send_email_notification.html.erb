@@ -76,6 +76,14 @@
             padding: 10px;
         }
 
+        .user-comment-parent {
+            margin: 10px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
         .hljs {
             display: block;
             overflow-x: auto;
@@ -170,6 +178,54 @@
             text-decoration: none;
         }
 
+        .intro-p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .replies-area{
+            margin: 10px 0;
+            padding: 0 15px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .replies-div{
+            border: 1px solid rgba(182, 182, 182, 0.83);
+            border-width: 1px 0 0;
+            padding: 5px;
+            width: 100%;
+            display: block;
+            opacity: .4;
+        }
+
+        .replies-div:hover{
+            text-decoration: none;
+            opacity: 1;
+        }
+
+        .replies-div:focus{
+            outline: none;
+            text-decoration: none;
+        }
+
+        .rdivs{
+            -webkit-transition: all .35s;
+            -moz-transition: all .35s;
+            -o-transition: all .35s;
+            transition: all .35s;
+            padding: 10px 0;
+        }
+
+        .reply-comment{
+
+
+        }
+
+        .reply-comment pre code{
+            font-size: 14px;
+        }
+
 
     </style>
 
@@ -192,55 +248,16 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12">
 
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <%= image_tag @notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 class="username main-font"><%= @notification.from_action.user.username %></h4>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <p class="main-font text-info text-left info-p">
-                                            Commented on your tool
-                                            <span class="span-yes"><%= @notification.from_action.tool.name %></span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="user-comment main-font text-justify">
-                            <%= @notification.from_action.comment.html_safe %>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-6">
-                        <%= link_to 'Reply', tool_path(@notification.from_action.tool_id, moveComment: 'true'), class: 'main-font title-2-dead comment-options reply-b' %>
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <div class="noti-date main-font">
-                            <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
-                            <%= @notification.created_at.strftime("%B %d, %Y") %>
-                        </div>
-                    </div>
-
-                </div>
+                <% if @notification.from_action_type == 'Comment' %>
+                    <% if @notification.from_action.comment_id.nil? %>
+                        <%= render partial: 'comment_email', locals: {notification: @notification} %>
+                    <% else %>
+                        <%= render partial: 'reply_email', locals: {notification: @notification} %>
+                    <% end %>
+                <% elsif @notification.from_action_type == 'Tell' %>
+                    <%= render partial: 'tell_email', locals: {notification: @notification} %>
+            <% end %>
 
                 <div class="row">
                     <div class="col-xs-12 footer">

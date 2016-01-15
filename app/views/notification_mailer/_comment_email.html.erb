@@ -1,0 +1,50 @@
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <div class="row">
+            <div class="col-xs-4">
+                <%= image_tag notification.from_action.user.avatar.url(:medium), class: 'noti-profile-img' %>
+            </div>
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 class="username main-font"><%= notification.from_action.user.username %></h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="main-font text-info text-left info-p">
+                            Commented on your tool
+                            <span class="span-yes"><%= @notification.from_action.tool.name %></span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="user-comment main-font text-justify">
+            <%= notification.from_action.comment.html_safe %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <%= link_to 'Reply', tool_path(notification.from_action.tool_id, moveComment: 'true'), class: 'main-font title-2-dead comment-options reply-b' %>
+    </div>
+    <div class="col-xs-6 text-right">
+        <div class="noti-date main-font">
+            <%= image_tag 'comment_icon.png', class: 'noti-sm-icon' %>
+            <%= notification.created_at.strftime("%B %d, %Y") %>
+        </div>
+    </div>
+
+</div>
