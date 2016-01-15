@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     noti.save
 
     # if user.email_notification && (from_action_type == 'Comment' || from_action_type == 'Tell' )
-    # send_email_notification user, noti
+    #   send_email_notification user, noti
     # end
 
   end
