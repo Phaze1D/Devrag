@@ -114,8 +114,13 @@ function ajaxCreateReply(button) {
     var form = button.closest('.reply-form');
     var inputsel = button.closest('.reply-form').find('.comment-area');
     var editorid = inputsel.attr('id');
-    tinymce.get(editorid).save();
-    tinymce.get(editorid).setContent('');
+
+    if(tinymce.get(editorid) != null) {
+        tinymce.get(editorid).save();
+        tinymce.get(editorid).setContent('');
+    }else{
+        inputsel.val('');
+    }
 
     $.ajax({
         type: form.attr('method'),

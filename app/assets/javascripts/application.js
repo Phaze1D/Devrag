@@ -55,9 +55,6 @@ $(window).on('popstate', function(event) {
     tinymce.remove();
 });
 
-$(window).on('pushstate', function(event) {
-
-});
 
 $(document).on('click', '.pagination a', function (e) {
     ajaxPagination(this);

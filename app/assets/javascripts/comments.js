@@ -20,6 +20,30 @@ $(document).on('click', '.ver-img', function () {
     count++;
 });
 
+$(document).on('keydown', '.code-area' ,function (e)
+{
+    var keycode1 = (e.keyCode ? e.keyCode : e.which);
+    if (keycode1 == 9) {
+        e.preventDefault();
+        tabIndexArea($(this));
+    }
+});
+
+
+function tabIndexArea(inSel){
+    var start = inSel.get(0).selectionStart;
+    var end = inSel.get(0).selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    inSel.val(inSel.val().substring(0, start)
+        + "\t"
+        + inSel.val().substring(end));
+
+    // put caret at right position again
+    inSel.get(0).selectionStart =
+        inSel.get(0).selectionEnd = start + 1;
+}
+
 var count = 0;
 
 function removeCodeDiv(imgS){
@@ -132,9 +156,14 @@ function ajaxCommentAdd(button) {
     var form = button.closest('.comment-form');
     var inputsel = button.closest('.comment-form').find('.comment-area');
     var editorid = inputsel.attr('id');
-    tinymce.get(editorid).dom.remove(tinymce.get(editorid).dom.select('br'));
-    tinymce.get(editorid).save();
-    tinymce.get(editorid).setContent('');
+
+    if(tinymce.get(editorid) != null) {
+        tinymce.get(editorid).dom.remove(tinymce.get(editorid).dom.select('br'));
+        tinymce.get(editorid).save();
+        tinymce.get(editorid).setContent('');
+    }else{
+        inputsel.val('');
+    }
 
     $.ajax({
         type: form.attr('method'),
@@ -196,3 +225,5 @@ function moveToComments(){
 
     }
 }
+
+
