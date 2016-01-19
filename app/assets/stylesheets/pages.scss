@@ -283,9 +283,9 @@
 .tool-result-div {
   margin: 40px 0 0 0;
   border: 1px solid $base1;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   padding: 10px 10px 0px 10px;
 }
 
@@ -446,9 +446,9 @@ $tooltip-arrow-distance-from-box: -1.3em;
   left: 100%;
   top: -10px;
   background-color: $base02;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   margin-left: 40px;
   font-size: 12pt;
   font-weight: lighter;
@@ -467,7 +467,7 @@ $tooltip-arrow-distance-from-box: -1.3em;
 
 .lpu-ul {
   //border: 1px solid $base3;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 66%;
 }
 
