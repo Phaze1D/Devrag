@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
     resources :follows, only: [ :index ]
 
+    resources :conversations, only: [ :index, :show ]
+
   end
 
   resources :tools, only: :show do

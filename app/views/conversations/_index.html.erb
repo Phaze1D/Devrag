@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-xs-12 text-right" style="margin-bottom: -30px">
+        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+    </div>
+</div>
+
+<% comments.each do |comment| %>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="con-box text-left">
+                <p class="title-2-alive" style="font-size: 11pt; margin: 5px 0 0 0">On <%= comment.tool.name %></p>
+
+                <% unless comment.to_comment.nil? %>
+                    <div class="row">
+                        <div class="col-xs-12 conr">
+                            <div class=" underline-dead text-center" style="height: 25px; background-color: white; border-width: 0px 0 1px;">
+                                <%= image_tag 'dropdown.png', class: 'down-arror up-arror con-up-arror', 'data-open' => '0' %>
+                            </div>
+                            <div class="con-parent" style="max-height: 0px; overflow: hidden; padding: 0">
+
+                                <%= link_to tool_path(id: comment.tool_id, moveComment: 'true', conversation: comment.id),  class: 'replies-div',  style: 'border-width: 0 0 1px; margin-bottom: 10px' do %>
+
+                                    <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
+                                        <%= comment.to_comment.user.username %>
+                                        <%= time_ago_in_words(comment.to_comment.created_at) %>
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="reply-comment main-font text-justify" style="font-size: 11px">
+                                                <%= comment.to_comment.comment.html_safe %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            </div>
+
+                        </div>
+                    </div>
+                <% end %>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="con-comment">
+                            <div class="user-comment main-font text-justify">
+                                <%= comment.comment.html_safe %>
+                            </div>
+                            <div>
+                                <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
+                                    <%= time_ago_in_words(comment.created_at) %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12 conr">
+                        <div class="con-replies" style="max-height: 0px; overflow: hidden; padding: 0">
+                            <% comment.replies.each do |reply| %>
+
+                                <%= link_to tool_path(id: reply.tool_id, moveComment: 'true', conversation: reply.id), class: 'replies-div' do %>
+
+                                    <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
+                                        <%= reply.user.username %>
+                                        <%= time_ago_in_words(reply.created_at) %>
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="reply-comment main-font text-justify" style="font-size: 11px">
+                                                <%= reply.comment.html_safe %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                        </div>
+
+
+                        <% unless comment.replies.empty? %>
+                            <div class=" underline-dead text-center" style="height: 25px; background-color: white; border-width: 1px 0 0;">
+                                <%= image_tag 'dropdown.png', class: 'down-arror con-arror', 'data-open' => '0' %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% end %>
+
+<div class="row">
+    <div class="col-xs-12 text-right" style="margin-top: 10px">
+        <%= will_paginate comments, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 %>
+    </div>
+</div>

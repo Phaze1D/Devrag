@@ -30,6 +30,7 @@ $(document).on("page:load ready", function () {
     ajaxUsersFollows(1, false, '');
     ajaxCommentIndex();
     ajaxTellsIndex();
+    ajaxIndexConversation();
     moveToComments();
 
 });
