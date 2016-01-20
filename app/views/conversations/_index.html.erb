@@ -19,7 +19,7 @@
                             </div>
                             <div class="con-parent" style="max-height: 0px; overflow: hidden; padding: 0">
 
-                                <%= link_to tool_path(id: comment.tool_id, moveComment: 'true', conversation: comment.id),  class: 'replies-div',  style: 'border-width: 0 0 1px; margin-bottom: 10px' do %>
+                                <%= link_to tool_path(id: comment.tool_id, moveComment: 'true', conversation: comment.id), class: 'replies-div', style: 'border-width: 0 0 1px; margin-bottom: 10px' do %>
 
                                     <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
                                         <%= comment.to_comment.user.username %>
@@ -43,14 +43,17 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="con-comment">
-                            <div class="user-comment main-font text-justify">
-                                <%= comment.comment.html_safe %>
-                            </div>
-                            <div>
-                                <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
-                                    <%= time_ago_in_words(comment.created_at) %>
-                                </p>
-                            </div>
+                            <%= link_to tool_path(id: comment.tool_id, moveComment: 'true', conversation: comment.id), class: 'undecorated-link' do %>
+
+                                <div class="user-comment main-font text-justify">
+                                    <%= comment.comment.html_safe %>
+                                </div>
+                                <div>
+                                    <p class="title-2-dead text-right" style="font-size: 8pt; margin-bottom: 0px;">
+                                        <%= time_ago_in_words(comment.created_at) %>
+                                    </p>
+                                </div>
+                            <% end %>
                         </div>
                     </div>
                 </div>

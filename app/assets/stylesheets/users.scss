@@ -54,10 +54,27 @@
   width: 100%;
   background-color: transparent;
   border: 1px solid deepskyblue;
-  -webkit-border-radius: .3em;
-  -moz-border-radius: .3em;
-  border-radius: .3em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
 
+.signup-b{
+  font-size: 14pt;
+  width: 100%;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 33px;
+  color: white;
+  background: deepskyblue url("github.png") no-repeat 15px 2px;
+  background-size: 30px;
+  padding-right: 15px;
+}
+
+.signup-b:hover{
+  color: white;
 }
 
 #signup-button:active {
