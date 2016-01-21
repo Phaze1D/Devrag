@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessor :old_password
 
   validates :email, presence: true, length: { maximum: 255 },
             format: { with: /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i },
@@ -22,21 +21,12 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  validate :old_password_validation, on: :update
-
   # validate profile picture
   has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/default.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   validates_attachment_size :avatar, in: 1..250.kilobytes
 
-  def old_password_validation
-    unless old_password.blank?
-      unless self.authenticate(self.old_password)
-        errors.add(:old_password, 'Incorrect Password')
-      end
-    end
-  end
 
   def image_dimensions
     required_width  = 600
@@ -46,6 +36,7 @@ class User < ActiveRecord::Base
     errors.add(:avatar, "Width must be #{width}px") unless dimensions.width == required_width
     errors.add(:avatar, "Height must be #{height}px") unless dimensions.height == required_height
   end
+
 
 
 

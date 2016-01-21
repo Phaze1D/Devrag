@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113232228) do
+ActiveRecord::Schema.define(version: 20160120225539) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535, null: false
@@ -135,13 +135,13 @@ ActiveRecord::Schema.define(version: 20160113232228) do
   add_index "tools_uses", ["use_id"], name: "fk_rails_3b42ce8057", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",             limit: 255,                null: false
-    t.string   "email",                limit: 255,                null: false
-    t.string   "password_digest",      limit: 255,                null: false
+    t.string   "username",             limit: 255,                 null: false
+    t.string   "email",                limit: 255,                 null: false
+    t.string   "password_digest",      limit: 255
     t.string   "reset_token",          limit: 255
     t.datetime "reset_sent_at"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.boolean  "comment_notification",             default: true
     t.boolean  "like_notification",                default: true
     t.boolean  "follow_notification",              default: true
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20160113232228) do
     t.string   "avatar_content_type",  limit: 255
     t.integer  "avatar_file_size",     limit: 4
     t.datetime "avatar_updated_at"
+    t.boolean  "used_github",                      default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

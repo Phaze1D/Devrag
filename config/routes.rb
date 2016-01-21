@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'search', to: 'pages#search'
-  post 'auto_completion', to: 'pages#auto_completion'
+  post 'autocompletion', to: 'pages#auto_completion', as: 'auto_completion'
 
   resources :sessions , only: [:new, :create, :destroy]
 
   resources :users do
 
-    post  'update_notifications', to: 'users#update_notifications'
-    post  'update_avatar', to: 'users#update_avatar'
+    post  'updatenotifications', to: 'users#update_notifications', as: 'update_notifications'
+    post  'updateavatar', to: 'users#update_avatar', as: 'update_avatar'
 
     resources :tools, except: :show
 
@@ -42,6 +42,13 @@ Rails.application.routes.draw do
   end
 
   get 'lpu_validation', to: 'lpus#lpu_validation'
+
+
+  # Github Routes
+
+  get 'githubsignup', to: 'github#signup', as: 'github_signup'
+  get 'githublogin', to: 'github#login', as: 'github_login'
+  get 'githubcallback', to: 'github#callback', as: 'github_callback'
 
 
 

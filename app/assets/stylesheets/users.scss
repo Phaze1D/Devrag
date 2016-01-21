@@ -60,20 +60,40 @@
 }
 
 .signup-b{
-  font-size: 14pt;
+   font-size: 14pt;
+   width: 100%;
+   border: none;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   height: 33px;
+   color: white;
+   background: deepskyblue url("github.png") no-repeat 15px 1px;
+   background-size: 30px;
+   padding-right: 15px;
+ }
+
+.signup-b:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.signup-b-2{
+  @extend .main-font;
+  font-size: 11pt;
   width: 100%;
   border: none;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   height: 33px;
-  color: white;
   background: deepskyblue url("github.png") no-repeat 15px 1px;
+  color: $base0;
   background-size: 30px;
   padding-right: 15px;
 }
 
-.signup-b:hover{
+.signup-b-2:hover{
   color: white;
 }
 
@@ -252,4 +272,8 @@
   &:hover{
     cursor: pointer;
   }
+}
+
+.for-link{
+  color: #5F6868;
 }

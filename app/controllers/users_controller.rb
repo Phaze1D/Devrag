@@ -57,13 +57,11 @@ class UsersController < ApplicationController
     @user = current_user
 
     @user.username = params[:user][:username]
-    @user.old_password = params[:user][:old_password]
 
-    if @user.valid? && !params[:user][:old_password].blank?
+    if !params[:user][:password].blank? && @user.valid?
       @user.password_digest = nil
       @user.password = params[:user][:password]
       @user.password_confirmation = params[:user][:password_confirmation]
-      @user.old_password = ''
     end
 
     respond_to do |format|

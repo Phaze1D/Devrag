@@ -95,30 +95,6 @@ MISSING GITHUB
 
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-5 col-sm-4  col-md-3 text-right">
-                        <%= f.label :old_password, 'Old Password:', class: 'set-info' %>
-                    </div>
-
-                    <div class="col-xs-7 col-md-5 error-area" style="padding-left: 0">
-                        <%= f.password_field :old_password, class: 'form-input-set fill-width main-font user-input-edit' %>
-                        <% if @user.errors[:old_password].size > 0 %>
-                            <div class="error-div">
-                                <ul>
-                                    <% @user.errors[:old_password].each do |error| %>
-                                        <li><%= error %></li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                        <% else %>
-                            <div class="error-div" style="display: none">
-                                <ul>
-                                </ul>
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
-
-                <div class="row" style="margin: 10px -15px">
-                    <div class="col-xs-5 col-sm-4  col-md-3 text-right">
                         <%= f.label :password, 'New Password:', class: 'set-info' %>
                     </div>
 
