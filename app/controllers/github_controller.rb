@@ -1,13 +1,7 @@
 class GithubController < ApplicationController
 
-
-  require 'open-uri'
-
   def signup
-
-    backend_github.authorize_url  scope: 'user:email,public_repo'
     redirect_to backend_github.authorize_url  scope: 'user:email,public_repo'
-
   end
 
   def login
@@ -19,10 +13,11 @@ class GithubController < ApplicationController
     # Check if email exist
     # Get username check if is unique
 
-    access_token = backend_github.get_token  params[:code]
+    access_token = backend_github.get_token params[:code]
     client_github = Github.new(oauth_token: access_token.token)
     email = client_github.users.emails.list[0].email
     username = client_github.users.get.login
+    user = User.new
 
     # Github Possiablities
     # 1] username and email do not exist
@@ -43,14 +38,22 @@ class GithubController < ApplicationController
     # 4] Login with the users creadentions
 
 
+
     if User.find_by_email(email).nil? && User.find_by_username(username).nil?
-      user = User.new
       user.username = username
       user.email = email
+      user.used_github = true
       user.save!(:validate => false)
+    end
 
-      render json: user.errors.as_json
 
+    log_in_github user, access_token.token
+
+    if session[:return_to]
+      redirect_to session[:return_to]
+      session.delete(:return_to)
+    else
+      redirect_to user
     end
 
   end

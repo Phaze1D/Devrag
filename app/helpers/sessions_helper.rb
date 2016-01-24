@@ -5,6 +5,11 @@ module SessionsHelper
     session[:current_user_id] = user.id
   end
 
+  def log_in_github(user, accesstoken)
+    session[:current_user_id] = user.id
+    session[:accesstoken] = accesstoken
+  end
+
   def is_logged_in?
     !current_user.nil?
   end

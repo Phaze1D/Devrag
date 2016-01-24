@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by('email = ? OR username = ?', params[:session][:identity], params[:session][:identity])
 
-    if user && user.authenticate(params[:session][:password])
+    if user && !user.used_github && user.authenticate(params[:session][:password])
       log_in user
 
       if session[:return_to]
@@ -19,7 +19,11 @@ class SessionsController < ApplicationController
       end
 
     else
-      flash.now[:danger] = 'Incorrect email or password combination'
+      if user.used_github
+        flash.now[:danger] = 'This account used Github'
+      else
+        flash.now[:danger] = 'Incorrect email or password combination'
+      end
       render 'new'
     end
   end
