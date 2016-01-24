@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     md_c = Object.const_get model
     md = md_c.find_by(id: model_id)
 
-    if !md.nil? && md.user_id != current_user.id
+    if md.nil? || md.user_id != current_user.id
       respond_to do |format|
         format.js { render :js => "window.location.href = '#{root_url}'" }
         format.html { redirect_to root_url }

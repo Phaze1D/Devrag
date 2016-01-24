@@ -128,7 +128,7 @@ class ToolsController < ApplicationController
     end
   end
 
-  
+
   def create_lpu_relationships(tool, languages = [], platforms = [], uses = [])
 
     unless languages.nil?
@@ -163,12 +163,12 @@ class ToolsController < ApplicationController
   def save_languages(languages)
 
     array = []
-    languages.each do |language|
-      language = language.downcase
-      if Language.exists?(name: language)
-        array.push Language.find_by_name(language)
+    languages.each do |language_name|
+      language_name = language_name.downcase
+      if Language.exists?(name: language_name)
+        array.push Language.find_by_name(language_name)
       else
-        lang = Language.new(name: language)
+        lang = Language.new(name: language_name)
         lang.save
         array.push lang
       end
@@ -180,12 +180,12 @@ class ToolsController < ApplicationController
   def save_platforms(platforms)
 
     array = []
-    platforms.each do |platform|
-      platform = platform.downcase
-      if Platform.exists?(name: platform)
-        array.push Platform.find_by_name(platform)
+    platforms.each do |platform_name|
+      platform_name = platform_name.downcase
+      if Platform.exists?(name: platform_name)
+        array.push Platform.find_by_name(platform_name)
       else
-        plat = Platform.new(name: platform)
+        plat = Platform.new(name: platform_name)
         plat.save
         array.push plat
       end
@@ -197,12 +197,12 @@ class ToolsController < ApplicationController
   def save_uses(uses)
 
     array = []
-    uses.each do |use|
-      use = use.downcase
-      if Use.exists?(name: use)
-        array.push Use.find_by_name(use)
+    uses.each do |use_name|
+      use_name = use_name.downcase
+      if Use.exists?(name: use_name)
+        array.push Use.find_by_name(use_name)
       else
-        us = Use.new(name: use)
+        us = Use.new(name: use_name)
         us.save
         array.push us
       end
