@@ -46,6 +46,19 @@ class GithubController < ApplicationController
       user.save!(:validate => false)
     end
 
+    if !User.find_by_username(username).nil? && User.find_by_email(email).nil?
+
+    end
+
+    if User.find_by_username(username).nil? && !User.find_by_email(email).nil?
+
+    end
+
+    
+    if !User.find_by_username(username).nil? && !User.find_by_email(email).nil?
+
+    end
+
 
     log_in_github user, access_token.token
 
