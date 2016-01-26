@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
     @user.username = params[:user][:username]
 
-    if !params[:user][:password].blank? && @user.valid?
+    unless params[:user][:password].blank?
       @user.password_digest = nil
       @user.password = params[:user][:password]
       @user.password_confirmation = params[:user][:password_confirmation]
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
 
-      if @user.valid?
+      if @user.valid?(:update)
 
         format.html do
           @user.save

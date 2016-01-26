@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   # Github Routes
 
   get 'githubsignup', to: 'github#signup', as: 'github_signup'
-  get 'githublogin', to: 'github#login', as: 'github_login'
+  get 'githubrepos', to: 'github#index_repo', as: 'index_repos'
   get 'githubcallback', to: 'github#callback', as: 'github_callback'
 
 

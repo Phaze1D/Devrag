@@ -81,20 +81,23 @@
 .signup-b-2{
   @extend .main-font;
   font-size: 11pt;
+  display: block;
   width: 100%;
   border: none;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   height: 33px;
-  background: deepskyblue url("github.png") no-repeat 15px 1px;
+  background: transparent url("github.png") no-repeat 15px 1px;
   color: $base0;
   background-size: 30px;
   padding-right: 15px;
+  padding-top: 6px;
 }
 
 .signup-b-2:hover{
   color: white;
+  text-decoration: none;
 }
 
 #signup-button:active {

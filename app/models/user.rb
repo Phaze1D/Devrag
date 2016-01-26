@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             format: { with: /\A[a-zA-Z0-9_\.]*\z/}
 
+
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+
 
   # validate profile picture
   has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/default.png'
