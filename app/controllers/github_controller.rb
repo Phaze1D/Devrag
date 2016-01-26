@@ -33,12 +33,7 @@ class GithubController < ApplicationController
       redirect_to index_repos_url(username: true)
     end
 
-    if User.find_by_username(username).nil? && !User.find_by_email(email).nil?
-      user = User.find_by_email(email)
-    end
-
-    
-    if !User.find_by_username(username).nil? && !User.find_by_email(email).nil?
+    unless User.find_by_email(email).nil?
       user = User.find_by_email(email)
     end
 
