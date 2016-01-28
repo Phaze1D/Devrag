@@ -1,5 +1,12 @@
 var spinner = $('#user-tool-spinner');
+
+<% if @user_tools.size > 0 %>
 spinner.before('<%= escape_javascript( display_user_tools(@user_tools).html_safe) %>');
+<% else %>
+spinner.before('<h4 class="main-font text-center" style="color: #cccccc;' +
+               'padding-top: 90px">You currently don\'t have any tools. ' +
+               '<br> Click on the blue cross to add a new tool.</h4>')
+<% end %>
 
 
 

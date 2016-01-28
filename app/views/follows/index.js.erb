@@ -1,5 +1,11 @@
 var spinner = $('#user-follow-spinner');
+
+<% if @user_follows.size > 0%>
 spinner.before('<%= escape_javascript(display_user_follows(@user_follows).html_safe) %>');
+<% else %>
+spinner.before('<h4 class="main-font text-center" style="color: #cccccc; padding-top: 100px">' +
+               'You are currently not following any tools</h4>')
+<% end %>
 
 <% if params[:page].to_i >= @user_follows.total_pages %>
 spinner.removeClass('spinner');
