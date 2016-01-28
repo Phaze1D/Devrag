@@ -7,7 +7,7 @@ module SessionsHelper
 
   def log_in_github(user, accesstoken)
     session[:current_user_id] = user.id
-    session[:accesstoken] = accesstoken
+    session[:access_token] = accesstoken
   end
 
   def is_logged_in?

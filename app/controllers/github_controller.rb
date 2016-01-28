@@ -1,10 +1,19 @@
 class GithubController < ApplicationController
 
+  before_action :require_login, only: [:index_repo]
+
   def signup
-    redirect_to backend_github.authorize_url  scope: 'user:email,public_repo'
+    redirect_to backend_github.authorize_url scope: 'user:email,public_repo'
   end
 
   def index_repo
+
+    if session.has_key?(:access_token)
+      client_github = Github.new(oauth_token: session[:access_token])
+      @repos = client_github.repos.list
+    else
+
+    end
 
   end
 
@@ -30,6 +39,7 @@ class GithubController < ApplicationController
       user.email = email
       user.used_github = true
       user.save!(:validate => false)
+      log_in_github user, access_token.token
       redirect_to index_repos_url(username: true)
     end
 

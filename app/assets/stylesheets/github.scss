@@ -1,3 +1,45 @@
 // Place all the styles related to the github controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.github-header {
+  width: 100%;
+  border: none;
+  height: 43px;
+  background: transparent url("github-black.png") no-repeat 15px 1px;
+  background-size: 40px;
+  padding-top: 8px;
+  padding-right: 45px;
+  border-bottom: 1px solid deepskyblue;
+}
+
+.github-repo-div {
+  border: 1px solid #CCCCCC;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 5px;
+}
+
+.add-div {
+  width: 100%;
+  height: -moz-calc(100% - 10px);
+  height: -webkit-calc(100% - 10px);
+  height: calc(100% - 10px);
+  background-color: $base02;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.add-link {
+  color: white;
+  font-size: 18px;
+  display: block;
+
+  &:hover {
+    color: white;
+  }
+}
+
