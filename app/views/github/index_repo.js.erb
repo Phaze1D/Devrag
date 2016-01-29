@@ -1,0 +1,5 @@
+
+$('.repos-area').html('<%= escape_javascript(display_repos(@repos).html_safe )%>');
+
+var willpag = $('.will-pag');
+willpag.html('<%= escape_javascript( will_paginate @repos, :previous_label => '←', :next_label => '→', :outer_window => 1, :inner_window => 2 )%>');

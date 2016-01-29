@@ -7,12 +7,16 @@ class GithubController < ApplicationController
   end
 
   def index_repo
-
     if session.has_key?(:access_token)
-      client_github = Github.new(oauth_token: session[:access_token])
+      client_github = Github.new oauth_token: session[:access_token]
       @repos = client_github.repos.list
-    else
+      @repos = @repos.to_ary.paginate(:page => params[:page], :per_page => 6)
+    end
 
+
+    respond_to do | format |
+      format.js
+      format.html
     end
 
   end

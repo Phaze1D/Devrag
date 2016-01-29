@@ -23,8 +23,26 @@ class ToolsController < ApplicationController
   end
 
   def new
+
     @tool = Tool.new
+
+    if params.has_key?(:repo_id) && session.has_key?(:access_token)
+
+      client_github = Github.new oauth_token: session[:access_token]
+      client_github.repos.list do |repo|
+        
+        if repo.id.to_s == params[:repo_id]
+          @tool.name = repo.full_name
+          @tool.description = repo.description
+          @tool.website = repo.html_url
+          break
+        end
+      end
+
+    end
+
     @user = User.find(params[:user_id])
+
   end
 
 
@@ -101,15 +119,13 @@ class ToolsController < ApplicationController
 
   def destroy
 
-    tool = Tool.find_by( id: params[:id])
+    tool = Tool.find_by(id: params[:id])
     tool.destroy unless tool.nil?
     respond_to do |format|
       format.js
     end
 
   end
-
-
 
 
   private
