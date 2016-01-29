@@ -2,6 +2,6 @@
 $('#conversation-div').html('<%= escape_javascript(render(partial: 'conversations/index', locals: {comments: @comments}))%>');
 <% else %>
 $('#conversation-div').html('<h4 class="main-font text-center" style="color: #cccccc;' +
-               'padding-top: 90px">You haven\'t writen any comments on any tools. ' +
+               'padding-top: 90px">You haven\'t written any comments on any tools. ' +
                '<br> This is a great place to ask questions. </h4>');
 <% end %>

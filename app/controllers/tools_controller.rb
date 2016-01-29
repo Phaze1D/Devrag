@@ -30,7 +30,7 @@ class ToolsController < ApplicationController
 
       client_github = Github.new oauth_token: session[:access_token]
       client_github.repos.list do |repo|
-        
+
         if repo.id.to_s == params[:repo_id]
           @tool.name = repo.full_name
           @tool.description = repo.description
