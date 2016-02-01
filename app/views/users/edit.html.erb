@@ -11,7 +11,7 @@ MISSING GITHUB
     <div class="row" style="margin: 0">
         <div class="col-xs-12 col-md-8">
 
-            <%= form_for @user, html: {id: 'user-edit-form', multipart: true } do |f| %>
+            <%= form_for @user, html: {id: 'user-edit-form', multipart: true} do |f| %>
 
                 <div class="row underline-dead" style="border-width: 0 0 2px 0; padding-bottom: 5px">
                     <div class="col-xs-8" style="padding-left: 0">
@@ -68,7 +68,7 @@ MISSING GITHUB
                                 <div class="edit-img-div text-center">
                                     <div class="edit-img-link undecorated-link-w">
                                         <p class="center-ver center-hor" style="margin: 0 ">Edit</p>
-                                        <%= f.file_field :avatar, class: 'custom-file-input', 'data-url' => user_update_avatar_path(@user)  %>
+                                        <%= f.file_field :avatar, class: 'custom-file-input', 'data-url' => user_update_avatar_path(@user) %>
                                     </div>
                                 </div>
                             <% end %>
@@ -157,7 +157,7 @@ MISSING GITHUB
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-12 col-md-8">
                         <%= f.label :email_notification, 'Get notifications via email', class: 'set-noti-pref' %>
-                        <%= f.check_box :email_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;'%>
+                        <%= f.check_box :email_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;' %>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@ MISSING GITHUB
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-12 col-md-8">
                         <%= f.label :comment_notification, 'Get notifications from comments', class: 'set-noti-pref' %>
-                        <%= f.check_box :comment_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;'%>
+                        <%= f.check_box :comment_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;' %>
 
                     </div>
                 </div>
@@ -173,7 +173,7 @@ MISSING GITHUB
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-12 col-md-8">
                         <%= f.label :like_notification, 'Get notifications from likes', class: 'set-noti-pref' %>
-                        <%= f.check_box :like_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;'%>
+                        <%= f.check_box :like_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;' %>
 
 
                     </div>
@@ -182,7 +182,7 @@ MISSING GITHUB
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-12 col-md-8">
                         <%= f.label :tell_notification, 'Get notifications from tools', class: 'set-noti-pref' %>
-                        <%= f.check_box :tell_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;'%>
+                        <%= f.check_box :tell_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;' %>
 
                     </div>
                 </div>
@@ -190,18 +190,35 @@ MISSING GITHUB
                 <div class="row" style="margin: 10px -15px">
                     <div class="col-xs-12 col-md-8">
                         <%= f.label :follow_notification, 'Get notifications from a follow', class: 'set-noti-pref' %>
-                        <%= f.check_box :follow_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;'%>
+                        <%= f.check_box :follow_notification, style: 'float: left; margin-right: 10px; margin-top: 4px;' %>
 
                     </div>
                 </div>
 
             <% end %>
 
+            <% if session.has_key?(:access_token) %>
                 <div class="row underline-dead" style="border-width: 0 0 2px 0; margin: 20px -15px">
-                    <div class="col-xs-8">
-                        <h3 class="set-title col-overflow-x" style="font-size: 16px;">Github</h3>
+                    <div class="col-xs-12 col-md-8">
+                        <h3 class="set-title col-overflow-x" style="font-size: 16px;">Github Repositories</h3>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div id="github-repos" class="col-xs-12 col-md-8" data-url="<%= index_repos_path %>">
+                        <div class="repos-area">
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 text-center will-pag" style="margin-top: 10px">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
         </div>
 
     </div>

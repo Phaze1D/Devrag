@@ -31,6 +31,7 @@ $(document).on("page:load ready", function () {
     ajaxCommentIndex();
     ajaxTellsIndex();
     ajaxIndexConversation();
+    ajaxGithubIndex();
     moveToComments();
 
 });
