@@ -594,9 +594,9 @@ $tooltip-arrow-distance-from-box: -1.3em;
   background-color: #ffffff;
   //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 20;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .drop-list-item {

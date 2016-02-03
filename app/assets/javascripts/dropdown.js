@@ -61,7 +61,7 @@ function ajaxRetriveLPUData(selInput){
 
     onli = -1;
     $.ajax({
-        url: '/auto_completion',
+        url: '/autocompletion',
         type: 'POST',
         data: {name: selInput.attr('name'), value: selInput.val()}
     }).done(function (data) {

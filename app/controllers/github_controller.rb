@@ -29,6 +29,7 @@ class GithubController < ApplicationController
     client_github = Github.new(oauth_token: access_token.token)
     email = client_github.users.emails.list[0].email
     username = client_github.users.get.login
+    randpass = SecureRandom.base64(12)
     user = User.new
 
 
@@ -36,15 +37,20 @@ class GithubController < ApplicationController
       user.username = username
       user.email = email
       user.used_github = true
-      user.save!(:validate => false)
+      user.password = randpass
+      user.password_confirmation = randpass
+      user.save!
     end
 
     if !User.find_by_username(username).nil? && User.find_by_email(email).nil?
+      user.username = username + rand(100..9999).to_s
       user.email = email
       user.used_github = true
-      user.save!(:validate => false)
+      user.password = randpass
+      user.password_confirmation = randpass
+      user.save!
       log_in_github user, access_token.token
-      redirect_to index_repos_url(username: true)
+      flash[:notice] = "Your github username #{username} has already been taken so we gave you a new username #{user.username} which you can change in the settings page"
     end
 
     unless User.find_by_email(email).nil?
@@ -58,7 +64,7 @@ class GithubController < ApplicationController
       redirect_to session[:return_to]
       session.delete(:return_to)
     else
-      redirect_to index_repos_url(username: false)
+      redirect_to index_repos_url
     end
 
   end
