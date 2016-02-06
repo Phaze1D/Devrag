@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  before_save :downcase_email
 
   validates :email, presence: true, length: { maximum: 255 },
             format: { with: /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i },
@@ -40,7 +41,19 @@ class User < ActiveRecord::Base
     errors.add(:avatar, "Height must be #{height}px") unless dimensions.height == required_height
   end
 
+  def create_reset_digest
+
+  end
+
+  def send_password_reset_email
+
+  end
 
 
+private
+
+  def downcase_email
+    self.email = email.downcase
+  end
 
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'autocompletion', to: 'pages#auto_completion', as: 'auto_completion'
 
   resources :sessions , only: [:new, :create, :destroy]
+  resources :reset_passwords, only: [:new, :create, :edit, :update]
 
   resources :users do
 
@@ -42,7 +43,6 @@ Rails.application.routes.draw do
   end
 
   get 'lpu_validation', to: 'lpus#lpu_validation'
-
 
   # Github Routes
 
