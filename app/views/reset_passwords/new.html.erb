@@ -14,9 +14,23 @@
 				</div>
 
 				<div class="row">
-								<%= form_for(:reset_passwords, url: reset_passwords_path) do |f| %>
-								<div class="col-xs-12 col-md-6 col-md-offset-3">
-												<%= f.email_field :email, class: 'form-control-large main-font' %>
+								<%= form_for(:reset_passwords, url: reset_passwords_path, html: {id: 'reset-form'}) do |f| %>
+								<div class="col-xs-12 col-md-6 col-md-offset-3 error-area">
+									<% if @user.errors[:identity].size > 0 %>
+											<div class="error-div">
+													<ul>
+															<% @user.errors[:identity].each do |error| %>
+																	<li><%= error %></li>
+															<% end %>
+													</ul>
+											</div>
+									<% else %>
+											<div class="error-div" style="display: none">
+													<ul>
+													</ul>
+											</div>
+									<% end %>
+												<%= f.text_field :identity, class: 'form-control-large main-font reset-input', style: 'margin-top: 5px' %>
 								</div>
 
                 <div class="col-xs-12 col-md-6 col-md-offset-3" style="margin-top: 10px">
