@@ -1,0 +1,41 @@
+<div class="container">
+				<div class="row">
+								<div class="col-xs-12 text-center">
+												<h2 class="title" style="margin-top: 100px">Password Reset</h2>
+								</div>
+				</div>
+
+				<div class="row">
+								<div class="col-xs-12 text-center">
+												<p class="main-font text-info" style="font-size: 16px">
+																Please enter your Email or Username
+												</p>
+								</div>
+				</div>
+
+				<div class="row">
+								<%= form_for(@user, url: reset_passwords_path(params[:id]),html: {id: 'reset-form'}) do |f| %>
+								<div class="col-xs-12 col-md-6 col-md-offset-3 error-area">
+									<% if @user.errors[:identity].size > 0 %>
+											<div class="error-div">
+													<ul>
+															<% @user.errors[:identity].each do |error| %>
+																	<li><%= error %></li>
+															<% end %>
+													</ul>
+											</div>
+									<% else %>
+											<div class="error-div" style="display: none">
+													<ul>
+													</ul>
+											</div>
+									<% end %>
+												<%= f.text_field :identity, class: 'form-control-large main-font reset-input', style: 'margin-top: 5px' %>
+								</div>
+
+                <div class="col-xs-12 col-md-6 col-md-offset-3" style="margin-top: 10px">
+                        <%= f.submit "Update Password", class: "title-2-alive text-center submit-reset" %>
+                </div>
+								<% end %>
+				</div>
+</div>

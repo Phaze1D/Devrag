@@ -1,0 +1,137 @@
+<div id="user-show" class="container">
+
+    <div class="row">
+        <div class="col-xs-10" style="padding: 0">
+            <div class="alert alert-success tell-success" role="alert" style="display: none">
+                You have succesfully notified your followers
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10" style="padding: 0">
+            <div class="alert alert-success report-success" role="alert" style="display: none">
+                Your report has been sent
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style=" margin-bottom: 20px">
+
+        <div class="col-xs-10 col-sm-10 col-md-8 underline-dead" style="padding: 0 40px 0 0; border-width: 0 0 1px 0;">
+            <h1 class="title col-overflow-x" style="z-index: 1000; margin: 54px 0 0 0; overflow: hidden; height: 50px"><%= @user.username %></h1>
+        </div>
+
+        <div class="col-xs-2 col-sm-2 col-md-2 text-right underline-dead" style="border-width: 0 0 1px 0; ">
+            <div class="user-profile-img" style="margin-bottom: 4px; background-image: url('<%=  @user.avatar.url(:medium) %>');">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-md-5">
+            <div class="row">
+                <div class="col-xs-12" style="z-index: 500; background-color: white">
+
+                    <% if is_current_user?(@user) && is_logged_in? %>
+                        <h2 class="title text-center" style=" margin-bottom: 5px">Your Tools</h2>
+                        <%= link_to(image_tag('add_button2.png', id: 'add-tool-b', class: 'center-ver'), new_user_tool_path(@user)) %>
+
+                    <% else %>
+                        <h2 class="title text-center" style=" margin-bottom: 5px">Owns</h2>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <% if @user.tools.size > 5 %>
+                        <div id="user-tool-search" class="tool-search">
+                            <%= form_tag user_tools_path(user_id: @user.id), method: 'get', id: 'search-user-tools-form' do %>
+                                <%= text_field_tag :query, nil ,id: 'user-tool-query',class: 'form-input main-font search-input', placeholder: 'Search...',autocomplete: 'off' %>
+                            <% end %>
+                        </div>
+
+
+                    <% end %>
+
+                    <div id="user-area-tool" class="user-area">
+                        <% if @user.tools.size> 5 %>
+                            <div style="height: 30px"></div>
+                        <% end %>
+
+
+                        <div id="user-tool-spinner" class="spinner" style="width: 100%; height: 50px; position: relative">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6 col-md-5">
+            <div class="row">
+                <div class="col-xs-12" style="z-index: 500; background-color: white">
+                    <h2 class="title text-center" style=" margin-bottom: 5px">Following</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <% if @user.follows.size > 5 %>
+                        <div id="user-fol-search" class="tool-search">
+                            <%= form_tag user_follows_path(user_id: @user.id), method: 'get', id: 'search-user-follows-form' do %>
+                                <%= text_field_tag :query, nil ,id: 'user-follows-query',class: 'form-input main-font search-input', placeholder: 'Search...',autocomplete: 'off' %>
+                            <% end %>
+                        </div>
+
+                    <% end %>
+
+                    <div id="user-area-following" class="user-area">
+                        <% if @user.follows.size > 5 %>
+                            <div style="height: 30px"></div>
+                        <% end %>
+
+                        <div id="user-follow-spinner" class="spinner" style="width: 100%; height: 50px; position: relative">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="notify-sect">
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10 text-center">
+            <h2 class="title" style="margin-top: 50px">Comments</h2>
+
+            <div id="conversation-div" data-url="<%= user_conversations_path(user_id: @user.id) %>">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="report-background" style="display: none">
+    <div class="report-div">
+        <%= image_tag 'remove_button.png', class: 'comment-add-cl-t cancel-report', style: 'margin: 5px; float: right' %>
+
+        <div id="report-div">
+
+        </div>
+    </div>
+</div>
