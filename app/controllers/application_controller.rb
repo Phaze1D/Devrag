@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
     noti = Notification.new(user_id: user.id, from_action_id: from_action_id, from_action_type: from_action_type)
     noti.save
 
-    # if user.email_notification && (from_action_type == 'Comment' || from_action_type == 'Tell' )
-    #   send_email_notification user, noti
-    # end
+    if user.email_notification && (from_action_type == 'Comment' || from_action_type == 'Tell' )
+      NotificationMailer.send_email_notification user, noti
+    end
 
   end
 

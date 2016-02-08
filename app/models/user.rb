@@ -23,13 +23,23 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-
+  attr_accessor :reset_token
 
   # validate profile picture
   has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/default.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   validates_attachment_size :avatar, in: 1..250.kilobytes
+
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 
   def image_dimensions
@@ -42,12 +52,15 @@ class User < ActiveRecord::Base
   end
 
   def create_reset_digest
-
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
   end
 
   def send_password_reset_email
-
+    UserMailer.password_reset(self).deliver_later
   end
+
 
 
 private

@@ -17,7 +17,10 @@ class ResetPasswordsController < ApplicationController
       if @user
 
         format.html do
-          
+          @user.create_reset_digest
+          @user.send_password_reset_email
+          flash[:info] = 'Email sent with password reset instructions'
+          redirect_to new_session_url
         end
 
         format.json { render json: {:success => 'true'}.to_json }
