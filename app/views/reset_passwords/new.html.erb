@@ -14,6 +14,18 @@
 				</div>
 
 				<div class="row">
+					<div class="col-xs-12 col-md-6 col-md-offset-3">
+						<% if flash[:danger] %>
+								<div class="error-div">
+										<ul>
+												<li><%= flash[:danger] %></li>
+										</ul>
+								</div>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="row">
 								<%= form_for(:reset_passwords, url: reset_passwords_path, html: {id: 'reset-form'}) do |f| %>
 								<div class="col-xs-12 col-md-6 col-md-offset-3 error-area">
 									<% if @user.errors[:identity].size > 0 %>

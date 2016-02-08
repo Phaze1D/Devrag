@@ -4,6 +4,10 @@ $(document).on('focusout', '.reset-input', function(){
     ajaxValidation($('#reset-form'), $(this), ajaxUserSuccess, ajaxResetFailed);
 });
 
+$(document).on('focusout', '.user-input-reset', function(){
+    ajaxValidation($('#edit-reset-form'), $(this), ajaxUserSuccess, ajaxUserFailed);
+});
+
 
 function ajaxResetFailed(input_selector, data){
     var error_div = input_selector.closest('.error-area').find('.error-div');

@@ -61,6 +61,15 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver_later
   end
 
+  def valid_reset_token?(token)
+    return false if self.reset_digest.nil?
+    BCrypt::Password.new(self.reset_digest).is_password?(token)
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
 
 
 private

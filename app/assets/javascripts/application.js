@@ -146,5 +146,3 @@ function getUrlParameter(sParam) {
         }
     }
 }
-
-

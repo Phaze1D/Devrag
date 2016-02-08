@@ -193,5 +193,3 @@ function initSingleUserScroller(scrollerAreaID, scrollerHandler){
 
     $(scrollerAreaID).find('.mCSB_container').css('margin-right', '0px');
 }
-
-
