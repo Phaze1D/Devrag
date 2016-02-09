@@ -43,4 +43,14 @@ Rails.application.configure do
 
   Paperclip.options[:command_path] = '/usr/local/bin/'
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_host_name => 'devrag-avatars.s3.amazonaws.com',
+  :s3_credentials => {
+    :bucket => 'devrag-avatars',
+    :access_key_id => 'AKIAIEGU373NJLZKQ6CA',
+    :secret_access_key => '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'
+    }
+  }
+
 end

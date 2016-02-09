@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
 
   def home
-
+    @tool_count = Tool.all.size
   end
 
   def search
@@ -84,5 +84,5 @@ class PagesController < ApplicationController
     results
 
   end
-  
+
 end
