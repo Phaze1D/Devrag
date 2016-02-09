@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def send_password_reset_email
-    UserMailer.password_reset(self).deliver_later
+    UserMailer.password_reset(self, self.reset_token).deliver_later
   end
 
   def valid_reset_token?(token)

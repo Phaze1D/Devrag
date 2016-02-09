@@ -38,7 +38,7 @@
 
 <div class="row">
     <div class="col-xs-6">
-        <%= link_to 'Reply', tool_path(notification.from_action.tool_id, moveComment: 'true', conversation: notification.from_action.id), class: 'main-font title-2-dead comment-options reply-b' %>
+        <%= link_to 'Reply', tool_url(notification.from_action.tool_id, moveComment: 'true', conversation: notification.from_action.id), class: 'main-font title-2-dead comment-options reply-b' %>
     </div>
     <div class="col-xs-6 text-right">
         <div class="noti-date main-font">
