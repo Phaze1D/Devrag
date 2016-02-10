@@ -26,7 +26,12 @@ class User < ActiveRecord::Base
   attr_accessor :reset_token
 
   # validate profile picture
-  has_attached_file :avatar, styles: { medium: '300x300>'}, default_url: '/images/default.png'
+  has_attached_file :avatar,
+                    styles: { medium: '300x300>'},
+                    default_url: ActionController::Base.helpers.asset_url('default_avatar.png'),
+                    :url =>':s3_domain_url',
+                    :path => '/:class/:attachment/:id_partition/:style/:filename'
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   validates_attachment_size :avatar, in: 1..250.kilobytes
@@ -39,16 +44,6 @@ class User < ActiveRecord::Base
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
-  end
-
-
-  def image_dimensions
-    required_width  = 600
-    required_height = 600
-    dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
-
-    errors.add(:avatar, "Width must be #{width}px") unless dimensions.width == required_width
-    errors.add(:avatar, "Height must be #{height}px") unless dimensions.height == required_height
   end
 
   def create_reset_digest
