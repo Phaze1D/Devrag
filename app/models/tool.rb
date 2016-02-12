@@ -11,6 +11,7 @@ class Tool < ActiveRecord::Base
   has_many :reports, dependent: :destroy
   has_many :tells, dependent: :destroy
 
+  before_validation :smart_add_url_protocol
 
   validates :name, length: { maximum: 100 },
             presence: true, uniqueness: {case_sensitive: false}
@@ -20,5 +21,16 @@ class Tool < ActiveRecord::Base
 
   validates :description, length: { maximum: 555, minimum: 60 },
             presence: true
+
+  def smart_add_url_protocol
+    unless self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
+      self.website = "https://#{self.website}"
+    end
+  end
+
+  def show_website
+    self.website.sub(/\Ahttps:\/\//, '') if self.website.include? "https://"
+    self.website.sub(/\Ahttp:\/\//, '')  if self.website.include? "http://"
+  end
 
 end
