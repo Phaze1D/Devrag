@@ -16,6 +16,7 @@ default: &default
   username: root
   password:
   host: localhost
+  port: 3306
 
 development:
   <<: *default
@@ -52,3 +53,5 @@ production:
   database: DevragWeb_production
   username: DevragWeb
   password: <%= ENV['DEVRAGWEB_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DEVRAGWEB_DATABASE_HOST'] %>
+  url: <%= ENV['DEVRAGWEB_DATABASE_URL'] %>
