@@ -124,6 +124,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    puma (2.16.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -207,6 +208,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paperclip
+  puma
   rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

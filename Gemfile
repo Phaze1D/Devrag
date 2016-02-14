@@ -40,6 +40,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'paperclip'
 
+gem 'puma'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
