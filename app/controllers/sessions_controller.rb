@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      if user.used_github
+      if user && user.used_github
         flash.now[:danger] = 'This account used Github'
       else
         flash.now[:danger] = 'Incorrect email or password combination'
