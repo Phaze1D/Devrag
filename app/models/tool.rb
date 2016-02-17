@@ -29,8 +29,8 @@ class Tool < ActiveRecord::Base
   end
 
   def show_website
-    self.website.sub(/\Ahttps:\/\//, '') if self.website.include? "https://"
-    self.website.sub(/\Ahttp:\/\//, '')  if self.website.include? "http://"
+    return self.website.sub(/\Ahttps:\/\//, '') if self.website.include? "https://"
+    return self.website.sub(/\Ahttp:\/\//, '')  if self.website.include? "http://"
   end
 
 end
