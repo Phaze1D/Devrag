@@ -71,7 +71,7 @@ class GithubController < ApplicationController
 
   private
   def backend_github
-    @github ||= Github.new client_id: '8ad308daba9669acb8e4', client_secret: '8db4b4bae8e0488d2a406abea64d3e3081780042'
+    @github ||= Github.new client_id: ENV["GITHUB_CLIENT"], client_secret: ENV["GITHUB_SECRET"]
   end
 
 end
