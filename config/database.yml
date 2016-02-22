@@ -50,8 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: ebdb
-  username: DevragWeb
+  database: <%= ENV['DEVRAGWEB_DATABASE'] %>
+  username: steadypath
   password: <%= ENV['DEVRAGWEB_DATABASE_PASSWORD'] %>
   host: <%= ENV['DEVRAGWEB_DATABASE_HOST'] %>
-  url: <%= ENV['DEVRAGWEB_DATABASE_URL'] %>
