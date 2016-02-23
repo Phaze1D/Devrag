@@ -111,7 +111,7 @@ function insertCode(editorid, codearea, select) {
             codestring = hljs.highlightAuto(codeValue, [select.val().toLowerCase()]).value;
         }
 
-        var string = '<pre id="pre' + editorid + count + '" class="hljs" contenteditable=false style=""> <code id="' + editorid + count + '">' + codestring + '</code> </pre> <br>';
+        var string = '<pre id="pre' + editorid + count + '" class="hljs" contenteditable=false style="outline: none"> <code id="' + editorid + count + '">' + codestring + '</code> </pre> <br>';
         tinymce.get(editorid).insertContent(string);
     }
 }
