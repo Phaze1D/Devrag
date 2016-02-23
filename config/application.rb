@@ -23,6 +23,6 @@ module DevragWeb
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.tinymce.install = :compile
-    config.action_dispatch.default_headers.merge!('Access-Control-Allow-Origin' => 'http://devrag.io')
+    config.action_dispatch.default_headers.merge!('Access-Control-Allow-Origin' => '*')
   end
 end
