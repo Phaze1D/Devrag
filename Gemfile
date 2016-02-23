@@ -42,6 +42,8 @@ gem 'paperclip'
 
 gem 'puma'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

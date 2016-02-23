@@ -23,11 +23,23 @@ module DevragWeb
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.tinymce.install = :compile
-    config.action_dispatch.default_headers.merge!('Access-Control-Allow-Origin' => '*')
-    config.action_dispatch.default_headers.merge!('Access-Control-Allow-Methods' => 'GET')
-    config.action_dispatch.default_headers.merge!('Access-Control-Allow-Headers' => 'x-requested-with')
-    config.action_dispatch.default_headers.merge!('Access-Control-Max-Age' => '3628800')
 
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+        allow do
+          origins '*'
+
+          resource '/cors',
+            :headers => :any,
+            :methods => [:post],
+            :credentials => true,
+            :max_age => 0
+
+          resource '*',
+            :headers => :any,
+            :methods => [:get, :post, :delete, :put, :patch, :options, :head],
+            :max_age => 0
+        end
+      end
 
   end
 end
