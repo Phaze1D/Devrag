@@ -42,6 +42,8 @@ gem 'paperclip'
 
 gem 'puma'
 
+gem 'font_assets', '~> 0.1.12'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
