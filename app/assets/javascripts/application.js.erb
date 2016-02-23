@@ -104,6 +104,7 @@ function htmlSafeInput(text) {
 initTinymce();
 
 function initTinymce(){
+
     tinymce.init({
         selector: ".comment-area",
         toolbar: ["mycode | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"],
@@ -112,7 +113,7 @@ function initTinymce(){
         statusbar: false,
         width: "100%",
         autoresize_max_height: 1500,
-        content_css : '/assets/solarized-light.scss',
+        content_css : '<%= asset_url("solarized-light.scss") %>',
         forced_root_block : "",
         force_br_newlines : true,
         force_p_newlines : false,

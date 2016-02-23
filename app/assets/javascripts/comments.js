@@ -201,15 +201,13 @@ function commentFailed(inputsel, data) {
 function ajaxCommentIndex() {
     if ($('#comment-index').length > 0) {
 
-
-
         $.ajax({
             url: $('#comment-index').attr('data-url'),
             data: {conversation: getUrlParameter('conversation')}
         }).done(function (data) {
 
         }).fail(function () {
-            console.log('faild')
+
         }).always(function () {
 
         });
@@ -225,5 +223,3 @@ function moveToComments(){
 
     }
 }
-
-
