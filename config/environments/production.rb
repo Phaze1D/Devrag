@@ -13,7 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  # config.action_controller.asset_host = 'https://cloudnet.devrag.io'
+  config.action_controller.asset_host = 'https://cloudnet.devrag.io'
 
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
