@@ -90,7 +90,8 @@ Rails.application.configure do
     :bucket => 'devrag-avatars',
     :access_key_id => ENV['S3_PUBLIC'],
     :secret_access_key => ENV['S3_SECRET']
-    }
+  },
+  :s3_protocol => :https
   }
 
 end
