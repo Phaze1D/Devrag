@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   # validate profile picture
   has_attached_file :avatar,
-                    styles: { medium: '300x300>'},
+                    styles: { medium: '300x300>', thumb: "100x100>"},
                     default_url: ->(attachment) { ActionController::Base.helpers.asset_url('default_avatar.png') } ,
                     :url =>':s3_domain_url',
                     :path => '/:class/:attachment/:id_partition/:style/:filename'

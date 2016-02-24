@@ -49,14 +49,12 @@ class GithubController < ApplicationController
       user.password = randpass
       user.password_confirmation = randpass
       user.save!
-      log_in_github user, access_token.token
       flash[:notice] = "Your github username #{username} has already been taken so we gave you a new username #{user.username} which you can change in the settings page"
     end
 
     unless User.find_by_email(email).nil?
       user = User.find_by_email(email)
     end
-
 
     log_in_github user, access_token.token
 
