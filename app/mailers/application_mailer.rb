@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@devrag.io'
+  default from: 'noreply@devrag.io'
   layout 'mailer'
 end
