@@ -29,6 +29,47 @@ $(document).on('keydown', '.code-area' ,function (e)
     }
 });
 
+$(document).on('click', '.c-remove-img', function(e){
+  toggleRemoveForm($(this), e);
+});
+
+$(document).on('click', '.update-c-submit', function(e){
+  ajaxUpdateComment($(this));
+  e.preventDefault();
+});
+
+function ajaxUpdateComment(sub){
+  var form = sub.closest('.update-comment-form');
+  var comment_box = sub.closest('.comment-box');
+
+  $.ajax({
+      type: form.attr('method'),
+      url: form.attr('action'),
+      data: form.serialize()
+  }).done(function (data) {
+    data  // Returning a var called html which as the html
+    comment_box.replaceWith(html);
+  }).fail(function (data) {
+
+  });
+}
+
+function toggleRemoveForm(sel, e){
+  var cdiv = sel.closest('.c-remove-parent').find('.c-remove-div');
+  if( cdiv.css('display') !== 'none'){
+    cdiv.css('display', 'none');
+  }else{
+    cdiv.css('display', 'block');
+  }
+}
+
+function hideRemoveComment(e){
+  var cimg = $('.c-remove-img');
+  if( !didClickTarget(cimg, e) ){
+    cimg.closest('.c-remove-parent').find('.c-remove-div').css('display', 'none');
+  }
+}
+
 
 function tabIndexArea(inSel){
     var start = inSel.get(0).selectionStart;

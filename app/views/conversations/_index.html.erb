@@ -29,7 +29,13 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="reply-comment main-font text-justify" style="font-size: 11px">
-                                                <%= comment.to_comment.comment.html_safe %>
+                                                <% unless comment.to_comment.removed %>
+                                                  <%= comment.to_comment.comment.html_safe %>
+                                                <% else %>
+                                                <p style="color: #CCCCCC">
+                                                  <i>This comment was removed</i>
+                                                </p>
+                                                <% end %>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +80,13 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="reply-comment main-font text-justify" style="font-size: 11px">
+                                              <% unless reply.removed %>
                                                 <%= reply.comment.html_safe %>
+                                              <% else %>
+                                              <p style="color: #CCCCCC">
+                                                <i>This comment was removed</i>
+                                              </p>
+                                              <% end %>
                                             </div>
                                         </div>
                                     </div>

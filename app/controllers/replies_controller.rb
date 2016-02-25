@@ -1,6 +1,7 @@
 class RepliesController < ApplicationController
 
   before_action :require_login, only: [:create]
+  before_action :is_parent_removed, only: [:create]
 
   def create
     tool = Tool.find(params[:tool_id])
@@ -35,6 +36,14 @@ class RepliesController < ApplicationController
 
   def reply_params
     params.require(:comment).permit(:comment, :comment_id)
+  end
+
+  def is_parent_removed
+    if Comment.find_by(id: params[:comment][:comment_id]).removed
+      respond_to do |format|
+        format.js { render :json => "no", status: :unprocessable_entity }
+      end
+    end
   end
 
 end

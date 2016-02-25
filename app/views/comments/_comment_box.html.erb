@@ -1,4 +1,4 @@
-<div class="row comment-box" style="margin: 15px 0 0">
+<div class="row comment-box" style="margin: 45px 0 0">
     <div class="col-xs-12 main-parent">
         <p class="title-2-dead" style="font-size: 8pt; margin-bottom: 0px;">
             <%= link_to comment.user.username, user_path(comment.user), class: 'main-font comment-user' %>
@@ -8,15 +8,36 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="user-comment main-font text-justify">
+                  <% unless comment.removed %>
                     <%= comment.comment.html_safe %>
+                  <% else %>
+                  <p style="color: #CCCCCC">
+                    <i>This comment was removed</i>
+                  </p>
+                  <% end %>
                 </div>
             </div>
         </div>
 
-        <div class="row" style="margin: 2px 0 0px 0px">
-            <div class="col-xs-2">
-                <%= button_tag 'Reply', class: 'main-font title-2-dead comment-options reply-b' %>
-            </div>
+        <% unless comment.removed %>
+        <div class="row c-remove-parent" style="margin: 2px 0 0px 0px; position: relative;">
+
+              <div class="col-xs-2">
+                  <%= button_tag 'Reply', class: 'main-font title-2-dead comment-options reply-b' %>
+              </div>
+
+              <% if removable?(comment)%>
+              <div class="col-xs-4 col-xs-offset-6 text-right">
+                <%= image_tag 'c_remove.png', class: 'c-remove-img' %>
+              </div>
+
+              <div class="c-remove-div" style="display: none">
+                <%= form_for [comment.tool, comment], html: {class: 'update-comment-form'} do |f| %>
+                  <%= f.submit 'Remove', class: 'update-c-submit' ,style: 'border: none; background-color: transparent;', data: { confirm: 'This action is irreversible' }%>
+                  <%= f.hidden_field :removed, value: true %>
+                <% end %>
+              </div>
+              <% end %>
         </div>
 
 
@@ -25,7 +46,7 @@
                 <%= f.hidden_field :comment_id, value: comment.id %>
                 <div class="row">
                     <div class="col-xs-3">
-                        <%= image_tag 'add_button2.png', class: 'comment-add-cl-t reply-add-img', style: 'margin: 5px 0px 0 35px; float: left' %>
+                        <%= image_tag 'add_button2.png', class: 'comment-add-cl-t reply-add-img', style: 'margin: 5px 0px 0; float: left' %>
                         <%= image_tag 'remove_button.png', class: 'comment-add-cl-t reply-rem-img', style: 'margin: 5px; float: left' %>
                     </div>
                 </div>
@@ -43,6 +64,7 @@
                 </div>
             <% end %>
         </div>
+        <% end %>
 
         <% if comment.replies.length > 0 %>
             <div class="replies-area">
@@ -60,7 +82,14 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="reply-comment main-font text-justify" style="font-size: 11px">
+
+                                      <% unless reply.removed %>
                                         <%= reply.comment.html_safe %>
+                                      <% else %>
+                                      <p style="color: #CCCCCC">
+                                        <i>This comment was removed</i>
+                                      </p>
+                                      <% end %>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +103,5 @@
                 </div>
             </div>
         <% end %>
-
-
     </div>
 </div>

@@ -7,4 +7,9 @@ module CommentsHelper
     end
     html
   end
+
+  def removable?(comment)
+    is_logged_in? && (current_user.id == comment.user_id || comment.tool.user_id == current_user.id)
+  end
+
 end

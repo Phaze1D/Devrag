@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208170844) do
+ActiveRecord::Schema.define(version: 20160224205253) do
 
   create_table "comments", force: :cascade do |t|
-    t.text     "comment",    limit: 65535, null: false
-    t.integer  "user_id",    limit: 4,     null: false
-    t.integer  "tool_id",    limit: 4,     null: false
+    t.text     "comment",    limit: 65535,                 null: false
+    t.integer  "user_id",    limit: 4,                     null: false
+    t.integer  "tool_id",    limit: 4,                     null: false
     t.integer  "comment_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "removed",                  default: false
   end
 
   add_index "comments", ["comment_id"], name: "fk_rails_6545a5f2bc", using: :btree

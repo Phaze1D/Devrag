@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     correct_model('Comment', params[:id])
   end
 
+  before_action :removable, only: [:update]
+
   def index
 
     @tool = Tool.find(params[:tool_id])
@@ -42,8 +44,14 @@ class CommentsController < ApplicationController
       end
 
     end
+  end
 
-
+  def update
+    @comment = Comment.find_by(id: params[:id])
+    @comment.update_attributes(removed: true)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -55,6 +63,15 @@ class CommentsController < ApplicationController
 
   def comments_params
     params.require(:comment).permit(:comment)
+  end
+
+  def removable
+    comment = Comment.find_by(id: params[:id])
+    unless (current_user.id == comment.user_id || comment.tool.user_id == current_user.id)
+      respond_to do |format|
+        format.json { render json: {:no => 'hack'}.to_json, status: :unprocessable_entity }
+      end
+    end
   end
 
 end

@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
   def index
 
     user = User.find_by(id: params[:user_id])
-    @comments = user.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
+    @comments = user.comments.where(removed: false).order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
 
     respond_to do |format|
       format.js
