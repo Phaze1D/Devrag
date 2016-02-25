@@ -29,11 +29,11 @@ gem 'tinymce-rails', '~> 4.3'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
-gem 'aws-ses', '~> 0.6.0', :require => 'aws/ses'
-
 gem 'github_api'
 
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '>= 2.0'
+
+gem 'aws-sdk-v1'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +41,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 
 gem 'puma'
+
+gem 'premailer-rails'
 
 
 # Use Unicorn as the app server

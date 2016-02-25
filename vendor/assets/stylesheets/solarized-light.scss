@@ -19,6 +19,12 @@ body {
 
 }
 
+.hljs code{
+  display: block;
+  margin-top: -15px;
+}
+
+
 .hljs-comment,
 .hljs-quote {
   color: #93a1a1;

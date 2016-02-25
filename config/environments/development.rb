@@ -55,6 +55,7 @@ Rails.application.configure do
     :access_key_id => 'AKIAIEGU373NJLZKQ6CA',
     :secret_access_key => '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'
     },
+  :s3_region => 'us-west-1',
   :s3_protocol => :https
   }
 

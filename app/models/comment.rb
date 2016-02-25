@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+
+  before_validation :remove_empty
+
   belongs_to :user
   belongs_to :tool, counter_cache: true
   belongs_to :to_comment, :class_name => 'Comment', :foreign_key => 'comment_id'
@@ -18,6 +21,14 @@ class Comment < ActiveRecord::Base
       root = root.to_comment
     end
     root
+  end
+
+  def remove_empty
+    document = Nokogiri::HTML.fragment(self.comment)
+    document.css('p').find_all.each do |p|
+        p.remove if p.content.blank?
+    end
+    self.comment = document.to_html
   end
 
 end

@@ -89,6 +89,7 @@ Rails.application.configure do
     :access_key_id => ENV['S3_PUBLIC'],
     :secret_access_key => ENV['S3_SECRET']
   },
+  :s3_region => 'us-west-1',
   :s3_protocol => :https
   }
 

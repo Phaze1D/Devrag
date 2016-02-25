@@ -1,31 +1,25 @@
 
 <div class="row">
-    <div class="col-xs-12">
-
+    <div class="col-xs-3 text-right">
+        <%= image_tag 'code_icon.png', class: 'noti-profile-img' %>
+    </div>
+    <div class="col-xs-7 text-left" style="padding-left: 15px">
         <div class="row">
-            <div class="col-xs-4">
-                <%= image_tag 'code_icon.png', class: 'noti-profile-img' %>
-            </div>
-            <div class="col-xs-8">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h4 class="username main-font"><%= notification.from_action.tool.name %></h4>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p class="main-font text-info text-left info-p">
-                            Has notified there followers
-                        </p>
-                    </div>
-                </div>
-
+            <div class="col-xs-12">
+                <h4 class="username main-font"><%= notification.from_action.tool.name %></h4>
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="main-font text-info text-left info-p">
+                    Has notified there followers
+                </p>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-xs-12">
