@@ -5,13 +5,13 @@
                     col-lg-2 col-lg-offset-5
                     col-xs-8 col-xs-offset-2
                     text-center" style="min-width: 200px">
-            <h1 class="title" style="font-size: 40pt; margin-bottom: 70px;">Devrag</h1>
+            <h1 class="title main-title">Devrag</h1>
 
         </div>
     </div>
 
     <%= form_tag search_path, method: 'get', id: 'search-form'  do  %>
-        <div class="row" style="margin-top: 80px;">
+        <div class="row" style="margin-top: 80px; background-color: white;">
             <div class="col-lg-2
                 col-md-2 col-md-offset-2
                 col-sm-4 col-sm-offset-0
@@ -64,14 +64,10 @@
     <% end %>
 
 
-    <div class="row" style="position: fixed; bottom: 10px">
-      <div class="col-xs-12">
-        <h5 class="main-font text-center" style="color: #cccccc; display: inline-block">
+        <h5 class="main-font text-center" style="color: #cccccc; display: inline-block; position: fixed; bottom: 10px; z-index: -100">
           Total Number of Tools: <%= @tool_count %>
         </h5>
 
-      </div>
-    </div>
 
     <div class="mediadiv"></div>
 </div>
