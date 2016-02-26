@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     noti.save
 
     if user.email_notification && (from_action_type == 'Comment' || from_action_type == 'Tell' )
-      NotificationMailer.send_email_notification(user, noti).deliver_later
+      NotificationMailer.delay.send_email_notification(user, noti)
     end
 
   end

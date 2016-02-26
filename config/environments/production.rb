@@ -16,6 +16,7 @@ Rails.application.configure do
   config.action_controller.asset_host = 'https://devrag.io'
     config.action_mailer.asset_host = 'http://devrag.io'
 
+    config.active_job.queue_adapter = :delayed_job
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

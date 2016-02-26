@@ -16,9 +16,10 @@ Rails.application.configure do
   config.action_controller.asset_host = 'http://localhost:3000'
   config.action_mailer.asset_host = 'http://localhost:3000'
 
+  config.active_job.queue_adapter = :delayed_job
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -57,6 +58,17 @@ Rails.application.configure do
     },
   :s3_region => 'us-west-1',
   :s3_protocol => :https
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => 'email-smtp.us-west-2.amazonaws.com',
+    :port           => 587,
+    :authentication => :plain,
+    :user_name      => 'AKIAITBCLKKSEJXVW3TQ',
+    :password       => 'Ah2s4aGqVJB5+S5+xdXnfEKsGAk6V8Jf+3oRj0hTIAEp',
+    :domain         => 'devrag.io',
+    :enable_starttls_auto => true
   }
 
 end

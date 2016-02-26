@@ -44,6 +44,9 @@ gem 'puma'
 
 gem 'premailer-rails'
 
+gem 'delayed_job_active_record', '~> 4.1'
+
+gem 'daemons', '~> 1.2', '>= 1.2.3'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

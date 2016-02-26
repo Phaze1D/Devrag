@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224205253) do
+ActiveRecord::Schema.define(version: 20160226005519) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535,                 null: false
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20160224205253) do
   add_index "comments", ["comment_id"], name: "fk_rails_6545a5f2bc", using: :btree
   add_index "comments", ["tool_id"], name: "fk_rails_0b95e6cfe2", using: :btree
   add_index "comments", ["user_id"], name: "fk_rails_03de2dc08c", using: :btree
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   limit: 4,     default: 0, null: false
+    t.integer  "attempts",   limit: 4,     default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by",  limit: 255
+    t.string   "queue",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
